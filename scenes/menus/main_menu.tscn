@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7uqvsqtn5b6p"]
+
+[ext_resource type="Script" path="res://scenes/menus/main_menu.gd" id="1_6s5vr"]
+
+[sub_resource type="SystemFont" id="SystemFont_1fqa6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0exlh"]
+font = SubResource("SystemFont_1fqa6")
+font_size = 45
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6s5vr")
+
+[node name="VerticalContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TitleText" type="Label" parent="VerticalContainer"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+text = "Frogoth"
+label_settings = SubResource("LabelSettings_0exlh")
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="VerticalContainer"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Start"
+
+[node name="LevelSelectButton" type="Button" parent="VerticalContainer"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Select Level"
+
+[node name="QuitButton" type="Button" parent="VerticalContainer"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[connection signal="button_down" from="VerticalContainer/StartButton" to="." method="_on_start_button_button_down"]
+[connection signal="button_down" from="VerticalContainer/LevelSelectButton" to="." method="_on_level_select_button_button_down"]
+[connection signal="button_down" from="VerticalContainer/QuitButton" to="." method="_on_quit_button_button_down"]

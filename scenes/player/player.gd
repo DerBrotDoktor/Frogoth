@@ -20,10 +20,17 @@ var can_double_jump :bool = false
 @export var dash_speed :int = 400
 @export var dash_time :float = 0.2
 
+@export var camera :Camera2D
+var is_disabled = false
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta):
+	
+	if is_disabled:
+		return
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -75,3 +82,12 @@ func _on_coyote_timer_timeout():
 	can_jump = true
 	can_double_jump = false
 	pass
+
+func disable():
+	camera.enabled = false
+	is_disabled = true
+	
+
+func enable():
+	camera.enabled = true
+	is_disabled = false

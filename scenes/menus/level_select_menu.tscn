@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://byylmvxjebsun"]
+
+[ext_resource type="Script" path="res://scenes/menus/level_select_menu.gd" id="1_8ktxo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3fn0t"]
+font_size = 40
+
+[node name="LevelSelectMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ktxo")
+
+[node name="VerticalContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Title Margin" type="MarginContainer" parent="VerticalContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="TitleText" type="Label" parent="VerticalContainer/Title Margin"]
+layout_mode = 2
+text = "Select Level"
+label_settings = SubResource("LabelSettings_3fn0t")
+horizontal_alignment = 1
+
+[node name="LevelMargin" type="MarginContainer" parent="VerticalContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="LevelGrid" type="GridContainer" parent="VerticalContainer/LevelMargin"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+
+[node name="Level1Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "1"
+
+[connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level1Button" to="." method="load_level" binds= [1]]
