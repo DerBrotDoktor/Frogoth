@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://jslvxnacwmvr"]
+[gd_scene load_steps=6 format=3 uid="uid://jslvxnacwmvr"]
+
+[ext_resource type="PackedScene" uid="uid://cpddwnffvkcgu" path="res://scenes/enemies/enemy_grounded.tscn" id="1_n76ny"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iwq4j"]
 size = Vector2(400, 20)
@@ -31,3 +33,6 @@ texture = SubResource("PlaceholderTexture2D_0awld")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform"]
 shape = SubResource("RectangleShape2D_7gmwj")
+
+[node name="EnemyGrounded" parent="." instance=ExtResource("1_n76ny")]
+position = Vector2(85, -1)

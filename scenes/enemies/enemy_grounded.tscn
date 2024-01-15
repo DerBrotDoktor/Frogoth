@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpddwnffvkcgu"]
+
+[ext_resource type="Script" path="res://scenes/enemies/enemy_grounded.gd" id="1_l2tby"]
+[ext_resource type="Texture2D" uid="uid://cmg500ug6fpcf" path="res://assets/player/player_animation_sheet.png" id="1_svkny"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hj2l"]
+atlas = ExtResource("1_svkny")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1sjp7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hj2l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eiqsm"]
+size = Vector2(12, 17)
+
+[node name="EnemyGrounded" type="CharacterBody2D"]
+script = ExtResource("1_l2tby")
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1sjp7")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_eiqsm")
+
+[node name="HorizontalRayCast" type="RayCast2D" parent="."]
+target_position = Vector2(15, 0)
+
+[node name="VerticalRayCastL" type="RayCast2D" parent="."]
+position = Vector2(-6, 0)
+target_position = Vector2(0, 15)
+
+[node name="VerticalRayCastR" type="RayCast2D" parent="."]
+position = Vector2(6, 0)
+target_position = Vector2(0, 15)
+
+[node name="FlipCooldownTimer" type="Timer" parent="."]
