@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://jslvxnacwmvr"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iwq4j"]
+size = Vector2(400, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_soy7b"]
+size = Vector2(400, 20)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0awld"]
+size = Vector2(50, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gmwj"]
+size = Vector2(50, 10)
+
+[node name="Level1" type="Node2D"]
+
+[node name="floor" type="StaticBody2D" parent="."]
+position = Vector2(0, 76)
+
+[node name="Sprite2D" type="Sprite2D" parent="floor"]
+texture = SubResource("PlaceholderTexture2D_iwq4j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+shape = SubResource("RectangleShape2D_soy7b")
+
+[node name="platform" type="StaticBody2D" parent="."]
+position = Vector2(80, 19)
+
+[node name="Sprite2D" type="Sprite2D" parent="platform"]
+texture = SubResource("PlaceholderTexture2D_0awld")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform"]
+shape = SubResource("RectangleShape2D_7gmwj")

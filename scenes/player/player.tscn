@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=3 uid="uid://bfqr80qekwaw5"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_il0n1"]
+[ext_resource type="Texture2D" uid="uid://cmg500ug6fpcf" path="res://assets/player/player_animation_sheet.png" id="2_j6cex"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gb63a"]
+atlas = ExtResource("2_j6cex")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhgva"]
+atlas = ExtResource("2_j6cex")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6u83"]
+atlas = ExtResource("2_j6cex")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1is0"]
+atlas = ExtResource("2_j6cex")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwk1p"]
+atlas = ExtResource("2_j6cex")
+region = Rect2(192, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eifo8"]
+atlas = ExtResource("2_j6cex")
+region = Rect2(216, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lw100"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gb63a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhgva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6u83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1is0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwk1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eifo8")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tqvw"]
+size = Vector2(11, 17)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_il0n1")
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lw100")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.671472
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_0tqvw")
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="JumpBufferTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="DashTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
