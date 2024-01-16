@@ -13,7 +13,7 @@ extends CharacterBody2D
 @onready var sprite :AnimatedSprite2D = $Animation
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	velocity.x = speed * direction
 	move_and_slide()
 	if (horizontal_ray_cast.is_colliding() or not vertical_ray_cast_l.is_colliding() or not vertical_ray_cast_r.is_colliding()) and flip_cooldown_time_timer.is_stopped():
@@ -22,7 +22,7 @@ func _physics_process(delta):
 
 func flip():
 	flip_cooldown_time_timer.start(flip_cooldown_time)
-	print ("flip")
 	sprite.flip_h = !sprite.flip_h
 	direction *= -1
+	horizontal_ray_cast.target_position.x *= -1
 	pass

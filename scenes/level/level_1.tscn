@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://jslvxnacwmvr"]
+[gd_scene load_steps=7 format=3 uid="uid://jslvxnacwmvr"]
 
 [ext_resource type="PackedScene" uid="uid://cpddwnffvkcgu" path="res://scenes/enemies/enemy_grounded.tscn" id="1_n76ny"]
+[ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/bash_points/bash_point.tscn" id="2_1ug63"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iwq4j"]
 size = Vector2(400, 20)
@@ -36,4 +37,12 @@ shape = SubResource("RectangleShape2D_7gmwj")
 
 [node name="EnemyGrounded" parent="." instance=ExtResource("1_n76ny")]
 position = Vector2(85, 5)
-direction = -1
+
+[node name="BashPoint" parent="." instance=ExtResource("2_1ug63")]
+position = Vector2(14, 14)
+
+[node name="BashPoint2" parent="." instance=ExtResource("2_1ug63")]
+position = Vector2(-21, -38)
+
+[node name="BashPoint3" parent="." instance=ExtResource("2_1ug63")]
+position = Vector2(-62, 13)

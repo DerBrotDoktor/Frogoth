@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://iyel1auqud01"]
+[gd_scene load_steps=7 format=3 uid="uid://iyel1auqud01"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_wtrgv"]
 [ext_resource type="PackedScene" uid="uid://jslvxnacwmvr" path="res://scenes/level/level_1.tscn" id="2_046pa"]
 [ext_resource type="PackedScene" uid="uid://bfqr80qekwaw5" path="res://scenes/player/player.tscn" id="3_cw4d6"]
 [ext_resource type="PackedScene" uid="uid://byylmvxjebsun" path="res://scenes/menus/level_select_menu.tscn" id="3_qm2ey"]
 [ext_resource type="PackedScene" uid="uid://c7uqvsqtn5b6p" path="res://scenes/menus/main_menu.tscn" id="4_3igok"]
+[ext_resource type="Script" path="res://scenes/main/bash_point_controller.gd" id="6_n33ax"]
 
 [node name="Main" type="Node" node_paths=PackedStringArray("player")]
 script = ExtResource("1_wtrgv")
@@ -14,3 +15,8 @@ level = Array[PackedScene]([ExtResource("2_046pa")])
 player = NodePath("Player")
 
 [node name="Player" parent="." instance=ExtResource("3_cw4d6")]
+
+[node name="BashPointController" type="Node" parent="."]
+script = ExtResource("6_n33ax")
+
+[connection signal="enter_bash_point" from="Player" to="BashPointController" method="_on_player_enter_bash_point"]

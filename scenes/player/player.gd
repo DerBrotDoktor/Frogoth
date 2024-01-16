@@ -1,4 +1,7 @@
 extends CharacterBody2D
+class_name Player
+
+signal enter_bash_point(bash_point :BashPoint)
 
 @export var normal_speed :float = 100.0
 
@@ -23,6 +26,21 @@ var can_double_jump :bool = false
 @export var camera :Camera2D
 var is_disabled = false
 
+#Bash
+var is_in_bash_point :bool = false #no jumping
+var can_move :bool = true # no moving
+var ready_for_bash :bool = false # no bash point trigger
+var is_bashing :bool = false # bash movement
+
+var current_bash_point :BashPoint
+
+@onready var bash_timer = $BashTimer
+@export var bash_time :float = 0.2
+@export var bash_speed :int = 300
+
+@onready var direction_arrow_sprite : Sprite2D = $DirectionArrow
+
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
@@ -32,24 +50,30 @@ func _physics_process(delta):
 		return
 	
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor() and can_move:
 		velocity.y += gravity * delta
 	
-	if Input.is_action_just_pressed("dash") and dash_timer.is_stopped():
+	if ready_for_bash:
+		direction_arrow_sprite. look_at(get_global_mouse_position())
+	
+	if Input.is_action_pressed("jump") and is_in_bash_point and not ready_for_bash :
+		bash_point()
+	elif Input.is_action_just_released("jump") and ready_for_bash:
+		bash()
+	elif Input.is_action_just_pressed("dash") and dash_timer.is_stopped() and can_move:
 		dash_timer.start(dash_time)
 	
-	var speed = dash_speed if not dash_timer.is_stopped() else normal_speed
+	var speed = normal_speed if dash_timer.is_stopped() else dash_speed
 	
 	#Handle the movement
 	var direction = Input.get_axis("left", "right")
-	if direction:
+	if direction and can_move:
 		velocity.x = direction * speed
-	else:
+	elif can_move:
 		velocity.x = move_toward(velocity.x, 0, speed)
 	
 	#Jump buffer
 	if Input.is_action_just_pressed("jump"):
-		print ("tttt")
 		jump_buffer_timer.start(jump_buffer_time)
 	
 	var was_on_floor = is_on_floor()
@@ -58,7 +82,6 @@ func _physics_process(delta):
 	
 	#Coyte Time
 	if was_on_floor and not is_on_floor() and coyote_timer.is_stopped():
-		print("cooyte")
 		coyote_timer.start(coyote_time)
 	elif is_on_floor():
 		can_jump = true
@@ -66,9 +89,10 @@ func _physics_process(delta):
 	
 	#Handle Jump
 	if not jump_buffer_timer.is_stopped() and can_jump:
-		print("jump")
 		jump_buffer_timer.stop()
 		coyote_timer.stop()
+		if is_in_bash_point:
+			return
 		if can_double_jump:
 			can_jump = true
 			can_double_jump = false
@@ -76,7 +100,6 @@ func _physics_process(delta):
 		else:
 			can_jump = false
 			velocity.y = double_jump_velocity
-
 
 func _on_coyote_timer_timeout():
 	can_jump = true
@@ -86,8 +109,39 @@ func _on_coyote_timer_timeout():
 func disable():
 	camera.enabled = false
 	is_disabled = true
-	
 
 func enable():
 	camera.enabled = true
 	is_disabled = false
+
+func bash_point():
+	enter_bash_point.emit(current_bash_point)
+	direction_arrow_sprite.visible = true
+	can_move = false
+	velocity = Vector2(0,0)
+	position = current_bash_point.position
+	ready_for_bash = true
+
+func bash():
+	var _direction :Vector2 = (get_global_mouse_position() - global_position).normalized()
+	velocity = _direction * bash_speed
+	bash_timer.start(bash_time)
+	ready_for_bash = false
+	direction_arrow_sprite.visible = false
+
+func _on_bash_timer_timeout():
+	if not ready_for_bash:
+		can_move = true
+	pass
+
+func _on_trigger_area_area_entered(area):
+	if area.is_in_group("bash_point"):
+		current_bash_point = area
+		is_in_bash_point = true
+	pass
+
+func _on_trigger_area_area_exited(area):
+	if area.is_in_group("bash_point"):
+		is_in_bash_point = false
+		current_bash_point = null
+	pass
