@@ -31,6 +31,7 @@ script = ExtResource("1_l2tby")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1sjp7")
+flip_h = true
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
@@ -48,3 +49,4 @@ position = Vector2(6, 0)
 target_position = Vector2(0, 15)
 
 [node name="FlipCooldownTimer" type="Timer" parent="."]
+one_shot = true

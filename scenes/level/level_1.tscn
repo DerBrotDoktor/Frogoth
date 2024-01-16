@@ -35,4 +35,5 @@ texture = SubResource("PlaceholderTexture2D_0awld")
 shape = SubResource("RectangleShape2D_7gmwj")
 
 [node name="EnemyGrounded" parent="." instance=ExtResource("1_n76ny")]
-position = Vector2(85, -1)
+position = Vector2(85, 5)
+direction = -1
