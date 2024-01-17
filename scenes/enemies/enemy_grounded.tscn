@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpddwnffvkcgu"]
+[gd_scene load_steps=7 format=3 uid="uid://cpddwnffvkcgu"]
 
 [ext_resource type="Script" path="res://scenes/enemies/enemy_grounded.gd" id="1_l2tby"]
 [ext_resource type="Texture2D" uid="uid://cmg500ug6fpcf" path="res://assets/player/player_animation_sheet.png" id="1_svkny"]
@@ -24,6 +24,9 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eiqsm"]
+size = Vector2(12, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpu30"]
 size = Vector2(12, 17)
 
 [node name="EnemyGrounded" type="CharacterBody2D"]
@@ -53,3 +56,11 @@ target_position = Vector2(0, 15)
 wait_time = 0.3
 one_shot = true
 autostart = true
+
+[node name="TriggerArea" type="Area2D" parent="."]
+
+[node name="TriggerAreaShape" type="CollisionShape2D" parent="TriggerArea"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qpu30")
+
+[connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://b534dj4lmdign"]
+
+[ext_resource type="Script" path="res://scenes/kill_shape/kill_shape.gd" id="1_sr5bi"]
+
+[node name="KillShape" type="Node2D"]
+script = ExtResource("1_sr5bi")
+
+[node name="Outline" type="Line2D" parent="."]
+width = 3.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="PolygonSprite" type="Polygon2D" parent="."]
+color = Color(1, 1, 1, 0.52549)
+
+[node name="KillArea" type="Area2D" parent="." groups=["killing_area"]]
+
+[node name="KillAreaCollision" type="CollisionPolygon2D" parent="KillArea"]
+
+[node name="DeleteTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="DeleteTimer" to="." method="_on_delete_timer_timeout"]
