@@ -67,9 +67,8 @@ size = Vector2(19, 28)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2jsgx"]
 size = Vector2(20, 2)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("camera")]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_il0n1")
-camera = NodePath("Camera")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lw100")
@@ -88,12 +87,15 @@ zoom = Vector2(3, 3)
 one_shot = true
 
 [node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.2
 one_shot = true
 
 [node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.2
 one_shot = true
 
 [node name="BashTimer" type="Timer" parent="."]
+wait_time = 0.2
 
 [node name="TriggerArea" type="Area2D" parent="."]
 

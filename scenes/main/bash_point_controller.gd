@@ -1,8 +1,7 @@
 extends Node
-class_name BashPointController
 
-@export var player :Player
-var current_bash_points :Array = []
+@export var player :CharacterBody2D
+var current_bash_points = []
 
 func add_point():
 	pass
@@ -13,7 +12,6 @@ func create_area():
 func clear_area():
 	pass
 
-
-func _on_player_enter_bash_point(bash_point :BashPoint):
+func _on_player_enter_bash_point(bash_point):
 	print(bash_point)
-	pass # Replace with function body.
+	pass
