@@ -23,7 +23,11 @@ func flip():
 	$HorizontalRayCast.target_position.x *= -1
 	pass
 
-func _on_trigger_area_area_entered(area):
+func trigger_area_entererd(area):
+	print("a")
 	if area.is_in_group("killing_area"):
 		queue_free()
+
+func _on_trigger_area_area_entered(area):
+	trigger_area_entererd(area)
 	pass

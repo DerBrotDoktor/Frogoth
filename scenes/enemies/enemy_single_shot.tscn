@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://3j5q0ymm7o8s"]
+
+[ext_resource type="PackedScene" uid="uid://cpddwnffvkcgu" path="res://scenes/enemies/enemy_grounded.tscn" id="1_ou6ub"]
+[ext_resource type="Script" path="res://scenes/enemies/enemy_single_shot.gd" id="2_g0l75"]
+[ext_resource type="PackedScene" uid="uid://77vbimjom55n" path="res://scenes/enemies/bullet.tscn" id="3_lpapv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0wwds"]
+radius = 48.0
+
+[node name="EnemySingleShot" instance=ExtResource("1_ou6ub")]
+script = ExtResource("2_g0l75")
+bullet_speed = 200
+bullet_prefab = ExtResource("3_lpapv")
+
+[node name="TriggerAreaShape" parent="TriggerArea" index="0"]
+position = Vector2(0, 0)
+shape = SubResource("CircleShape2D_0wwds")
+
+[node name="AttackCooldown" type="Timer" parent="." index="7"]
+
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://jslvxnacwmvr"]
 
-[ext_resource type="PackedScene" uid="uid://cpddwnffvkcgu" path="res://scenes/enemies/enemy_grounded.tscn" id="1_n76ny"]
 [ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/bash_points/bash_point.tscn" id="2_1ug63"]
+[ext_resource type="PackedScene" uid="uid://3j5q0ymm7o8s" path="res://scenes/enemies/enemy_single_shot.tscn" id="2_ubag1"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iwq4j"]
 size = Vector2(400, 20)
@@ -35,14 +35,15 @@ texture = SubResource("PlaceholderTexture2D_0awld")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform"]
 shape = SubResource("RectangleShape2D_7gmwj")
 
-[node name="EnemyGrounded" parent="." instance=ExtResource("1_n76ny")]
-position = Vector2(-21, -6)
-
 [node name="BashPoint" parent="." instance=ExtResource("2_1ug63")]
-position = Vector2(14, 14)
+position = Vector2(26, 19)
 
 [node name="BashPoint2" parent="." instance=ExtResource("2_1ug63")]
-position = Vector2(-21, -38)
+position = Vector2(75, -36)
 
 [node name="BashPoint3" parent="." instance=ExtResource("2_1ug63")]
-position = Vector2(-62, 13)
+position = Vector2(134, 31)
+
+[node name="EnemySingleShot" parent="." instance=ExtResource("2_ubag1")]
+position = Vector2(63, 4)
+bullet_speed = 200
