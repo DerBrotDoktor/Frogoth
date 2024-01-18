@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://bfqr80qekwaw5"]
+[gd_scene load_steps=19 format=3 uid="uid://bfqr80qekwaw5"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_il0n1"]
 [ext_resource type="Texture2D" uid="uid://cmg500ug6fpcf" path="res://assets/player/player_animation_sheet.png" id="2_j6cex"]
 [ext_resource type="Shader" path="res://scenes/player/player_hit.gdshader" id="2_qf1va"]
+[ext_resource type="PackedScene" uid="uid://beocyu2m1xsx1" path="res://scenes/player/player_ghost.tscn" id="2_rl3rv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fl175"]
 shader = ExtResource("2_qf1va")
@@ -111,6 +112,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_il0n1")
+ghost_node = ExtResource("2_rl3rv")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_fl175")
@@ -140,6 +142,9 @@ one_shot = true
 [node name="BashTimer" type="Timer" parent="."]
 wait_time = 0.2
 
+[node name="GhostTimer" type="Timer" parent="."]
+wait_time = 0.018
+
 [node name="TriggerArea" type="Area2D" parent="."]
 
 [node name="TriggerCollider" type="CollisionShape2D" parent="TriggerArea"]
@@ -159,6 +164,8 @@ libraries = {
 }
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="BashTimer" to="." method="_on_bash_timer_timeout"]
+[connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
 [connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]
 [connection signal="area_exited" from="TriggerArea" to="." method="_on_trigger_area_area_exited"]

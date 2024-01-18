@@ -9,6 +9,9 @@ signal enter_bash_point(bash_point)
 @export var jump_buffer_time = 0.15
 @export var dash_speed = 400
 @export var bash_speed = 300
+@export var ghost_node : PackedScene
+@export var ghost_length = 1.5
+@export var ghost_time = 0.35
 
 var can_jump = false
 var can_double_jump = false
@@ -61,7 +64,7 @@ func try_jump():
 	elif Input.is_action_just_released("jump") and ready_for_bash:
 		bash()
 	elif Input.is_action_just_pressed("dash") and $DashTimer.is_stopped() and can_move:
-		$DashTimer.start()
+		dash()
 	if Input.is_action_just_pressed("jump"):
 		$JumpBufferTimer.start()
 
@@ -121,4 +124,23 @@ func _on_trigger_area_area_exited(area):
 	if area.is_in_group("bash_point"):
 		is_in_bash_point = false
 		current_bash_point = null
+	pass
+
+func dash():
+	$DashTimer.start()
+	$GhostTimer.start()
+
+func add_ghost():
+	var ghost = ghost_node.instantiate()
+	ghost.set_property(position, $Animation.scale)
+	get_tree().current_scene.add_child(ghost)
+	pass
+
+func _on_ghost_timer_timeout():
+	add_ghost()
+	pass
+
+
+func _on_dash_timer_timeout():
+	$GhostTimer.stop()
 	pass
