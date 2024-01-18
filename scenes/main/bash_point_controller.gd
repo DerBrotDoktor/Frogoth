@@ -36,9 +36,10 @@ func create_shape():
 	pass
 
 func clear_shape():
-	current_shape.delete_shape()
-	current_shape = null
-	current_bash_points = []
+	if current_shape:
+		current_shape.delete_shape()
+		current_shape = null
+		current_bash_points = []
 	pass
 
 func _on_player_enter_bash_point(bash_point):

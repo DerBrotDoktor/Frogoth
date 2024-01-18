@@ -101,7 +101,7 @@ var last_mouse_position
 
 func get_bash_target_position():
 	var look_point = Input.get_vector("aim_left","aim_right","aim_up","aim_down") + position
-	if last_mouse_position != get_global_mouse_position():
+	if last_mouse_position != get_global_mouse_position() or look_point == position:
 		look_point = get_global_mouse_position()
 	last_mouse_position = get_global_mouse_position()
 	bash_target_position = look_point

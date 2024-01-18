@@ -129,6 +129,7 @@ shape = SubResource("RectangleShape2D_0tqvw")
 zoom = Vector2(3, 3)
 
 [node name="JumpBufferTimer" type="Timer" parent="."]
+wait_time = 0.15
 one_shot = true
 
 [node name="CoyoteTimer" type="Timer" parent="."]
