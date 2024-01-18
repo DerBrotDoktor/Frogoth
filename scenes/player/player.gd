@@ -20,6 +20,7 @@ var is_in_bash_point = false
 var can_move = true
 var ready_for_bash = false
 var is_bashing = false
+var bash_target_position
 var current_bash_point
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 #endregion
@@ -28,7 +29,7 @@ func _physics_process(delta):
 	if is_disabled:
 		return
 	if ready_for_bash:
-		$DirectionArrow. look_at(get_global_mouse_position())
+		get_bash_target_position()
 	
 	add_gravity(delta)
 	try_jump()
@@ -52,10 +53,12 @@ func handle_movement():
 
 func enable():
 	$Camera.enabled = true
+	$Animation.visible = true
 	is_disabled = false
 
 func disable():
 	$Camera.enabled = false
+	$Animation.visible = false
 	is_disabled = true
 
 func try_jump():
@@ -94,6 +97,17 @@ func _on_coyote_timer_timeout():
 	can_double_jump = false
 	pass
 
+var last_mouse_position
+
+func get_bash_target_position():
+	var look_point = Input.get_vector("aim_left","aim_right","aim_up","aim_down") + position
+	if last_mouse_position != get_global_mouse_position():
+		look_point = get_global_mouse_position()
+	last_mouse_position = get_global_mouse_position()
+	bash_target_position = look_point
+	$DirectionArrow.look_at(look_point)
+	pass
+
 func bash_point():
 	enter_bash_point.emit(current_bash_point)
 	$DirectionArrow.visible = true
@@ -103,7 +117,7 @@ func bash_point():
 	ready_for_bash = true
 
 func bash():
-	var _direction :Vector2 = (get_global_mouse_position() - global_position).normalized()
+	var _direction :Vector2 = (bash_target_position - global_position).normalized()
 	velocity = _direction * bash_speed
 	$BashTimer.start()
 	ready_for_bash = false

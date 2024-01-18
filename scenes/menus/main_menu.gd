@@ -1,5 +1,8 @@
 extends Control
 
+func _ready():
+	$VerticalContainer/StartButton.grab_focus()
+
 
 func _on_start_button_button_down():
 	get_parent().load_level(0)

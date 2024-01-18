@@ -5,6 +5,7 @@ extends Node
 @export var level = []
 @export var player :CharacterBody2D
 
+
 var current_scene
 
 func _ready():
