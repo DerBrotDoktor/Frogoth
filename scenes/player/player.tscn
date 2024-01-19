@@ -75,12 +75,12 @@ _data = {
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_il0n1")
 normal_speed = 600.0
-jump_velocity = -600.0
-double_jump_velocity = -600.0
+jump_velocity = -1000.0
+double_jump_velocity = -1000.0
 dash_speed = 1400
 bash_speed = 900
 ghost_node = ExtResource("2_rl3rv")
-gravity = 1200
+gravity = 2600
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 z_index = 1

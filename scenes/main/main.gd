@@ -2,7 +2,7 @@ extends Node
 
 @export var main_menu :PackedScene
 @export var level_select_menu :PackedScene
-@export var level = []
+@export var level :Array[PackedScene] = []
 @export var player :CharacterBody2D
 
 var current_level = -1
