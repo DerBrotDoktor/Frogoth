@@ -24,7 +24,6 @@ func flip():
 	pass
 
 func trigger_area_entererd(area):
-	print("a")
 	if area.is_in_group("killing_area"):
 		queue_free()
 	pass

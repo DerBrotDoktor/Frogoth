@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal enter_bash_point(bash_point)
+signal player_died()
 
 #region Variables
 @export var normal_speed = 100.0
@@ -13,6 +14,7 @@ signal enter_bash_point(bash_point)
 @export var ghost_node : PackedScene
 @export var ghost_length = 1.5
 @export var ghost_time = 0.35
+@export var max_health = 3
 
 var can_jump = false
 var can_double_jump = false
@@ -25,8 +27,12 @@ var is_bashing = false
 var bash_target_position
 var current_bash_point
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var current_health
 
 #endregion
+func _ready():
+	current_health = max_health
+	pass
 
 func _physics_process(delta):
 	if is_disabled:
@@ -64,6 +70,10 @@ func disable():
 	$Camera.enabled = false
 	$Animation.visible = false
 	is_disabled = true
+
+func reset():
+	current_health = max_health
+	position = Vector2.ZERO
 
 func try_jump():
 	if Input.is_action_pressed("jump") and is_in_bash_point and not ready_for_bash :
@@ -149,6 +159,11 @@ func _on_trigger_area_area_exited(area):
 		current_bash_point = null
 	pass
 
+func _on_trigger_area_body_entered(body):
+	if body.is_in_group("bullet"):
+		take_damage(1)
+	pass
+
 func dash():
 	$DashTimer.start()
 	$GhostTimer.start()
@@ -163,7 +178,20 @@ func _on_ghost_timer_timeout():
 	add_ghost()
 	pass
 
-
 func _on_dash_timer_timeout():
 	$GhostTimer.stop()
 	pass
+
+func take_damage(damage):
+	print("damage", current_health)
+	if current_health > 1:
+		$PlayerAnimation.play("hit_player_animation")
+		current_health -= damage
+	else:
+		die()
+	print(current_health)
+
+func die():
+	player_died.emit()
+
+

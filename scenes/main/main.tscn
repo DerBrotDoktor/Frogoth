@@ -20,3 +20,4 @@ player = NodePath("Player")
 script = ExtResource("6_n33ax")
 
 [connection signal="enter_bash_point" from="Player" to="BashPointController" method="_on_player_enter_bash_point"]
+[connection signal="player_died" from="Player" to="." method="_on_player_player_died"]

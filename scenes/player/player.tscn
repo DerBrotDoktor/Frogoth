@@ -150,6 +150,8 @@ wait_time = 0.2
 wait_time = 0.018
 
 [node name="TriggerArea" type="Area2D" parent="." groups=["player"]]
+collision_layer = 5
+collision_mask = 5
 
 [node name="TriggerCollider" type="CollisionShape2D" parent="TriggerArea"]
 position = Vector2(-0.5, 0)
@@ -173,3 +175,4 @@ libraries = {
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
 [connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]
 [connection signal="area_exited" from="TriggerArea" to="." method="_on_trigger_area_area_exited"]
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]

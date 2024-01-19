@@ -8,8 +8,8 @@ size = Vector2(5, 5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vs52"]
 size = Vector2(5, 5)
 
-[node name="Bullet" type="CharacterBody2D"]
-collision_layer = 8
+[node name="Bullet" type="CharacterBody2D" groups=["bullet"]]
+collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_aeqp4")
 
