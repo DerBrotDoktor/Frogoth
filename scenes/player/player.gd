@@ -4,8 +4,9 @@ signal enter_bash_point(bash_point)
 
 #region Variables
 @export var normal_speed = 100.0
-@export var jump_velocity = -400.0
-@export var double_jump_velocity = -400.0
+@export var jump_velocity = -300.0
+@export var max_jump_time =  0.15
+@export var double_jump_velocity = -300.0
 @export var jump_buffer_time = 0.15
 @export var dash_speed = 400
 @export var bash_speed = 300
@@ -15,6 +16,7 @@ signal enter_bash_point(bash_point)
 
 var can_jump = false
 var can_double_jump = false
+var jump_time = 0.0
 var is_disabled = false
 var is_in_bash_point = false
 var can_move = true
@@ -23,6 +25,7 @@ var is_bashing = false
 var bash_target_position
 var current_bash_point
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
 #endregion
 
 func _physics_process(delta):
@@ -37,7 +40,8 @@ func _physics_process(delta):
 	var was_on_floor = is_on_floor()
 	move_and_slide()
 	check_coyote(was_on_floor)
-	handle_jump()
+	handle_jump(delta)
+	pass
 
 func add_gravity(delta):
 	if not is_on_floor() and can_move:
@@ -71,7 +75,7 @@ func try_jump():
 	if Input.is_action_just_pressed("jump"):
 		$JumpBufferTimer.start()
 
-func handle_jump():
+func handle_jump(delta):
 	if not $JumpBufferTimer.is_stopped() and can_jump:
 		$JumpBufferTimer.stop()
 		$CoyoteTimer.stop()
@@ -81,9 +85,14 @@ func handle_jump():
 			can_jump = true
 			can_double_jump = false
 			velocity.y = jump_velocity
+			jump_time = 0.0
 		else:
 			can_jump = false
+			jump_time = 0.0
 			velocity.y = double_jump_velocity
+	if Input.is_action_pressed("jump") and jump_time < max_jump_time and not is_in_bash_point:
+		velocity.y = jump_velocity
+		jump_time += delta
 
 func check_coyote(was_on_floor):
 	if was_on_floor and not is_on_floor() and $CoyoteTimer.is_stopped():
