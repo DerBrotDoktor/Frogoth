@@ -64,3 +64,4 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_qpu30")
 
 [connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]
+[connection signal="area_exited" from="TriggerArea" to="." method="_on_trigger_area_area_exited"]

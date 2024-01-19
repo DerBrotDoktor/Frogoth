@@ -27,7 +27,15 @@ func trigger_area_entererd(area):
 	print("a")
 	if area.is_in_group("killing_area"):
 		queue_free()
+	pass
 
 func _on_trigger_area_area_entered(area):
 	trigger_area_entererd(area)
+	pass
+
+func trigger_area_exited(area):
+	pass
+
+func _on_trigger_area_area_exited(area):
+	trigger_area_exited(area)
 	pass

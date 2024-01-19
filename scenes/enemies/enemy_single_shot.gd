@@ -25,3 +25,8 @@ func shoot():
 func _on_attack_cooldown_timeout():
 	shoot()
 	pass
+
+func trigger_area_exited(area):
+	if area.is_in_group("player"):
+		$AttackCooldown.stop()
+	pass
