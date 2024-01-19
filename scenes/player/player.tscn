@@ -1,37 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://bfqr80qekwaw5"]
+[gd_scene load_steps=13 format=3 uid="uid://bfqr80qekwaw5"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_il0n1"]
-[ext_resource type="Texture2D" uid="uid://cmg500ug6fpcf" path="res://assets/player/player_animation_sheet.png" id="2_j6cex"]
 [ext_resource type="Shader" path="res://scenes/player/player_hit.gdshader" id="2_qf1va"]
 [ext_resource type="PackedScene" uid="uid://beocyu2m1xsx1" path="res://scenes/player/player_ghost.tscn" id="2_rl3rv"]
+[ext_resource type="Texture2D" uid="uid://c8uej0dhpn2pa" path="res://assets/player/player.png" id="4_xt3tk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fl175"]
 shader = ExtResource("2_qf1va")
 shader_parameter/hit_opacity = 0.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gb63a"]
-atlas = ExtResource("2_j6cex")
-region = Rect2(96, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rhgva"]
-atlas = ExtResource("2_j6cex")
-region = Rect2(120, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c6u83"]
-atlas = ExtResource("2_j6cex")
-region = Rect2(144, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e1is0"]
-atlas = ExtResource("2_j6cex")
-region = Rect2(168, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uwk1p"]
-atlas = ExtResource("2_j6cex")
-region = Rect2(192, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eifo8"]
-atlas = ExtResource("2_j6cex")
-region = Rect2(216, 0, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lw100"]
 animations = [{
@@ -42,22 +18,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gb63a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rhgva")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c6u83")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e1is0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uwk1p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eifo8")
+"texture": ExtResource("4_xt3tk")
 }],
 "loop": true,
 "name": &"walk",
@@ -65,13 +26,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0tqvw"]
-size = Vector2(11, 17)
+size = Vector2(233, 420)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86dhk"]
-size = Vector2(19, 28)
+size = Vector2(235, 417)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2jsgx"]
-size = Vector2(20, 2)
+size = Vector2(300, 15)
 
 [sub_resource type="Animation" id="Animation_8u4v0"]
 length = 0.001
@@ -111,8 +72,15 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.3, 0.3)
 script = ExtResource("1_il0n1")
+normal_speed = 600.0
+jump_velocity = -600.0
+double_jump_velocity = -600.0
+dash_speed = 1400
+bash_speed = 900
 ghost_node = ExtResource("2_rl3rv")
+gravity = 1200
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 z_index = 1
@@ -123,11 +91,11 @@ autoplay = "walk"
 frame_progress = 0.671472
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0.5)
+position = Vector2(-0.5, 47)
 shape = SubResource("RectangleShape2D_0tqvw")
 
 [node name="Camera" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
@@ -141,21 +109,21 @@ wait_time = 0.2
 one_shot = true
 
 [node name="DashTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.4
 one_shot = true
 
 [node name="BashTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.4
 
 [node name="GhostTimer" type="Timer" parent="."]
-wait_time = 0.018
+wait_time = 0.03
 
 [node name="TriggerArea" type="Area2D" parent="." groups=["player"]]
 collision_layer = 5
 collision_mask = 5
 
 [node name="TriggerCollider" type="CollisionShape2D" parent="TriggerArea"]
-position = Vector2(-0.5, 0)
+position = Vector2(-1.5, 46.5)
 shape = SubResource("RectangleShape2D_86dhk")
 
 [node name="DirectionArrow" type="Sprite2D" parent="."]
@@ -163,7 +131,7 @@ visible = false
 modulate = Color(0, 0.6, 1, 1)
 show_behind_parent = true
 texture = SubResource("PlaceholderTexture2D_2jsgx")
-offset = Vector2(10, 0)
+offset = Vector2(250, 0)
 
 [node name="PlayerAnimation" type="AnimationPlayer" parent="."]
 libraries = {

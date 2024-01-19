@@ -4,17 +4,23 @@
 [ext_resource type="Script" path="res://scenes/enemies/enemy_single_shot.gd" id="2_g0l75"]
 [ext_resource type="PackedScene" uid="uid://77vbimjom55n" path="res://scenes/enemies/bullet.tscn" id="3_lpapv"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0wwds"]
-radius = 48.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_lkc3a"]
+radius = 1600.5
 
 [node name="EnemySingleShot" instance=ExtResource("1_ou6ub")]
 script = ExtResource("2_g0l75")
 bullet_speed = 200
 bullet_prefab = ExtResource("3_lpapv")
 
+[node name="Animation" parent="." index="0"]
+self_modulate = Color(1, 0, 0.0156863, 1)
+
+[node name="TriggerArea" parent="." index="6"]
+position = Vector2(13.3333, 50)
+
 [node name="TriggerAreaShape" parent="TriggerArea" index="0"]
 position = Vector2(0, 0)
-shape = SubResource("CircleShape2D_0wwds")
+shape = SubResource("CircleShape2D_lkc3a")
 
 [node name="AttackCooldown" type="Timer" parent="." index="7"]
 

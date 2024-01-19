@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://beocyu2m1xsx1"]
 
-[ext_resource type="Texture2D" uid="uid://cmg500ug6fpcf" path="res://assets/player/player_animation_sheet.png" id="1_n6smk"]
+[ext_resource type="Texture2D" uid="uid://c8uej0dhpn2pa" path="res://assets/player/player.png" id="1_e4d8v"]
 [ext_resource type="Script" path="res://scenes/player/player_ghost.gd" id="1_uggrq"]
 
 [node name="PlayerGhost" type="Sprite2D"]
 z_index = -1
-texture = ExtResource("1_n6smk")
-region_enabled = true
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_e4d8v")
 region_rect = Rect2(0, 0, 24, 24)
 script = ExtResource("1_uggrq")

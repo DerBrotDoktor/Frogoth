@@ -15,6 +15,7 @@ signal player_died()
 @export var ghost_length = 1.5
 @export var ghost_time = 0.35
 @export var max_health = 3
+@export var gravity = 1000
 
 var can_jump = false
 var can_double_jump = false
@@ -26,7 +27,6 @@ var ready_for_bash = false
 var is_bashing = false
 var bash_target_position
 var current_bash_point
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var current_health
 
 #endregion
@@ -174,7 +174,7 @@ func dash():
 
 func add_ghost():
 	var ghost = ghost_node.instantiate()
-	ghost.set_property(position, $Animation.scale)
+	ghost.set_property(position, scale)
 	ghost.flip_h = $Animation.flip_h
 	get_tree().current_scene.add_child(ghost)
 	pass

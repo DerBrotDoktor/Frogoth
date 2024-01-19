@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://scenes/enemies/bullet.gd" id="1_aeqp4"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_igy5q"]
-size = Vector2(5, 5)
+size = Vector2(50, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vs52"]
-size = Vector2(5, 5)
+size = Vector2(50, 50)
 
 [node name="Bullet" type="CharacterBody2D" groups=["bullet"]]
 collision_layer = 4

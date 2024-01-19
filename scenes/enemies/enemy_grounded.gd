@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 20
+@export var speed = 100
 @export var direction = 1
 @export var flip_cooldown_time = 0.3
 
