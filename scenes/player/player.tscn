@@ -127,6 +127,9 @@ shape = SubResource("RectangleShape2D_0tqvw")
 
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [node name="JumpBufferTimer" type="Timer" parent="."]
 wait_time = 0.15
