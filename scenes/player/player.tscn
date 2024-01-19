@@ -115,6 +115,7 @@ script = ExtResource("1_il0n1")
 ghost_node = ExtResource("2_rl3rv")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
+z_index = 1
 material = SubResource("ShaderMaterial_fl175")
 sprite_frames = SubResource("SpriteFrames_lw100")
 animation = &"walk"
