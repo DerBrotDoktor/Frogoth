@@ -58,6 +58,10 @@ func handle_movement():
 	var speed = normal_speed if $DashTimer.is_stopped() else dash_speed
 	if direction and can_move:
 		velocity.x = direction * speed
+		if direction > 0:
+			$Animation.flip_h = false
+		elif direction < 0:
+			$Animation.flip_h = true
 	elif can_move:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
@@ -171,6 +175,7 @@ func dash():
 func add_ghost():
 	var ghost = ghost_node.instantiate()
 	ghost.set_property(position, $Animation.scale)
+	ghost.flip_h = $Animation.flip_h
 	get_tree().current_scene.add_child(ghost)
 	pass
 
