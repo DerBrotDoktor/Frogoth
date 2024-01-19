@@ -46,4 +46,3 @@ position = Vector2(134, 31)
 
 [node name="EnemySingleShot" parent="." instance=ExtResource("2_ubag1")]
 position = Vector2(63, 4)
-bullet_speed = 200
