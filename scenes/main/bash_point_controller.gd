@@ -7,6 +7,11 @@ extends Node
 var current_bash_points = []
 var current_shape
 
+func  _process(delta):
+	if Input.is_action_just_pressed("discrad_shape"):
+		clear_shape()
+	pass
+
 func check_point(point):
 	if current_bash_points.size() >= 3 and  current_bash_points[0] == point:
 		create_shape()

@@ -18,7 +18,8 @@ func finish_shape():
 
 func delete_shape():
 	for point in points:
-		point.is_in_shape = false
+		if point:
+			point.is_in_shape = false
 	queue_free()
 	pass
 
