@@ -89,7 +89,7 @@ func try_jump():
 		bash_point()
 	elif Input.is_action_just_released("jump") and ready_for_bash:
 		bash()
-	elif Input.is_action_just_pressed("dash") and $DashTimer.is_stopped() and can_move:
+	elif Input.is_action_just_pressed("dash") and $DashTimer.is_stopped() and $DashCooldown.is_stopped() and can_move:
 		dash()
 	if Input.is_action_just_pressed("jump"):
 		$JumpBufferTimer.start()
@@ -190,6 +190,7 @@ func _on_ghost_timer_timeout():
 
 func _on_dash_timer_timeout():
 	$GhostTimer.stop()
+	$DashCooldown.start()
 	pass
 
 func take_damage(damage):
