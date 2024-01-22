@@ -79,7 +79,7 @@ normal_speed = 600.0
 jump_velocity = -1000.0
 double_jump_velocity = -1000.0
 dash_speed = 1400
-bash_speed = 900
+bash_speed = 1000
 ghost_node = ExtResource("2_rl3rv")
 gravity = 2600
 

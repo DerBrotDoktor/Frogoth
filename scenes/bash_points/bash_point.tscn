@@ -5,8 +5,8 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_r6txh"]
 size = Vector2(60, 60)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_y7tx7"]
-radius = 35.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ttjw"]
+radius = 64.0312
 
 [node name="BashPoint" type="Area2D" groups=["bash_point"]]
 script = ExtResource("1_yxaq1")
@@ -15,4 +15,4 @@ script = ExtResource("1_yxaq1")
 texture = SubResource("PlaceholderTexture2D_r6txh")
 
 [node name="TriggerShape" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_y7tx7")
+shape = SubResource("CircleShape2D_2ttjw")
