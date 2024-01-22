@@ -41,6 +41,7 @@ func _physics_process(delta):
 		get_bash_target_position()
 	
 	add_gravity(delta)
+	try_bash()
 	try_jump()
 	handle_movement()
 	var was_on_floor = is_on_floor()
@@ -85,11 +86,7 @@ func reset():
 	position = Vector2.ZERO
 
 func try_jump():
-	if Input.is_action_pressed("jump") and is_in_bash_point and not ready_for_bash :
-		bash_point()
-	elif Input.is_action_just_released("jump") and ready_for_bash:
-		bash()
-	elif Input.is_action_just_pressed("dash") and $DashTimer.is_stopped() and $DashCooldown.is_stopped() and can_move:
+	if Input.is_action_just_pressed("dash") and $DashTimer.is_stopped() and $DashCooldown.is_stopped() and can_move:
 		dash()
 	if Input.is_action_just_pressed("jump"):
 		$JumpBufferTimer.start()
@@ -135,6 +132,12 @@ func get_bash_target_position():
 	bash_target_position = look_point
 	$DirectionArrow.look_at(look_point)
 	pass
+
+func try_bash():
+	if Input.is_action_pressed("bash") and is_in_bash_point and not ready_for_bash :
+		bash_point()
+	elif Input.is_action_just_released("bash") and ready_for_bash:
+		bash()
 
 func bash_point():
 	enter_bash_point.emit(current_bash_point)
