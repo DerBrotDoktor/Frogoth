@@ -32,6 +32,7 @@ var current_health
 #endregion
 func _ready():
 	current_health = max_health
+	disable()
 	pass
 
 func _physics_process(delta):
@@ -74,6 +75,7 @@ func handle_movement():
 func enable():
 	$Camera.enabled = true
 	$Animation.visible = true
+	await get_tree().create_timer(0.1).timeout
 	is_disabled = false
 
 func disable():
