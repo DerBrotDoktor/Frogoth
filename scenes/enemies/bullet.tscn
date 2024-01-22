@@ -10,12 +10,21 @@ size = Vector2(50, 50)
 
 [node name="Bullet" type="CharacterBody2D" groups=["bullet"]]
 collision_layer = 4
-collision_mask = 4
+collision_mask = 0
 script = ExtResource("1_aeqp4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0, 0, 1)
 texture = SubResource("PlaceholderTexture2D_igy5q")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5vs52")
+
+[node name="TriggerArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="TriggerAreaCollider" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("RectangleShape2D_5vs52")
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]

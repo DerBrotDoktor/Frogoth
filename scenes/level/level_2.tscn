@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ku4cxugekwnb"]
+[gd_scene load_steps=8 format=3 uid="uid://ku4cxugekwnb"]
 
 [ext_resource type="PackedScene" uid="uid://dgcv5ildkajr8" path="res://scenes/enviroment/platforms/platform_big_1.tscn" id="1_lsgxm"]
 [ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/bash_points/bash_point.tscn" id="2_uksxq"]
@@ -7,6 +7,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wn5cx"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3sy2b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jbjw"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_uaehu"]
 
 [node name="Level2" type="Node2D"]
 
@@ -178,6 +182,7 @@ scale = Vector2(0.259508, 0.716278)
 modulate = Color(0.14902, 0.160784, 0.501961, 1)
 position = Vector2(-893, -596)
 scale = Vector2(3.3155, -104.358)
+collision_layer = 5
 
 [node name="BorderLeftCollisionShape" type="CollisionShape2D" parent="Borders/BorderLeft"]
 shape = SubResource("RectangleShape2D_wn5cx")
@@ -190,6 +195,7 @@ texture = SubResource("PlaceholderTexture2D_3sy2b")
 modulate = Color(0.14902, 0.160784, 0.501961, 1)
 position = Vector2(4852, -596)
 scale = Vector2(3.3155, -104.358)
+collision_layer = 5
 
 [node name="BorderRightCollisionShape" type="CollisionShape2D" parent="Borders/BorderRight"]
 shape = SubResource("RectangleShape2D_wn5cx")
@@ -204,6 +210,7 @@ texture = SubResource("PlaceholderTexture2D_3sy2b")
 modulate = Color(0.14902, 0.160784, 0.501961, 1)
 position = Vector2(1992, 454)
 scale = Vector2(289.117, -2.37829)
+collision_layer = 5
 
 [node name="BorderBottomCollisionShape" type="CollisionShape2D" parent="Borders/BorderBottom"]
 shape = SubResource("RectangleShape2D_wn5cx")
@@ -214,3 +221,16 @@ rotation = 3.14126
 scale = Vector2(19.942, -20.0308)
 skew = 0.000334501
 texture = SubResource("PlaceholderTexture2D_3sy2b")
+
+[node name="Box" type="StaticBody2D" parent="."]
+modulate = Color(0.20871, 0.20871, 0.20871, 1)
+position = Vector2(1534, 41)
+scale = Vector2(24.3138, 38.9135)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
+shape = SubResource("RectangleShape2D_8jbjw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Box"]
+position = Vector2(0.00996292, 0.0648497)
+scale = Vector2(19.8467, 19.9551)
+texture = SubResource("PlaceholderTexture2D_uaehu")
