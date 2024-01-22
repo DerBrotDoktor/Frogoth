@@ -190,6 +190,7 @@ func _on_dash_timer_timeout():
 func take_damage(damage):
 	print("damage", current_health)
 	if current_health > 1:
+		$Camera.shake()
 		$PlayerAnimation.play("hit_player_animation")
 		current_health -= damage
 	else:

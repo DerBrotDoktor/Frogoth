@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bfqr80qekwaw5"]
+[gd_scene load_steps=14 format=3 uid="uid://bfqr80qekwaw5"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_il0n1"]
 [ext_resource type="Shader" path="res://scenes/player/player_hit.gdshader" id="2_qf1va"]
 [ext_resource type="PackedScene" uid="uid://beocyu2m1xsx1" path="res://scenes/player/player_ghost.tscn" id="2_rl3rv"]
 [ext_resource type="Texture2D" uid="uid://c8uej0dhpn2pa" path="res://assets/player/player.png" id="4_xt3tk"]
+[ext_resource type="Script" path="res://scenes/player/player_camera.gd" id="5_hixe7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fl175"]
 shader = ExtResource("2_qf1va")
@@ -99,6 +100,7 @@ zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+script = ExtResource("5_hixe7")
 
 [node name="JumpBufferTimer" type="Timer" parent="."]
 wait_time = 0.15
