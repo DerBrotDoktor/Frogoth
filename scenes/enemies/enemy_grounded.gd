@@ -1,8 +1,7 @@
 extends CharacterBody2D
 
-@export var speed = 100
-@export var direction = 1
-@export var flip_cooldown_time = 0.3
+@export var speed = 100 ##Speed
+@export var direction = 1 ##The direction the enemy is facing
 
 func _physics_process(_delta):
 	handle_movement()
@@ -17,24 +16,20 @@ func check_path():
 		flip()
 
 func flip():
-	$FlipCooldownTimer.start(flip_cooldown_time)
+	$FlipCooldownTimer.start()
 	$Animation.flip_h = !$Animation.flip_h
 	direction *= -1
 	$HorizontalRayCast.target_position.x *= -1
-	pass
 
 func trigger_area_entererd(area):
 	if area.is_in_group("killing_area"):
 		queue_free()
-	pass
 
 func _on_trigger_area_area_entered(area):
 	trigger_area_entererd(area)
-	pass
 
 func trigger_area_exited(area):
 	pass
 
 func _on_trigger_area_area_exited(area):
 	trigger_area_exited(area)
-	pass

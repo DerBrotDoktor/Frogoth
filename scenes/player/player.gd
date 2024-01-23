@@ -4,22 +4,19 @@ signal enter_bash_point(bash_point)
 signal player_died()
 
 #region Variables
-@export var normal_speed = 100.0
-@export var jump_velocity = -300.0
-@export var acceleration = 20.0
-@export var deceleration = 0.2
-@export var max_jump_time =  0.15
-@export var double_jump_velocity = -300.0
-@export var jump_buffer_time = 0.15
-@export var dash_speed = 400
-@export var bash_speed = 300
-@export var ghost_node : PackedScene
-@export var ghost_length = 1.5
-@export var ghost_time = 0.35
-@export var max_health = 3
-@export var gravity = 1000
-@export var block_speed = 0.9
-@export var knockback_strength = 500
+@export var normal_speed = 100.0 ##Walking speed
+@export var jump_velocity = -300.0 ##Initial jump velocity
+@export var acceleration = 20.0 ##Acceleration
+@export var deceleration = 0.2 ##Deceleration
+@export var max_jump_time =  0.15 ##Maximum time the player can hold the jump button to influence the jump height
+@export var double_jump_velocity = -300.0 ##Initial velocity for second jump
+@export var dash_speed = 400 ##Speed for the dash
+@export var ghost_node : PackedScene ##Ghost sprite, placed while dashing
+@export var bash_speed = 300 ##Speed for the bash
+@export var max_health = 3 ##Maximum player health
+@export var gravity = 1000 ##Gravity
+@export var block_speed = 0.9 ##Block shrinking time
+@export var knockback_strength = 500 ##Velocity of the knockback
 
 var can_jump = false
 var can_double_jump = false
@@ -28,19 +25,16 @@ var is_disabled = false
 var is_in_bash_point = false
 var can_move = true
 var ready_for_bash = false
-var is_bashing = false
-var bash_target_position
 var current_bash_point
 var current_health
 var is_blocking = false
 var block_strength = 100
-
 #endregion
+
 func _ready():
 	current_health = max_health
 	disable()
 	stop_block()
-	pass
 
 func _physics_process(delta):
 	if is_disabled:
@@ -59,7 +53,6 @@ func _physics_process(delta):
 	move_and_slide()
 	check_coyote(was_on_floor)
 	handle_jump(delta)
-	pass
 
 func add_gravity(delta):
 	if not is_on_floor() and can_move:
@@ -131,7 +124,6 @@ func check_coyote(was_on_floor):
 func _on_coyote_timer_timeout():
 	can_jump = true
 	can_double_jump = false
-	pass
 
 var last_mouse_position
 
@@ -140,9 +132,7 @@ func get_look_position() -> Vector2:
 	if last_mouse_position != get_global_mouse_position() or look_point == position:
 		look_point = get_global_mouse_position()
 	last_mouse_position = get_global_mouse_position()
-	bash_target_position = look_point
 	return look_point
-	pass
 
 func try_bash():
 	if Input.is_action_pressed("bash") and is_in_bash_point and not ready_for_bash :
@@ -159,7 +149,7 @@ func bash_point():
 	ready_for_bash = true
 
 func bash():
-	var _direction :Vector2 = (bash_target_position - global_position).normalized()
+	var _direction :Vector2 = (get_look_position() - global_position).normalized()
 	velocity = _direction * bash_speed
 	$BashTimer.start()
 	ready_for_bash = false
@@ -168,24 +158,20 @@ func bash():
 func _on_bash_timer_timeout():
 	if not ready_for_bash:
 		can_move = true
-	pass
 
 func _on_trigger_area_area_entered(area):
 	if area.is_in_group("bash_point"):
 		current_bash_point = area
 		is_in_bash_point = true
-	pass
 
 func _on_trigger_area_area_exited(area):
 	if area.is_in_group("bash_point"):
 		is_in_bash_point = false
 		current_bash_point = null
-	pass
 
 func _on_trigger_area_body_entered(body):
 	if body.is_in_group("bullet"):
 		take_damage(1)
-	pass
 
 func dash():
 	$DashTimer.start()
@@ -196,16 +182,13 @@ func add_ghost():
 	ghost.set_property(position, scale)
 	ghost.flip_h = $Animation.flip_h
 	get_tree().current_scene.add_child(ghost)
-	pass
 
 func _on_ghost_timer_timeout():
 	add_ghost()
-	pass
 
 func _on_dash_timer_timeout():
 	$GhostTimer.stop()
 	$DashCooldown.start()
-	pass
 
 func take_damage(damage):
 	print("damage", current_health)
@@ -216,11 +199,9 @@ func take_damage(damage):
 	else:
 		die()
 	print(current_health)
-	pass
 
 func die():
 	player_died.emit()
-	pass
 
 func try_block(delta):
 	if Input.is_action_just_pressed("block"):
@@ -233,36 +214,27 @@ func try_block(delta):
 	elif is_blocking:
 		block_strength = lerpf(block_strength,0,block_speed * delta)
 		update_block_shape()
-	elif not is_blocking and block_strength < 99:
+	elif not is_blocking and block_strength <= 99:
 		block_strength = lerpf(block_strength, 100, block_speed * delta * 2)
 		update_block_shape()
-	elif block_strength >= 99:
+	elif block_strength > 99 and not block_strength == 100:
 		block_strength = 100
 		update_block_shape()
-	pass
 
 func update_block_shape():
 	$Block/BlockCollisionShape.scale.y = block_strength/100
 	$Block/BlockColliderSprite.scale.y = block_strength/100
-	pass
 
 func start_block():
 	$Block.visible = true
 	$Block/BlockCollisionShape.disabled = false
 	is_blocking = true
-	pass
 
 func stop_block():
 	$Block.visible = false
 	$Block/BlockCollisionShape.disabled = true
 	is_blocking = false
-	pass
 
 func knockback():
-	$KnockbackTimer.start()
 	var direction = ((get_look_position()-global_position) * -1).normalized()
 	velocity = direction * knockback_strength
-	pass
-
-func _on_knockback_timer_timeout():
-	pass

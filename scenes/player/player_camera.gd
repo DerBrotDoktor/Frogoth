@@ -8,12 +8,9 @@ func _process(delta):
 	if shake_strength > 0:
 		shake_strength = lerpf(shake_strength,0,shake_fade*delta)
 		do_shake()
-	pass
 
 func do_shake():
 	offset = Vector2(randf_range(-shake_strength, shake_strength), randf_range(-shake_strength, shake_strength))
-	pass
 
 func shake():
 	shake_strength = max_shake_strength
-	pass

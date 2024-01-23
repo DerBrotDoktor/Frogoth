@@ -12,7 +12,6 @@ func trigger_area_entererd(area):
 		$AttackCooldown.start()
 		target = area
 		shoot()
-	pass
 
 func shoot():
 	var bullet = bullet_prefab.instantiate()
@@ -20,13 +19,10 @@ func shoot():
 	bullet.speed = bullet_speed
 	bullet.position = position
 	get_parent().call_deferred("add_child",bullet)# .add_child(bullet)
-	pass
 
 func _on_attack_cooldown_timeout():
 	shoot()
-	pass
 
 func trigger_area_exited(area):
 	if area.is_in_group("player"):
 		$AttackCooldown.stop()
-	pass

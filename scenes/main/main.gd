@@ -20,7 +20,6 @@ func load_scene(scene:PackedScene):
 		current_scene.queue_free()
 	current_scene = scene.instantiate()
 	call_deferred("add_child",current_scene)
-	pass
 
 func load_level(id:int):
 	if id < level.size():
@@ -29,13 +28,11 @@ func load_level(id:int):
 		current_level = id
 		start_timer.emit()
 		$Canvas.visible = true
-	pass
 
 func load_main_menu():
 	player.disable()
 	$Canvas.visible = false
 	load_scene(main_menu)
-	pass
 
 func load_level_select():
 	player.disable()
@@ -46,4 +43,3 @@ func _on_player_player_died():
 	if current_level >= 0:
 		load_level(current_level)
 		player.reset()
-	pass # Replace with function body.
