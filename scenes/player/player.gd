@@ -16,6 +16,7 @@ signal player_died()
 @export var ghost_time = 0.35
 @export var max_health = 3
 @export var gravity = 1000
+@export var block_speed = 0.9
 
 var can_jump = false
 var can_double_jump = false
@@ -29,6 +30,7 @@ var bash_target_position
 var current_bash_point
 var current_health
 var is_blocking = false
+var block_strength = 100
 
 #endregion
 func _ready():
@@ -48,7 +50,7 @@ func _physics_process(delta):
 	add_gravity(delta)
 	try_bash()
 	try_jump()
-	try_block()
+	try_block(delta)
 	handle_movement()
 	var was_on_floor = is_on_floor()
 	move_and_slide()
@@ -216,11 +218,24 @@ func take_damage(damage):
 func die():
 	player_died.emit()
 
-func try_block():
+func try_block(delta):
 	if Input.is_action_just_pressed("block"):
 		start_block()
 	elif Input.is_action_just_released("block"):
 		stop_block()
+	
+	if is_blocking and block_strength <= 0.1:
+		stop_block()
+	elif is_blocking:
+		block_strength = lerpf(block_strength,0,block_speed * delta)
+		$Block/BlockCollisionShape.scale.y = block_strength/100
+	elif not is_blocking and block_strength < 99:
+		block_strength = lerpf(block_strength, 100, block_speed * delta * 2)
+		$Block/BlockCollisionShape.scale.y = block_strength/100
+	elif block_strength >= 99:
+		block_strength = 100
+		$Block/BlockCollisionShape.scale.y = block_strength/100
+	print (block_strength)
 
 func start_block():
 	$Block.visible = true
