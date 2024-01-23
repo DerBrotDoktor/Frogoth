@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bfqr80qekwaw5"]
+[gd_scene load_steps=16 format=3 uid="uid://bfqr80qekwaw5"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_il0n1"]
 [ext_resource type="Shader" path="res://scenes/player/player_hit.gdshader" id="2_qf1va"]
@@ -75,6 +75,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_emv65"]
 size = Vector2(30, 280)
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4fni0"]
+size = Vector2(30, 280)
+
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_il0n1")
@@ -95,7 +98,6 @@ autoplay = "walk"
 frame_progress = 0.671472
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-0.5, 47)
 shape = SubResource("RectangleShape2D_0tqvw")
 
@@ -131,6 +133,10 @@ one_shot = true
 [node name="DashCooldown" type="Timer" parent="."]
 one_shot = true
 
+[node name="KnockbackTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [node name="TriggerArea" type="Area2D" parent="." groups=["player"]]
 collision_layer = 5
 collision_mask = 5
@@ -157,13 +163,18 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="BlockCollisionShape" type="CollisionShape2D" parent="Block"]
-position = Vector2(256.667, 0)
+position = Vector2(275, 0)
 shape = SubResource("RectangleShape2D_emv65")
+
+[node name="BlockColliderSprite" type="Sprite2D" parent="Block"]
+position = Vector2(275, 0)
+texture = SubResource("PlaceholderTexture2D_4fni0")
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="BashTimer" to="." method="_on_bash_timer_timeout"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
+[connection signal="timeout" from="KnockbackTimer" to="." method="_on_knockback_timer_timeout"]
 [connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]
 [connection signal="area_exited" from="TriggerArea" to="." method="_on_trigger_area_area_exited"]
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]

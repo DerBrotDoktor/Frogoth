@@ -17,6 +17,7 @@ signal player_died()
 @export var max_health = 3
 @export var gravity = 1000
 @export var block_speed = 0.9
+@export var knockback_strength = 500
 
 var can_jump = false
 var can_double_jump = false
@@ -214,9 +215,11 @@ func take_damage(damage):
 	else:
 		die()
 	print(current_health)
+	pass
 
 func die():
 	player_died.emit()
+	pass
 
 func try_block(delta):
 	if Input.is_action_just_pressed("block"):
@@ -228,21 +231,37 @@ func try_block(delta):
 		stop_block()
 	elif is_blocking:
 		block_strength = lerpf(block_strength,0,block_speed * delta)
-		$Block/BlockCollisionShape.scale.y = block_strength/100
+		update_block_shape()
 	elif not is_blocking and block_strength < 99:
 		block_strength = lerpf(block_strength, 100, block_speed * delta * 2)
-		$Block/BlockCollisionShape.scale.y = block_strength/100
+		update_block_shape()
 	elif block_strength >= 99:
 		block_strength = 100
-		$Block/BlockCollisionShape.scale.y = block_strength/100
-	print (block_strength)
+		update_block_shape()
+	pass
+
+func update_block_shape():
+	$Block/BlockCollisionShape.scale.y = block_strength/100
+	$Block/BlockColliderSprite.scale.y = block_strength/100
+	pass
 
 func start_block():
 	$Block.visible = true
 	$Block/BlockCollisionShape.disabled = false
 	is_blocking = true
+	pass
 
 func stop_block():
 	$Block.visible = false
 	$Block/BlockCollisionShape.disabled = true
 	is_blocking = false
+	pass
+
+func knockback():
+	$KnockbackTimer.start()
+	var direction = ((get_look_position()-global_position) * -1).normalized()
+	velocity = direction * knockback_strength
+	pass
+
+func _on_knockback_timer_timeout():
+	pass
