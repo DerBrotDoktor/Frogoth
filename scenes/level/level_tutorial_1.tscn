@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://jslvxnacwmvr"]
+
+[ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/bash_points/bash_point.tscn" id="2_1ug63"]
+[ext_resource type="PackedScene" uid="uid://3j5q0ymm7o8s" path="res://scenes/enemies/enemy_single_shot.tscn" id="2_ubag1"]
+[ext_resource type="PackedScene" uid="uid://dgcv5ildkajr8" path="res://scenes/enviroment/platforms/platform_big_1.tscn" id="3_hm0bf"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iwq4j"]
+size = Vector2(400, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_soy7b"]
+size = Vector2(400, 20)
+
+[node name="Level1" type="Node2D"]
+
+[node name="floor" type="StaticBody2D" parent="."]
+position = Vector2(-18, 593)
+scale = Vector2(16.72, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="floor"]
+texture = SubResource("PlaceholderTexture2D_iwq4j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+shape = SubResource("RectangleShape2D_soy7b")
+
+[node name="BashPoint" parent="." instance=ExtResource("2_1ug63")]
+position = Vector2(-120, -56)
+
+[node name="BashPoint2" parent="." instance=ExtResource("2_1ug63")]
+position = Vector2(68, -363)
+
+[node name="BashPoint4" parent="." instance=ExtResource("2_1ug63")]
+position = Vector2(748, 84)
+
+[node name="BashPoint5" parent="." instance=ExtResource("2_1ug63")]
+position = Vector2(217, 240)
+
+[node name="BashPoint6" parent="." instance=ExtResource("2_1ug63")]
+position = Vector2(548, 302)
+
+[node name="BashPoint3" parent="." instance=ExtResource("2_1ug63")]
+position = Vector2(628, -364)
+
+[node name="Platform" parent="." instance=ExtResource("3_hm0bf")]
+position = Vector2(335, -42)
+
+[node name="EnemySingleShot" parent="." instance=ExtResource("2_ubag1")]
+position = Vector2(434, -222)

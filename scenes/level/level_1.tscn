@@ -1,47 +1,236 @@
-[gd_scene load_steps=6 format=3 uid="uid://jslvxnacwmvr"]
+[gd_scene load_steps=8 format=3 uid="uid://ku4cxugekwnb"]
 
-[ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/bash_points/bash_point.tscn" id="2_1ug63"]
-[ext_resource type="PackedScene" uid="uid://3j5q0ymm7o8s" path="res://scenes/enemies/enemy_single_shot.tscn" id="2_ubag1"]
-[ext_resource type="PackedScene" uid="uid://dgcv5ildkajr8" path="res://scenes/enviroment/platforms/platform_big_1.tscn" id="3_hm0bf"]
+[ext_resource type="PackedScene" uid="uid://dgcv5ildkajr8" path="res://scenes/enviroment/platforms/platform_big_1.tscn" id="1_lsgxm"]
+[ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/bash_points/bash_point.tscn" id="2_uksxq"]
+[ext_resource type="PackedScene" uid="uid://3j5q0ymm7o8s" path="res://scenes/enemies/enemy_single_shot.tscn" id="3_sll38"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iwq4j"]
-size = Vector2(400, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wn5cx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_soy7b"]
-size = Vector2(400, 20)
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3sy2b"]
 
-[node name="Level1" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jbjw"]
 
-[node name="floor" type="StaticBody2D" parent="."]
-position = Vector2(-18, 593)
-scale = Vector2(16.72, 1)
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_uaehu"]
 
-[node name="Sprite2D" type="Sprite2D" parent="floor"]
-texture = SubResource("PlaceholderTexture2D_iwq4j")
+[node name="Level2" type="Node2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
-shape = SubResource("RectangleShape2D_soy7b")
+[node name="BashPoints" type="Node2D" parent="."]
 
-[node name="BashPoint" parent="." instance=ExtResource("2_1ug63")]
-position = Vector2(-120, -56)
+[node name="BashPoint" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(777, -711)
 
-[node name="BashPoint2" parent="." instance=ExtResource("2_1ug63")]
-position = Vector2(68, -363)
+[node name="BashPoint3" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(1244, -997)
 
-[node name="BashPoint4" parent="." instance=ExtResource("2_1ug63")]
-position = Vector2(748, 84)
+[node name="BashPoint29" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(890, -1326)
 
-[node name="BashPoint5" parent="." instance=ExtResource("2_1ug63")]
-position = Vector2(217, 240)
+[node name="BashPoint30" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(1227, -1531)
 
-[node name="BashPoint6" parent="." instance=ExtResource("2_1ug63")]
-position = Vector2(548, 302)
+[node name="BashPoint31" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(1477, -1790)
 
-[node name="BashPoint3" parent="." instance=ExtResource("2_1ug63")]
-position = Vector2(628, -364)
+[node name="BashPoint32" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(1168, -2133)
 
-[node name="Platform" parent="." instance=ExtResource("3_hm0bf")]
-position = Vector2(335, -42)
+[node name="BashPoint33" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(761, -2074)
 
-[node name="EnemySingleShot" parent="." instance=ExtResource("2_ubag1")]
-position = Vector2(434, -222)
+[node name="BashPoint34" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(456, -2049)
+
+[node name="BashPoint35" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(-53, -1659)
+
+[node name="BashPoint36" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(193, -1396)
+
+[node name="BashPoint37" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(473, -1159)
+
+[node name="BashPoint38" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(-315, -1138)
+
+[node name="BashPoint39" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(117, -1007)
+
+[node name="BashPoint4" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(1684, -783)
+
+[node name="BashPoint8" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(2945, -255)
+
+[node name="BashPoint9" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(3265, -423)
+
+[node name="BashPoint10" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(3077, -652)
+
+[node name="BashPoint11" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(3474, -817)
+
+[node name="BashPoint12" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(3773, -931)
+
+[node name="BashPoint13" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(4234, -786)
+
+[node name="BashPoint14" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(4358, -517)
+
+[node name="BashPoint15" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(4049, -321)
+
+[node name="BashPoint16" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(3786, -80)
+
+[node name="BashPoint17" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(3574, -285)
+
+[node name="BashPoint18" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(4074, 227)
+
+[node name="BashPoint19" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(4515, 260)
+
+[node name="BashPoint20" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(4599, -40)
+
+[node name="BashPoint21" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(4332, -106)
+
+[node name="BashPoint22" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(3373, -1041)
+
+[node name="BashPoint23" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(3197, -1431)
+
+[node name="BashPoint24" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(2731, -1433)
+
+[node name="BashPoint25" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(2434, -1343)
+
+[node name="BashPoint26" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(2175, -924)
+
+[node name="BashPoint27" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(2341, -586)
+
+[node name="BashPoint28" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(2719, -757)
+
+[node name="BashPoint7" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(989, -367)
+
+[node name="BashPoint5" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(1759, -1170)
+
+[node name="BashPoint40" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(2114, -1793)
+
+[node name="BashPoint6" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(1439, -1263)
+
+[node name="BashPoint2" parent="BashPoints" instance=ExtResource("2_uksxq")]
+position = Vector2(1258, -618)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="EnemySingleShot" parent="Enemies" instance=ExtResource("3_sll38")]
+position = Vector2(3859, -760)
+
+[node name="EnemySingleShot2" parent="Enemies" instance=ExtResource("3_sll38")]
+position = Vector2(2820, -1172)
+
+[node name="EnemySingleShot3" parent="Enemies" instance=ExtResource("3_sll38")]
+position = Vector2(843, -1811)
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="PlatformBig1" parent="Platforms" instance=ExtResource("1_lsgxm")]
+position = Vector2(733, -32)
+
+[node name="PlatformBig7" parent="Platforms" instance=ExtResource("1_lsgxm")]
+position = Vector2(710, -1622)
+
+[node name="PlatformBig3" parent="Platforms" instance=ExtResource("1_lsgxm")]
+position = Vector2(2471, -40)
+
+[node name="PlatformBig5" parent="Platforms" instance=ExtResource("1_lsgxm")]
+position = Vector2(2834, -989)
+
+[node name="PlatformBig6" parent="Platforms" instance=ExtResource("1_lsgxm")]
+position = Vector2(3857, -579)
+
+[node name="PlatformBig2" parent="Platforms" instance=ExtResource("1_lsgxm")]
+position = Vector2(204, 202)
+scale = Vector2(0.259508, 0.716278)
+
+[node name="PlatformBig4" parent="Platforms" instance=ExtResource("1_lsgxm")]
+position = Vector2(2945, 217)
+scale = Vector2(0.259508, 0.716278)
+
+[node name="PlatformBig8" parent="Platforms" instance=ExtResource("1_lsgxm")]
+position = Vector2(1904, -1497)
+scale = Vector2(0.259508, 0.716278)
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="BorderLeft" type="StaticBody2D" parent="Borders"]
+modulate = Color(0.14902, 0.160784, 0.501961, 1)
+position = Vector2(-893, -596)
+scale = Vector2(3.3155, -104.358)
+collision_layer = 5
+
+[node name="BorderLeftCollisionShape" type="CollisionShape2D" parent="Borders/BorderLeft"]
+shape = SubResource("RectangleShape2D_wn5cx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Borders/BorderLeft"]
+scale = Vector2(-20.812, 19.9886)
+texture = SubResource("PlaceholderTexture2D_3sy2b")
+
+[node name="BorderRight" type="StaticBody2D" parent="Borders"]
+modulate = Color(0.14902, 0.160784, 0.501961, 1)
+position = Vector2(4852, -596)
+scale = Vector2(3.3155, -104.358)
+collision_layer = 5
+
+[node name="BorderRightCollisionShape" type="CollisionShape2D" parent="Borders/BorderRight"]
+shape = SubResource("RectangleShape2D_wn5cx")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Borders/BorderRight"]
+position = Vector2(2.41284, 0)
+rotation = -3.14159
+scale = Vector2(20.812, -19.9886)
+texture = SubResource("PlaceholderTexture2D_3sy2b")
+
+[node name="BorderBottom" type="StaticBody2D" parent="Borders"]
+modulate = Color(0.14902, 0.160784, 0.501961, 1)
+position = Vector2(1992, 454)
+scale = Vector2(289.117, -2.37829)
+collision_layer = 5
+
+[node name="BorderBottomCollisionShape" type="CollisionShape2D" parent="Borders/BorderBottom"]
+shape = SubResource("RectangleShape2D_wn5cx")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Borders/BorderBottom"]
+position = Vector2(-0.0182695, -1.68224)
+rotation = 3.14126
+scale = Vector2(19.942, -20.0308)
+skew = 0.000334501
+texture = SubResource("PlaceholderTexture2D_3sy2b")
+
+[node name="Box" type="StaticBody2D" parent="."]
+modulate = Color(0.20871, 0.20871, 0.20871, 1)
+position = Vector2(1534, 41)
+scale = Vector2(24.3138, 38.9135)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
+shape = SubResource("RectangleShape2D_8jbjw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Box"]
+position = Vector2(0.00996292, 0.0648497)
+scale = Vector2(19.8467, 19.9551)
+texture = SubResource("PlaceholderTexture2D_uaehu")
