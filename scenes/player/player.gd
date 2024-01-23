@@ -6,8 +6,8 @@ signal player_died()
 #region Variables
 @export var normal_speed = 100.0 ##Walking speed
 @export var jump_velocity = -300.0 ##Initial jump velocity
-@export var acceleration = 20.0 ##Acceleration
-@export var deceleration = 0.2 ##Deceleration
+@export_range(0,200) var acceleration = 20.0 ##Acceleration
+@export_range(0,200) var deceleration = 0.2 ##Deceleration
 @export var max_jump_time =  0.15 ##Maximum time the player can hold the jump button to influence the jump height
 @export var double_jump_velocity = -300.0 ##Initial velocity for second jump
 @export var dash_speed = 400 ##Speed for the dash

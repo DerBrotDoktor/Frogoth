@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://jslvxnacwmvr"]
 
-[ext_resource type="PackedScene" uid="uid://dgcv5ildkajr8" path="res://scenes/enviroment/platforms/platform_big_1.tscn" id="1_lsgxm"]
 [ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/bash_points/bash_point.tscn" id="2_uksxq"]
 [ext_resource type="PackedScene" uid="uid://3j5q0ymm7o8s" path="res://scenes/enemies/enemy_single_shot.tscn" id="3_sll38"]
+[ext_resource type="PackedScene" uid="uid://dgcv5ildkajr8" path="res://scenes/enviroment/platforms/big/platform_big_1.tscn" id="3_tew24"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wn5cx"]
 
@@ -149,30 +149,30 @@ position = Vector2(843, -1811)
 
 [node name="Platforms" type="Node2D" parent="."]
 
-[node name="PlatformBig1" parent="Platforms" instance=ExtResource("1_lsgxm")]
+[node name="PlatformBig1" parent="Platforms" instance=ExtResource("3_tew24")]
 position = Vector2(733, -32)
 
-[node name="PlatformBig7" parent="Platforms" instance=ExtResource("1_lsgxm")]
+[node name="PlatformBig7" parent="Platforms" instance=ExtResource("3_tew24")]
 position = Vector2(710, -1622)
 
-[node name="PlatformBig3" parent="Platforms" instance=ExtResource("1_lsgxm")]
+[node name="PlatformBig3" parent="Platforms" instance=ExtResource("3_tew24")]
 position = Vector2(2471, -40)
 
-[node name="PlatformBig5" parent="Platforms" instance=ExtResource("1_lsgxm")]
+[node name="PlatformBig5" parent="Platforms" instance=ExtResource("3_tew24")]
 position = Vector2(2834, -989)
 
-[node name="PlatformBig6" parent="Platforms" instance=ExtResource("1_lsgxm")]
+[node name="PlatformBig6" parent="Platforms" instance=ExtResource("3_tew24")]
 position = Vector2(3857, -579)
 
-[node name="PlatformBig2" parent="Platforms" instance=ExtResource("1_lsgxm")]
+[node name="PlatformBig2" parent="Platforms" instance=ExtResource("3_tew24")]
 position = Vector2(204, 202)
 scale = Vector2(0.259508, 0.716278)
 
-[node name="PlatformBig4" parent="Platforms" instance=ExtResource("1_lsgxm")]
+[node name="PlatformBig4" parent="Platforms" instance=ExtResource("3_tew24")]
 position = Vector2(2945, 217)
 scale = Vector2(0.259508, 0.716278)
 
-[node name="PlatformBig8" parent="Platforms" instance=ExtResource("1_lsgxm")]
+[node name="PlatformBig8" parent="Platforms" instance=ExtResource("3_tew24")]
 position = Vector2(1904, -1497)
 scale = Vector2(0.259508, 0.716278)
 
