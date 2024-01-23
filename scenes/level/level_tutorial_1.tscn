@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://jslvxnacwmvr"]
+[gd_scene load_steps=6 format=3 uid="uid://cxt6or2pmnc40"]
 
 [ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/bash_points/bash_point.tscn" id="2_1ug63"]
 [ext_resource type="PackedScene" uid="uid://3j5q0ymm7o8s" path="res://scenes/enemies/enemy_single_shot.tscn" id="2_ubag1"]
@@ -10,7 +10,7 @@ size = Vector2(400, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_soy7b"]
 size = Vector2(400, 20)
 
-[node name="Level1" type="Node2D"]
+[node name="LevelTutorail1" type="Node2D"]
 
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(-18, 593)

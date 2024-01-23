@@ -16,7 +16,7 @@ func check_point(point):
 	if current_bash_points.size() >= 3 and  current_bash_points[0] == point:
 		create_shape()
 	elif not point.is_in_shape:
-		if current_bash_points.size() == 0:
+		if current_bash_points.size() == 0 or current_shape == null:
 			new_shape()
 		add_point(point)
 	else:
@@ -50,4 +50,11 @@ func clear_shape():
 func _on_player_enter_bash_point(bash_point):
 	print(bash_point)
 	check_point(bash_point)
+	pass
+
+
+func _on_player_player_died():
+	current_shape.queue_free()
+	current_bash_points.clear()
+	current_shape = null
 	pass

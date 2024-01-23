@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ku4cxugekwnb"]
+[gd_scene load_steps=8 format=3 uid="uid://jslvxnacwmvr"]
 
 [ext_resource type="PackedScene" uid="uid://dgcv5ildkajr8" path="res://scenes/enviroment/platforms/platform_big_1.tscn" id="1_lsgxm"]
 [ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/bash_points/bash_point.tscn" id="2_uksxq"]
@@ -12,7 +12,7 @@
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_uaehu"]
 
-[node name="Level2" type="Node2D"]
+[node name="Level1" type="Node2D"]
 
 [node name="BashPoints" type="Node2D" parent="."]
 
