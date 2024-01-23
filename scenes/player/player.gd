@@ -6,6 +6,8 @@ signal player_died()
 #region Variables
 @export var normal_speed = 100.0
 @export var jump_velocity = -300.0
+@export var acceleration = 20.0
+@export var deceleration = 0.2
 @export var max_jump_time =  0.15
 @export var double_jump_velocity = -300.0
 @export var jump_buffer_time = 0.15
@@ -68,16 +70,15 @@ var last_direction
 func handle_movement():
 	var direction = Input.get_axis("left", "right")
 	var speed = normal_speed if $DashTimer.is_stopped() else dash_speed
-	if last_direction != direction and last_direction != 0:
-		$TurnDelay.start()
-	if direction and can_move and $TurnDelay.is_stopped():
-		velocity.x = direction * speed
+	if direction and can_move:
 		if direction > 0:
 			$Animation.flip_h = false
+			velocity.x = min(velocity.x + acceleration, speed)
 		elif direction < 0:
+			velocity.x = max(velocity.x - acceleration, -speed)
 			$Animation.flip_h = true
 	elif can_move:
-		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.x = lerpf(velocity.x, 0, deceleration)
 	last_direction = direction
 
 func enable():

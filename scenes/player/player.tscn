@@ -126,10 +126,6 @@ wait_time = 0.4
 [node name="GhostTimer" type="Timer" parent="."]
 wait_time = 0.03
 
-[node name="TurnDelay" type="Timer" parent="."]
-wait_time = 0.05
-one_shot = true
-
 [node name="DashCooldown" type="Timer" parent="."]
 one_shot = true
 
