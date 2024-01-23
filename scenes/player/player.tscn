@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bfqr80qekwaw5"]
+[gd_scene load_steps=15 format=3 uid="uid://bfqr80qekwaw5"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_il0n1"]
 [ext_resource type="Shader" path="res://scenes/player/player_hit.gdshader" id="2_qf1va"]
@@ -72,6 +72,9 @@ _data = {
 "hit_player_animation": SubResource("Animation_8njlr")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_emv65"]
+size = Vector2(30, 280)
+
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_il0n1")
@@ -92,6 +95,7 @@ autoplay = "walk"
 frame_progress = 0.671472
 
 [node name="Collider" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-0.5, 47)
 shape = SubResource("RectangleShape2D_0tqvw")
 
@@ -132,6 +136,7 @@ collision_layer = 5
 collision_mask = 5
 
 [node name="TriggerCollider" type="CollisionShape2D" parent="TriggerArea"]
+visible = false
 position = Vector2(-1.5, 46.5)
 shape = SubResource("RectangleShape2D_86dhk")
 
@@ -146,6 +151,14 @@ offset = Vector2(250, 0)
 libraries = {
 "": SubResource("AnimationLibrary_6gob2")
 }
+
+[node name="Block" type="StaticBody2D" parent="." groups=["block"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="BlockCollisionShape" type="CollisionShape2D" parent="Block"]
+position = Vector2(256.667, 0)
+shape = SubResource("RectangleShape2D_emv65")
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

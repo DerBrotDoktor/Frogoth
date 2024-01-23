@@ -28,22 +28,27 @@ var is_bashing = false
 var bash_target_position
 var current_bash_point
 var current_health
+var is_blocking = false
 
 #endregion
 func _ready():
 	current_health = max_health
 	disable()
+	stop_block()
 	pass
 
 func _physics_process(delta):
 	if is_disabled:
 		return
 	if ready_for_bash:
-		get_bash_target_position()
+		$DirectionArrow.look_at(get_look_position())
+	if is_blocking:
+		$Block.look_at(get_look_position())
 	
 	add_gravity(delta)
 	try_bash()
 	try_jump()
+	try_block()
 	handle_movement()
 	var was_on_floor = is_on_floor()
 	move_and_slide()
@@ -126,13 +131,13 @@ func _on_coyote_timer_timeout():
 
 var last_mouse_position
 
-func get_bash_target_position():
+func get_look_position() -> Vector2:
 	var look_point = Input.get_vector("aim_left","aim_right","aim_up","aim_down") + position
 	if last_mouse_position != get_global_mouse_position() or look_point == position:
 		look_point = get_global_mouse_position()
 	last_mouse_position = get_global_mouse_position()
 	bash_target_position = look_point
-	$DirectionArrow.look_at(look_point)
+	return look_point
 	pass
 
 func try_bash():
@@ -211,4 +216,18 @@ func take_damage(damage):
 func die():
 	player_died.emit()
 
+func try_block():
+	if Input.is_action_just_pressed("block"):
+		start_block()
+	elif Input.is_action_just_released("block"):
+		stop_block()
 
+func start_block():
+	$Block.visible = true
+	$Block/BlockCollisionShape.disabled = false
+	is_blocking = true
+
+func stop_block():
+	$Block.visible = false
+	$Block/BlockCollisionShape.disabled = true
+	is_blocking = false
