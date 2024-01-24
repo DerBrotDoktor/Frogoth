@@ -44,4 +44,4 @@ position = Vector2(628, -364)
 position = Vector2(335, -42)
 
 [node name="EnemySingleShot" parent="." instance=ExtResource("2_ubag1")]
-position = Vector2(434, -222)
+position = Vector2(434, -215)

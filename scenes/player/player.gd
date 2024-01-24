@@ -127,12 +127,20 @@ func _on_coyote_timer_timeout():
 
 var last_mouse_position
 
-func get_look_position() -> Vector2:
-	var look_point = Input.get_vector("aim_left","aim_right","aim_up","aim_down") + position
-	if last_mouse_position != get_global_mouse_position() or look_point == position:
-		look_point = get_global_mouse_position()
+func get_look_position():
+	var returnValue = Vector2.ZERO
+	
+	var input_direction = Input.get_vector("aim_left","aim_right","aim_up","aim_down")
+	var no_direction_input = input_direction.length_squared() < 0.001
+	var mouse_was_moved = last_mouse_position != get_global_mouse_position()
+	print(last_mouse_position)
+	if not no_direction_input:
+		returnValue = position + input_direction
+	else:
+		returnValue = get_global_mouse_position()
+	
 	last_mouse_position = get_global_mouse_position()
-	return look_point
+	return returnValue
 
 func try_bash():
 	if Input.is_action_pressed("bash") and is_in_bash_point and not ready_for_bash :

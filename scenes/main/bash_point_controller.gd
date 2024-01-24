@@ -54,7 +54,8 @@ func _on_player_enter_bash_point(bash_point):
 
 
 func _on_player_player_died():
-	current_shape.queue_free()
-	current_bash_points.clear()
-	current_shape = null
+	if current_shape:
+		current_shape.queue_free()
+		current_bash_points.clear()
+		current_shape = null
 	pass

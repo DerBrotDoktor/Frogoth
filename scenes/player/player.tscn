@@ -97,6 +97,8 @@ animation = &"walk"
 autoplay = "walk"
 frame_progress = 0.671472
 
+[node name="Sprite2D" type="Sprite2D" parent="Animation"]
+
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 47)
 shape = SubResource("RectangleShape2D_0tqvw")
