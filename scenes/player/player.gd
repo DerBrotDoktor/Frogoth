@@ -11,6 +11,7 @@ signal player_died()
 @export var max_jump_time =  0.15 ##Maximum time the player can hold the jump button to influence the jump height
 @export var double_jump_velocity = -300.0 ##Initial velocity for second jump
 @export var dash_speed = 400 ##Speed for the dash
+@export_range(0,200) var dash_acceleration = 20.0 ##Acceleration for the dash
 @export var ghost_node : PackedScene ##Ghost sprite, placed while dashing
 @export var bash_speed = 300 ##Speed for the bash
 @export var max_health = 3 ##Maximum player health
@@ -29,6 +30,7 @@ var current_bash_point
 var current_health
 var is_blocking = false
 var block_strength = 100
+var dash_direction
 #endregion
 
 func _ready():
@@ -58,21 +60,32 @@ func add_gravity(delta):
 	if not is_on_floor() and can_move:
 		velocity.y += gravity * delta
 
-var last_direction
-
 func handle_movement():
+	if not $DashTimer.is_stopped():
+		handle_dash_movement()
+		return
 	var direction = Input.get_axis("left", "right")
-	var speed = normal_speed if $DashTimer.is_stopped() else dash_speed
 	if direction and can_move:
 		if direction > 0:
 			$Animation.flip_h = false
-			velocity.x = min(velocity.x + acceleration, speed)
+			velocity.x = min(velocity.x + acceleration, normal_speed)
 		elif direction < 0:
-			velocity.x = max(velocity.x - acceleration, -speed)
+			velocity.x = max(velocity.x - acceleration, -normal_speed)
 			$Animation.flip_h = true
 	elif can_move:
 		velocity.x = lerpf(velocity.x, 0, deceleration)
-	last_direction = direction
+
+func handle_dash_movement():
+	if dash_direction.x > 0:
+		velocity.x = min(velocity.x + dash_acceleration, dash_speed)
+	elif dash_direction.x < 0:
+		velocity.x = max(velocity.x - dash_acceleration, -dash_speed)
+	if dash_direction.y > 0:
+		velocity.y = min(velocity.y + dash_acceleration, dash_speed)
+	elif dash_direction.y < 0:
+		velocity.y = max(velocity.y - dash_acceleration, -dash_speed)
+	print(velocity)
+	pass
 
 func enable():
 	$Camera.enabled = true
@@ -182,6 +195,10 @@ func _on_trigger_area_body_entered(body):
 		take_damage(1)
 
 func dash():
+	var input_x = Input.get_action_strength("right") - Input.get_action_strength("left")
+	var input_y = Input.get_action_strength("down") - Input.get_action_strength("up")
+	dash_direction = Vector2(input_x, input_y).normalized()
+	can_move = false
 	$DashTimer.start()
 	$GhostTimer.start()
 
@@ -197,6 +214,7 @@ func _on_ghost_timer_timeout():
 func _on_dash_timer_timeout():
 	$GhostTimer.stop()
 	$DashCooldown.start()
+	can_move = true
 
 func take_damage(damage):
 	print("damage", current_health)
