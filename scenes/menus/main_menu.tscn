@@ -1,6 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7uqvsqtn5b6p"]
+[gd_scene load_steps=11 format=3 uid="uid://c7uqvsqtn5b6p"]
 
 [ext_resource type="Script" path="res://scenes/menus/main_menu.gd" id="1_6s5vr"]
+[ext_resource type="Texture2D" uid="uid://m30ojk8eyhbr" path="res://assets/parallax/sky.png" id="2_xou8v"]
+[ext_resource type="Texture2D" uid="uid://dechd0hxshq2j" path="res://assets/parallax/paralax_1.png" id="3_npudr"]
+[ext_resource type="Texture2D" uid="uid://dnh4dfbpvvn6l" path="res://assets/parallax/paralax_2.png" id="4_5f8s3"]
 
 [sub_resource type="FontVariation" id="FontVariation_477og"]
 variation_embolden = 0.3
@@ -56,6 +59,48 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_xfeaa")
 script = ExtResource("1_6s5vr")
+
+[node name="Background" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xou8v")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 109.0
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_npudr")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 110.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_5f8s3")
+expand_mode = 2
 
 [node name="VerticalContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
