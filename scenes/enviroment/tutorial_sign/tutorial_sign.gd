@@ -5,6 +5,7 @@ func _ready():
 	hide_text()
 
 func show_text():
+	$LeaveTimer.stop()
 	$Text.visible = true
 
 func hide_text():
@@ -16,7 +17,8 @@ func _on_trigger_area_area_entered(area):
 
 
 func _on_trigger_area_area_exited(area):
-	$LeaveTimer.start()
+	if area.is_in_group("player"):
+		$LeaveTimer.start()
 
 
 func _on_leave_timer_timeout():

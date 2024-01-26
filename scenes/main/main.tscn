@@ -17,7 +17,7 @@
 script = ExtResource("1_wtrgv")
 main_menu = ExtResource("4_3igok")
 level_select_menu = ExtResource("3_qm2ey")
-level = Array[PackedScene]([ExtResource("2_046pa"), ExtResource("4_k64yn")])
+level = Array[PackedScene]([ExtResource("4_k64yn"), ExtResource("2_046pa")])
 player = NodePath("Player")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]

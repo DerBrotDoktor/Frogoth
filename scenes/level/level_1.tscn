@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://jslvxnacwmvr"]
+[gd_scene load_steps=10 format=3 uid="uid://jslvxnacwmvr"]
 
+[ext_resource type="Script" path="res://scenes/level/level.gd" id="1_cljtr"]
 [ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/bash_points/bash_point.tscn" id="2_uksxq"]
 [ext_resource type="PackedScene" uid="uid://3j5q0ymm7o8s" path="res://scenes/enemies/enemy_single_shot.tscn" id="3_sll38"]
 [ext_resource type="PackedScene" uid="uid://dgcv5ildkajr8" path="res://scenes/enviroment/platforms/big/platform_big_1.tscn" id="3_tew24"]
+[ext_resource type="PackedScene" uid="uid://d0gcu70fmmqi4" path="res://scenes/player/player_spwan_point.tscn" id="5_0g3xm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wn5cx"]
 
@@ -12,7 +14,9 @@
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_uaehu"]
 
-[node name="Level1" type="Node2D"]
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("player_spawn_point")]
+script = ExtResource("1_cljtr")
+player_spawn_point = NodePath("PlayerSpwanPoint")
 
 [node name="BashPoints" type="Node2D" parent="."]
 
@@ -150,7 +154,7 @@ position = Vector2(843, -1811)
 [node name="Platforms" type="Node2D" parent="."]
 
 [node name="PlatformBig1" parent="Platforms" instance=ExtResource("3_tew24")]
-position = Vector2(733, -32)
+position = Vector2(733, -30)
 
 [node name="PlatformBig7" parent="Platforms" instance=ExtResource("3_tew24")]
 position = Vector2(710, -1622)
@@ -234,3 +238,6 @@ shape = SubResource("RectangleShape2D_8jbjw")
 position = Vector2(0.00996292, 0.0648497)
 scale = Vector2(19.8467, 19.9551)
 texture = SubResource("PlaceholderTexture2D_uaehu")
+
+[node name="PlayerSpwanPoint" parent="." instance=ExtResource("5_0g3xm")]
+position = Vector2(-576, 330)
