@@ -1,4 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6nm6w83jynbs"]
+[gd_scene load_steps=8 format=3 uid="uid://c6nm6w83jynbs"]
+
+[ext_resource type="Script" path="res://scenes/menus/pause_menu.gd" id="1_mgqje"]
 
 [sub_resource type="SystemFont" id="SystemFont_0rgmh"]
 
@@ -55,6 +57,7 @@ outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [node name="PauseMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -62,6 +65,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_pv8ow")
+script = ExtResource("1_mgqje")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -94,6 +98,7 @@ custom_minimum_size = Vector2(130, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_bottom = NodePath("../RestartButton")
 text = "Resume"
 
 [node name="RestartButton" type="Button" parent="VBoxContainer"]
@@ -101,6 +106,8 @@ custom_minimum_size = Vector2(130, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_top = NodePath("../ResumeButton")
+focus_neighbor_bottom = NodePath("../SettingsButton")
 text = "Restart"
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer"]
@@ -108,6 +115,8 @@ custom_minimum_size = Vector2(130, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_top = NodePath("../RestartButton")
+focus_neighbor_bottom = NodePath("../MainMenuButton")
 text = "Settings"
 
 [node name="MainMenuButton" type="Button" parent="VBoxContainer"]
@@ -115,4 +124,10 @@ custom_minimum_size = Vector2(130, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_top = NodePath("../SettingsButton")
 text = "Main Menu"
+
+[connection signal="button_down" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_button_down"]
+[connection signal="button_down" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_button_down"]
+[connection signal="button_down" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_button_down"]
+[connection signal="button_down" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_button_down"]

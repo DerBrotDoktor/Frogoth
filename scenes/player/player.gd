@@ -100,7 +100,8 @@ func disable():
 
 func reset():
 	current_health = max_health
-	position = Vector2.ZERO
+	velocity = Vector2.ZERO
+	stop_block()
 
 func try_jump():
 	if Input.is_action_just_pressed("dash") and $DashTimer.is_stopped() and $DashCooldown.is_stopped() and can_move:
