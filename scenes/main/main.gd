@@ -24,6 +24,7 @@ func load_scene(scene:PackedScene):
 func load_level(id:int):
 	if id < level.size():
 		load_scene(level[id])
+		set_player_position(current_scene.get_player_spawn_position())
 		player.enable()
 		current_level = id
 		start_timer.emit()
@@ -43,3 +44,6 @@ func _on_player_player_died():
 	if current_level >= 0:
 		load_level(current_level)
 		player.reset()
+
+func set_player_position(position):
+	player.position = position
