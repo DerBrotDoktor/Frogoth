@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bfqr80qekwaw5"]
+[gd_scene load_steps=13 format=3 uid="uid://bfqr80qekwaw5"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_il0n1"]
 [ext_resource type="Shader" path="res://scenes/player/player_hit.gdshader" id="2_qf1va"]
@@ -31,9 +31,6 @@ size = Vector2(233, 420)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86dhk"]
 size = Vector2(235, 417)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2jsgx"]
-size = Vector2(300, 15)
 
 [sub_resource type="Animation" id="Animation_8u4v0"]
 length = 0.001
@@ -71,12 +68,6 @@ _data = {
 "RESET": SubResource("Animation_8u4v0"),
 "hit_player_animation": SubResource("Animation_8njlr")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_emv65"]
-size = Vector2(30, 280)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4fni0"]
-size = Vector2(30, 280)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.3, 0.3)
@@ -122,9 +113,6 @@ one_shot = true
 wait_time = 0.4
 one_shot = true
 
-[node name="BashTimer" type="Timer" parent="."]
-wait_time = 0.4
-
 [node name="GhostTimer" type="Timer" parent="."]
 wait_time = 0.03
 
@@ -140,33 +128,13 @@ visible = false
 position = Vector2(-1.5, 46.5)
 shape = SubResource("RectangleShape2D_86dhk")
 
-[node name="DirectionArrow" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(0, 0.6, 1, 1)
-show_behind_parent = true
-texture = SubResource("PlaceholderTexture2D_2jsgx")
-offset = Vector2(250, 0)
-
 [node name="PlayerAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_6gob2")
 }
 
-[node name="Block" type="StaticBody2D" parent="." groups=["block"]]
-collision_layer = 4
-collision_mask = 4
-
-[node name="BlockCollisionShape" type="CollisionShape2D" parent="Block"]
-position = Vector2(275, 0)
-shape = SubResource("RectangleShape2D_emv65")
-
-[node name="BlockColliderSprite" type="Sprite2D" parent="Block"]
-position = Vector2(275, 0)
-texture = SubResource("PlaceholderTexture2D_4fni0")
-
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="BashTimer" to="." method="_on_bash_timer_timeout"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
 [connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]
 [connection signal="area_exited" from="TriggerArea" to="." method="_on_trigger_area_area_exited"]

@@ -62,7 +62,7 @@ position = Vector2(-5, 0)
 
 [node name="EnemyGrounded" parent="Enemies" instance=ExtResource("5_hni4f")]
 modulate = Color(1, 0, 0, 1)
-position = Vector2(7825, -635)
+position = Vector2(7822, -615)
 
 [node name="Signs" type="Node2D" parent="."]
 position = Vector2(-9, 0)

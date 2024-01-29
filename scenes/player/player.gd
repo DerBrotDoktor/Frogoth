@@ -15,8 +15,6 @@ signal player_died()
 @export var ghost_node : PackedScene ##Ghost sprite, placed while dashing
 @export var max_health = 3 ##Maximum player health
 @export var gravity = 1000 ##Gravity
-@export var block_speed = 0.9 ##Block shrinking time
-@export var knockback_strength = 500 ##Velocity of the knockback
 
 var can_jump = false
 var can_double_jump = false
@@ -24,25 +22,19 @@ var jump_time = 0.0
 var is_disabled = false
 var can_move = true
 var current_health
-var is_blocking = false
-var block_strength = 100
 var dash_direction
 #endregion
 
 func _ready():
 	current_health = max_health
 	disable()
-	stop_block()
 
 func _physics_process(delta):
 	if is_disabled:
 		return
-	if is_blocking:
-		$Block.look_at(get_look_position())
 	
 	add_gravity(delta)
 	try_jump()
-	try_block(delta)
 	handle_movement()
 	var was_on_floor = is_on_floor()
 	move_and_slide()
@@ -94,7 +86,6 @@ func disable():
 func reset():
 	current_health = max_health
 	velocity = Vector2.ZERO
-	stop_block()
 
 func try_jump():
 	if Input.is_action_just_pressed("dash") and $DashTimer.is_stopped() and $DashCooldown.is_stopped() and can_move:
@@ -131,21 +122,6 @@ func _on_coyote_timer_timeout():
 	can_double_jump = false
 
 var last_mouse_position
-
-func get_look_position():
-	var returnValue = Vector2.ZERO
-	
-	var input_direction = Input.get_vector("aim_left","aim_right","aim_up","aim_down")
-	var no_direction_input = input_direction.length_squared() < 0.001
-	var mouse_was_moved = last_mouse_position != get_global_mouse_position()
-	print(last_mouse_position)
-	if not no_direction_input:
-		returnValue = position + input_direction
-	else:
-		returnValue = get_global_mouse_position()
-	
-	last_mouse_position = get_global_mouse_position()
-	return returnValue
 
 func _on_trigger_area_area_entered(area):
 	if area.is_in_group("jump_point"):
@@ -193,39 +169,3 @@ func take_damage(damage):
 
 func die():
 	player_died.emit()
-
-func try_block(delta):
-	if Input.is_action_just_pressed("block"):
-		start_block()
-	elif Input.is_action_just_released("block"):
-		stop_block()
-	
-	if is_blocking and block_strength <= 0.1:
-		stop_block()
-	elif is_blocking:
-		block_strength = lerpf(block_strength,0,block_speed * delta)
-		update_block_shape()
-	elif not is_blocking and block_strength <= 99:
-		block_strength = lerpf(block_strength, 100, block_speed * delta * 2)
-		update_block_shape()
-	elif block_strength > 99 and not block_strength == 100:
-		block_strength = 100
-		update_block_shape()
-
-func update_block_shape():
-	$Block/BlockCollisionShape.scale.y = block_strength/100
-	$Block/BlockColliderSprite.scale.y = block_strength/100
-
-func start_block():
-	$Block.visible = true
-	$Block/BlockCollisionShape.disabled = false
-	is_blocking = true
-
-func stop_block():
-	$Block.visible = false
-	$Block/BlockCollisionShape.disabled = true
-	is_blocking = false
-
-func knockback():
-	var direction = ((get_look_position()-global_position) * -1).normalized()
-	velocity = direction * knockback_strength
