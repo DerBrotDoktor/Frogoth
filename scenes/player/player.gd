@@ -171,11 +171,7 @@ func bash_point():
 	ready_for_bash = true
 
 func bash():
-	var _direction :Vector2 = (get_look_position() - global_position).normalized()
-	velocity = _direction * bash_speed
-	$BashTimer.start()
-	ready_for_bash = false
-	$DirectionArrow.visible = false
+	pass
 
 func _on_bash_timer_timeout():
 	if not ready_for_bash:
