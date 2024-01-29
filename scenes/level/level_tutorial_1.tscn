@@ -25,7 +25,7 @@ script = ExtResource("1_72ydh")
 player_spawn_point = NodePath("PlayerSpwanPoint")
 
 [node name="PlayerSpwanPoint" parent="." instance=ExtResource("3_lyrsc")]
-position = Vector2(970, -82)
+position = Vector2(916, -5338)
 
 [node name="JumpPoint" parent="." instance=ExtResource("3_emvqd")]
 position = Vector2(491, -235)

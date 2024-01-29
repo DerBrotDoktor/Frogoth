@@ -16,6 +16,7 @@ signal player_died()
 @export var ghost_node : PackedScene ##Ghost sprite, placed while dashing
 @export var max_health = 3 ##Maximum player health
 @export var gravity = 1000 ##Gravity
+@export var max_y_velocity = 1800 ##Maximum fall velocity
 @export var temporary_orb_prefab :PackedScene ##Temporary Orb Scene
 
 var can_jump = false
@@ -46,8 +47,9 @@ func _physics_process(delta):
 	handle_jump(delta)
 
 func add_gravity(delta):
-	if not is_on_floor() and can_move:
+	if not is_on_floor() and can_move and velocity.y < max_y_velocity:
 		velocity.y += gravity * delta
+		print(velocity.y)
 
 func handle_movement(delta):
 	if not $DashTimer.is_stopped():
