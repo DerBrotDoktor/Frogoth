@@ -12,6 +12,7 @@ signal player_died()
 @export var double_jump_velocity = -300.0 ##Initial velocity for second jump
 @export var dash_speed = 400 ##Speed for the dash
 @export_range(0,200) var dash_acceleration = 20.0 ##Acceleration for the dash
+@export_range(0,200) var dash_deceleration = 20.0 ##Deceleration for the dash
 @export var ghost_node : PackedScene ##Ghost sprite, placed while dashing
 @export var max_health = 3 ##Maximum player health
 @export var gravity = 1000 ##Gravity
@@ -38,7 +39,7 @@ func _physics_process(delta):
 	
 	add_gravity(delta)
 	try_jump()
-	handle_movement()
+	handle_movement(delta)
 	var was_on_floor = is_on_floor()
 	move_and_slide()
 	check_coyote(was_on_floor)
@@ -48,7 +49,7 @@ func add_gravity(delta):
 	if not is_on_floor() and can_move:
 		velocity.y += gravity * delta
 
-func handle_movement():
+func handle_movement(delta):
 	if not $DashTimer.is_stopped():
 		handle_dash_movement()
 		return
@@ -60,8 +61,12 @@ func handle_movement():
 		elif direction < 0:
 			velocity.x = max(velocity.x - acceleration, -normal_speed)
 			$Animation.flip_h = true
+	elif not $DashDelay.is_stopped():
+		print(velocity)
+		velocity.x = lerpf(velocity.x, normal_speed, dash_deceleration*delta)
+		velocity.y = lerpf(velocity.y, 0, dash_deceleration*delta*2)
 	elif can_move:
-		velocity.x = lerpf(velocity.x, 0, deceleration)
+			velocity.x = lerpf(velocity.x, 0, deceleration)
 
 func handle_dash_movement():
 	if dash_direction.x > 0:
@@ -176,6 +181,9 @@ func _on_ghost_timer_timeout():
 
 func _on_dash_timer_timeout():
 	$GhostTimer.stop()
+	$DashDelay.start()
+
+func _on_dash_delay_timeout():
 	$DashCooldown.start()
 	can_move = true
 	try_place_orb()
@@ -204,3 +212,5 @@ func place_temporary_orb(pos):
 	orb.position = pos
 	get_parent().add_child(orb)
 	entered_orb.emit(orb)
+
+

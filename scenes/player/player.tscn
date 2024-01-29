@@ -78,6 +78,7 @@ jump_velocity = -1000.0
 double_jump_velocity = -1000.0
 dash_speed = 3000
 dash_acceleration = 80.0
+dash_deceleration = 3.0
 ghost_node = ExtResource("2_rl3rv")
 gravity = 2600
 temporary_orb_prefab = ExtResource("3_qo4h5")
@@ -118,6 +119,10 @@ one_shot = true
 [node name="GhostTimer" type="Timer" parent="."]
 wait_time = 0.03
 
+[node name="DashDelay" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [node name="DashCooldown" type="Timer" parent="."]
 one_shot = true
 
@@ -138,6 +143,7 @@ libraries = {
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
+[connection signal="timeout" from="DashDelay" to="." method="_on_dash_delay_timeout"]
 [connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]
 [connection signal="area_exited" from="TriggerArea" to="." method="_on_trigger_area_area_exited"]
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
