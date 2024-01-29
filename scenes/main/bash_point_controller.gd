@@ -43,8 +43,8 @@ func create_shape(p):
 	for point in current_points:
 		if point == points[0]:
 			break
-		else:
-			point.delete_point()
+		elif point.has_method("delete_point"):
+				point.delete_point()
 	current_shape.finish_shape(points)
 	current_shape = null
 	current_points = []

@@ -178,6 +178,7 @@ func _on_dash_timer_timeout():
 	$GhostTimer.stop()
 	$DashCooldown.start()
 	can_move = true
+	try_place_orb()
 
 func take_damage(damage):
 	if current_health > 1:
