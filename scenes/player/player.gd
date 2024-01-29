@@ -9,7 +9,6 @@ signal player_died()
 @export_range(0,200) var acceleration = 20.0 ##Acceleration
 @export_range(0,200) var deceleration = 0.2 ##Deceleration
 @export var max_jump_time =  0.15 ##Maximum time the player can hold the jump button to influence the jump height
-@export var double_jump_velocity = -300.0 ##Initial velocity for second jump
 @export var dash_speed = 400 ##Speed for the dash
 @export_range(0,200) var dash_acceleration = 20.0 ##Acceleration for the dash
 @export_range(0,200) var dash_deceleration = 20.0 ##Deceleration for the dash
@@ -31,7 +30,7 @@ var current_orb
 #endregion
 
 func _ready():
-	current_health = max_health
+	reset()
 	disable()
 
 func _physics_process(delta):
@@ -49,7 +48,6 @@ func _physics_process(delta):
 func add_gravity(delta):
 	if not is_on_floor() and can_move and velocity.y < max_y_velocity:
 		velocity.y += gravity * delta
-		print(velocity.y)
 
 func handle_movement(delta):
 	if not $DashTimer.is_stopped():
@@ -82,8 +80,8 @@ func handle_dash_movement():
 	pass
 
 func enable():
-	$Camera.enabled = true
 	$Animation.visible = true
+	$Camera.enabled = true
 	await get_tree().create_timer(0.1).timeout
 	is_disabled = false
 
@@ -97,7 +95,8 @@ func reset():
 	velocity = Vector2.ZERO
 
 func try_jump():
-	if Input.is_action_just_pressed("dash") and $DashTimer.is_stopped() and $DashCooldown.is_stopped() and can_move:
+	var can_dash = $DashTimer.is_stopped() and $DashCooldown.is_stopped() and can_move
+	if Input.is_action_just_pressed("dash") and can_dash:
 		dash()
 	if Input.is_action_just_pressed("jump"):
 		$JumpBufferTimer.start()
@@ -110,49 +109,46 @@ func handle_jump(delta):
 			can_tripple_jump = false
 			can_jump = true
 			can_double_jump = true
-			velocity.y = jump_velocity
-			jump_time = 0.0
-			try_place_orb()
+			start_jump()
 		elif can_double_jump:
 			can_jump = true
 			can_double_jump = false
-			velocity.y = jump_velocity
-			jump_time = 0.0
-			try_place_orb()
+			start_jump()
 		else:
 			can_jump = false
-			jump_time = 0.0
-			velocity.y = double_jump_velocity
-			try_place_orb()
+			start_jump()
 	if Input.is_action_pressed("jump") and jump_time < max_jump_time:
 		velocity.y = jump_velocity
 		jump_time += delta
 
+func start_jump():
+	velocity.y = jump_velocity
+	jump_time = 0.0
+	try_place_orb()
+
 func check_coyote(was_on_floor):
-	if was_on_floor and not is_on_floor() and $CoyoteTimer.is_stopped():
+	if was_on_floor and (not is_on_floor()) and $CoyoteTimer.is_stopped():
 		$CoyoteTimer.start()
 	elif is_on_floor():
-		can_jump = true
-		can_double_jump = true
-		can_tripple_jump = true
+		reset_jump()
 
 func _on_coyote_timer_timeout():
 	can_jump = true
 	can_double_jump = true
 	can_tripple_jump = false
 
-var last_mouse_position
+func reset_jump():
+	can_jump = true
+	can_double_jump = true
+	can_tripple_jump = true
 
 func _on_trigger_area_area_entered(area):
 	if area.is_in_group("jump_point"):
+		reset_jump()
 		area.use_point()
-		can_jump = true
-		can_double_jump = true
-		can_tripple_jump = true
 		current_orb = area
 	elif area.is_in_group("temporary_orb"):
 		current_orb = area
-	print(current_orb)
 
 func _on_trigger_area_area_exited(area):
 	if area.is_in_group("jump_point"):
@@ -214,5 +210,3 @@ func place_temporary_orb(pos):
 	orb.position = pos
 	get_parent().add_child(orb)
 	entered_orb.emit(orb)
-
-

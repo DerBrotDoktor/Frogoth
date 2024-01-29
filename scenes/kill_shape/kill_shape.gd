@@ -1,17 +1,15 @@
 extends Node2D
 
-var points = []
+var point_objects = []
 var point_positions = []
 
 func add_point(point):
-	points.append(point)
+	point_objects.append(point)
 	point_positions.append(point.position)
 	$Outline.points = point_positions
 
 func finish_shape(new_points):
-	$Outline.points = []
-	point_positions = []
-	points = []
+	clear_points()
 	for point in new_points:
 		add_point(point)
 	$Outline.closed = true
@@ -19,9 +17,14 @@ func finish_shape(new_points):
 	$KillArea/KillAreaCollision.polygon = point_positions
 	$DeleteTimer.start()
 
+func clear_points():
+	$Outline.points = []
+	point_positions = []
+	point_objects = []
+
 func delete_shape():
-	for point in points:
-		if point.has_method("delete_point"):
+	for point in point_objects:
+		if point and point.has_method("delete_point"):
 			point.delete_point()
 	queue_free()
 

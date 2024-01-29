@@ -2,8 +2,8 @@ extends "res://scenes/enemies/enemy_grounded.gd"
 
 @export var bullet_speed = 200
 @export var bullet_prefab :PackedScene
-var target
 
+var target
 var is_player_in_range = false
 
 func trigger_area_entererd(area):
