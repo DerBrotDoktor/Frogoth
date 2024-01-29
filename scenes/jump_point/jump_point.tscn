@@ -1,6 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj7mb0cagsptn"]
-
-[ext_resource type="Script" path="res://scenes/bash_points/bash_point.gd" id="1_yxaq1"]
+[gd_scene load_steps=3 format=3 uid="uid://cj7mb0cagsptn"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_r6txh"]
 size = Vector2(60, 60)
@@ -8,8 +6,7 @@ size = Vector2(60, 60)
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ttjw"]
 radius = 64.0312
 
-[node name="BashPoint" type="Area2D" groups=["bash_point"]]
-script = ExtResource("1_yxaq1")
+[node name="JumpPoint" type="Area2D" groups=["jump_point"]]
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = SubResource("PlaceholderTexture2D_r6txh")

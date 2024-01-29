@@ -13,7 +13,6 @@ signal player_died()
 @export var dash_speed = 400 ##Speed for the dash
 @export_range(0,200) var dash_acceleration = 20.0 ##Acceleration for the dash
 @export var ghost_node : PackedScene ##Ghost sprite, placed while dashing
-@export var bash_speed = 300 ##Speed for the bash
 @export var max_health = 3 ##Maximum player health
 @export var gravity = 1000 ##Gravity
 @export var block_speed = 0.9 ##Block shrinking time
@@ -23,10 +22,7 @@ var can_jump = false
 var can_double_jump = false
 var jump_time = 0.0
 var is_disabled = false
-var is_in_bash_point = false
 var can_move = true
-var ready_for_bash = false
-var current_bash_point
 var current_health
 var is_blocking = false
 var block_strength = 100
@@ -41,13 +37,10 @@ func _ready():
 func _physics_process(delta):
 	if is_disabled:
 		return
-	if ready_for_bash:
-		$DirectionArrow.look_at(get_look_position())
 	if is_blocking:
 		$Block.look_at(get_look_position())
 	
 	add_gravity(delta)
-	try_bash()
 	try_jump()
 	try_block(delta)
 	handle_movement()
@@ -113,8 +106,6 @@ func handle_jump(delta):
 	if not $JumpBufferTimer.is_stopped() and can_jump:
 		$JumpBufferTimer.stop()
 		$CoyoteTimer.stop()
-		if is_in_bash_point:
-			return
 		if can_double_jump:
 			can_jump = true
 			can_double_jump = false
@@ -124,7 +115,7 @@ func handle_jump(delta):
 			can_jump = false
 			jump_time = 0.0
 			velocity.y = double_jump_velocity
-	if Input.is_action_pressed("jump") and jump_time < max_jump_time and not is_in_bash_point:
+	if Input.is_action_pressed("jump") and jump_time < max_jump_time:
 		velocity.y = jump_velocity
 		jump_time += delta
 
@@ -156,36 +147,13 @@ func get_look_position():
 	last_mouse_position = get_global_mouse_position()
 	return returnValue
 
-func try_bash():
-	if Input.is_action_pressed("bash") and is_in_bash_point and not ready_for_bash :
-		bash_point()
-	elif Input.is_action_just_released("bash") and ready_for_bash:
-		bash()
-
-func bash_point():
-	enter_bash_point.emit(current_bash_point)
-	$DirectionArrow.visible = true
-	can_move = false
-	velocity = Vector2(0,0)
-	position = current_bash_point.position
-	ready_for_bash = true
-
-func bash():
-	pass
-
-func _on_bash_timer_timeout():
-	if not ready_for_bash:
-		can_move = true
-
 func _on_trigger_area_area_entered(area):
-	if area.is_in_group("bash_point"):
-		current_bash_point = area
-		is_in_bash_point = true
+	if area.is_in_group("jump_point"):
+		return
 
 func _on_trigger_area_area_exited(area):
-	if area.is_in_group("bash_point"):
-		is_in_bash_point = false
-		current_bash_point = null
+	if area.is_in_group("jump_point"):
+		return
 
 func _on_trigger_area_body_entered(body):
 	if body.is_in_group("bullet"):

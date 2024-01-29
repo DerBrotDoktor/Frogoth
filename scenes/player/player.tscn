@@ -87,7 +87,6 @@ double_jump_velocity = -1000.0
 dash_speed = 3000
 dash_acceleration = 80.0
 ghost_node = ExtResource("2_rl3rv")
-bash_speed = 1000
 gravity = 2600
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
