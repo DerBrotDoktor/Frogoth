@@ -27,6 +27,10 @@ player_spawn_point = NodePath("PlayerSpwanPoint")
 [node name="PlayerSpwanPoint" parent="." instance=ExtResource("3_lyrsc")]
 position = Vector2(970, -82)
 
+[node name="JumpPoint" parent="." instance=ExtResource("3_6oclq")]
+position = Vector2(491, -235)
+scale = Vector2(0.3, 0.3)
+
 [node name="BashPoints" type="Node2D" parent="."]
 position = Vector2(-9, 0)
 

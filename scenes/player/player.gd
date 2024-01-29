@@ -18,6 +18,7 @@ signal player_died()
 
 var can_jump = false
 var can_double_jump = false
+var can_tripple_jump = false
 var jump_time = 0.0
 var is_disabled = false
 var can_move = true
@@ -97,7 +98,13 @@ func handle_jump(delta):
 	if not $JumpBufferTimer.is_stopped() and can_jump:
 		$JumpBufferTimer.stop()
 		$CoyoteTimer.stop()
-		if can_double_jump:
+		if can_tripple_jump:
+			can_tripple_jump = false
+			can_jump = true
+			can_double_jump = true
+			velocity.y = jump_velocity
+			jump_time = 0.0
+		elif can_double_jump:
 			can_jump = true
 			can_double_jump = false
 			velocity.y = jump_velocity
@@ -116,20 +123,23 @@ func check_coyote(was_on_floor):
 	elif is_on_floor():
 		can_jump = true
 		can_double_jump = true
+		can_tripple_jump = true
+		
 
 func _on_coyote_timer_timeout():
 	can_jump = true
-	can_double_jump = false
+	can_double_jump = true
+	can_tripple_jump = false
 
 var last_mouse_position
 
 func _on_trigger_area_area_entered(area):
 	if area.is_in_group("jump_point"):
-		return
-
-func _on_trigger_area_area_exited(area):
-	if area.is_in_group("jump_point"):
-		return
+		print("point")
+		area.use_point()
+		can_jump = true
+		can_double_jump = true
+		can_tripple_jump = true
 
 func _on_trigger_area_body_entered(body):
 	if body.is_in_group("bullet"):
@@ -165,7 +175,6 @@ func take_damage(damage):
 		current_health -= damage
 	else:
 		die()
-	print(current_health)
 
 func die():
 	player_died.emit()
