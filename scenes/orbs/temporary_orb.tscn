@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://oe7s2tuyg2b7"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_18ryo"]
+size = Vector2(50, 50)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_60t3f"]
+radius = 40.0
+
+[node name="TemporaryOrb" type="Area2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(0, 0.384314, 1, 1)
+texture = SubResource("PlaceholderTexture2D_18ryo")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_60t3f")

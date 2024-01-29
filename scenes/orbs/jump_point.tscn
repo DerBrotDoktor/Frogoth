@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cj7mb0cagsptn"]
 
-[ext_resource type="Script" path="res://scenes/jump_point/jump_point.gd" id="1_0nlay"]
+[ext_resource type="Script" path="res://scenes/orbs/jump_point.gd" id="1_lotvx"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_r6txh"]
 size = Vector2(150, 150)
@@ -9,7 +9,7 @@ size = Vector2(150, 150)
 radius = 125.0
 
 [node name="JumpPoint" type="Area2D" groups=["jump_point"]]
-script = ExtResource("1_0nlay")
+script = ExtResource("1_lotvx")
 
 [node name="SpriteActivated" type="Sprite2D" parent="."]
 visible = false

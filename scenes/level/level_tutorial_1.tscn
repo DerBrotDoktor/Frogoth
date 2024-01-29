@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_72ydh"]
 [ext_resource type="TileSet" uid="uid://ccmvs8cpkx4w2" path="res://assets/tileset/floor_tileset.tres" id="2_sjt5m"]
-[ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/jump_point/jump_point.tscn" id="3_6oclq"]
+[ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/orbs/jump_point.tscn" id="3_emvqd"]
 [ext_resource type="PackedScene" uid="uid://0woesesbbwik" path="res://scenes/enviroment/tutorial_sign/tutorial_sign.tscn" id="3_exuu5"]
 [ext_resource type="PackedScene" uid="uid://d0gcu70fmmqi4" path="res://scenes/player/player_spwan_point.tscn" id="3_lyrsc"]
 [ext_resource type="PackedScene" uid="uid://btimemg85kwm8" path="res://scenes/enviroment/platforms/big/platform_big_2.tscn" id="4_6oxe8"]
@@ -27,32 +27,32 @@ player_spawn_point = NodePath("PlayerSpwanPoint")
 [node name="PlayerSpwanPoint" parent="." instance=ExtResource("3_lyrsc")]
 position = Vector2(970, -82)
 
-[node name="JumpPoint" parent="." instance=ExtResource("3_6oclq")]
+[node name="JumpPoint" parent="." instance=ExtResource("3_emvqd")]
 position = Vector2(491, -235)
 scale = Vector2(0.3, 0.3)
 
 [node name="BashPoints" type="Node2D" parent="."]
 position = Vector2(-9, 0)
 
-[node name="BashPoint" parent="BashPoints" instance=ExtResource("3_6oclq")]
+[node name="BashPoint" parent="BashPoints" instance=ExtResource("3_emvqd")]
 position = Vector2(5514, -645)
 
-[node name="BashPoint2" parent="BashPoints" instance=ExtResource("3_6oclq")]
+[node name="BashPoint2" parent="BashPoints" instance=ExtResource("3_emvqd")]
 position = Vector2(7053, -702)
 
-[node name="BashPoint3" parent="BashPoints" instance=ExtResource("3_6oclq")]
+[node name="BashPoint3" parent="BashPoints" instance=ExtResource("3_emvqd")]
 position = Vector2(7333, -1080)
 
-[node name="BashPoint7" parent="BashPoints" instance=ExtResource("3_6oclq")]
+[node name="BashPoint7" parent="BashPoints" instance=ExtResource("3_emvqd")]
 position = Vector2(7833, -1072)
 
-[node name="BashPoint4" parent="BashPoints" instance=ExtResource("3_6oclq")]
+[node name="BashPoint4" parent="BashPoints" instance=ExtResource("3_emvqd")]
 position = Vector2(8154, -715)
 
-[node name="BashPoint5" parent="BashPoints" instance=ExtResource("3_6oclq")]
+[node name="BashPoint5" parent="BashPoints" instance=ExtResource("3_emvqd")]
 position = Vector2(8002, -264)
 
-[node name="BashPoint6" parent="BashPoints" instance=ExtResource("3_6oclq")]
+[node name="BashPoint6" parent="BashPoints" instance=ExtResource("3_emvqd")]
 position = Vector2(7145, -227)
 
 [node name="Platforms" type="Node2D" parent="."]

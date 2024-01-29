@@ -69,6 +69,5 @@ player = NodePath("../Player")
 [connection signal="pause_game" from="Canvas/PauseMenu" to="." method="_on_pause_menu_pause_game"]
 [connection signal="restart_level" from="Canvas/PauseMenu" to="." method="_on_pause_menu_restart_level"]
 [connection signal="resume_game" from="Canvas/PauseMenu" to="." method="_on_pause_menu_resume_game"]
-[connection signal="enter_bash_point" from="Player" to="BashPointController" method="_on_player_enter_bash_point"]
 [connection signal="player_died" from="Player" to="." method="_on_player_player_died"]
 [connection signal="player_died" from="Player" to="BashPointController" method="_on_player_player_died"]

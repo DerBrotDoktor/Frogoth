@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-signal enter_bash_point(bash_point)
+signal entered_orb(orb_position)
 signal player_died()
 
 #region Variables
@@ -15,6 +15,7 @@ signal player_died()
 @export var ghost_node : PackedScene ##Ghost sprite, placed while dashing
 @export var max_health = 3 ##Maximum player health
 @export var gravity = 1000 ##Gravity
+@export var temporary_orb_prefab :PackedScene ##Temporary Orb Scene
 
 var can_jump = false
 var can_double_jump = false
@@ -24,6 +25,7 @@ var is_disabled = false
 var can_move = true
 var current_health
 var dash_direction
+var is_in_orb = false
 #endregion
 
 func _ready():
@@ -104,15 +106,18 @@ func handle_jump(delta):
 			can_double_jump = true
 			velocity.y = jump_velocity
 			jump_time = 0.0
+			try_place_orb()
 		elif can_double_jump:
 			can_jump = true
 			can_double_jump = false
 			velocity.y = jump_velocity
 			jump_time = 0.0
+			try_place_orb()
 		else:
 			can_jump = false
 			jump_time = 0.0
 			velocity.y = double_jump_velocity
+			try_place_orb()
 	if Input.is_action_pressed("jump") and jump_time < max_jump_time:
 		velocity.y = jump_velocity
 		jump_time += delta
@@ -124,7 +129,6 @@ func check_coyote(was_on_floor):
 		can_jump = true
 		can_double_jump = true
 		can_tripple_jump = true
-		
 
 func _on_coyote_timer_timeout():
 	can_jump = true
@@ -140,6 +144,15 @@ func _on_trigger_area_area_entered(area):
 		can_jump = true
 		can_double_jump = true
 		can_tripple_jump = true
+		is_in_orb = true
+	elif area.is_in_group("temporary_orb"):
+		is_in_orb = true
+
+func _on_trigger_area_area_exited(area):
+	if area.is_in_group("jump_point"):
+		is_in_orb = false
+	elif area.is_in_group("jump_point"):
+		is_in_orb = false
 
 func _on_trigger_area_body_entered(body):
 	if body.is_in_group("bullet"):
@@ -178,3 +191,15 @@ func take_damage(damage):
 
 func die():
 	player_died.emit()
+
+func try_place_orb():
+	if is_on_floor():
+		return
+	elif not is_in_orb:
+		place_temporary_orb(position)
+
+func place_temporary_orb(pos):
+	var orb = temporary_orb_prefab.instantiate()
+	orb.position = pos
+	get_parent().add_child(orb)
+	entered_orb.emit(pos)
