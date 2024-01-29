@@ -25,7 +25,7 @@ var is_disabled = false
 var can_move = true
 var current_health
 var dash_direction
-var is_in_orb = false
+var current_orb
 #endregion
 
 func _ready():
@@ -72,7 +72,6 @@ func handle_dash_movement():
 		velocity.y = min(velocity.y + dash_acceleration, dash_speed)
 	elif dash_direction.y < 0:
 		velocity.y = max(velocity.y - dash_acceleration, -dash_speed)
-	print(velocity)
 	pass
 
 func enable():
@@ -139,20 +138,20 @@ var last_mouse_position
 
 func _on_trigger_area_area_entered(area):
 	if area.is_in_group("jump_point"):
-		print("point")
 		area.use_point()
 		can_jump = true
 		can_double_jump = true
 		can_tripple_jump = true
-		is_in_orb = true
+		current_orb = area
 	elif area.is_in_group("temporary_orb"):
-		is_in_orb = true
+		current_orb = area
+	print(current_orb)
 
 func _on_trigger_area_area_exited(area):
 	if area.is_in_group("jump_point"):
-		is_in_orb = false
-	elif area.is_in_group("jump_point"):
-		is_in_orb = false
+		current_orb = null
+	elif area.is_in_group("temporary_orb"):
+		current_orb = null
 
 func _on_trigger_area_body_entered(body):
 	if body.is_in_group("bullet"):
@@ -181,7 +180,6 @@ func _on_dash_timer_timeout():
 	can_move = true
 
 func take_damage(damage):
-	print("damage", current_health)
 	if current_health > 1:
 		$Camera.shake()
 		$PlayerAnimation.play("hit_player_animation")
@@ -195,11 +193,13 @@ func die():
 func try_place_orb():
 	if is_on_floor():
 		return
-	elif not is_in_orb:
+	elif not current_orb:
 		place_temporary_orb(position)
+	elif current_orb:
+		entered_orb.emit(current_orb)
 
 func place_temporary_orb(pos):
 	var orb = temporary_orb_prefab.instantiate()
 	orb.position = pos
 	get_parent().add_child(orb)
-	entered_orb.emit(pos)
+	entered_orb.emit(orb)
