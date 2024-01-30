@@ -159,6 +159,8 @@ func _on_trigger_area_area_exited(area):
 func _on_trigger_area_body_entered(body):
 	if body.is_in_group("bullet"):
 		take_damage(1)
+	if body.is_in_group("spikes"):
+		die()
 
 func dash():
 	var input_x = Input.get_action_strength("right") - Input.get_action_strength("left")

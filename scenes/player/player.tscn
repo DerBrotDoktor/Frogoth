@@ -31,7 +31,7 @@ animations = [{
 size = Vector2(233, 420)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86dhk"]
-size = Vector2(235, 417)
+size = Vector2(243.333, 426.667)
 
 [sub_resource type="Animation" id="Animation_8u4v0"]
 length = 0.001
@@ -131,7 +131,7 @@ collision_mask = 5
 
 [node name="TriggerCollider" type="CollisionShape2D" parent="TriggerArea"]
 visible = false
-position = Vector2(-1.5, 46.5)
+position = Vector2(-1.66666, 46.6667)
 shape = SubResource("RectangleShape2D_86dhk")
 
 [node name="PlayerAnimation" type="AnimationPlayer" parent="."]
