@@ -2,6 +2,11 @@ extends CharacterBody2D
 
 @export var speed = 100 ##Speed
 @export var direction = 1 ##The direction the enemy is facing
+@export var bullet_speed = 200
+@export var bullet_size = 1
+@export var bullet_prefab :PackedScene
+
+var target
 
 func _physics_process(_delta):
 	handle_movement()
@@ -24,12 +29,29 @@ func flip():
 func trigger_area_entererd(area):
 	if area.is_in_group("killing_area"):
 		queue_free()
+	elif area.is_in_group("player"):
+		$AttackCooldown.start()
+		target = area
+		shoot()
+
+func shoot():
+	pass
+
+func new_bullet(b_direction):
+	var bullet = bullet_prefab.instantiate()
+	bullet.set_properties(bullet_speed, bullet_size, position, b_direction)
+	get_parent().call_deferred("add_child",bullet)
+	pass
 
 func _on_trigger_area_area_entered(area):
 	trigger_area_entererd(area)
 
 func trigger_area_exited(area):
-	pass
+	if area.is_in_group("player"):
+		$AttackCooldown.stop()
 
 func _on_trigger_area_area_exited(area):
 	trigger_area_exited(area)
+
+func _on_attack_cooldown_timeout():
+	shoot()

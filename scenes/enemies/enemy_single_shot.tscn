@@ -9,7 +9,6 @@ radius = 1600.5
 
 [node name="EnemySingleShot" instance=ExtResource("1_ou6ub")]
 script = ExtResource("2_g0l75")
-bullet_speed = 200
 bullet_prefab = ExtResource("3_lpapv")
 
 [node name="Animation" parent="." index="0"]
@@ -21,7 +20,3 @@ position = Vector2(13.3333, 50)
 [node name="TriggerAreaShape" parent="TriggerArea" index="0"]
 position = Vector2(0, 0)
 shape = SubResource("CircleShape2D_lkc3a")
-
-[node name="AttackCooldown" type="Timer" parent="." index="7"]
-
-[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

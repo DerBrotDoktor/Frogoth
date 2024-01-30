@@ -58,5 +58,8 @@ autostart = true
 position = Vector2(14, 49.5)
 shape = SubResource("RectangleShape2D_qpu30")
 
+[node name="AttackCooldown" type="Timer" parent="."]
+
 [connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]
 [connection signal="area_exited" from="TriggerArea" to="." method="_on_trigger_area_area_exited"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

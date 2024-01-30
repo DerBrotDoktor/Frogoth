@@ -3,6 +3,12 @@ extends CharacterBody2D
 var direction
 var speed
 
+func set_properties(_speed, _scale, _position, _direction):
+	scale = Vector2(_scale, _scale)
+	speed = _speed
+	position = _position
+	direction = _direction
+
 func _physics_process(_delta):
 	if direction:
 		velocity = direction * speed
