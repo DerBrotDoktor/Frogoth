@@ -12,10 +12,10 @@ radius = 125.0
 script = ExtResource("1_lotvx")
 
 [node name="SpriteActivated" type="Sprite2D" parent="."]
-visible = false
 texture = SubResource("PlaceholderTexture2D_r6txh")
 
 [node name="SpriteDeactivated" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.301961, 0.301961, 0.301961, 1)
 texture = SubResource("PlaceholderTexture2D_r6txh")
 
