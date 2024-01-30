@@ -75,11 +75,12 @@ scale = Vector2(0.3, 0.3)
 script = ExtResource("1_il0n1")
 normal_speed = 600.0
 jump_velocity = -1000.0
+deceleration = 0.14
 dash_speed = 3000
-dash_acceleration = 80.0
-dash_deceleration = 3.0
+dash_acceleration = 50.0
+dash_deceleration = 8.0
 ghost_node = ExtResource("2_rl3rv")
-gravity = 2600
+gravity = 2680
 temporary_orb_prefab = ExtResource("3_qo4h5")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
@@ -97,7 +98,7 @@ position = Vector2(-0.5, 47)
 shape = SubResource("RectangleShape2D_0tqvw")
 
 [node name="Camera" type="Camera2D" parent="."]
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.3, 0.3)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
@@ -112,7 +113,7 @@ wait_time = 0.2
 one_shot = true
 
 [node name="DashTimer" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 0.2
 one_shot = true
 
 [node name="GhostTimer" type="Timer" parent="."]
