@@ -9,6 +9,7 @@ size = Vector2(150, 150)
 radius = 125.0
 
 [node name="JumpPoint" type="Area2D" groups=["jump_point"]]
+scale = Vector2(0.3, 0.3)
 script = ExtResource("1_lotvx")
 
 [node name="SpriteActivated" type="Sprite2D" parent="."]
