@@ -163,6 +163,7 @@ func _on_trigger_area_body_entered(body):
 		die()
 
 func dash():
+	velocity = Vector2.ZERO
 	var input_x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	var input_y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	dash_direction = Vector2(input_x, input_y).normalized()
@@ -189,7 +190,6 @@ func _on_dash_delay_timeout():
 	try_place_orb()
 
 func take_damage(damage):
-	return
 	if current_health > 1:
 		$Camera.shake()
 		$PlayerAnimation.play("hit_player_animation")
