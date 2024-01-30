@@ -64,6 +64,7 @@ player = NodePath("../Player")
 
 [connection signal="allow_pause_menu" from="." to="Canvas/PauseMenu" method="_on_main_allow_pause_menu"]
 [connection signal="forbid_pause_menu" from="." to="Canvas/PauseMenu" method="_on_main_forbid_pause_menu"]
+[connection signal="restart_timer" from="." to="Canvas/UserInterface" method="_on_main_restart_timer"]
 [connection signal="start_timer" from="." to="Canvas/UserInterface" method="_on_main_start_timer"]
 [connection signal="main_menu" from="Canvas/PauseMenu" to="." method="_on_pause_menu_main_menu"]
 [connection signal="pause_game" from="Canvas/PauseMenu" to="." method="_on_pause_menu_pause_game"]

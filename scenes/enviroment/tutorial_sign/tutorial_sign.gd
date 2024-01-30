@@ -17,7 +17,7 @@ func _on_trigger_area_area_entered(area):
 
 
 func _on_trigger_area_area_exited(area):
-	if area.is_in_group("player"):
+	if area.is_in_group("player") and $LeaveTimer.is_inside_tree():
 		$LeaveTimer.start()
 
 

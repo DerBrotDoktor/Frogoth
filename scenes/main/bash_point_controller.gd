@@ -50,12 +50,12 @@ func clear_current():
 func clear_shape():
 	if current_shape:
 		current_shape.delete_shape()
+		current_shape.queue_free()
 		clear_current()
 
 func _on_player_player_died():
 	if current_shape:
-		current_shape.queue_free()
-		clear_current()
+		clear_shape()
 
 func _on_player_entered_orb(orb_position):
 	check_point(orb_position)

@@ -10,3 +10,8 @@ func _process(delta):
 
 func _on_main_start_timer():
 	timer_allowed = true
+
+
+func _on_main_restart_timer():
+	time = 0.0
+	$TimeText.text = str(int(time))

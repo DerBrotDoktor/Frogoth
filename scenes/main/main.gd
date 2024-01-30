@@ -1,6 +1,7 @@
 extends Node
 
 signal start_timer
+signal restart_timer
 signal allow_pause_menu
 signal forbid_pause_menu
 
@@ -48,6 +49,7 @@ func load_level_select():
 
 func restart_current_level():
 	load_level(current_level)
+	restart_timer.emit()
 
 func set_player_position(position):
 	player.position = position
