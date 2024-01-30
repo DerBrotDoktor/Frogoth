@@ -48,6 +48,9 @@ func _physics_process(delta):
 func add_gravity(delta):
 	if not is_on_floor() and can_move and velocity.y < max_y_velocity:
 		velocity.y += gravity * delta
+		if not $Animation.is_playing():
+			print("a")
+			$Animation.play("fall")
 
 func handle_movement(delta):
 	if not $DashTimer.is_stopped():
@@ -58,15 +61,21 @@ func handle_movement(delta):
 		if direction > 0:
 			$Animation.flip_h = false
 			velocity.x = min(velocity.x + acceleration, normal_speed)
+			if is_on_floor():
+				$Animation.play("walk")
 		elif direction < 0:
 			velocity.x = max(velocity.x - acceleration, -normal_speed)
 			$Animation.flip_h = true
+			if is_on_floor():
+				$Animation.play("walk")
 	elif not $DashDelay.is_stopped():
 		print(velocity)
 		velocity.x = lerpf(velocity.x, normal_speed, dash_deceleration*delta)
 		velocity.y = lerpf(velocity.y, 0, dash_deceleration*delta*2)
 	elif can_move:
 			velocity.x = lerpf(velocity.x, 0, deceleration)
+			if not $Animation.is_playing() or ($Animation.animation == "fall" and is_on_floor()):
+				$Animation.play("idle")
 
 func handle_dash_movement():
 	if dash_direction.x > 0:
@@ -125,6 +134,10 @@ func start_jump():
 	velocity.y = jump_velocity
 	jump_time = 0.0
 	try_place_orb()
+	if can_jump:
+		$Animation.play("double_jump")
+	else:
+		$Animation.play("jump")
 
 func check_coyote(was_on_floor):
 	if was_on_floor and (not is_on_floor()) and $CoyoteTimer.is_stopped():
@@ -168,6 +181,7 @@ func dash():
 	velocity = Vector2(input_x * 3000.0, input_y * 3000.0)	# gern geschehen. Aber Diagonal ist zu stark in Relation
 	dash_direction = Vector2(input_x, input_y).normalized()
 	can_move = false
+	$Animation.play("dash")
 	$DashTimer.start()
 	$GhostTimer.start()
 
@@ -193,12 +207,17 @@ func take_damage(damage):
 	if current_health > 1:
 		$Camera.shake()
 		$PlayerAnimation.play("hit_player_animation")
+		$Animation.play("damage")
 		current_health -= damage
 	else:
 		die()
 
 func die():
+	can_move = false
+	$Animation.play("death")
+	await  $Animation.animation_finished
 	player_died.emit()
+	can_move = true
 
 func try_place_orb():
 	if is_on_floor():

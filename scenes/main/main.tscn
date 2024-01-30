@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://m30ojk8eyhbr" path="res://assets/parallax/sky.png" id="6_2g7ui"]
 [ext_resource type="PackedScene" uid="uid://bjr4d282863jf" path="res://scenes/player/user_interface.tscn" id="6_a7p0o"]
 [ext_resource type="Script" path="res://scenes/main/bash_point_controller.gd" id="6_n33ax"]
-[ext_resource type="PackedScene" uid="uid://b3xkhnnblngtv" path="res://scenes/level/level_2.tscn" id="6_st07r"]
+[ext_resource type="PackedScene" path="res://scenes/level/level_2.tscn" id="6_st07r"]
 [ext_resource type="Texture2D" uid="uid://dechd0hxshq2j" path="res://assets/parallax/paralax_1.png" id="7_3mtfd"]
 [ext_resource type="Texture2D" uid="uid://dnh4dfbpvvn6l" path="res://assets/parallax/paralax_2.png" id="8_cxncj"]
 [ext_resource type="PackedScene" uid="uid://c6nm6w83jynbs" path="res://scenes/menus/pause_menu.tscn" id="10_u7rrt"]

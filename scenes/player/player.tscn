@@ -298,7 +298,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fj1jr")
 }],
-"loop": true,
+"loop": false,
 "name": &"damage",
 "speed": 12.0
 }, {
@@ -336,7 +336,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e6wlh")
 }],
-"loop": true,
+"loop": false,
 "name": &"dash",
 "speed": 12.0
 }, {
@@ -365,7 +365,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ppu2y")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 12.0
 }, {
@@ -387,7 +387,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ksl7l")
 }],
-"loop": true,
+"loop": false,
 "name": &"double_jump",
 "speed": 12.0
 }, {
@@ -428,7 +428,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s4wk3")
 }],
-"loop": true,
+"loop": false,
 "name": &"fall",
 "speed": 12.0
 }, {
@@ -469,7 +469,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e3apo")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 12.0
 }, {
@@ -495,7 +495,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7dqxo")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
 "speed": 12.0
 }, {
@@ -530,16 +530,16 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4w17a")
 }],
-"loop": true,
-"name": &"walk_0",
+"loop": false,
+"name": &"walk",
 "speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0tqvw"]
-size = Vector2(233, 420)
+size = Vector2(105, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86dhk"]
-size = Vector2(243.333, 426.667)
+size = Vector2(112, 198)
 
 [sub_resource type="Animation" id="Animation_8u4v0"]
 length = 0.001
@@ -579,7 +579,6 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
-scale = Vector2(0.3, 0.3)
 script = ExtResource("1_il0n1")
 normal_speed = 600.0
 jump_velocity = -1000.0
@@ -595,14 +594,11 @@ temporary_orb_prefab = ExtResource("3_qo4h5")
 z_index = 1
 material = SubResource("ShaderMaterial_fl175")
 sprite_frames = SubResource("SpriteFrames_lw100")
-animation = &"walk_0"
-autoplay = "walk_0"
-frame_progress = 0.7262
-
-[node name="Sprite2D" type="Sprite2D" parent="Animation"]
+animation = &"death"
+autoplay = "idle"
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 47)
+position = Vector2(-4.5, 31)
 shape = SubResource("RectangleShape2D_0tqvw")
 
 [node name="Camera" type="Camera2D" parent="."]
@@ -639,8 +635,7 @@ collision_layer = 5
 collision_mask = 5
 
 [node name="TriggerCollider" type="CollisionShape2D" parent="TriggerArea"]
-visible = false
-position = Vector2(-1.66666, 46.6667)
+position = Vector2(-4, 31)
 shape = SubResource("RectangleShape2D_86dhk")
 
 [node name="PlayerAnimation" type="AnimationPlayer" parent="."]
