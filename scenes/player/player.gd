@@ -189,6 +189,7 @@ func _on_dash_delay_timeout():
 	try_place_orb()
 
 func take_damage(damage):
+	return
 	if current_health > 1:
 		$Camera.shake()
 		$PlayerAnimation.play("hit_player_animation")

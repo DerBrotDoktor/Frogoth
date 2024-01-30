@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 @export var speed = 100 ##Speed
 @export var direction = 1 ##The direction the enemy is facing
-@export var bullet_speed = 200
-@export var bullet_size = 1
-@export var bullet_prefab :PackedScene
+@export var bullet_speed = 200## The speed of the bullet
+@export var bullet_scale = 1##The scale of the bullet
+var bullet_prefab = preload("res://scenes/enemies/bullet.tscn")
 
 var target
 
@@ -39,7 +39,7 @@ func shoot():
 
 func new_bullet(b_direction):
 	var bullet = bullet_prefab.instantiate()
-	bullet.set_properties(bullet_speed, bullet_size, position, b_direction)
+	bullet.set_properties(bullet_speed, bullet_scale, position, b_direction)
 	get_parent().call_deferred("add_child",bullet)
 	pass
 

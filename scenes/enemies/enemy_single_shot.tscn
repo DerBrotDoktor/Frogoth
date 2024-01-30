@@ -1,15 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://3j5q0ymm7o8s"]
+[gd_scene load_steps=4 format=3 uid="uid://3j5q0ymm7o8s"]
 
 [ext_resource type="PackedScene" uid="uid://cpddwnffvkcgu" path="res://scenes/enemies/enemy_grounded.tscn" id="1_ou6ub"]
 [ext_resource type="Script" path="res://scenes/enemies/enemy_single_shot.gd" id="2_g0l75"]
-[ext_resource type="PackedScene" uid="uid://77vbimjom55n" path="res://scenes/enemies/bullet.tscn" id="3_lpapv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lkc3a"]
 radius = 1600.5
 
 [node name="EnemySingleShot" instance=ExtResource("1_ou6ub")]
 script = ExtResource("2_g0l75")
-bullet_prefab = ExtResource("3_lpapv")
 
 [node name="Animation" parent="." index="0"]
 self_modulate = Color(1, 0, 0.0156863, 1)
