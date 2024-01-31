@@ -144,12 +144,15 @@ position = Vector2(1258, -618)
 
 [node name="EnemySingleShot" parent="Enemies" instance=ExtResource("3_sll38")]
 position = Vector2(3859, -760)
+scale = Vector2(0.3, 0.3)
 
 [node name="EnemySingleShot2" parent="Enemies" instance=ExtResource("3_sll38")]
 position = Vector2(2820, -1172)
+scale = Vector2(0.3, 0.3)
 
 [node name="EnemySingleShot3" parent="Enemies" instance=ExtResource("3_sll38")]
 position = Vector2(843, -1811)
+scale = Vector2(0.3, 0.3)
 
 [node name="Platforms" type="Node2D" parent="."]
 

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/enemies/enemy_multiple_shot.gd" id="2_ep2wc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iqqtg"]
-radius = 1745.0
+radius = 414.633
 
 [node name="EnemyMultipleShot" instance=ExtResource("1_fd1j6")]
 script = ExtResource("2_ep2wc")

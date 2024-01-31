@@ -1,13 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpddwnffvkcgu"]
+[gd_scene load_steps=7 format=3 uid="uid://cpddwnffvkcgu"]
 
 [ext_resource type="Script" path="res://scenes/enemies/enemy_grounded.gd" id="1_l2tby"]
-[ext_resource type="Texture2D" uid="uid://c8uej0dhpn2pa" path="res://assets/player/player.png" id="2_naput"]
+[ext_resource type="Texture2D" uid="uid://bo7xaupqyaojq" path="res://assets/player/player_idle_an.png" id="2_0cywg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrvh7"]
+atlas = ExtResource("2_0cywg")
+region = Rect2(0, 0, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1sjp7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_naput")
+"texture": SubResource("AtlasTexture_yrvh7")
 }],
 "loop": true,
 "name": &"default",
@@ -20,13 +24,12 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eiqsm"]
-size = Vector2(224, 408)
+size = Vector2(92, 187)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpu30"]
-size = Vector2(224, 409)
+size = Vector2(99, 193)
 
 [node name="EnemyGrounded" type="CharacterBody2D"]
-scale = Vector2(0.3, 0.3)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_l2tby")
@@ -35,17 +38,17 @@ script = ExtResource("1_l2tby")
 sprite_frames = SubResource("SpriteFrames_1sjp7")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(14, 49)
+position = Vector2(0, 32.5)
 shape = SubResource("RectangleShape2D_eiqsm")
 
 [node name="HorizontalRayCast" type="RayCast2D" parent="."]
 target_position = Vector2(200, 0)
 
 [node name="VerticalRayCastL" type="RayCast2D" parent="."]
-position = Vector2(-95, 220)
+position = Vector2(-45, 90)
 
 [node name="VerticalRayCastR" type="RayCast2D" parent="."]
-position = Vector2(125, 220)
+position = Vector2(45, 90)
 
 [node name="FlipCooldownTimer" type="Timer" parent="."]
 wait_time = 0.3
@@ -55,7 +58,7 @@ autostart = true
 [node name="TriggerArea" type="Area2D" parent="."]
 
 [node name="TriggerAreaShape" type="CollisionShape2D" parent="TriggerArea"]
-position = Vector2(14, 49.5)
+position = Vector2(0.5, 31.5)
 shape = SubResource("RectangleShape2D_qpu30")
 
 [node name="AttackCooldown" type="Timer" parent="."]

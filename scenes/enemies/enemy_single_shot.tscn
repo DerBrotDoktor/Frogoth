@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/enemies/enemy_single_shot.gd" id="2_g0l75"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lkc3a"]
-radius = 1600.5
+radius = 303.897
 
 [node name="EnemySingleShot" instance=ExtResource("1_ou6ub")]
 script = ExtResource("2_g0l75")
