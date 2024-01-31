@@ -8,10 +8,9 @@ func _process(delta):
 		time += delta
 		$TimeText.text = str(int(time))
 
-func _on_main_start_timer():
-	timer_allowed = true
-
-
-func _on_main_restart_timer():
+func reset_timer():
 	time = 0.0
 	$TimeText.text = str(int(time))
+
+func _on_visibility_changed():
+	timer_allowed != timer_allowed

@@ -1,11 +1,5 @@
 extends Node
 
-signal start_timer
-signal restart_timer
-signal allow_pause_menu
-signal forbid_pause_menu
-
-@export var main_menu :PackedScene
 @export var level_select_menu :PackedScene
 @export var level :Array[PackedScene] = []
 @export var player :CharacterBody2D
@@ -14,9 +8,8 @@ var current_level = -1
 var current_scene
 
 func _ready():
-	$Canvas.visible = false
 	player.disable()
-	load_scene(main_menu)
+	$Canvas.switch_to_child("MainMenu")
 
 func load_scene(scene:PackedScene):
 	if current_scene:
@@ -31,25 +24,18 @@ func load_level(id:int):
 		player.reset()
 		player.enable()
 		current_level = id
-		start_timer.emit()
-		$Canvas.visible = true
-		allow_pause_menu.emit()
+		$Canvas.switch_to_child("UserInterface")
 
 func load_main_menu():
-	forbid_pause_menu.emit()
 	player.disable()
-	$Canvas.visible = false
-	load_scene(main_menu)
+	$Canvas.switch_to_child("MainMenu")
 
 func load_level_select():
-	forbid_pause_menu.emit()
 	player.disable()
-	$Canvas.visible = false
-	load_scene(level_select_menu)
+	$Canvas.switch_to_child("LevelSelectMenu")
 
 func restart_current_level():
 	load_level(current_level)
-	restart_timer.emit()
 
 func set_player_position(position):
 	player.position = position
