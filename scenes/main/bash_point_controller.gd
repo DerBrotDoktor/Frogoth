@@ -12,20 +12,24 @@ func  _process(delta):
 		clear_shape()
 
 func check_point(point):
+	
 	if current_points.size() >= 3:
 		for p in range(current_points.size()):
 			if point == current_points[p]:
 				create_shape(p)
 				return
-		add_point(point)
+		if not point.is_in_shape:
+			add_point(point)
 	else:
-		if current_points.size() == 0 or current_shape == null:
-			new_shape()
-		add_point(point)
+		if not point.is_in_shape:
+			if current_points.size() == 0 or current_shape == null:
+				new_shape()
+			add_point(point)
 
 func add_point(point):
 	current_points.append(point)
 	current_shape.add_point(point)
+	point.is_in_shape = true
 
 func new_shape():
 	current_shape = shape_prefab.instantiate()
@@ -40,6 +44,8 @@ func create_shape(p):
 			break
 		elif point and point.has_method("delete_point"):
 				point.delete_point()
+		if point:
+			point.is_in_shape = false
 	current_shape.finish_shape(points)
 	clear_current()
 
