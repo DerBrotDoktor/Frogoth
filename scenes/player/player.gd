@@ -163,6 +163,7 @@ func reset_jump():
 func _on_trigger_area_area_entered(area):
 	if area.is_in_group("jump_point"):
 		reset_jump()
+		$DashCooldown.stop()
 		area.use_point()
 		current_orb = area
 	elif area.is_in_group("temporary_orb"):

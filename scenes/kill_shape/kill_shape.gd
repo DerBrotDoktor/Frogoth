@@ -12,7 +12,7 @@ func finish_shape(new_points):
 	clear_points()
 	for point in new_points:
 		add_point(point)
-	#$Outline.closed = true
+	$Outline.closed = true
 	
 	var decomposed_points = Geometry2D.decompose_polygon_in_convex(point_positions)
 	for point_array in decomposed_points:
