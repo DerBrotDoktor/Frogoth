@@ -64,7 +64,7 @@ position = Vector2(3271, -1571)
 position = Vector2(542, -928)
 
 [node name="PlatformBig3" parent="Platforms" instance=ExtResource("6_xtdw0")]
-position = Vector2(2579, -674)
+position = Vector2(2828, -566)
 
 [node name="PlatformBig6" parent="Platforms" instance=ExtResource("6_xtdw0")]
 position = Vector2(4230, -1776)
@@ -82,7 +82,7 @@ position = Vector2(4372, -1212)
 position = Vector2(1971, -1011)
 
 [node name="PlatformSmall8" parent="Platforms" instance=ExtResource("8_jjk8j")]
-position = Vector2(72, -443)
+position = Vector2(189, -404)
 
 [node name="PlatformSmall3" parent="Platforms" instance=ExtResource("9_kmecn")]
 position = Vector2(3292, -1437)

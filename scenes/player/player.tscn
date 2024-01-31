@@ -535,7 +535,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"walk",
-"speed": 12.0
+"speed": 21.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hjfc2"]
@@ -675,7 +675,8 @@ _data = {
 script = ExtResource("1_il0n1")
 normal_speed = 600.0
 jump_velocity = -1000.0
-deceleration = 0.14
+acceleration = 30.0
+deceleration = 0.9
 dash_speed = 3000
 dash_acceleration = 50.0
 dash_deceleration = 8.0
@@ -687,7 +688,7 @@ temporary_orb_prefab = ExtResource("3_qo4h5")
 z_index = 1
 material = SubResource("ShaderMaterial_fl175")
 sprite_frames = SubResource("SpriteFrames_lw100")
-animation = &"death"
+animation = &"walk"
 autoplay = "idle"
 offset = Vector2(0, -128)
 
