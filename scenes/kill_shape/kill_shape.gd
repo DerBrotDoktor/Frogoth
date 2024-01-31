@@ -12,7 +12,7 @@ func finish_shape(new_points):
 	clear_points()
 	for point in new_points:
 		add_point(point)
-	$Outline.closed = true
+	#$Outline.closed = true
 	
 	var decomposed_points = Geometry2D.decompose_polygon_in_convex(point_positions)
 	for point_array in decomposed_points:
@@ -20,7 +20,8 @@ func finish_shape(new_points):
 		for point in point_array:
 			point_numbers.append(point_positions.find(point))
 		$PolygonSprite.polygons.append(point_numbers)
-
+	
+	
 	$PolygonSprite.polygon = point_positions
 	$KillArea/KillAreaCollision.polygon = point_positions
 	$DeleteTimer.start()
@@ -34,7 +35,7 @@ func delete_shape():
 	for point in point_objects:
 		if point and point.has_method("delete_point"):
 			point.delete_point()
-	#queue_free()
+	queue_free()
 
 func _on_delete_timer_timeout():
 	delete_shape()
