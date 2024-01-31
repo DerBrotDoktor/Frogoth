@@ -49,8 +49,7 @@ func add_gravity(delta):
 	if not is_on_floor() and can_move and velocity.y < max_y_velocity:
 		velocity.y += gravity * delta
 		if not $Animation.is_playing():
-			print("a")
-			$Animation.play("fall")
+			play_animation("fall")
 
 func handle_movement(delta):
 	if not $DashTimer.is_stopped():
@@ -62,20 +61,22 @@ func handle_movement(delta):
 			$Animation.flip_h = false
 			velocity.x = min(velocity.x + acceleration, normal_speed)
 			if is_on_floor():
-				$Animation.play("walk")
+				play_animation("walk")
 		elif direction < 0:
 			velocity.x = max(velocity.x - acceleration, -normal_speed)
 			$Animation.flip_h = true
 			if is_on_floor():
-				$Animation.play("walk")
+				play_animation("walk")
 	elif not $DashDelay.is_stopped():
 		print(velocity)
 		velocity.x = lerpf(velocity.x, normal_speed, dash_deceleration*delta)
 		velocity.y = lerpf(velocity.y, 0, dash_deceleration*delta*2)
 	elif can_move:
 			velocity.x = lerpf(velocity.x, 0, deceleration)
-			if not $Animation.is_playing() or ($Animation.animation == "fall" and is_on_floor()):
-				$Animation.play("idle")
+			var is_falling_on_floor = $Animation.animation == "fall" and is_on_floor()
+			var stopped_walking = $Animation.is_playing() and $Animation.animation == "walk"
+			if (not $Animation.is_playing()) or is_falling_on_floor or stopped_walking:
+				play_animation("idle")
 
 func handle_dash_movement():
 	if dash_direction.x > 0:
@@ -135,9 +136,9 @@ func start_jump():
 	jump_time = 0.0
 	try_place_orb()
 	if can_jump:
-		$Animation.play("double_jump")
+		play_animation("double_jump")
 	else:
-		$Animation.play("jump")
+		play_animation("jump")
 
 func check_coyote(was_on_floor):
 	if was_on_floor and (not is_on_floor()) and $CoyoteTimer.is_stopped():
@@ -181,7 +182,7 @@ func dash():
 	velocity = Vector2(input_x * 3000.0, input_y * 3000.0)	# gern geschehen. Aber Diagonal ist zu stark in Relation
 	dash_direction = Vector2(input_x, input_y).normalized()
 	can_move = false
-	$Animation.play("dash")
+	play_animation("dash")
 	$DashTimer.start()
 	$GhostTimer.start()
 
@@ -207,14 +208,14 @@ func take_damage(damage):
 	if current_health > 1:
 		$Camera.shake()
 		$PlayerAnimation.play("hit_player_animation")
-		$Animation.play("damage")
+		play_animation("damage")
 		current_health -= damage
 	else:
 		die()
 
 func die():
 	can_move = false
-	$Animation.play("death")
+	play_animation("death")
 	await  $Animation.animation_finished
 	player_died.emit()
 	can_move = true
@@ -232,3 +233,9 @@ func place_temporary_orb(pos):
 	orb.position = pos
 	get_parent().add_child(orb)
 	entered_orb.emit(orb)
+
+func play_animation(animation):
+	if animation:
+		$Animation.play(animation)
+	elif not animation:
+		$Animation.play("idle")
