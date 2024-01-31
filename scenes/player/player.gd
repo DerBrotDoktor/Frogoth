@@ -142,7 +142,7 @@ func start_jump():
 		play_animation("double_jump")
 	else:
 		play_animation("jump")
-	if not is_on_floor():
+	if not is_on_floor() and not $PlayerAnimation.is_playing():
 		$PlayerAnimation.play("jump_vfx")
 	$StretchTimer.start()
 
