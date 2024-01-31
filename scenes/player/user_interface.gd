@@ -14,3 +14,5 @@ func reset_timer():
 
 func _on_visibility_changed():
 	timer_allowed != timer_allowed
+	if visible:
+		get_tree().paused = false

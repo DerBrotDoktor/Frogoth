@@ -6,14 +6,13 @@
 size = Vector2(150, 150)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ttjw"]
-radius = 169.023
+radius = 125.0
 
 [node name="JumpPoint" type="Area2D" groups=["jump_point"]]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_lotvx")
 
 [node name="SpriteActivated" type="Sprite2D" parent="."]
-scale = Vector2(1.66111, 1.57222)
 texture = SubResource("PlaceholderTexture2D_r6txh")
 
 [node name="SpriteDeactivated" type="Sprite2D" parent="."]
@@ -22,7 +21,7 @@ modulate = Color(0.301961, 0.301961, 0.301961, 1)
 texture = SubResource("PlaceholderTexture2D_r6txh")
 
 [node name="TriggerShape" type="CollisionShape2D" parent="."]
-scale = Vector2(1.00578, 1)
+visible = false
 shape = SubResource("CircleShape2D_2ttjw")
 
 [node name="RefreshTimer" type="Timer" parent="."]

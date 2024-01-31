@@ -6,7 +6,7 @@
 size = Vector2(50, 50)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_60t3f"]
-radius = 66.0
+radius = 40.0
 
 [node name="TemporaryOrb" type="Area2D" groups=["temporary_orb"]]
 script = ExtResource("1_bb338")
