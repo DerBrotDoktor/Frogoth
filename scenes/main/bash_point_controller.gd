@@ -17,7 +17,6 @@ func check_point(point):
 		for p in range(current_points.size()):
 			if point == current_points[p]:
 				if current_points.size()-p >= 3:
-					print(current_points.size()-p)
 					create_shape(p)
 				return
 		if not point.is_in_shape:
