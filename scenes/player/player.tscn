@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://bfqr80qekwaw5"]
+[gd_scene load_steps=95 format=3 uid="uid://bfqr80qekwaw5"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_il0n1"]
 [ext_resource type="PackedScene" uid="uid://beocyu2m1xsx1" path="res://scenes/player/player_ghost.tscn" id="2_rl3rv"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bo7xaupqyaojq" path="res://assets/player/player_idle_an.png" id="10_klexx"]
 [ext_resource type="Texture2D" uid="uid://cpbdfkegj3ovh" path="res://assets/player/player_jump_an.png" id="11_cbaeq"]
 [ext_resource type="Texture2D" uid="uid://6resjbt0w5er" path="res://assets/player/player_walk_an.png" id="12_td2et"]
+[ext_resource type="Texture2D" uid="uid://dwgdpffg18asi" path="res://assets/vfx/player/double_jump_vfx.png" id="13_wrofw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fl175"]
 shader = ExtResource("4_wsp2d")
@@ -537,6 +538,42 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjfc2"]
+atlas = ExtResource("13_wrofw")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3klq"]
+atlas = ExtResource("13_wrofw")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l15ru"]
+atlas = ExtResource("13_wrofw")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cix34"]
+atlas = ExtResource("13_wrofw")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_swm48"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjfc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3klq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l15ru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cix34")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 12.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0tqvw"]
 size = Vector2(105, 195)
 
@@ -557,6 +594,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("JumpVFXAnimation:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("JumpVFXAnimation:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_8njlr"]
 resource_name = "hit_player_animation"
@@ -574,10 +635,40 @@ tracks/0/keys = {
 "values": [0.0, 1.0, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_dnidn"]
+resource_name = "jump_vfx"
+length = 0.1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("JumpVFXAnimation:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("JumpVFXAnimation:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.05, 0.075),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6gob2"]
 _data = {
 "RESET": SubResource("Animation_8u4v0"),
-"hit_player_animation": SubResource("Animation_8njlr")
+"hit_player_animation": SubResource("Animation_8njlr"),
+"jump_vfx": SubResource("Animation_dnidn")
 }
 
 [node name="Player" type="CharacterBody2D"]
@@ -599,6 +690,12 @@ sprite_frames = SubResource("SpriteFrames_lw100")
 animation = &"death"
 autoplay = "idle"
 offset = Vector2(0, -128)
+
+[node name="JumpVFXAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, 70)
+sprite_frames = SubResource("SpriteFrames_swm48")
+animation = &"jump"
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(-4.5, -97.5)

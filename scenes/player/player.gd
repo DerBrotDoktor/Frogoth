@@ -142,6 +142,8 @@ func start_jump():
 		play_animation("double_jump")
 	else:
 		play_animation("jump")
+	if not is_on_floor():
+		$PlayerAnimation.play("jump_vfx")
 	$StretchTimer.start()
 
 func check_coyote(was_on_floor):
