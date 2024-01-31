@@ -1,9 +1,9 @@
 [gd_scene load_steps=88 format=3 uid="uid://bfqr80qekwaw5"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_il0n1"]
-[ext_resource type="Shader" path="res://scenes/player/player_hit.gdshader" id="2_qf1va"]
 [ext_resource type="PackedScene" uid="uid://beocyu2m1xsx1" path="res://scenes/player/player_ghost.tscn" id="2_rl3rv"]
 [ext_resource type="PackedScene" uid="uid://oe7s2tuyg2b7" path="res://scenes/orbs/temporary_orb.tscn" id="3_qo4h5"]
+[ext_resource type="Shader" path="res://scenes/player/player.gdshader" id="4_wsp2d"]
 [ext_resource type="Texture2D" uid="uid://n1y4gq0y4dk3" path="res://assets/player/player_damage_an.png" id="5_5aaqw"]
 [ext_resource type="Script" path="res://scenes/player/player_camera.gd" id="5_hixe7"]
 [ext_resource type="Texture2D" uid="uid://c3ii28ghclyug" path="res://assets/player/player_dash_an.png" id="6_vvt3g"]
@@ -15,7 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://6resjbt0w5er" path="res://assets/player/player_walk_an.png" id="12_td2et"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fl175"]
-shader = ExtResource("2_qf1va")
+shader = ExtResource("4_wsp2d")
+shader_parameter/deformation = Vector2(0, 0)
+shader_parameter/sideWaysDeformationFactor = 5.0
 shader_parameter/hit_opacity = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d3dki"]
@@ -536,7 +538,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0tqvw"]
-size = Vector2(105, 192)
+size = Vector2(105, 195)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86dhk"]
 size = Vector2(112, 198)
@@ -596,9 +598,10 @@ material = SubResource("ShaderMaterial_fl175")
 sprite_frames = SubResource("SpriteFrames_lw100")
 animation = &"death"
 autoplay = "idle"
+offset = Vector2(0, -128)
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(-4.5, 31)
+position = Vector2(-4.5, -97.5)
 shape = SubResource("RectangleShape2D_0tqvw")
 
 [node name="Camera" type="Camera2D" parent="."]
@@ -631,6 +634,7 @@ one_shot = true
 one_shot = true
 
 [node name="TriggerArea" type="Area2D" parent="." groups=["player"]]
+position = Vector2(0, -128)
 collision_layer = 5
 collision_mask = 5
 
@@ -642,6 +646,13 @@ shape = SubResource("RectangleShape2D_86dhk")
 libraries = {
 "": SubResource("AnimationLibrary_6gob2")
 }
+
+[node name="StretchTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SquashTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

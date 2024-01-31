@@ -17,6 +17,8 @@ signal player_died()
 @export var gravity = 1000 ##Gravity
 @export var max_y_velocity = 1800 ##Maximum fall velocity
 @export var temporary_orb_prefab :PackedScene ##Temporary Orb Scene
+@export var squash = 0.2
+@export var stretch = 0.1
 
 var can_jump = false
 var can_double_jump = false
@@ -43,6 +45,7 @@ func _physics_process(delta):
 	var was_on_floor = is_on_floor()
 	move_and_slide()
 	check_coyote(was_on_floor)
+	squash_and_stretch(was_on_floor)
 	handle_jump(delta)
 
 func add_gravity(delta):
@@ -139,6 +142,7 @@ func start_jump():
 		play_animation("double_jump")
 	else:
 		play_animation("jump")
+	$StretchTimer.start()
 
 func check_coyote(was_on_floor):
 	if was_on_floor and (not is_on_floor()) and $CoyoteTimer.is_stopped():
@@ -239,3 +243,14 @@ func play_animation(animation):
 		$Animation.play(animation)
 	elif not animation:
 		$Animation.play("idle")
+
+func squash_and_stretch(was_on_floor):
+	if not was_on_floor and is_on_floor():
+		$SquashTimer.start()
+	var current_deformation = $Animation.material.get_shader_parameter("deformation")
+	if not $StretchTimer.is_stopped():
+		$Animation.material.set_shader_parameter("deformation", Vector2(lerpf(current_deformation.x, stretch, 0.1), 0))
+	elif not $SquashTimer.is_stopped():
+		$Animation.material.set_shader_parameter("deformation", Vector2(0, lerpf(current_deformation.y, squash, 0.1)))
+	else:
+		$Animation.material.set_shader_parameter("deformation", lerp(current_deformation, Vector2.ZERO, 0.1))
