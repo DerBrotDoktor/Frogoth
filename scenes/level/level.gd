@@ -9,3 +9,8 @@ func get_player_spawn_position():
 	var returnValue
 	returnValue = player_spawn_point.position
 	return returnValue
+
+func get_enemy_count():
+	var returnValue
+	returnValue = $Enemies.get_child_count()
+	return returnValue

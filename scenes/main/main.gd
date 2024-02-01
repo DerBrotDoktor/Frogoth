@@ -25,10 +25,6 @@ func load_level_by_index(index:int):
 		current_level_index = index
 		$Canvas.switch_to_child("UserInterface")
 
-func load_level_select():
-	player.disable()
-	$Canvas.switch_to_child("LevelSelectMenu")
-
 func restart_current_level():
 	load_level_by_index(current_level_index)
 
@@ -38,3 +34,18 @@ func set_player_position(position):
 func _on_player_player_died():
 	if current_level_index >= 0:
 		restart_current_level()
+
+func check_for_win():
+	if current_scene.has_method("get_enemy_count"):
+		var current_enemy_count = current_scene.get_enemy_count()
+		print(current_enemy_count)
+		if current_enemy_count <= 0:
+			finish_level()
+
+func finish_level():
+	next_level()
+	pass
+
+func next_level():
+	if current_level_index < level.size():
+		load_level_by_index(current_level_index+1)

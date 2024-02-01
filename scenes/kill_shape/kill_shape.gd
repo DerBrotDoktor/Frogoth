@@ -33,7 +33,7 @@ func clear_points():
 
 func delete_shape():
 	for point in point_objects:
-		if point and point.has_method("delete_point"):
+		if is_instance_valid(point) and point.has_method("delete_point"):
 			point.delete_point()
 	queue_free()
 

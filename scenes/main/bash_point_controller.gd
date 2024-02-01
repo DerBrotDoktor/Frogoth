@@ -49,6 +49,8 @@ func create_shape(p):
 			point.is_in_shape = false
 	current_shape.finish_shape(points)
 	clear_current()
+	await get_tree().create_timer(0.2).timeout
+	get_parent().check_for_win()
 
 func clear_current():
 	current_shape = null
