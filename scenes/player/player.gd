@@ -180,13 +180,16 @@ func _on_trigger_area_area_exited(area):
 func _on_trigger_area_body_entered(body):
 	if body.is_in_group("bullet"):
 		take_damage(1)
-	if body.is_in_group("spikes"):
+	elif body.is_in_group("spikes"):
 		die()
+	elif body.is_in_group("platform") and is_on_floor():
+		if body.get_parent().has_method("start_fall"):
+			body.get_parent().start_fall()
 
 func dash():
 	var input_x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	var input_y = Input.get_action_strength("down") - Input.get_action_strength("up")
-	velocity = Vector2(input_x * 3000.0, input_y * 3000.0)	# gern geschehen. Aber Diagonal ist zu stark in Relation
+	velocity = Vector2(input_x * 3000.0, input_y * 3000.0)
 	dash_direction = Vector2(input_x, input_y).normalized()
 	can_move = false
 	play_animation("dash")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cxt6or2pmnc40"]
+[gd_scene load_steps=18 format=3 uid="uid://cxt6or2pmnc40"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_72ydh"]
 [ext_resource type="TileSet" uid="uid://ccmvs8cpkx4w2" path="res://assets/tileset/floor_tileset.tres" id="2_sjt5m"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://3j5q0ymm7o8s" path="res://scenes/enemies/enemy_single_shot.tscn" id="8_88lkp"]
 [ext_resource type="PackedScene" uid="uid://ni6wav7a3376" path="res://scenes/enviroment/spikes/spikes.tscn" id="9_f75pr"]
 [ext_resource type="PackedScene" uid="uid://jvgqmuavbsuu" path="res://scenes/enemies/enemy_multiple_shot.tscn" id="10_ygi2x"]
+[ext_resource type="PackedScene" uid="uid://dm6yss7w4ixcq" path="res://scenes/enviroment/platforms/special/falling_platform.tscn" id="11_wq06w"]
+[ext_resource type="PackedScene" uid="uid://c8qi15jdcx7eo" path="res://scenes/enviroment/platforms/small/platform_small_1.tscn" id="12_mucj8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eauuh"]
 size = Vector2(2004, 282)
@@ -22,6 +24,9 @@ size = Vector2(2696, 1591)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_daswy"]
 size = Vector2(4597, 1917)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjx48"]
+size = Vector2(16575, 19)
 
 [node name="LevelTutorail1" type="Node2D" node_paths=PackedStringArray("player_spawn_point")]
 script = ExtResource("1_72ydh")
@@ -158,6 +163,17 @@ position = Vector2(958, -135)
 
 [node name="EnemyMultipleShot2" parent="." instance=ExtResource("10_ygi2x")]
 position = Vector2(1370, -85)
+
+[node name="DeadZone" type="Area2D" parent="." groups=["dead_zone"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadZone"]
+position = Vector2(6818.5, 986.5)
+shape = SubResource("RectangleShape2D_tjx48")
+
+[node name="FallingPlatform" parent="." instance=ExtResource("11_wq06w")]
+position = Vector2(436, -911)
+
+[node name="Platform" parent="FallingPlatform" instance=ExtResource("12_mucj8")]
 
 [editable path="Signs/TutorialSign"]
 [editable path="Signs/TutorialSign2"]

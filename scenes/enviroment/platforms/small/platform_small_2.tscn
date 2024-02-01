@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62v18"]
 size = Vector2(116, 4)
 
-[node name="PlatformSmall2" type="StaticBody2D"]
+[node name="PlatformSmall2" type="StaticBody2D" groups=["platform"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -2)
