@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://iyel1auqud01"]
+[gd_scene load_steps=17 format=3 uid="uid://iyel1auqud01"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_wtrgv"]
 [ext_resource type="PackedScene" uid="uid://jslvxnacwmvr" path="res://scenes/level/level_1.tscn" id="2_046pa"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dnh4dfbpvvn6l" path="res://assets/parallax/paralax_2.png" id="8_cxncj"]
 [ext_resource type="Script" path="res://scenes/main/Canvas.gd" id="9_77551"]
 [ext_resource type="PackedScene" uid="uid://c6nm6w83jynbs" path="res://scenes/menus/pause_menu.tscn" id="10_u7rrt"]
+[ext_resource type="PackedScene" uid="uid://cj5y0tnco4cx1" path="res://scenes/menus/level_finish_screen.tscn" id="14_nbfd2"]
 
 [node name="Main" type="Node" node_paths=PackedStringArray("player")]
 script = ExtResource("1_wtrgv")
@@ -61,6 +62,8 @@ script = ExtResource("9_77551")
 [node name="MainMenu" parent="Canvas" instance=ExtResource("4_3igok")]
 
 [node name="LevelSelectMenu" parent="Canvas" instance=ExtResource("3_qm2ey")]
+
+[node name="LevelFinishScreen" parent="Canvas" instance=ExtResource("14_nbfd2")]
 
 [node name="Player" parent="." instance=ExtResource("3_cw4d6")]
 

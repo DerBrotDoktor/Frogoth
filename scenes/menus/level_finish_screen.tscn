@@ -1,0 +1,182 @@
+[gd_scene load_steps=6 format=3 uid="uid://cj5y0tnco4cx1"]
+
+[ext_resource type="Script" path="res://scenes/menus/level_finish_screen.gd" id="1_iw8t1"]
+
+[sub_resource type="FontVariation" id="FontVariation_477og"]
+variation_embolden = 0.3
+spacing_glyph = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdcpn"]
+bg_color = Color(0.168627, 0.305882, 0.776471, 1)
+border_width_bottom = 15
+border_color = Color(0.0509804, 0.117647, 0.352941, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lpqj"]
+bg_color = Color(0.113725, 0.223529, 0.611765, 1)
+border_width_bottom = 15
+border_color = Color(0.0313726, 0.0862745, 0.286275, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 3
+
+[sub_resource type="Theme" id="Theme_kd7u0"]
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 10
+Button/font_sizes/font_size = 30
+Button/fonts/font = SubResource("FontVariation_477og")
+Button/styles/focus = SubResource("StyleBoxFlat_wdcpn")
+Button/styles/hover = SubResource("StyleBoxFlat_wdcpn")
+Button/styles/normal = SubResource("StyleBoxFlat_0lpqj")
+Label/font_sizes/font_size = 30
+
+[node name="LevelFinishScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kd7u0")
+script = ExtResource("1_iw8t1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.533333, 0.533333, 0.533333, 0.545098)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(800, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.203922, 0.309804, 0.45098, 1)
+
+[node name="Time" type="Label" parent="ColorRect2"]
+layout_mode = 1
+offset_left = 180.0
+offset_top = 57.0
+offset_right = 301.0
+offset_bottom = 112.0
+text = "1500 s
+"
+horizontal_alignment = 1
+
+[node name="Badge" type="TextureRect" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect2"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 90.0
+offset_top = -340.0
+offset_right = 406.0
+offset_bottom = -40.0
+grow_vertical = 0
+color = Color(0, 0.427451, 0.52549, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect2/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+
+[node name="Statistics" type="VBoxContainer" parent="ColorRect2/ColorRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="AirtimeLabel" type="Label" parent="ColorRect2/ColorRect/MarginContainer/Statistics"]
+layout_mode = 2
+text = "Air time:
+"
+
+[node name="JumpsLabel" type="Label" parent="ColorRect2/ColorRect/MarginContainer/Statistics"]
+layout_mode = 2
+text = "Jumps:
+"
+
+[node name="ConnectedOrbsLabel" type="Label" parent="ColorRect2/ColorRect/MarginContainer/Statistics"]
+layout_mode = 2
+text = "Connected Orbs:
+"
+
+[node name="TotalShapesLabel" type="Label" parent="ColorRect2/ColorRect/MarginContainer/Statistics"]
+layout_mode = 2
+text = "Total shapes:
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -260.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 80
+
+[node name="Buttons" type="VBoxContainer" parent="ColorRect2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 2
+
+[node name="NextLevelButton" type="Button" parent="ColorRect2/MarginContainer/Buttons"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+text = "Next Level
+"
+
+[node name="RestartButton" type="Button" parent="ColorRect2/MarginContainer/Buttons"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+text = "Restart
+"
+
+[node name="MainMenuButton" type="Button" parent="ColorRect2/MarginContainer/Buttons"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+text = "Main Menu
+"
+
+[connection signal="button_down" from="ColorRect2/MarginContainer/Buttons/NextLevelButton" to="." method="_on_next_level_button_button_down"]
+[connection signal="button_down" from="ColorRect2/MarginContainer/Buttons/RestartButton" to="." method="_on_restart_button_button_down"]
+[connection signal="button_down" from="ColorRect2/MarginContainer/Buttons/MainMenuButton" to="." method="_on_main_menu_button_button_down"]

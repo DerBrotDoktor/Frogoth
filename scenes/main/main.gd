@@ -38,14 +38,25 @@ func _on_player_player_died():
 func check_for_win():
 	if current_scene.has_method("get_enemy_count"):
 		var current_enemy_count = current_scene.get_enemy_count()
-		print(current_enemy_count)
 		if current_enemy_count <= 0:
 			finish_level()
 
 func finish_level():
-	next_level()
+	$Canvas.switch_to_child("LevelFinishScreen")
+	get_tree().paused = true
+	set_level_statistics()
 	pass
 
 func next_level():
 	if current_level_index < level.size():
 		load_level_by_index(current_level_index+1)
+
+func set_level_statistics():
+	var time = $Canvas/UserInterface.time
+	var badge = current_scene.get_badge()
+	var air_time = player.stats_air_time
+	var jumps = player.stats_jumps
+	var connected_orbs = player.stats_connected_orbs
+	var total_shapes = player.stats_total_shapes
+	$Canvas/LevelFinishScreen.set_statistics(time, badge, air_time, jumps, connected_orbs, total_shapes)
+	pass

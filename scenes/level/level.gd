@@ -14,3 +14,7 @@ func get_enemy_count():
 	var returnValue
 	returnValue = $Enemies.get_child_count()
 	return returnValue
+
+func get_badge():
+	var returnValue
+	return

@@ -15,6 +15,9 @@ func toggle_pause_menu():
 func load_level_by_index(index):
 	get_parent().load_level_by_index(index)
 
+func next_level():
+	get_parent().next_level()
+
 func restart_level():
 	get_parent().restart_current_level()
 

@@ -31,6 +31,13 @@ var dash_direction
 var current_orb
 #endregion
 
+#region stats
+var stats_air_time = 0.0
+var stats_jumps = 0
+var stats_connected_orbs = 0
+var stats_total_shapes = 0
+#endregion
+
 func _ready():
 	reset()
 	disable()
