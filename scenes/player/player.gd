@@ -228,6 +228,7 @@ func _on_dash_delay_timeout():
 func take_damage(damage):
 	if current_health > 1:
 		$Camera.shake()
+		$JumpVFXAnimation.visible = false
 		$PlayerAnimation.play("hit_player_animation")
 		play_animation("damage")
 		current_health -= damage
