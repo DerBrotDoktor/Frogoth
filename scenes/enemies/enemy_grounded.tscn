@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpddwnffvkcgu"]
+[gd_scene load_steps=8 format=3 uid="uid://cpddwnffvkcgu"]
 
 [ext_resource type="Script" path="res://scenes/enemies/enemy_grounded.gd" id="1_l2tby"]
 [ext_resource type="Texture2D" uid="uid://bo7xaupqyaojq" path="res://assets/player/player_idle_an.png" id="2_0cywg"]
@@ -28,6 +28,9 @@ size = Vector2(92, 187)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpu30"]
 size = Vector2(99, 193)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_14u2w"]
+radius = 663.505
 
 [node name="EnemyGrounded" type="CharacterBody2D"]
 collision_layer = 2
@@ -64,8 +67,16 @@ autostart = true
 position = Vector2(0.5, 31.5)
 shape = SubResource("RectangleShape2D_qpu30")
 
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="AttackAreaShape" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0.5, 31.5)
+shape = SubResource("CircleShape2D_14u2w")
+
 [node name="AttackCooldown" type="Timer" parent="."]
 
 [connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]
 [connection signal="area_exited" from="TriggerArea" to="." method="_on_trigger_area_area_exited"]
+[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
+[connection signal="area_exited" from="AttackArea" to="." method="_on_attack_area_area_exited"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

@@ -29,7 +29,9 @@ func flip():
 func trigger_area_entererd(area):
 	if area.is_in_group("killing_area"):
 		queue_free()
-	elif area.is_in_group("player"):
+	
+func attack_area_entererd(area):
+	if area.is_in_group("player"):
 		$AttackCooldown.start()
 		target = area
 		shoot()
@@ -46,12 +48,15 @@ func new_bullet(b_direction):
 func _on_trigger_area_area_entered(area):
 	trigger_area_entererd(area)
 
-func trigger_area_exited(area):
+func attack_area_exited(area):
 	if area.is_in_group("player"):
 		$AttackCooldown.stop()
 
-func _on_trigger_area_area_exited(area):
-	trigger_area_exited(area)
-
 func _on_attack_cooldown_timeout():
 	shoot()
+
+func _on_attack_area_area_entered(area):
+	attack_area_entererd(area)
+
+func _on_attack_area_area_exited(area):
+	attack_area_exited(area)

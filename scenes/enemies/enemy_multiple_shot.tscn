@@ -3,16 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://cpddwnffvkcgu" path="res://scenes/enemies/enemy_grounded.tscn" id="1_fd1j6"]
 [ext_resource type="Script" path="res://scenes/enemies/enemy_multiple_shot.gd" id="2_ep2wc"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_iqqtg"]
-radius = 743.662
+[sub_resource type="CircleShape2D" id="CircleShape2D_t1eh8"]
+radius = 663.505
 
 [node name="EnemyMultipleShot" instance=ExtResource("1_fd1j6")]
 script = ExtResource("2_ep2wc")
 angle = 135.0
 bullet_amount = 5
 
-[node name="TriggerAreaShape" parent="TriggerArea" index="0"]
-shape = SubResource("CircleShape2D_iqqtg")
+[node name="AttackAreaShape" parent="AttackArea" index="0"]
+shape = SubResource("CircleShape2D_t1eh8")
 
-[node name="AttackCooldown" parent="." index="7"]
+[node name="AttackCooldown" parent="." index="8"]
 wait_time = 3.0
