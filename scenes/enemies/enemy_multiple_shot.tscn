@@ -15,4 +15,4 @@ bullet_amount = 5
 shape = SubResource("CircleShape2D_t1eh8")
 
 [node name="AttackCooldown" parent="." index="8"]
-wait_time = 3.0
+wait_time = 4.5

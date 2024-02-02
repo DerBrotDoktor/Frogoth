@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dm6yss7w4ixcq"]
+[gd_scene load_steps=8 format=3 uid="uid://dm6yss7w4ixcq"]
 
 [ext_resource type="Script" path="res://scenes/enviroment/platforms/special/falling_platform.gd" id="1_6e0rx"]
-[ext_resource type="PackedScene" uid="uid://dgcv5ildkajr8" path="res://scenes/enviroment/platforms/big/platform_big_1.tscn" id="2_lwx3i"]
 
 [sub_resource type="Animation" id="Animation_vard7"]
 length = 0.001
@@ -121,8 +120,6 @@ shape = SubResource("CircleShape2D_ai30g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vujji")
-
-[node name="PlatformBig1" parent="." instance=ExtResource("2_lwx3i")]
 
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
 [connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]
