@@ -1,9 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://0woesesbbwik"]
 
 [ext_resource type="Script" path="res://scenes/enviroment/tutorial_sign/tutorial_sign.gd" id="1_l5yyk"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gmdjf"]
-size = Vector2(200, 250)
+[ext_resource type="Texture2D" uid="uid://cfkjc4fd83h6g" path="res://assets/interactables/tutorial_sign.png" id="2_aayxx"]
 
 [sub_resource type="Theme" id="Theme_j5iga"]
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
@@ -14,10 +12,9 @@ Label/font_sizes/font_size = 80
 script = ExtResource("1_l5yyk")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-modulate = Color(0.423529, 0.0823529, 0, 1)
 z_index = -1
 position = Vector2(0, -125)
-texture = SubResource("PlaceholderTexture2D_gmdjf")
+texture = ExtResource("2_aayxx")
 
 [node name="TriggerArea" type="Area2D" parent="."]
 
