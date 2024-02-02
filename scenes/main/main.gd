@@ -25,6 +25,8 @@ func load_level_by_index(index:int):
 		player.enable()
 		current_level_index = index
 		$Canvas.switch_to_child("UserInterface")
+	else:
+		$Canvas.switch_to_child("MainMenu")
 
 func restart_current_level():
 	load_level_by_index(current_level_index)
