@@ -54,7 +54,7 @@ func create_shape(p):
 	clear_current()
 	stats_total_shapes += 1
 	await get_tree().create_timer(0.2).timeout
-	get_parent().check_for_win()
+	#get_parent().check_for_win()
 
 func clear_current():
 	current_shape = null

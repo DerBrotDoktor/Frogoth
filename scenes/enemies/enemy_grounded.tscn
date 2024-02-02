@@ -19,7 +19,7 @@ animations = [{
 }, {
 "frames": [],
 "loop": true,
-"name": &"new_animation",
+"name": &"walk",
 "speed": 5.0
 }]
 

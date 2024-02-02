@@ -4,16 +4,25 @@ extends CharacterBody2D
 @export var direction = 1 ##The direction the enemy is facing
 @export var bullet_speed = 200## The speed of the bullet
 @export var bullet_scale = 1##The scale of the bullet
+@export var can_move = true
 var bullet_prefab = preload("res://scenes/enemies/bullet.tscn")
 
 var target
+var is_attacking = false
 
 func _physics_process(_delta):
-	handle_movement()
-	check_path()
+	if can_move and not is_attacking:
+		handle_movement()
+		check_path()
+	elif is_attacking:
+		play_animation("attack")
+	else:
+		play_animation("idle")
 
 func handle_movement():
 	velocity.x = speed * direction
+	if velocity.x != 0:
+		play_animation("walk")
 	move_and_slide()
 
 func check_path():
@@ -28,7 +37,7 @@ func flip():
 
 func trigger_area_entererd(area):
 	if area.is_in_group("killing_area"):
-		queue_free()
+		die()
 	
 func attack_area_entererd(area):
 	if area.is_in_group("player"):
@@ -41,8 +50,9 @@ func shoot():
 
 func new_bullet(b_direction):
 	var bullet = bullet_prefab.instantiate()
-	bullet.set_properties(bullet_speed, bullet_scale, position, b_direction)
-	get_parent().call_deferred("add_child",bullet)
+	if is_instance_valid(self):
+		bullet.set_properties(bullet_speed, bullet_scale, position, b_direction)
+		get_parent().call_deferred("add_child",bullet)
 	pass
 
 func _on_trigger_area_area_entered(area):
@@ -53,10 +63,23 @@ func attack_area_exited(area):
 		$AttackCooldown.stop()
 
 func _on_attack_cooldown_timeout():
-	shoot()
+	if not is_attacking:
+		shoot()
 
 func _on_attack_area_area_entered(area):
 	attack_area_entererd(area)
 
 func _on_attack_area_area_exited(area):
 	attack_area_exited(area)
+
+func play_animation(animation):
+	$Animation.play(animation)
+
+func die():
+	print("die")
+	var main = get_tree().get_root().get_node("Main")
+	print(main)
+	if main:
+		main.check_for_win()
+		print("check_win")
+	queue_free()

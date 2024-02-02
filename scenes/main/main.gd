@@ -41,7 +41,8 @@ func _on_player_player_died():
 func check_for_win():
 	if current_scene.has_method("get_enemy_count"):
 		var current_enemy_count = current_scene.get_enemy_count()
-		if current_enemy_count <= 0:
+		print(current_enemy_count)
+		if (current_enemy_count-1) <= 0:
 			finish_level()
 
 func finish_level():

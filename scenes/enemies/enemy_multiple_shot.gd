@@ -11,3 +11,6 @@ func shoot():
 		var bullet_angle = (-angle/2) + (angle_per_bullet * i)
 		var bullet_direction = player_angle + bullet_angle
 		super.new_bullet(Vector2.from_angle(deg_to_rad(bullet_direction)))
+
+func play_animation(animation):
+	$Animation.play(animation)
