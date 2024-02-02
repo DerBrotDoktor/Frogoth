@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://iyel1auqud01"]
+[gd_scene load_steps=18 format=3 uid="uid://iyel1auqud01"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_wtrgv"]
 [ext_resource type="PackedScene" uid="uid://jslvxnacwmvr" path="res://scenes/level/level_1.tscn" id="2_046pa"]
@@ -69,6 +69,7 @@ script = ExtResource("9_77551")
 [node name="Player" parent="." instance=ExtResource("3_cw4d6")]
 
 [node name="BashPointController" type="Node" parent="." node_paths=PackedStringArray("player")]
+process_mode = 3
 script = ExtResource("6_n33ax")
 player = NodePath("../Player")
 

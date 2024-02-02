@@ -6,6 +6,8 @@ extends Node
 
 var current_points = []
 var current_shape
+var stats_connected_orbs = 0
+var stats_total_shapes = 0
 
 func  _process(delta):
 	if Input.is_action_just_pressed("discrad_shape"):
@@ -31,6 +33,7 @@ func add_point(point):
 	current_points.append(point)
 	current_shape.add_point(point)
 	point.is_in_shape = true
+	stats_connected_orbs += 1
 
 func new_shape():
 	current_shape = shape_prefab.instantiate()
@@ -49,6 +52,7 @@ func create_shape(p):
 			point.is_in_shape = false
 	current_shape.finish_shape(points)
 	clear_current()
+	stats_total_shapes += 1
 	await get_tree().create_timer(0.2).timeout
 	get_parent().check_for_win()
 

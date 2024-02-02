@@ -18,6 +18,7 @@ func load_scene(scene:PackedScene):
 
 func load_level_by_index(index:int):
 	if index < level.size():
+		$BashPointController.clear_shape()
 		load_scene(level[index])
 		set_player_position(current_scene.get_player_spawn_position())
 		player.reset()
@@ -52,11 +53,11 @@ func next_level():
 		load_level_by_index(current_level_index+1)
 
 func set_level_statistics():
-	var time = $Canvas/UserInterface.time
+	var time = int($Canvas/UserInterface.time)
 	var badge = current_scene.get_badge()
-	var air_time = player.stats_air_time
+	var air_time = int(player.stats_air_time)
 	var jumps = player.stats_jumps
-	var connected_orbs = player.stats_connected_orbs
-	var total_shapes = player.stats_total_shapes
+	var connected_orbs = $BashPointController.stats_connected_orbs
+	var total_shapes = $BashPointController.stats_total_shapes
 	$Canvas/LevelFinishScreen.set_statistics(time, badge, air_time, jumps, connected_orbs, total_shapes)
 	pass

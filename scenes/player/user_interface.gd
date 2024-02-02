@@ -13,6 +13,6 @@ func reset_timer():
 	$TimeText.text = str(int(time))
 
 func _on_visibility_changed():
-	timer_allowed != timer_allowed
+	timer_allowed = visible
 	if visible:
 		get_tree().paused = false

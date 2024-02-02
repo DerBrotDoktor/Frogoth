@@ -42,6 +42,10 @@ func _ready():
 	reset()
 	disable()
 
+func _process(delta):
+	if not is_on_floor():
+		stats_air_time += delta
+
 func _physics_process(delta):
 	if is_disabled:
 		return
@@ -151,6 +155,7 @@ func start_jump():
 	if not is_on_floor() and not $PlayerAnimation.is_playing():
 		$PlayerAnimation.play("jump_vfx")
 	$StretchTimer.start()
+	stats_jumps += 1
 
 func check_coyote(was_on_floor):
 	if was_on_floor and (not is_on_floor()) and $CoyoteTimer.is_stopped():
