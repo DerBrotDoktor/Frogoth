@@ -18,3 +18,8 @@ func _on_restart_button_button_down():
 
 func _on_resume_button_button_down():
 	close_pause_menu()
+
+
+func _on_visibility_changed():
+	if $VBoxContainer/ResumeButton.is_inside_tree() and visible:
+		$VBoxContainer/ResumeButton.grab_focus()

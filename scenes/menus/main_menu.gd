@@ -11,3 +11,8 @@ func _on_level_select_button_button_down():
 
 func _on_quit_button_button_down():
 	get_tree().quit()
+
+
+func _on_visibility_changed():
+	if $VerticalContainer/StartButton.is_inside_tree() and visible:
+		$VerticalContainer/StartButton.grab_focus()

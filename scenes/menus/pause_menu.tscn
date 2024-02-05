@@ -128,6 +128,7 @@ size_flags_vertical = 4
 focus_neighbor_top = NodePath("../SettingsButton")
 text = "Main Menu"
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="button_down" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_button_down"]
 [connection signal="button_down" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_button_down"]
 [connection signal="button_down" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_button_down"]

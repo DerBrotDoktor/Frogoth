@@ -16,3 +16,8 @@ func _on_restart_button_button_down():
 
 func _on_main_menu_button_button_down():
 	get_parent().switch_to_child("MainMenu")
+
+
+func _on_visibility_changed():
+	if $ColorRect2/MarginContainer/Buttons/NextLevelButton.is_inside_tree() and visible:
+		$ColorRect2/MarginContainer/Buttons/NextLevelButton.grab_focus()
