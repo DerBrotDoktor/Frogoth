@@ -14,12 +14,15 @@ func toggle_pause_menu():
 
 func load_level_by_index(index):
 	get_parent().load_level_by_index(index)
+	$UserInterface.reset_timer()
 
 func next_level():
 	get_parent().next_level()
+	$UserInterface.reset_timer()
 
 func restart_level():
 	get_parent().restart_current_level()
+	$UserInterface.reset_timer()
 
 func switch_to_child(name):
 	for child in get_children():
