@@ -81,8 +81,9 @@ func handle_movement(delta):
 			$Animation.flip_h = true
 			if is_on_floor():
 				play_animation("walk")
-	elif not $DashDelay.is_stopped():
-		velocity.x = lerpf(velocity.x, normal_speed, dash_deceleration*delta)
+	elif (not $DashDelay.is_stopped()):
+		if not dash_direction.x == 0:
+			velocity.x = lerpf(velocity.x, normal_speed, dash_deceleration*delta)
 		velocity.y = lerpf(velocity.y, 0, dash_deceleration*delta*2)
 	elif can_move:
 			velocity.x = lerpf(velocity.x, 0, deceleration)
