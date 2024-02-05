@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cxt6or2pmnc40"]
+[gd_scene load_steps=13 format=3 uid="uid://cxt6or2pmnc40"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_72ydh"]
 [ext_resource type="TileSet" uid="uid://ccmvs8cpkx4w2" path="res://assets/tileset/floor_tileset.tres" id="2_sjt5m"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://d0gcu70fmmqi4" path="res://scenes/player/player_spwan_point.tscn" id="3_lyrsc"]
 [ext_resource type="PackedScene" uid="uid://btimemg85kwm8" path="res://scenes/enviroment/platforms/big/platform_big_2.tscn" id="4_6oxe8"]
 [ext_resource type="PackedScene" uid="uid://cpddwnffvkcgu" path="res://scenes/enemies/enemy_grounded.tscn" id="5_hni4f"]
-[ext_resource type="PackedScene" uid="uid://dgcv5ildkajr8" path="res://scenes/enviroment/platforms/big/platform_big_1.tscn" id="8_rjo6t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eauuh"]
 size = Vector2(2004, 282)
@@ -155,9 +154,6 @@ layer_0/tile_data = PackedInt32Array(327725, 65536, 1, 262189, 65536, 1, 196653,
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadZone"]
 position = Vector2(6818.5, 986.5)
 shape = SubResource("RectangleShape2D_tjx48")
-
-[node name="PlatformBig1" parent="." instance=ExtResource("8_rjo6t")]
-position = Vector2(628, -699)
 
 [editable path="Signs/TutorialSign"]
 [editable path="Signs/TutorialSign2"]
