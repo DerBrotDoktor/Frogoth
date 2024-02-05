@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4vps8xifgv2x"]
+
+[ext_resource type="Texture2D" uid="uid://n0sekt7o00ys" path="res://assets/vfx/orb/orb_connection_lines.png" id="1_0kke6"]
+
+[sub_resource type="GDScript" id="GDScript_s6h8q"]
+script/source = "extends Sprite2D
+
+var last_sprite = 0
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$Timer.start()
+	print( texture.get_width()/region_rect.size.x)
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_timer_timeout():
+	var sprite_pos = region_rect.size.x +(region_rect.size.x  * randi_range(0, texture.get_width()/region_rect.size.x-1))
+	if sprite_pos == last_sprite:
+		sprite_pos += region_rect.size.x if not sprite_pos + region_rect.size.x > texture.get_width() else -region_rect.size.x
+	region_rect.position.x = sprite_pos
+	last_sprite = sprite_pos
+"
+
+[node name="Sprite2D" type="Sprite2D"]
+texture_repeat = 2
+position = Vector2(506, -188)
+texture = ExtResource("1_0kke6")
+region_enabled = true
+region_rect = Rect2(69, 0, 265, 265)
+script = SubResource("GDScript_s6h8q")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
