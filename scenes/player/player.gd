@@ -117,6 +117,7 @@ func disable():
 func reset():
 	current_health = max_health
 	velocity = Vector2.ZERO
+	can_move = true
 
 func try_jump():
 	var can_dash = $DashTimer.is_stopped() and $DashCooldown.is_stopped() and can_move
@@ -238,10 +239,10 @@ func take_damage(damage):
 
 func die():
 	can_move = false
+	velocity = Vector2.ZERO
 	play_animation("death")
 	await  $Animation.animation_finished
 	player_died.emit()
-	can_move = true
 
 func try_place_orb():
 	if is_on_floor():
