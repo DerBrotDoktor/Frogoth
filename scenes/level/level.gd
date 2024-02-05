@@ -11,8 +11,10 @@ func get_player_spawn_position():
 	return returnValue
 
 func get_enemy_count():
-	var returnValue
-	returnValue = $Enemies.get_child_count()
+	var returnValue = 0
+	for child in $Enemies.get_children():
+		if child.has_method("die") and child.is_dead == false:
+			returnValue += 1
 	return returnValue
 
 func get_badge():

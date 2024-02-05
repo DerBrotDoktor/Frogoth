@@ -9,6 +9,7 @@ var bullet_prefab = preload("res://scenes/enemies/bullet.tscn")
 
 var target
 var is_attacking = false
+var is_dead = false
 
 func _physics_process(_delta):
 	if can_move and not is_attacking:
@@ -76,10 +77,8 @@ func play_animation(animation):
 	$Animation.play(animation)
 
 func die():
-	print("die")
+	is_dead = true
 	var main = get_tree().get_root().get_node("Main")
-	print(main)
 	if main:
 		main.check_for_win()
-		print("check_win")
 	queue_free()
