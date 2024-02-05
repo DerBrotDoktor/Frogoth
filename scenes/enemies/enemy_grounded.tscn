@@ -38,6 +38,7 @@ collision_mask = 2
 script = ExtResource("1_l2tby")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
+z_index = 2
 sprite_frames = SubResource("SpriteFrames_1sjp7")
 
 [node name="Collider" type="CollisionShape2D" parent="."]

@@ -29,6 +29,7 @@ motion_scale = Vector2(0, 0)
 motion_mirroring = Vector2(3072, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+z_index = -2
 position = Vector2(1536, 640)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_2g7ui")
@@ -38,6 +39,7 @@ motion_scale = Vector2(0.1, 0.9)
 motion_mirroring = Vector2(2304, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+z_index = -2
 position = Vector2(1152, 182)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("7_3mtfd")
@@ -47,6 +49,7 @@ motion_scale = Vector2(0.2, 0.9)
 motion_mirroring = Vector2(2304, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+z_index = -2
 position = Vector2(1152, 182)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("8_cxncj")
@@ -66,6 +69,7 @@ script = ExtResource("9_77551")
 [node name="LevelFinishScreen" parent="Canvas" instance=ExtResource("14_nbfd2")]
 
 [node name="Player" parent="." instance=ExtResource("3_cw4d6")]
+z_index = 2
 
 [node name="BashPointController" type="Node" parent="." node_paths=PackedStringArray("player")]
 process_mode = 3

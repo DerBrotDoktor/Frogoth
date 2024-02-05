@@ -685,7 +685,7 @@ gravity = 2750
 temporary_orb_prefab = ExtResource("3_qo4h5")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
-z_index = 1
+z_index = 2
 material = SubResource("ShaderMaterial_fl175")
 sprite_frames = SubResource("SpriteFrames_lw100")
 animation = &"death"
@@ -694,6 +694,7 @@ offset = Vector2(0, -128)
 
 [node name="JumpVFXAnimation" type="AnimatedSprite2D" parent="."]
 visible = false
+z_index = 2
 position = Vector2(0, 70)
 sprite_frames = SubResource("SpriteFrames_swm48")
 animation = &"jump"
