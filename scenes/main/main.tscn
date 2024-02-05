@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://iyel1auqud01"]
+[gd_scene load_steps=18 format=3 uid="uid://iyel1auqud01"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_wtrgv"]
 [ext_resource type="PackedScene" uid="uid://bfqr80qekwaw5" path="res://scenes/player/player.tscn" id="3_cw4d6"]
@@ -7,11 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://cxt6or2pmnc40" path="res://scenes/level/level_tutorial_1.tscn" id="4_k64yn"]
 [ext_resource type="Texture2D" uid="uid://m30ojk8eyhbr" path="res://assets/parallax/sky.png" id="6_2g7ui"]
 [ext_resource type="PackedScene" uid="uid://bjr4d282863jf" path="res://scenes/player/user_interface.tscn" id="6_a7p0o"]
+[ext_resource type="PackedScene" uid="uid://jslvxnacwmvr" path="res://scenes/level/level_2.tscn" id="6_fs1sm"]
 [ext_resource type="Script" path="res://scenes/main/bash_point_controller.gd" id="6_n33ax"]
-[ext_resource type="PackedScene" uid="uid://b3xkhnnblngtv" path="res://scenes/level/level_2.tscn" id="6_st07r"]
+[ext_resource type="PackedScene" uid="uid://b3xkhnnblngtv" path="res://scenes/level/level_1.tscn" id="6_st07r"]
 [ext_resource type="Texture2D" uid="uid://dechd0hxshq2j" path="res://assets/parallax/paralax_1.png" id="7_3mtfd"]
-[ext_resource type="PackedScene" uid="uid://cxs4r4jwdplql" path="res://scenes/level/level_4.tscn" id="7_mk7qn"]
-[ext_resource type="PackedScene" uid="uid://pj1yr5tgu5bu" path="res://scenes/level/level_6.tscn" id="7_sa5si"]
+[ext_resource type="PackedScene" uid="uid://cxs4r4jwdplql" path="res://scenes/level/level_3.tscn" id="7_mk7qn"]
+[ext_resource type="PackedScene" uid="uid://pj1yr5tgu5bu" path="res://scenes/level/level_4.tscn" id="7_sa5si"]
 [ext_resource type="Texture2D" uid="uid://dnh4dfbpvvn6l" path="res://assets/parallax/paralax_2.png" id="8_cxncj"]
 [ext_resource type="Script" path="res://scenes/main/Canvas.gd" id="9_77551"]
 [ext_resource type="PackedScene" uid="uid://c6nm6w83jynbs" path="res://scenes/menus/pause_menu.tscn" id="10_u7rrt"]
@@ -19,7 +20,7 @@
 
 [node name="Main" type="Node" node_paths=PackedStringArray("player")]
 script = ExtResource("1_wtrgv")
-level = Array[PackedScene]([ExtResource("4_k64yn"), ExtResource("6_st07r"), ExtResource("7_mk7qn"), ExtResource("7_sa5si")])
+level = Array[PackedScene]([ExtResource("4_k64yn"), ExtResource("6_st07r"), ExtResource("7_mk7qn"), ExtResource("7_sa5si"), ExtResource("6_fs1sm")])
 player = NodePath("Player")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]

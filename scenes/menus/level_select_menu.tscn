@@ -72,7 +72,7 @@ theme_override_font_sizes/font_size = 30
 text = "4
 "
 
-[connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level1Button" to="." method="load_level" binds= [1]]
+[connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level1Button" to="." method="load_level" binds= [5]]
 [connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level2Button" to="." method="load_level" binds= [2]]
 [connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level3Button" to="." method="load_level" binds= [3]]
 [connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level4Button" to="." method="load_level" binds= [4]]
