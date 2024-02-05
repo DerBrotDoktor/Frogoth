@@ -218,7 +218,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ixpga")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 8.0
 }, {
@@ -285,7 +285,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a037y")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 10.0
 }, {
@@ -326,7 +326,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s82xu")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk",
 "speed": 12.0
 }]
@@ -342,8 +342,6 @@ bullet_amount = 5
 [node name="Animation" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_dj0yx")
 animation = &"walk"
-frame = 2
-frame_progress = 0.311395
 
 [node name="AttackAreaShape" parent="AttackArea" index="0"]
 shape = SubResource("CircleShape2D_t1eh8")
