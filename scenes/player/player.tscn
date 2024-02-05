@@ -674,13 +674,14 @@ _data = {
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_il0n1")
 normal_speed = 600.0
-jump_velocity = -1000.0
-deceleration = 0.14
+jump_velocity = -1100.0
+acceleration = 30.0
+deceleration = 0.19
 dash_speed = 3000
 dash_acceleration = 50.0
 dash_deceleration = 8.0
 ghost_node = ExtResource("2_rl3rv")
-gravity = 2680
+gravity = 2750
 temporary_orb_prefab = ExtResource("3_qo4h5")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
