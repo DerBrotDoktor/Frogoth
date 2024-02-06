@@ -115,6 +115,7 @@ func disable():
 	is_disabled = true
 
 func reset():
+	$"../Canvas/UserInterface".set_health(max_health)
 	current_health = max_health
 	velocity = Vector2.ZERO
 	can_move = true
@@ -234,7 +235,9 @@ func take_damage(damage):
 		$PlayerAnimation.play("hit_player_animation")
 		play_animation("damage")
 		current_health -= damage
+		$"../Canvas/UserInterface".set_health(current_health)
 	else:
+		$"../Canvas/UserInterface".set_health(0)
 		die()
 
 func die():

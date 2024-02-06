@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://scenes/main/bash_point_controller.gd" id="6_n33ax"]
 [ext_resource type="PackedScene" uid="uid://b3xkhnnblngtv" path="res://scenes/level/level_1.tscn" id="6_st07r"]
 [ext_resource type="Texture2D" uid="uid://dechd0hxshq2j" path="res://assets/parallax/paralax_1.png" id="7_3mtfd"]
-[ext_resource type="PackedScene" uid="uid://ddwu8ev1w36qf" path="res://scenes/level/level_5.tscn" id="7_30kpi"]
+[ext_resource type="PackedScene" path="res://scenes/level/level_5.tscn" id="7_30kpi"]
 [ext_resource type="PackedScene" uid="uid://cxs4r4jwdplql" path="res://scenes/level/level_3.tscn" id="7_mk7qn"]
 [ext_resource type="PackedScene" uid="uid://pj1yr5tgu5bu" path="res://scenes/level/level_4.tscn" id="7_sa5si"]
 [ext_resource type="Texture2D" uid="uid://dnh4dfbpvvn6l" path="res://assets/parallax/paralax_2.png" id="8_cxncj"]
