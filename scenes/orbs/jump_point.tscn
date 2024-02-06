@@ -1,24 +1,128 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj7mb0cagsptn"]
+[gd_scene load_steps=19 format=3 uid="uid://cj7mb0cagsptn"]
 
 [ext_resource type="Script" path="res://scenes/orbs/jump_point.gd" id="1_lotvx"]
+[ext_resource type="Texture2D" uid="uid://0knh5ix4tpv5" path="res://assets/vfx/orb/jump_orb.png" id="2_u3c28"]
+[ext_resource type="Texture2D" uid="uid://cxnwk5a1a5lbs" path="res://assets/vfx/orb/jump_orb_used.png" id="3_2k1vf"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_r6txh"]
-size = Vector2(150, 150)
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvpwu"]
+atlas = ExtResource("2_u3c28")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asigu"]
+atlas = ExtResource("2_u3c28")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a85f"]
+atlas = ExtResource("2_u3c28")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8u3k1"]
+atlas = ExtResource("2_u3c28")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p2tn"]
+atlas = ExtResource("2_u3c28")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym77g"]
+atlas = ExtResource("2_u3c28")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6bvi0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvpwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asigu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a85f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8u3k1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3p2tn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ym77g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmffg"]
+atlas = ExtResource("3_2k1vf")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sx74r"]
+atlas = ExtResource("3_2k1vf")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ump6e"]
+atlas = ExtResource("3_2k1vf")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1thhr"]
+atlas = ExtResource("3_2k1vf")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhu4a"]
+atlas = ExtResource("3_2k1vf")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g03t5"]
+atlas = ExtResource("3_2k1vf")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j5s8v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmffg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sx74r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ump6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1thhr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhu4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g03t5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ttjw"]
 radius = 125.0
 
 [node name="JumpPoint" type="Area2D" groups=["jump_point"]]
-scale = Vector2(0.3, 0.3)
 script = ExtResource("1_lotvx")
 
-[node name="SpriteActivated" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_r6txh")
+[node name="SpriteActivated" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_6bvi0")
+autoplay = "default"
+frame_progress = 0.336012
 
-[node name="SpriteDeactivated" type="Sprite2D" parent="."]
+[node name="SpriteDeactivated" type="AnimatedSprite2D" parent="."]
 visible = false
 modulate = Color(0.301961, 0.301961, 0.301961, 1)
-texture = SubResource("PlaceholderTexture2D_r6txh")
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_j5s8v")
+autoplay = "default"
+frame_progress = 0.186294
 
 [node name="TriggerShape" type="CollisionShape2D" parent="."]
 visible = false

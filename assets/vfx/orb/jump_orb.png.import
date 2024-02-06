@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iqix1umvp23s"
-path="res://.godot/imported/playstation_stick_l.png-c5c93576759230a0b85542ff6c253450.ctex"
+uid="uid://0knh5ix4tpv5"
+path="res://.godot/imported/jump_orb.png-7b1b697b69b92513a3d85e39cd7b1e6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/button prompts/playstation_stick_l.png"
-dest_files=["res://.godot/imported/playstation_stick_l.png-c5c93576759230a0b85542ff6c253450.ctex"]
+source_file="res://assets/vfx/orb/jump_orb.png"
+dest_files=["res://.godot/imported/jump_orb.png-7b1b697b69b92513a3d85e39cd7b1e6d.ctex"]
 
 [params]
 

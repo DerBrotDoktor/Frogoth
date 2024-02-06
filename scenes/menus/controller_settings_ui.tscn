@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://i70bm8lucd7m"]
 
-[ext_resource type="Texture2D" uid="uid://dyj6ii6scpxxh" path="res://assets/button prompts/playstation_button_circle.png" id="2_2erqb"]
-[ext_resource type="Texture2D" uid="uid://dkr4wy0ullbvp" path="res://assets/button prompts/playstation_stick_l_horizontal.png" id="3_6hds4"]
-[ext_resource type="Texture2D" uid="uid://iqix1umvp23s" path="res://assets/button prompts/playstation_stick_l.png" id="3_83b67"]
-[ext_resource type="Texture2D" uid="uid://mxqynyqjbi8v" path="res://assets/button prompts/playstation_button_cross.png" id="4_fskqe"]
-[ext_resource type="Texture2D" uid="uid://doivwub1m50nw" path="res://assets/button prompts/playstation_button_square.png" id="5_id6js"]
-[ext_resource type="Texture2D" uid="uid://cvwf2urm3ttl6" path="res://assets/button prompts/playstation_button_options.png" id="6_2m704"]
+[ext_resource type="Texture2D" uid="uid://dkr4wy0ullbvp" path="res://assets/button_prompts/playstation_stick_l_horizontal.png" id="1_ps6p8"]
+[ext_resource type="Texture2D" uid="uid://dyj6ii6scpxxh" path="res://assets/button_prompts/playstation_button_circle.png" id="2_4g481"]
+[ext_resource type="Texture2D" uid="uid://iqix1umvp23s" path="res://assets/button_prompts/playstation_stick_l.png" id="3_wexew"]
+[ext_resource type="Texture2D" uid="uid://mxqynyqjbi8v" path="res://assets/button_prompts/playstation_button_cross.png" id="4_sdkfn"]
+[ext_resource type="Texture2D" uid="uid://doivwub1m50nw" path="res://assets/button_prompts/playstation_button_square.png" id="5_363fs"]
+[ext_resource type="Texture2D" uid="uid://cvwf2urm3ttl6" path="res://assets/button_prompts/playstation_button_options.png" id="6_5fwhq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_teltn"]
 line_spacing = 25.0
@@ -42,7 +42,7 @@ offset_left = 320.0
 offset_top = 8.0
 offset_right = 448.0
 offset_bottom = 136.0
-texture = ExtResource("3_6hds4")
+texture = ExtResource("1_ps6p8")
 
 [node name="TextureRectDash1" type="TextureRect" parent="."]
 layout_mode = 0
@@ -50,7 +50,7 @@ offset_left = 320.0
 offset_top = 136.0
 offset_right = 448.0
 offset_bottom = 264.0
-texture = ExtResource("2_2erqb")
+texture = ExtResource("2_4g481")
 
 [node name="TextureRectDash2" type="TextureRect" parent="."]
 layout_mode = 0
@@ -58,7 +58,7 @@ offset_left = 496.0
 offset_top = 136.0
 offset_right = 624.0
 offset_bottom = 264.0
-texture = ExtResource("3_83b67")
+texture = ExtResource("3_wexew")
 
 [node name="TextureRectJump" type="TextureRect" parent="."]
 layout_mode = 0
@@ -66,7 +66,7 @@ offset_left = 320.0
 offset_top = 264.0
 offset_right = 448.0
 offset_bottom = 392.0
-texture = ExtResource("4_fskqe")
+texture = ExtResource("4_sdkfn")
 
 [node name="TextureRectEraseShape" type="TextureRect" parent="."]
 layout_mode = 0
@@ -74,7 +74,7 @@ offset_left = 320.0
 offset_top = 392.0
 offset_right = 448.0
 offset_bottom = 520.0
-texture = ExtResource("5_id6js")
+texture = ExtResource("5_363fs")
 
 [node name="TextureRectPause" type="TextureRect" parent="."]
 layout_mode = 0
@@ -82,4 +82,4 @@ offset_left = 320.0
 offset_top = 520.0
 offset_right = 448.0
 offset_bottom = 648.0
-texture = ExtResource("6_2m704")
+texture = ExtResource("6_5fwhq")

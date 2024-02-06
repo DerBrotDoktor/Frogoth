@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mxqynyqjbi8v"
-path="res://.godot/imported/playstation_button_cross.png-67899b486e593fef9ef68c23020fe201.ctex"
+path="res://.godot/imported/playstation_button_cross.png-841ba8290cd13431c5260b5100b36d09.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/button prompts/playstation_button_cross.png"
-dest_files=["res://.godot/imported/playstation_button_cross.png-67899b486e593fef9ef68c23020fe201.ctex"]
+source_file="res://assets/button_prompts/playstation_button_cross.png"
+dest_files=["res://.godot/imported/playstation_button_cross.png-841ba8290cd13431c5260b5100b36d09.ctex"]
 
 [params]
 

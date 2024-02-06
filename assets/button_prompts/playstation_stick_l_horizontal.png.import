@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvwf2urm3ttl6"
-path="res://.godot/imported/playstation_button_options.png-c5e03d84d1669aec86563e92901ae5c7.ctex"
+uid="uid://dkr4wy0ullbvp"
+path="res://.godot/imported/playstation_stick_l_horizontal.png-6fe92153e765fb548ccefcc05e3ec219.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/button prompts/playstation_button_options.png"
-dest_files=["res://.godot/imported/playstation_button_options.png-c5e03d84d1669aec86563e92901ae5c7.ctex"]
+source_file="res://assets/button_prompts/playstation_stick_l_horizontal.png"
+dest_files=["res://.godot/imported/playstation_stick_l_horizontal.png-6fe92153e765fb548ccefcc05e3ec219.ctex"]
 
 [params]
 

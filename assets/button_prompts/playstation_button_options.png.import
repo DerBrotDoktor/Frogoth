@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doivwub1m50nw"
-path="res://.godot/imported/playstation_button_square.png-535ccbdeb1ce5bbe2cbef48b8fbd84ae.ctex"
+uid="uid://cvwf2urm3ttl6"
+path="res://.godot/imported/playstation_button_options.png-8eb69ff9c6d56da5ed96116b95856333.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/button prompts/playstation_button_square.png"
-dest_files=["res://.godot/imported/playstation_button_square.png-535ccbdeb1ce5bbe2cbef48b8fbd84ae.ctex"]
+source_file="res://assets/button_prompts/playstation_button_options.png"
+dest_files=["res://.godot/imported/playstation_button_options.png-8eb69ff9c6d56da5ed96116b95856333.ctex"]
 
 [params]
 
