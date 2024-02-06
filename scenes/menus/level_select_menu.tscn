@@ -79,6 +79,11 @@ theme_override_font_sizes/font_size = 30
 text = "4
 "
 
+[node name="Level5Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+text = "5"
+
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 24.0
@@ -89,8 +94,9 @@ focus_neighbor_bottom = NodePath("../VerticalContainer/LevelMargin/LevelGrid/Lev
 text = "Main Menu"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level1Button" to="." method="load_level" binds= [5]]
-[connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level2Button" to="." method="load_level" binds= [2]]
-[connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level3Button" to="." method="load_level" binds= [3]]
-[connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level4Button" to="." method="load_level" binds= [4]]
+[connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level1Button" to="." method="load_level" binds= [2]]
+[connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level2Button" to="." method="load_level" binds= [3]]
+[connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level3Button" to="." method="load_level" binds= [4]]
+[connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level4Button" to="." method="load_level" binds= [5]]
+[connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level5Button" to="." method="load_level" binds= [6]]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

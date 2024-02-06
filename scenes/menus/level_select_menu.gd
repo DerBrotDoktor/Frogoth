@@ -13,3 +13,5 @@ func _on_visibility_changed():
 
 func _on_back_button_pressed():
 	get_parent().switch_to_child("MainMenu")
+
+
