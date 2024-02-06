@@ -96,7 +96,8 @@ shape = SubResource("RectangleShape2D_eauuh")
 offset_top = -476.0
 offset_bottom = -339.0
 text = "Use A/D to walk.
-Use Shift and W/A/S/D to dash in any direction"
+Use Shift and W/A/S/D to dash in any direction
+(Left Shoulder Button for Controller inputs)"
 
 [node name="TutorialSign2" parent="Signs" instance=ExtResource("3_exuu5")]
 position = Vector2(3212, 3)
