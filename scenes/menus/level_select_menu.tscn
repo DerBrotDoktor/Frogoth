@@ -48,12 +48,16 @@ theme_override_constants/v_separation = 20
 [node name="Level1Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
+focus_neighbor_top = NodePath("../../../../BackButton")
+focus_neighbor_bottom = NodePath("../Level2Button")
 theme_override_font_sizes/font_size = 30
 text = "1"
 
 [node name="Level2Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
+focus_neighbor_top = NodePath("../Level1Button")
+focus_neighbor_bottom = NodePath("../Level3Button")
 theme_override_font_sizes/font_size = 30
 text = "2
 "
@@ -61,6 +65,8 @@ text = "2
 [node name="Level3Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
+focus_neighbor_top = NodePath("../Level2Button")
+focus_neighbor_bottom = NodePath("../Level4Button")
 theme_override_font_sizes/font_size = 30
 text = "3
 "
@@ -68,12 +74,23 @@ text = "3
 [node name="Level4Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
+focus_neighbor_top = NodePath("../Level3Button")
 theme_override_font_sizes/font_size = 30
 text = "4
 "
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 120.0
+offset_bottom = 47.0
+focus_neighbor_bottom = NodePath("../VerticalContainer/LevelMargin/LevelGrid/Level1Button")
+text = "Main Menu"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level1Button" to="." method="load_level" binds= [5]]
 [connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level2Button" to="." method="load_level" binds= [2]]
 [connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level3Button" to="." method="load_level" binds= [3]]
 [connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level4Button" to="." method="load_level" binds= [4]]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
