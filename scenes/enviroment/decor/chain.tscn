@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnn1r7uyeri2u"]
+
+[ext_resource type="Texture2D" uid="uid://si70jlu0eqg3" path="res://assets/decor/chain_tile.png" id="1_balhb"]
+
+[node name="Chain" type="Line2D"]
+z_index = -1
+texture_repeat = 2
+width = 128.0
+texture = ExtResource("1_balhb")
+texture_mode = 1
