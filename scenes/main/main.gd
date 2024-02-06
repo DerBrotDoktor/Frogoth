@@ -23,10 +23,16 @@ func load_level_by_index(index:int):
 		set_player_position(current_scene.get_player_spawn_position())
 		player.reset()
 		player.enable()
+		reset_stats()
 		current_level_index = index
 		$Canvas.switch_to_child("UserInterface")
 	else:
 		$Canvas.switch_to_child("MainMenu")
+
+func reset_stats():
+	player.reset_stats()
+	$Canvas/UserInterface.reset_stats()
+	$BashPointController.reset_stats()
 
 func restart_current_level():
 	load_level_by_index(current_level_index)

@@ -42,3 +42,7 @@ func set_health(health):
 
 func set_heart(heart, image):
 	heart.texture = image
+
+func reset_stats():
+	print("reset stats")
+	time = 0.0

@@ -72,3 +72,7 @@ func _on_player_player_died():
 
 func _on_player_entered_orb(orb_position):
 	check_point(orb_position)
+
+func reset_stats():
+	stats_connected_orbs = 0
+	stats_total_shapes = 0

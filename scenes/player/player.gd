@@ -120,6 +120,12 @@ func reset():
 	velocity = Vector2.ZERO
 	can_move = true
 
+func reset_stats():
+	stats_air_time = 0.0
+	stats_jumps = 0
+	stats_connected_orbs = 0
+	stats_total_shapes = 0
+
 func try_jump():
 	var can_dash = $DashTimer.is_stopped() and $DashCooldown.is_stopped() and can_move
 	if Input.is_action_just_pressed("dash") and can_dash:
