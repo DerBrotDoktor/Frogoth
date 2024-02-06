@@ -311,7 +311,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5m6sv"]
-radius = 663.505
+radius = 1087.5
 
 [node name="EnemySingleShot" instance=ExtResource("1_ou6ub")]
 script = ExtResource("2_g0l75")
@@ -321,16 +321,11 @@ bullet_speed = 300
 sprite_frames = SubResource("SpriteFrames_fd74i")
 animation = &"attack"
 
-[node name="Collider" parent="." index="1"]
-visible = false
-
 [node name="TriggerArea" parent="." index="6"]
 position = Vector2(13.3333, 50)
 
 [node name="TriggerAreaShape" parent="TriggerArea" index="0"]
-visible = false
 position = Vector2(-13.3333, -18)
 
 [node name="AttackAreaShape" parent="AttackArea" index="0"]
-visible = false
 shape = SubResource("CircleShape2D_5m6sv")
