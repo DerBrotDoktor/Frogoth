@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://iyel1auqud01"]
+[gd_scene load_steps=20 format=3 uid="uid://iyel1auqud01"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_wtrgv"]
 [ext_resource type="PackedScene" uid="uid://bfqr80qekwaw5" path="res://scenes/player/player.tscn" id="3_cw4d6"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://scenes/main/Canvas.gd" id="9_77551"]
 [ext_resource type="PackedScene" uid="uid://c6nm6w83jynbs" path="res://scenes/menus/pause_menu.tscn" id="10_u7rrt"]
 [ext_resource type="PackedScene" uid="uid://cj5y0tnco4cx1" path="res://scenes/menus/level_finish_screen.tscn" id="14_nbfd2"]
+[ext_resource type="PackedScene" uid="uid://i70bm8lucd7m" path="res://scenes/menus/controller_settings_ui.tscn" id="17_8mvke"]
 
 [node name="Main" type="Node" node_paths=PackedStringArray("player")]
 script = ExtResource("1_wtrgv")
@@ -69,6 +70,8 @@ script = ExtResource("9_77551")
 [node name="LevelSelectMenu" parent="Canvas" instance=ExtResource("3_qm2ey")]
 
 [node name="LevelFinishScreen" parent="Canvas" instance=ExtResource("14_nbfd2")]
+
+[node name="ControllerSettingsUI" parent="Canvas" instance=ExtResource("17_8mvke")]
 
 [node name="Player" parent="." instance=ExtResource("3_cw4d6")]
 z_index = 2

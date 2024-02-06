@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjp1533i5feer"]
+[gd_scene load_steps=8 format=3 uid="uid://i70bm8lucd7m"]
 
 [ext_resource type="Texture2D" uid="uid://dyj6ii6scpxxh" path="res://assets/button prompts/playstation_button_circle.png" id="2_2erqb"]
 [ext_resource type="Texture2D" uid="uid://dkr4wy0ullbvp" path="res://assets/button prompts/playstation_stick_l_horizontal.png" id="3_6hds4"]
@@ -11,7 +11,7 @@
 line_spacing = 25.0
 font_size = 28
 
-[node name="controller_settings_UI" type="Control"]
+[node name="ControllerSettingsUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

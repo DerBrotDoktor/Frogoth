@@ -8,6 +8,7 @@ func load_level(number:int):
 
 func _on_visibility_changed():
 	if $VerticalContainer/LevelMargin/LevelGrid/Level1Button.is_inside_tree() and visible:
+		get_tree().paused = true
 		$VerticalContainer/LevelMargin/LevelGrid/Level1Button.grab_focus()
 
 

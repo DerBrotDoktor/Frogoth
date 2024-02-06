@@ -3,12 +3,20 @@ extends CanvasLayer
 func _process(delta):
 	if Input.is_action_just_pressed("pause_menu"):
 		toggle_pause_menu()
+	if Input.is_action_pressed("controller_help") and not get_tree().paused:
+		if not $ControllerSettingsUI.visible:
+			get_tree().paused = true
+			switch_to_child("ControllerSettingsUI")
+	elif Input.is_action_just_released("controller_help"):
+		if $ControllerSettingsUI.visible:
+			get_tree().paused = false
+			switch_to_child("UserInterface")
 
 func toggle_pause_menu():
 	if $PauseMenu.visible:
 		switch_to_child("UserInterface")
 		get_tree().paused = false
-	else:
+	elif not get_tree().paused:
 		switch_to_child("PauseMenu")
 		get_tree().paused = true
 

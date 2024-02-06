@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://bjr4d282863jf"]
 
 [ext_resource type="Script" path="res://scenes/player/user_interface.gd" id="1_2e1s1"]
-[ext_resource type="Texture2D" uid="uid://1gk3b4bcq2wi" path="res://assets/ui/health/green_heart.png" id="2_0d7dp"]
-[ext_resource type="Texture2D" uid="uid://cb5afw5njwwns" path="res://assets/ui/health/yellow_heart.png" id="3_abtrg"]
-[ext_resource type="Texture2D" uid="uid://co5ujfifbx7qj" path="res://assets/ui/health/red_heart.png" id="4_2smar"]
-[ext_resource type="Texture2D" uid="uid://b60u4mv3s6v8j" path="res://assets/ui/health/gray_heart.png" id="5_3eudh"]
+[ext_resource type="Texture2D" uid="uid://dkpbmwg07gd6v" path="res://assets/ui/health/green_heart.png" id="2_0d7dp"]
+[ext_resource type="Texture2D" uid="uid://c7cxhur1tcq51" path="res://assets/ui/health/yellow_heart.png" id="3_abtrg"]
+[ext_resource type="Texture2D" uid="uid://dbtftdevnqyc2" path="res://assets/ui/health/red_heart.png" id="4_2smar"]
+[ext_resource type="Texture2D" uid="uid://ibn610wdu7lp" path="res://assets/ui/health/gray_heart.png" id="5_3eudh"]
 
 [sub_resource type="Theme" id="Theme_2u5c8"]
 default_font_size = 40
