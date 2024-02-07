@@ -1,41 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4vps8xifgv2x"]
+[gd_scene load_steps=3 format=3 uid="uid://t04ny4yh8fr2"]
 
 [ext_resource type="Texture2D" uid="uid://n0sekt7o00ys" path="res://assets/vfx/orb/orb_connection_lines.png" id="1_0kke6"]
+[ext_resource type="Script" path="res://scenes/kill_shape/kill_shape_outline_tile.gd" id="2_8a7g7"]
 
-[sub_resource type="GDScript" id="GDScript_s6h8q"]
-script/source = "extends Sprite2D
+[node name="KillShapeOutlineTile" type="PathFollow2D"]
+script = ExtResource("2_8a7g7")
 
-var last_sprite = 0
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	$Timer.start()
-	print( texture.get_width()/region_rect.size.x)
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _on_timer_timeout():
-	var sprite_pos = region_rect.size.x +(region_rect.size.x  * randi_range(0, texture.get_width()/region_rect.size.x-1))
-	if sprite_pos == last_sprite:
-		sprite_pos += region_rect.size.x if not sprite_pos + region_rect.size.x > texture.get_width() else -region_rect.size.x
-	region_rect.position.x = sprite_pos
-	last_sprite = sprite_pos
-"
-
-[node name="Sprite2D" type="Sprite2D"]
+[node name="Sprite" type="Sprite2D" parent="."]
 texture_repeat = 2
-position = Vector2(506, -188)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_0kke6")
-region_enabled = true
-region_rect = Rect2(69, 0, 265, 265)
-script = SubResource("GDScript_s6h8q")
+hframes = 6
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.3
+[node name="SpriteSwitchTimer" type="Timer" parent="Sprite"]
+wait_time = 0.1
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Sprite/SpriteSwitchTimer" to="." method="_on_sprite_switch_timer_timeout"]

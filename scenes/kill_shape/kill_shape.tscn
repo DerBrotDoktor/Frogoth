@@ -1,13 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://b534dj4lmdign"]
+[gd_scene load_steps=4 format=3 uid="uid://b534dj4lmdign"]
 
 [ext_resource type="Script" path="res://scenes/kill_shape/kill_shape.gd" id="1_sr5bi"]
+[ext_resource type="PackedScene" uid="uid://t04ny4yh8fr2" path="res://scenes/kill_shape/kill_shape_outline_tile.tscn" id="2_1f81m"]
+
+[sub_resource type="Curve2D" id="Curve2D_csn5t"]
 
 [node name="KillShape" type="Node2D"]
 script = ExtResource("1_sr5bi")
+outline_tile = ExtResource("2_1f81m")
 
 [node name="Outline" type="Line2D" parent="."]
-width = 15.0
-default_color = Color(1, 0, 1, 1)
+default_color = Color(1, 1, 1, 0.807843)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
@@ -18,4 +21,8 @@ end_cap_mode = 2
 wait_time = 2.0
 one_shot = true
 
+[node name="KillShapePath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_csn5t")
+
 [connection signal="timeout" from="DeleteTimer" to="." method="_on_delete_timer_timeout"]
+[connection signal="tree_entered" from="KillShapePath" to="." method="_on_kill_shape_path_tree_entered"]

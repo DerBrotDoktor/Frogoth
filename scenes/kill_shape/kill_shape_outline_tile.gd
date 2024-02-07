@@ -1,13 +1,15 @@
-extends Sprite2D
+extends PathFollow2D
 
-var last_sprite = 0
+var last_sprite_number = 0
 
-func _ready():
-	$SpriteSwitchTimer.start()
+func start():
+	_on_sprite_switch_timer_timeout()
+	$Sprite/SpriteSwitchTimer.start()
 
 func _on_sprite_switch_timer_timeout():
-	var sprite_pos = region_rect.size.x +(region_rect.size.x  * randi_range(0, texture.get_width()/region_rect.size.x-1))
-	if sprite_pos == last_sprite:
-		sprite_pos += region_rect.size.x if not sprite_pos + region_rect.size.x > texture.get_width() else -region_rect.size.x
-	region_rect.position.x = sprite_pos
-	last_sprite = sprite_pos
+	var sprite_number = randi_range(0, $Sprite.hframes-1)
+	if sprite_number == last_sprite_number:
+		sprite_number += 1 if sprite_number < ($Sprite.hframes-1) else -1
+	$Sprite.flip_h = true if randi_range(0,1) == 1 else false
+	$Sprite.frame = sprite_number
+	last_sprite_number = sprite_number
