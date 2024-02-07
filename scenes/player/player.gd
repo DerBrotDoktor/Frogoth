@@ -212,6 +212,7 @@ func dash():
 	velocity = Vector2(input_x * 3000.0, input_y * 3000.0)
 	dash_direction = Vector2(input_x, input_y).normalized()
 	can_move = false
+	try_place_orb()
 	play_animation("dash")
 	$DashTimer.start()
 	$GhostTimer.start()
@@ -224,6 +225,7 @@ func add_ghost():
 
 func _on_ghost_timer_timeout():
 	add_ghost()
+	
 
 func _on_dash_timer_timeout():
 	$GhostTimer.stop()
