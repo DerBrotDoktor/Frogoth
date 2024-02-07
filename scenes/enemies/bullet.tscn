@@ -1,30 +1,88 @@
-[gd_scene load_steps=4 format=3 uid="uid://77vbimjom55n"]
+[gd_scene load_steps=12 format=3 uid="uid://77vbimjom55n"]
 
 [ext_resource type="Script" path="res://scenes/enemies/bullet.gd" id="1_aeqp4"]
+[ext_resource type="Texture2D" uid="uid://dlvebixrcbt05" path="res://assets/vfx/bullet/fire_blast_spritesheet.png" id="2_2il0n"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_igy5q"]
-size = Vector2(50, 50)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx5hc"]
+atlas = ExtResource("2_2il0n")
+region = Rect2(0, 0, 256, 256)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vs52"]
-size = Vector2(50, 50)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub3rk"]
+atlas = ExtResource("2_2il0n")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2w6dm"]
+atlas = ExtResource("2_2il0n")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eu3dj"]
+atlas = ExtResource("2_2il0n")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vcwj"]
+atlas = ExtResource("2_2il0n")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg3p1"]
+atlas = ExtResource("2_2il0n")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gqi5h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kx5hc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ub3rk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2w6dm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eu3dj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vcwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pg3p1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gody5"]
+radius = 20.0
+height = 80.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p2shs"]
+radius = 20.0
+height = 80.0
 
 [node name="Bullet" type="CharacterBody2D" groups=["bullet"]]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_aeqp4")
 
-[node name="Sprite" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 0, 1)
-texture = SubResource("PlaceholderTexture2D_igy5q")
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-20, -10)
+sprite_frames = SubResource("SpriteFrames_gqi5h")
+autoplay = "default"
+frame_progress = 0.886806
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_5vs52")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_gody5")
 
 [node name="TriggerArea" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 4
 
 [node name="TriggerAreaCollider" type="CollisionShape2D" parent="TriggerArea"]
-shape = SubResource("RectangleShape2D_5vs52")
+visible = false
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_p2shs")
 
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]

@@ -8,6 +8,7 @@ func set_properties(_speed, _scale, _position, _direction):
 	speed = _speed
 	position = _position
 	direction = _direction
+	look_at(position+_direction)
 
 func _physics_process(_delta):
 	if direction:

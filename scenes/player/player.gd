@@ -200,6 +200,7 @@ func _on_trigger_area_area_exited(area):
 func _on_trigger_area_body_entered(body):
 	if body.is_in_group("bullet"):
 		take_damage(1)
+		body.queue_free()
 	elif body.is_in_group("spikes"):
 		die()
 	elif body.is_in_group("platform") and is_on_floor():
