@@ -673,9 +673,9 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_il0n1")
-normal_speed = 600.0
+normal_speed = 670.0
 jump_velocity = -1100.0
-acceleration = 30.0
+acceleration = 94.0
 deceleration = 0.19
 dash_speed = 3000
 dash_acceleration = 50.0
