@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://jslvxnacwmvr"]
+[gd_scene load_steps=14 format=3 uid="uid://jslvxnacwmvr"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_3wrvq"]
 [ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/orbs/jump_point.tscn" id="2_4omrp"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://d0gcu70fmmqi4" path="res://scenes/player/player_spwan_point.tscn" id="11_x2yo8"]
 [ext_resource type="TileSet" uid="uid://ccmvs8cpkx4w2" path="res://assets/tileset/floor_tileset.tres" id="12_4vixj"]
 [ext_resource type="PackedScene" uid="uid://btimemg85kwm8" path="res://scenes/enviroment/platforms/big/platform_big_2.tscn" id="13_guybt"]
-[ext_resource type="PackedScene" uid="uid://jvgqmuavbsuu" path="res://scenes/enemies/enemy_multiple_shot.tscn" id="14_2e07t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqnud"]
 size = Vector2(40.49, 20)
@@ -25,9 +24,6 @@ player_spawn_point = NodePath("PlayerSpwanPoint")
 
 [node name="JumpPoint" parent="JumpPoints" instance=ExtResource("2_4omrp")]
 position = Vector2(925, -1703)
-
-[node name="JumpPoint2" parent="JumpPoints" instance=ExtResource("2_4omrp")]
-position = Vector2(1306, -574)
 
 [node name="JumpPoint3" parent="JumpPoints" instance=ExtResource("2_4omrp")]
 position = Vector2(406, -1256)
@@ -64,8 +60,13 @@ position = Vector2(301, -2002)
 [node name="EnemySingleShot" parent="Enemies" instance=ExtResource("3_srre2")]
 position = Vector2(3133, -2482)
 
-[node name="EnemyMultipleShot" parent="Enemies" instance=ExtResource("14_2e07t")]
-position = Vector2(2169, -935)
+[node name="FallingPlatform" parent="Enemies" instance=ExtResource("9_st7yq")]
+position = Vector2(3391, -522)
+
+[node name="Platform" parent="Enemies/FallingPlatform" instance=ExtResource("4_o0w7o")]
+
+[node name="EnemySingleShot4" parent="Enemies" instance=ExtResource("3_srre2")]
+position = Vector2(2174, -935)
 
 [node name="Platforms" type="Node2D" parent="."]
 
@@ -79,19 +80,13 @@ position = Vector2(2156, -728)
 position = Vector2(564, -553)
 
 [node name="PlatformSmall4" parent="Platforms" instance=ExtResource("7_hcnyn")]
-position = Vector2(1714, -250)
+position = Vector2(1260, -1051)
 
 [node name="PlatformBig4" parent="Platforms" instance=ExtResource("4_o0w7o")]
 position = Vector2(3743, -1451)
 
-[node name="PlatformSmall1" parent="Platforms" instance=ExtResource("8_d64j0")]
-position = Vector2(-277, -2192)
-
 [node name="PlatformSmall5" parent="Platforms" instance=ExtResource("8_d64j0")]
 position = Vector2(4366, -1136)
-
-[node name="PlatformSmall3" parent="Platforms" instance=ExtResource("7_hcnyn")]
-position = Vector2(2026, -1499)
 
 [node name="PlatformSmall6" parent="Platforms" instance=ExtResource("7_hcnyn")]
 position = Vector2(4513, -2480)
@@ -105,15 +100,22 @@ position = Vector2(1369, -2187)
 [node name="FallingPlatforms" type="Node2D" parent="."]
 
 [node name="FallingPlatform2" parent="FallingPlatforms" instance=ExtResource("9_st7yq")]
-position = Vector2(1283, -1108)
+position = Vector2(1420, -322)
 
 [node name="Platform" parent="FallingPlatforms/FallingPlatform2" instance=ExtResource("8_d64j0")]
 position = Vector2(-11, 34)
 
-[node name="FallingPlatform" parent="FallingPlatforms" instance=ExtResource("9_st7yq")]
-position = Vector2(3391, -522)
+[node name="FallingPlatform3" parent="FallingPlatforms" instance=ExtResource("9_st7yq")]
+position = Vector2(2021, -1516)
 
-[node name="Platform" parent="FallingPlatforms/FallingPlatform" instance=ExtResource("4_o0w7o")]
+[node name="Platform" parent="FallingPlatforms/FallingPlatform3" instance=ExtResource("7_hcnyn")]
+position = Vector2(5, 17)
+
+[node name="FallingPlatform" parent="FallingPlatforms" instance=ExtResource("9_st7yq")]
+position = Vector2(-292, -2256)
+
+[node name="Platform" parent="FallingPlatforms/FallingPlatform" instance=ExtResource("8_d64j0")]
+position = Vector2(15, 64)
 
 [node name="PlayerSpwanPoint" parent="." instance=ExtResource("11_x2yo8")]
 position = Vector2(395, 302)

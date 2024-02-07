@@ -315,7 +315,8 @@ radius = 1087.5
 
 [node name="EnemySingleShot" instance=ExtResource("1_ou6ub")]
 script = ExtResource("2_g0l75")
-bullet_speed = 300
+bullet_speed = 350
+bullet_scale = 1.2
 
 [node name="Animation" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_fd74i")
