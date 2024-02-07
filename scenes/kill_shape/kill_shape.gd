@@ -25,8 +25,13 @@ func place_lightning():
 
 func finish_shape(new_points):
 	clear_points()
+	for child in $KillShapePath.get_children():
+		child.queue_free()
+	$KillShapePath.curve = Curve2D.new()
+	last_length = 0
 	for point in new_points:
 		add_point(point)
+	add_point(new_points[0])
 	$Outline.closed = true
 	var polygons = get_polygons(new_points)
 
