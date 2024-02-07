@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed = 100 ##Speed
 @export var direction = 1 ##The direction the enemy is facing
 @export var bullet_speed = 200## The speed of the bullet
-@export var bullet_scale = 1##The scale of the bullet
+@export var bullet_scale = 1.0##The scale of the bullet
 @export var can_move = true
 var bullet_prefab = preload("res://scenes/enemies/bullet.tscn")
 

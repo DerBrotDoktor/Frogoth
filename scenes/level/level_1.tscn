@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dn3xgle2qo4kl" path="res://scenes/enviroment/platforms/small/platform_small_2.tscn" id="8_jjk8j"]
 [ext_resource type="PackedScene" uid="uid://17i4ie4f1lm3" path="res://scenes/enviroment/platforms/small/platform_small_3.tscn" id="9_kmecn"]
 
-[node name="Level2" type="Node2D" node_paths=PackedStringArray("player_spawn_point")]
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("player_spawn_point")]
 script = ExtResource("1_lq8o0")
 player_spawn_point = NodePath("PlayerSpwanPoint")
 
