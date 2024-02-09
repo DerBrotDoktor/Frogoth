@@ -5,19 +5,18 @@ extends CharacterBody2D
 @export var bullet_speed = 200## The speed of the bullet
 @export var bullet_scale = 1.0##The scale of the bullet
 @export var can_move = true
+@export var is_attacking = false
 var bullet_prefab = preload("res://scenes/enemies/bullet.tscn")
 
 var target
-var is_attacking = false
 var is_dead = false
+
 
 func _physics_process(_delta):
 	if can_move and not is_attacking:
 		handle_movement()
 		check_path()
-	elif is_attacking:
-		play_animation("attack")
-	else:
+	elif not is_attacking:
 		play_animation("idle")
 
 func handle_movement():
@@ -42,12 +41,19 @@ func trigger_area_entererd(area):
 	
 func attack_area_entererd(area):
 	if area.is_in_group("player"):
-		$AttackCooldown.start()
 		target = area
-		shoot()
+		if $AttackCooldown.is_stopped():
+			attack()
+
+func attack():
+	$AttackCooldown.start()
+	is_attacking = true
+	play_animation("attack")
 
 func shoot():
-	pass
+	if target:
+		var b_direction =  (target.global_position - global_position).normalized()
+		new_bullet(b_direction)
 
 func new_bullet(b_direction):
 	var bullet = bullet_prefab.instantiate()
@@ -65,7 +71,7 @@ func attack_area_exited(area):
 
 func _on_attack_cooldown_timeout():
 	if not is_attacking:
-		shoot()
+		attack()
 
 func _on_attack_area_area_entered(area):
 	attack_area_entererd(area)
