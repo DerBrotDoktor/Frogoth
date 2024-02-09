@@ -6,17 +6,17 @@ extends CharacterBody2D
 @export var bullet_scale = 1.0##The scale of the bullet
 @export var can_move = true
 @export var is_attacking = false
+@export var is_dead = false
 var bullet_prefab = preload("res://scenes/enemies/bullet.tscn")
 
 var target
-var is_dead = false
 
 
 func _physics_process(_delta):
-	if can_move and not is_attacking:
+	if can_move and not is_attacking and not is_dead:
 		handle_movement()
 		check_path()
-	elif not is_attacking:
+	elif not is_attacking and not is_dead:
 		play_animation("idle")
 
 func handle_movement():

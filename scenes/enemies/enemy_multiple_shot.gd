@@ -13,9 +13,12 @@ func shoot():
 		super.new_bullet(Vector2.from_angle(deg_to_rad(bullet_direction)))
 
 func play_animation(animation):
-	$AnimationPlayer.play(animation)
+	if not is_dead:
+		$AnimationPlayer.play(animation)
 	
 func trigger_area_entererd(area):
 	if area.is_in_group("killing_area"):
+		is_dead = true
+		$AnimationPlayer.clear_queue()
 		$AnimationPlayer.stop()
 		play_animation("death")
