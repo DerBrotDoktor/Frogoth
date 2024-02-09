@@ -156,7 +156,6 @@ func handle_jump(delta):
 func start_jump():
 	velocity.y = jump_velocity
 	jump_time = 0.0
-	print("jump",current_orb)
 	try_place_orb()
 	if can_jump:
 		play_animation("double_jump")
@@ -253,6 +252,9 @@ func take_damage(damage):
 
 func die():
 	can_move = false
+	can_jump = false
+	can_double_jump = false
+	can_tripple_jump = false
 	velocity = Vector2.ZERO
 	play_animation("death")
 	await  $Animation.animation_finished
@@ -264,7 +266,6 @@ func try_place_orb():
 	elif not current_orb:
 		place_temporary_orb(position)
 	elif current_orb:
-		print("emit")
 		entered_orb.emit(current_orb)
 
 func place_temporary_orb(pos):

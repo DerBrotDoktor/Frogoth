@@ -75,6 +75,7 @@ position = Vector2(0.5, 31.5)
 shape = SubResource("CircleShape2D_14u2w")
 
 [node name="AttackCooldown" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]
 [connection signal="area_exited" from="TriggerArea" to="." method="_on_trigger_area_area_exited"]

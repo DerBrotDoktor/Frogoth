@@ -85,6 +85,7 @@ position = Vector2(224, -1797)
 
 [node name="EnemySingleShot" parent="Enemies" instance=ExtResource("3_khw6i")]
 position = Vector2(2699, -2834)
+is_attacking = false
 
 [node name="EnemyMultipleShot" parent="Enemies" instance=ExtResource("4_a1ie5")]
 position = Vector2(3958, -2376)
@@ -97,15 +98,19 @@ position = Vector2(5003, -2376)
 
 [node name="EnemySingleShot2" parent="Enemies" instance=ExtResource("3_khw6i")]
 position = Vector2(3550, -2362)
+is_attacking = false
 
 [node name="EnemySingleShot3" parent="Enemies" instance=ExtResource("3_khw6i")]
 position = Vector2(4527, -2373)
+is_attacking = false
 
 [node name="EnemySingleShot4" parent="Enemies" instance=ExtResource("3_khw6i")]
 position = Vector2(6729, -2425)
+is_attacking = false
 
 [node name="EnemySingleShot5" parent="Enemies" instance=ExtResource("3_khw6i")]
 position = Vector2(4225, -3281)
+is_attacking = false
 
 [node name="Platforms" type="Node2D" parent="."]
 
