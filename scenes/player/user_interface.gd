@@ -21,6 +21,10 @@ func _on_visibility_changed():
 	timer_allowed = visible
 	if visible:
 		get_tree().paused = false
+	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func set_health(health):
 	if health >= 3:

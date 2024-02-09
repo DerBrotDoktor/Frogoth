@@ -7,7 +7,6 @@ var current_level_index = -1
 var current_scene
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	player.disable()
 	$Canvas.switch_to_child("MainMenu")
 
