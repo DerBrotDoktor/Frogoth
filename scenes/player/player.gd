@@ -215,7 +215,6 @@ func dash():
 	velocity = Vector2(input_x * 3000.0, input_y * 3000.0)
 	dash_direction = Vector2(input_x, input_y).normalized()
 	can_move = false
-	try_place_orb()
 	play_animation("dash")
 	$DashTimer.start()
 	$GhostTimer.start()
@@ -237,7 +236,7 @@ func _on_dash_timer_timeout():
 func _on_dash_delay_timeout():
 	$DashCooldown.start()
 	can_move = true
-	#try_place_orb()
+	try_place_orb()
 
 func take_damage(damage):
 	if current_health > 1:
@@ -248,6 +247,7 @@ func take_damage(damage):
 		current_health -= damage
 		$"../Canvas/UserInterface".set_health(current_health)
 	else:
+		$Camera.shake()
 		$"../Canvas/UserInterface".set_health(0)
 		die()
 
