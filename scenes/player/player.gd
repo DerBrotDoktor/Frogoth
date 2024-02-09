@@ -19,6 +19,7 @@ signal player_died()
 @export var temporary_orb_prefab :PackedScene ##Temporary Orb Scene
 @export var squash = 0.2
 @export var stretch = 0.1
+@export var invincible_frames = 30
 
 var can_jump = false
 var can_double_jump = false
@@ -29,6 +30,7 @@ var can_move = true
 var current_health
 var dash_direction
 var current_orb
+var invincible_frames_left = 0
 #endregion
 
 #region stats
@@ -45,6 +47,8 @@ func _ready():
 func _process(delta):
 	if not is_on_floor():
 		stats_air_time += delta
+	if invincible_frames_left > 0:
+		invincible_frames_left -= 1
 
 func _physics_process(delta):
 	if is_disabled:
@@ -241,6 +245,9 @@ func _on_dash_delay_timeout():
 	try_place_orb()
 
 func take_damage(damage):
+	if invincible_frames_left > 0:
+		return
+	invincible_frames_left = invincible_frames
 	if current_health > 1:
 		$Camera.shake()
 		$JumpVFXAnimation.visible = false
