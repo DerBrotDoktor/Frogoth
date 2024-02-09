@@ -156,6 +156,7 @@ func handle_jump(delta):
 func start_jump():
 	velocity.y = jump_velocity
 	jump_time = 0.0
+	print("jump",current_orb)
 	try_place_orb()
 	if can_jump:
 		play_animation("double_jump")
@@ -184,9 +185,10 @@ func reset_jump():
 
 func _on_trigger_area_area_entered(area):
 	if area.is_in_group("jump_point"):
-		reset_jump()
-		$DashCooldown.stop()
-		area.use_point()
+		if not area.used:
+			reset_jump()
+			$DashCooldown.stop()
+			area.use_point()
 		current_orb = area
 	elif area.is_in_group("temporary_orb"):
 		current_orb = area
@@ -262,6 +264,7 @@ func try_place_orb():
 	elif not current_orb:
 		place_temporary_orb(position)
 	elif current_orb:
+		print("emit")
 		entered_orb.emit(current_orb)
 
 func place_temporary_orb(pos):

@@ -1,15 +1,16 @@
 extends Area2D
 
 var is_in_shape = false
+var used = false
 
 func use_point():
 	$RefreshTimer.start()
-	set_deferred("monitorable",false)
+	used = true
 	$SpriteDeactivated.visible = true
 	$SpriteActivated.visible = false
 
 func refresh_point():
-	set_deferred("monitorable",true)
+	used = false
 	$SpriteDeactivated.visible = false
 	$SpriteActivated.visible = true
 

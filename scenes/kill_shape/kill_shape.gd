@@ -51,6 +51,8 @@ func delete_shape():
 	for point in point_objects:
 		if is_instance_valid(point) and point.has_method("delete_point"):
 			point.delete_point()
+		elif is_instance_valid(point) and point.has_method("use_point"):
+			point.is_in_shape = false
 	queue_free()
 
 func _on_delete_timer_timeout():
