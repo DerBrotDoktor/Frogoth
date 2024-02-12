@@ -83,8 +83,10 @@ func play_animation(animation):
 	$Animation.play(animation)
 
 func die():
+	$Animation/Distortion/DistortionVFXPlayer.play("distortion_vfx")
 	is_dead = true
 	var main = get_tree().get_root().get_node("Main")
 	if main:
 		main.check_for_win()
+	await $Animation/Distortion/DistortionVFXPlayer.animation_finished
 	queue_free()
