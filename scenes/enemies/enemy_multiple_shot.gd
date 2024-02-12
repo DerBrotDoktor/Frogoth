@@ -18,7 +18,7 @@ func play_animation(animation):
 	
 func trigger_area_entererd(area):
 	if area.is_in_group("killing_area"):
-		is_dead = true
 		$AnimationPlayer.clear_queue()
 		$AnimationPlayer.stop()
-		play_animation("death")
+		is_dead = true
+		$AnimationPlayer.play("death")
