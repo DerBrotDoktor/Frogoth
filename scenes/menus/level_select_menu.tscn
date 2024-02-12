@@ -1,10 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://byylmvxjebsun"]
+[gd_scene load_steps=7 format=3 uid="uid://byylmvxjebsun"]
 
 [ext_resource type="Script" path="res://scenes/menus/level_select_menu.gd" id="1_8ktxo"]
 [ext_resource type="Texture2D" uid="uid://m30ojk8eyhbr" path="res://assets/parallax/sky.png" id="2_v8a2s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3fn0t"]
 font_size = 40
+
+[sub_resource type="InputEventKey" id="InputEventKey_h1mgi"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_h8bnw"]
+button_index = 1
+
+[sub_resource type="Shortcut" id="Shortcut_mvqwp"]
+events = [SubResource("InputEventKey_h1mgi"), SubResource("InputEventJoypadButton_h8bnw")]
 
 [node name="LevelSelectMenu" type="Control"]
 layout_mode = 3
@@ -120,6 +130,7 @@ offset_top = 16.0
 offset_right = 120.0
 offset_bottom = 47.0
 focus_neighbor_bottom = NodePath("../VerticalContainer/LevelMargin/LevelGrid/Level1Button")
+shortcut = SubResource("Shortcut_mvqwp")
 text = "Main Menu"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
