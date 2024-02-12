@@ -265,7 +265,7 @@ func die():
 	can_jump = false
 	can_double_jump = false
 	can_tripple_jump = false
-	velocity = Vector2.ZERO
+	velocity = Vector2(0,gravity/2)
 	play_animation("death")
 	await  $Animation.animation_finished
 	player_died.emit()
