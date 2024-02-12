@@ -43,6 +43,9 @@ func finish_shape(new_points):
 		var coll = CollisionPolygon2D.new()
 		coll.polygon = point_array
 		$KillArea.add_child(coll)
+		var sprite = Polygon2D.new()
+		sprite.polygon = point_array
+		add_child(sprite)
 	
 	$DeleteTimer.start()
 

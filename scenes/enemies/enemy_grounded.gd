@@ -7,23 +7,31 @@ extends CharacterBody2D
 @export var can_move = true
 @export var is_attacking = false
 @export var is_dead = false
-var bullet_prefab = preload("res://scenes/enemies/bullet.tscn")
+@export var has_gravity = false
 
+var bullet_prefab = preload("res://scenes/enemies/bullet.tscn")
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var target
 
 
 func _physics_process(_delta):
+	velocity.x = 0.0
 	if can_move and not is_attacking and not is_dead:
 		handle_movement()
 		check_path()
 	elif not is_attacking and not is_dead:
 		play_animation("idle")
+	if has_gravity:
+		apply_gravity()
+	move_and_slide()
 
 func handle_movement():
 	velocity.x = speed * direction
 	if velocity.x != 0:
 		play_animation("walk")
-	move_and_slide()
+	
+func apply_gravity():
+	velocity.y += gravity
 
 func check_path():
 	if ($HorizontalRayCast.is_colliding() or not $VerticalRayCastL.is_colliding() or not $VerticalRayCastR.is_colliding()) and $FlipCooldownTimer.is_stopped():
@@ -47,7 +55,6 @@ func attack_area_entererd(area):
 
 func attack():
 	$AttackCooldown.start()
-	is_attacking = true
 	play_animation("attack")
 
 func shoot():

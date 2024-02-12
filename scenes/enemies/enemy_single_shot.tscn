@@ -548,9 +548,6 @@ bullet_speed = 350
 sprite_frames = SubResource("SpriteFrames_fd74i")
 animation = &"idle"
 
-[node name="Distortion" parent="Animation" index="0"]
-visible = false
-
 [node name="TriggerArea" parent="." index="6"]
 position = Vector2(13.3333, 50)
 

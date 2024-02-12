@@ -3,6 +3,11 @@ extends "res://scenes/enemies/enemy_grounded.gd"
 @export var angle :float = 135.0
 @export var bullet_amount = 5
 
+func attack():
+	$AttackCooldown.start()
+	is_attacking = true
+	play_animation("attack")
+
 func shoot():
 	var angle_per_bullet = angle / (bullet_amount - 1)
 	var player_angle = rad_to_deg(get_angle_to(target.global_position))
