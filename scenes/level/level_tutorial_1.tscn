@@ -208,7 +208,7 @@ position = Vector2(8537, -919)
 
 [node name="TileMaps" type="Node2D" parent="."]
 
-[node name="WalkableTiles" type="TileMap" parent="TileMaps"]
+[node name="WalkableTileMap" type="TileMap" parent="TileMaps"]
 z_index = 1
 position = Vector2(0, -17)
 tile_set = ExtResource("12_ku0d7")

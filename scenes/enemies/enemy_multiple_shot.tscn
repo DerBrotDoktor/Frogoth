@@ -567,6 +567,7 @@ _data = {
 script = ExtResource("2_ep2wc")
 angle = 135.0
 bullet_amount = 5
+bullet_speed = 460
 
 [node name="Animation" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_dj0yx")

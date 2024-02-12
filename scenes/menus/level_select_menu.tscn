@@ -123,6 +123,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "7"
 
+[node name="Level8Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "8"
+
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 24.0
@@ -142,4 +148,5 @@ text = "Main Menu"
 [connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level5Button" to="." method="load_level" binds= [6]]
 [connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level6Button" to="." method="load_level" binds= [7]]
 [connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level7Button" to="." method="load_level" binds= [8]]
+[connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level8Button" to="." method="load_level" binds= [9]]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

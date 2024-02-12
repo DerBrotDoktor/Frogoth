@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://iyel1auqud01"]
+[gd_scene load_steps=23 format=3 uid="uid://iyel1auqud01"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_wtrgv"]
 [ext_resource type="PackedScene" uid="uid://bfqr80qekwaw5" path="res://scenes/player/player.tscn" id="3_cw4d6"]
@@ -13,10 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://dechd0hxshq2j" path="res://assets/parallax/paralax_1.png" id="7_3mtfd"]
 [ext_resource type="PackedScene" uid="uid://ddwu8ev1w36qf" path="res://scenes/level/level_3.tscn" id="7_30kpi"]
 [ext_resource type="PackedScene" uid="uid://cxs4r4jwdplql" path="res://scenes/level/level_4.tscn" id="7_mk7qn"]
-[ext_resource type="PackedScene" uid="uid://pj1yr5tgu5bu" path="res://scenes/level/level_5.tscn" id="7_sa5si"]
-[ext_resource type="PackedScene" path="res://scenes/level/level_7.tscn" id="8_210py"]
+[ext_resource type="PackedScene" uid="uid://pj1yr5tgu5bu" path="res://scenes/level/level_6.tscn" id="7_sa5si"]
+[ext_resource type="PackedScene" uid="uid://clsrvetv1bio4" path="res://scenes/level/level_7.tscn" id="8_210py"]
 [ext_resource type="Texture2D" uid="uid://dnh4dfbpvvn6l" path="res://assets/parallax/paralax_2.png" id="8_cxncj"]
 [ext_resource type="Script" path="res://scenes/main/Canvas.gd" id="9_77551"]
+[ext_resource type="PackedScene" uid="uid://cwws6u7i5antb" path="res://scenes/level/level_8.tscn" id="9_q56fa"]
 [ext_resource type="PackedScene" uid="uid://c6nm6w83jynbs" path="res://scenes/menus/pause_menu.tscn" id="10_u7rrt"]
 [ext_resource type="PackedScene" uid="uid://cj5y0tnco4cx1" path="res://scenes/menus/level_finish_screen.tscn" id="14_nbfd2"]
 [ext_resource type="PackedScene" uid="uid://i70bm8lucd7m" path="res://scenes/menus/controller_settings_ui.tscn" id="17_8mvke"]
@@ -30,7 +31,7 @@ glow_hdr_scale = 0.81
 
 [node name="Main" type="Node" node_paths=PackedStringArray("player")]
 script = ExtResource("1_wtrgv")
-level = Array[PackedScene]([ExtResource("4_k64yn"), ExtResource("6_st07r"), ExtResource("6_fs1sm"), ExtResource("7_30kpi"), ExtResource("7_mk7qn"), ExtResource("7_sa5si"), ExtResource("7_sa5si"), ExtResource("8_210py")])
+level = Array[PackedScene]([ExtResource("4_k64yn"), ExtResource("6_st07r"), ExtResource("6_fs1sm"), ExtResource("7_30kpi"), ExtResource("7_mk7qn"), ExtResource("7_sa5si"), ExtResource("7_sa5si"), ExtResource("8_210py"), ExtResource("9_q56fa")])
 player = NodePath("Player")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]

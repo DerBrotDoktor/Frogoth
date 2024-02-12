@@ -542,7 +542,7 @@ _data = {
 
 [node name="EnemySingleShot" instance=ExtResource("1_ou6ub")]
 script = ExtResource("2_g0l75")
-bullet_speed = 350
+bullet_speed = 560
 
 [node name="Animation" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_fd74i")
