@@ -31,6 +31,7 @@ var current_health
 var dash_direction
 var current_orb
 var invincible_frames_left = 0
+var can_place_jump_points = true
 #endregion
 
 #region stats
@@ -195,6 +196,8 @@ func _on_trigger_area_area_entered(area):
 		current_orb = area
 	elif area.is_in_group("temporary_orb"):
 		current_orb = area
+	elif area.is_in_group("enable_jump_points"):
+		can_place_jump_points = true
 
 func _on_trigger_area_area_exited(area):
 	if area.is_in_group("jump_point"):
@@ -271,7 +274,7 @@ func die():
 	player_died.emit()
 
 func try_place_orb():
-	if is_on_floor():
+	if is_on_floor() or not can_place_jump_points:
 		return
 	elif not current_orb:
 		place_temporary_orb(position)

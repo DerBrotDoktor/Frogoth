@@ -21,6 +21,7 @@ func load_level_by_index(index:int):
 		$BashPointController.clear_shape()
 		load_scene(level[index])
 		set_player_position(current_scene.get_player_spawn_position())
+		player.can_place_jump_points = current_scene.can_player_jump_points
 		player.reset()
 		player.enable()
 		reset_stats()
