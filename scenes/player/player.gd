@@ -81,11 +81,15 @@ func handle_movement(delta):
 			velocity.x = min(velocity.x + acceleration, normal_speed)
 			if is_on_floor():
 				play_animation("walk")
+				if not $SFXPlayer/WalkAudioPlayer.playing:
+					$SFXPlayer/WalkAudioPlayer.play()
 		elif direction < 0:
 			velocity.x = max(velocity.x - acceleration, -normal_speed)
 			$Animation.flip_h = true
 			if is_on_floor():
 				play_animation("walk")
+				if not $SFXPlayer/WalkAudioPlayer.playing:
+					$SFXPlayer/WalkAudioPlayer.play()
 	elif (not $DashDelay.is_stopped()):
 		if not dash_direction.x == 0:
 			velocity.x = lerpf(velocity.x, normal_speed, dash_deceleration*delta)
@@ -168,6 +172,9 @@ func start_jump():
 		play_animation("jump")
 	if not is_on_floor() and not $PlayerAnimation.is_playing():
 		$PlayerAnimation.play("jump_vfx")
+		$SFXPlayer/AirJumpAudioPlayer.play()
+	else:
+		$SFXPlayer/GroundJumpAudioPlayer.play()
 	$StretchTimer.start()
 	stats_jumps += 1
 
@@ -225,6 +232,7 @@ func dash():
 		dash_direction = Vector2(input_x, input_y).normalized()
 		can_move = false
 		play_animation("dash")
+		$SFXPlayer/DashAudioPlayer.play()
 		$DashTimer.start()
 		$GhostTimer.start()
 

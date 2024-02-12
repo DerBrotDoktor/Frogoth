@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://bfqr80qekwaw5"]
+[gd_scene load_steps=99 format=3 uid="uid://bfqr80qekwaw5"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_il0n1"]
 [ext_resource type="PackedScene" uid="uid://beocyu2m1xsx1" path="res://scenes/player/player_ghost.tscn" id="2_rl3rv"]
@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://cpbdfkegj3ovh" path="res://assets/player/player_jump_an.png" id="11_cbaeq"]
 [ext_resource type="Texture2D" uid="uid://6resjbt0w5er" path="res://assets/player/player_walk_an.png" id="12_td2et"]
 [ext_resource type="Texture2D" uid="uid://dwgdpffg18asi" path="res://assets/vfx/player/double_jump_vfx.png" id="13_wrofw"]
+[ext_resource type="AudioStream" uid="uid://tvxj03pydxbp" path="res://assets/sfx/player/ground_jump_sfx.mp3" id="15_0a8o5"]
+[ext_resource type="AudioStream" uid="uid://y32bxgdxymnc" path="res://assets/sfx/player/air_jump_sfx.mp3" id="16_4dsqo"]
+[ext_resource type="AudioStream" uid="uid://chs37fmb14lyr" path="res://assets/sfx/player/dash_sfx.mp3" id="17_eof52"]
+[ext_resource type="AudioStream" uid="uid://co8g58x3flmpj" path="res://assets/sfx/player/walk_sfx.mp3" id="18_ua06j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fl175"]
 shader = ExtResource("4_wsp2d")
@@ -752,6 +756,28 @@ one_shot = true
 [node name="SquashTimer" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
+
+[node name="SFXPlayer" type="Node" parent="."]
+
+[node name="GroundJumpAudioPlayer" type="AudioStreamPlayer" parent="SFXPlayer"]
+stream = ExtResource("15_0a8o5")
+volume_db = -10.0
+bus = &"SoundEffects"
+
+[node name="AirJumpAudioPlayer" type="AudioStreamPlayer" parent="SFXPlayer"]
+stream = ExtResource("16_4dsqo")
+volume_db = -20.0
+bus = &"SoundEffects"
+
+[node name="DashAudioPlayer" type="AudioStreamPlayer" parent="SFXPlayer"]
+stream = ExtResource("17_eof52")
+volume_db = -10.0
+bus = &"SoundEffects"
+
+[node name="WalkAudioPlayer" type="AudioStreamPlayer" parent="SFXPlayer"]
+stream = ExtResource("18_ua06j")
+volume_db = -10.0
+bus = &"SoundEffects"
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
