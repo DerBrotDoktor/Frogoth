@@ -11,7 +11,7 @@ func _on_main_menu_button_button_down():
 	get_parent().switch_to_child("MainMenu")
 
 func _on_settings_button_button_down():
-	pass # Replace with function body.
+	get_parent().switch_to_child("SettingsMenu")
 
 func _on_restart_button_button_down():
 	get_parent().restart_level()

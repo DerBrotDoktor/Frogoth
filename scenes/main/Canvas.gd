@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+var last_child
+
 func _process(delta):
 	if Input.is_action_just_pressed("pause_menu"):
 		toggle_pause_menu()
@@ -13,7 +15,7 @@ func _process(delta):
 			switch_to_child("UserInterface")
 
 func toggle_pause_menu():
-	if $PauseMenu.visible:
+	if $PauseMenu.visible and $EscapeDelay.is_stopped():
 		switch_to_child("UserInterface")
 		get_tree().paused = false
 	elif not get_tree().paused:
@@ -34,4 +36,10 @@ func restart_level():
 
 func switch_to_child(name):
 	for child in get_children():
-		child.visible = child.name == name
+		if not child == $EscapeDelay:
+			last_child = child if child.visible else last_child
+			child.visible = child.name == name
+
+func switch_to_last_child():
+	$EscapeDelay.start()
+	switch_to_child(last_child.name)

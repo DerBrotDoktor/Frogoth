@@ -18,3 +18,8 @@ func _on_visibility_changed():
 	if $VerticalContainer/StartButton.is_inside_tree() and visible:
 		get_tree().paused = true
 		$VerticalContainer/StartButton.grab_focus()
+
+
+func _on_settings_button_button_down():
+	get_parent().switch_to_child("SettingsMenu")
+	pass # Replace with function body.
