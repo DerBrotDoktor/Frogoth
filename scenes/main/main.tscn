@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://clsrvetv1bio4" path="res://scenes/level/level_7.tscn" id="8_210py"]
 [ext_resource type="Texture2D" uid="uid://dnh4dfbpvvn6l" path="res://assets/parallax/paralax_2.png" id="8_cxncj"]
 [ext_resource type="Script" path="res://scenes/main/Canvas.gd" id="9_77551"]
-[ext_resource type="PackedScene" uid="uid://cwws6u7i5antb" path="res://scenes/level/level_8.tscn" id="9_q56fa"]
+[ext_resource type="PackedScene" uid="uid://02mgq0aad22s" path="res://scenes/level/level_8.tscn" id="9_q56fa"]
 [ext_resource type="PackedScene" uid="uid://c6nm6w83jynbs" path="res://scenes/menus/pause_menu.tscn" id="10_u7rrt"]
 [ext_resource type="PackedScene" uid="uid://cj5y0tnco4cx1" path="res://scenes/menus/level_finish_screen.tscn" id="14_nbfd2"]
 [ext_resource type="PackedScene" uid="uid://i70bm8lucd7m" path="res://scenes/menus/controller_settings_ui.tscn" id="17_8mvke"]
