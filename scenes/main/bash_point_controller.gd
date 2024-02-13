@@ -11,7 +11,7 @@ var stats_total_shapes = 0
 
 func  _process(delta):
 	if Input.is_action_just_pressed("discrad_shape"):
-		clear_shape()
+		discard_shape()
 
 func check_point(point):
 	
@@ -62,6 +62,12 @@ func clear_current():
 	current_points = []
 
 func clear_shape():
+	if current_shape:
+		current_shape.delete_shape()
+		current_shape.queue_free()
+		clear_current()
+
+func discard_shape():
 	if current_shape:
 		current_shape.discard_shape()
 		clear_current()
