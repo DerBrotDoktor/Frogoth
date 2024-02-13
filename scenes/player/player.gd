@@ -208,6 +208,8 @@ func _on_trigger_area_area_entered(area):
 		current_orb = area
 	elif area.is_in_group("enable_jump_points"):
 		can_place_jump_points = true
+	elif area.is_in_group("dead_zone"):
+		die()
 
 func _on_trigger_area_area_exited(area):
 	if area.is_in_group("jump_point"):
