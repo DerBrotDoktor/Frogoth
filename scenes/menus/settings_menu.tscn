@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://buy8yfrq21gd"]
+[gd_scene load_steps=5 format=3 uid="uid://buy8yfrq21gd"]
 
 [ext_resource type="Texture2D" uid="uid://m30ojk8eyhbr" path="res://assets/parallax/sky.png" id="1_ts4op"]
 [ext_resource type="Script" path="res://scenes/menus/settings_menu.gd" id="1_yayyu"]
 [ext_resource type="Shortcut" uid="uid://iivvhqc8ebr3" path="res://scenes/menus/back_button_shortcut.tres" id="3_5yhl3"]
+
+[sub_resource type="Theme" id="Theme_08bxr"]
+Label/font_sizes/font_size = 20
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -11,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_08bxr")
 script = ExtResource("1_yayyu")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -90,7 +94,24 @@ max_value = 1.0
 step = 0.05
 value = 0.8
 
+[node name="FullscreenLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="FullscreenCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+button_pressed = true
+
+[node name="BorderlessLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Borderless"
+
+[node name="BorderlessCheckbox" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/FullscreenCheckBox" to="." method="_on_fullscreen_check_box_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/BorderlessCheckbox" to="." method="_on_borderless_checkbox_toggled"]
