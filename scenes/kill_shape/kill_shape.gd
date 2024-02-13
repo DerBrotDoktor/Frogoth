@@ -56,10 +56,14 @@ func finish_shape(new_points):
 				if obj.position == point:
 					add_point(obj)
 					is_object = true
+					obj.will_be_in_shape = true
 			if not is_object:
 				add_point(point)
 		add_point(convex[0])
 		
+		for obj in new_points:
+			if not obj.will_be_in_shape:
+				obj.queue_free()
 		var sprite = Polygon2D.new()
 		sprite.texture = load("res://assets/vfx/kill_shape/lightning_shape.png")
 		sprite.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED

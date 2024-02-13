@@ -27,17 +27,6 @@ grow_vertical = 2
 texture = ExtResource("1_ts4op")
 expand_mode = 3
 
-[node name="BackButton" type="Button" parent="."]
-layout_mode = 2
-offset_left = 24.0
-offset_top = 24.0
-offset_right = 69.0
-offset_bottom = 55.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-shortcut = ExtResource("3_5yhl3")
-text = "Back"
-
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -109,9 +98,21 @@ text = "Borderless"
 [node name="BorderlessCheckbox" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 
-[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 69.0
+offset_bottom = 55.0
+scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+shortcut = ExtResource("3_5yhl3")
+text = "Back"
+
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/FullscreenCheckBox" to="." method="_on_fullscreen_check_box_toggled"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/BorderlessCheckbox" to="." method="_on_borderless_checkbox_toggled"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
