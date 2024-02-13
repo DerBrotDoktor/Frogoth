@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://iyel1auqud01"]
+[gd_scene load_steps=24 format=3 uid="uid://iyel1auqud01"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_wtrgv"]
 [ext_resource type="PackedScene" uid="uid://bfqr80qekwaw5" path="res://scenes/player/player.tscn" id="3_cw4d6"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c6nm6w83jynbs" path="res://scenes/menus/pause_menu.tscn" id="10_u7rrt"]
 [ext_resource type="PackedScene" uid="uid://cj5y0tnco4cx1" path="res://scenes/menus/level_finish_screen.tscn" id="14_nbfd2"]
 [ext_resource type="PackedScene" uid="uid://i70bm8lucd7m" path="res://scenes/menus/controller_settings_ui.tscn" id="17_8mvke"]
+[ext_resource type="AudioStream" uid="uid://83nsiryvh2gg" path="res://assets/sfx/music/Frogoth_BG_music.mp3" id="22_7hg4y"]
 
 [sub_resource type="Environment" id="Environment_2d4y5"]
 background_mode = 3
@@ -92,6 +93,12 @@ player = NodePath("../Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2d4y5")
+
+[node name="BackgoundMusicPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("22_7hg4y")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="visibility_changed" from="Canvas/UserInterface" to="Canvas/UserInterface" method="_on_visibility_changed"]
 [connection signal="main_menu" from="Canvas/PauseMenu" to="." method="_on_pause_menu_main_menu"]
