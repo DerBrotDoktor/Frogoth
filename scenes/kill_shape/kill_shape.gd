@@ -8,9 +8,13 @@ var last_length = 128
 
 
 func add_point(point):
-	point_objects.append(point)
-	point_positions.append(point.position)
-	$KillShapePath.curve.add_point(point.position)
+	if not typeof(point) == typeof(Vector2.ZERO):
+		point_objects.append(point)
+		point_positions.append(point.position)
+		$KillShapePath.curve.add_point(point.position)
+	else:
+		point_positions.append(point)
+		$KillShapePath.curve.add_point(point)
 	if point_positions.size() > 0:
 		place_lightning()
 	$Outline.points = point_positions
@@ -29,24 +33,41 @@ func finish_shape(new_points):
 	clear_points()
 	for child in $KillShapePath.get_children():
 		child.queue_free()
+	
+	var positions = []
+	for point in new_points:
+		positions.append(point.position)
+		
 	$KillShapePath.curve = Curve2D.new()
 	last_length = 0
-	for point in new_points:
-		add_point(point)
-	add_point(new_points[0])
+	
+	var polygons = get_polygons(positions)
+	for poly in polygons:
+		var convex = Geometry2D.convex_hull(poly)
+	
+		for point in convex:
+			var is_object = false
+			for obj in new_points:
+				if obj.position == point:
+					add_point(obj)
+					is_object = true
+			if not is_object:
+				add_point(point)
+		add_point(convex[0])
+		
+		var sprite = Polygon2D.new()
+		sprite.texture = load("res://assets/vfx/kill_shape/lightning_shape.png")
+		sprite.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
+		sprite.polygon = convex
+		add_child(sprite)
+		
+		var collider = CollisionPolygon2D.new()
+		collider.polygon = convex
+		$KillArea.add_child(collider)
+		
 	for child in $KillShapePath.get_children():
 		child.scale.y = 1.0
 	$Outline.closed = true
-	var polygons = get_polygons(new_points)
-
-	for point_array in polygons:
-		var coll = CollisionPolygon2D.new()
-		coll.polygon = point_array
-		$KillArea.add_child(coll)
-		var sprite = Polygon2D.new()
-		sprite.polygon = point_array
-		add_child(sprite)
-	
 	$DeleteTimer.start()
 
 func clear_points():
@@ -55,21 +76,27 @@ func clear_points():
 	point_objects = []
 
 func delete_shape():
+	delete_points()
+	queue_free()
+
+func delete_points():
 	for point in point_objects:
 		if is_instance_valid(point) and point.has_method("delete_point"):
 			point.delete_point()
 		elif is_instance_valid(point) and point.has_method("use_point"):
 			point.is_in_shape = false
-	queue_free()
-
+	
 func _on_delete_timer_timeout():
 	delete_shape()
+
+func _on_kill_shape_path_tree_entered():
+	$KillShapePath.curve = Curve2D.new()
 
 func get_polygons(polygon):
 	
 	var points = []
 	for pol in polygon:
-		points.append(pol.position)
+		points.append(pol)
 	var point_list = []
 	var result_list = []
 	var end_index = points.size()
@@ -120,8 +147,3 @@ func get_intersection(a1, a2, b1, b2):
 	var dist_b1 = abs(dir_a_perpendicular.dot(to_b1))
 	var dist_b2 = abs(dir_a_perpendicular.dot(to_b2))
 	return (dist_b2 * b1 + dist_b1 * b2) / (dist_b1 + dist_b2)
-
-
-func _on_kill_shape_path_tree_entered():
-	$KillShapePath.curve = Curve2D.new()
-	pass # Replace with function body.

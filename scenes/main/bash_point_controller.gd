@@ -50,6 +50,7 @@ func create_shape(p):
 				point.delete_point()
 		if point:
 			point.is_in_shape = false
+	print("POINTS",points)
 	current_shape.finish_shape(points)
 	clear_current()
 	stats_total_shapes += 1
