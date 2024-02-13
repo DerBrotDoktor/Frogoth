@@ -4,6 +4,7 @@ var is_in_shape = false
 var used = false
 
 func use_point():
+	$UsePointPlayer.play()
 	$RefreshTimer.start()
 	used = true
 	$SpriteDeactivated.visible = true

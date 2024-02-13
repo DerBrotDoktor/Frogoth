@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dm6yss7w4ixcq"]
+[gd_scene load_steps=9 format=3 uid="uid://dm6yss7w4ixcq"]
 
 [ext_resource type="Script" path="res://scenes/enviroment/platforms/special/falling_platform.gd" id="1_6e0rx"]
+[ext_resource type="AudioStream" uid="uid://c1u3s7d2w0dpv" path="res://assets/sfx/enviroment/falling_platform_sfx.mp3" id="2_7tpvr"]
 
 [sub_resource type="Animation" id="Animation_vard7"]
 length = 0.001
@@ -120,6 +121,11 @@ shape = SubResource("CircleShape2D_ai30g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vujji")
+
+[node name="FalingPreperationPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_7tpvr")
+volume_db = -15.0
+bus = &"SoundEffects"
 
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
 [connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]

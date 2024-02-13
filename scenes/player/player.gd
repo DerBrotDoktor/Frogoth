@@ -262,6 +262,7 @@ func take_damage(damage):
 	if current_health > 1:
 		$Camera.shake()
 		$JumpVFXAnimation.visible = false
+		$SFXPlayer/DamageAudioPlayer.play()
 		$PlayerAnimation.play("hit_player_animation")
 		play_animation("damage")
 		current_health -= damage

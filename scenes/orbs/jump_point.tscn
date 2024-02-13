@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://cj7mb0cagsptn"]
+[gd_scene load_steps=20 format=3 uid="uid://cj7mb0cagsptn"]
 
 [ext_resource type="Script" path="res://scenes/orbs/jump_point.gd" id="1_lotvx"]
 [ext_resource type="Texture2D" uid="uid://0knh5ix4tpv5" path="res://assets/vfx/orb/jump_orb.png" id="2_u3c28"]
 [ext_resource type="Texture2D" uid="uid://cxnwk5a1a5lbs" path="res://assets/vfx/orb/jump_orb_used.png" id="3_2k1vf"]
+[ext_resource type="AudioStream" uid="uid://dqnf5i1wf7613" path="res://assets/sfx/orb/collecting_jump_point_sfx.mp3" id="4_gd53a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yvpwu"]
 atlas = ExtResource("2_u3c28")
@@ -131,5 +132,10 @@ shape = SubResource("CircleShape2D_2ttjw")
 [node name="RefreshTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="UsePointPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_gd53a")
+volume_db = -5.0
+bus = &"SoundEffects"
 
 [connection signal="timeout" from="RefreshTimer" to="." method="_on_refresh_timer_timeout"]

@@ -5,18 +5,22 @@ extends Node2D
 var point_objects = []
 var point_positions = []
 var last_length = 128
-
+var shape_finished = false
 
 func add_point(point):
 	if not typeof(point) == typeof(Vector2.ZERO):
 		point_objects.append(point)
 		point_positions.append(point.position)
 		$KillShapePath.curve.add_point(point.position)
+		$OrbConnectPlayer.position = point.position
 	else:
 		point_positions.append(point)
 		$KillShapePath.curve.add_point(point)
+		$OrbConnectPlayer.position = point
 	if point_positions.size() > 0:
 		place_lightning()
+	if not shape_finished:
+		$OrbConnectPlayer.play()
 	$Outline.points = point_positions
 
 func place_lightning():
@@ -30,6 +34,7 @@ func place_lightning():
 	last_length = length
 
 func finish_shape(new_points):
+	shape_finished = true
 	clear_points()
 	for child in $KillShapePath.get_children():
 		child.queue_free()
@@ -85,7 +90,12 @@ func delete_points():
 			point.delete_point()
 		elif is_instance_valid(point) and point.has_method("use_point"):
 			point.is_in_shape = false
-	
+
+func discard_shape():
+	$DiscardShapePlayer.play()
+	await  $DiscardShapePlayer.finished
+	delete_shape()
+
 func _on_delete_timer_timeout():
 	delete_shape()
 

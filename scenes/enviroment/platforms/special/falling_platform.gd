@@ -15,8 +15,8 @@ func _physics_process(delta):
 
 func start_fall():
 	$AnimationPlayer.play("fall_preperation")
+	$FalingPreperationPlayer.play()
 	$AnimationTimer.start()
-
 func fall():
 	if platform:
 		is_falling = true

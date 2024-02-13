@@ -63,8 +63,7 @@ func clear_current():
 
 func clear_shape():
 	if current_shape:
-		current_shape.delete_shape()
-		current_shape.queue_free()
+		current_shape.discard_shape()
 		clear_current()
 
 func _on_player_player_died():

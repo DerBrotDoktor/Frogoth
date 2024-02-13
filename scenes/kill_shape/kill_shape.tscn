@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b534dj4lmdign"]
+[gd_scene load_steps=6 format=3 uid="uid://b534dj4lmdign"]
 
 [ext_resource type="Script" path="res://scenes/kill_shape/kill_shape.gd" id="1_sr5bi"]
 [ext_resource type="PackedScene" uid="uid://t04ny4yh8fr2" path="res://scenes/kill_shape/kill_shape_outline_tile.tscn" id="2_1f81m"]
+[ext_resource type="AudioStream" uid="uid://bdbrnenxnvtyr" path="res://assets/sfx/killing_shape/discard_shape_sfx.mp3" id="3_djbr8"]
+[ext_resource type="AudioStream" uid="uid://b6f6wujtdixxm" path="res://assets/sfx/killing_shape/line_connecting_points_sfx.mp3" id="3_ei6m4"]
 
 [sub_resource type="Curve2D" id="Curve2D_csn5t"]
 
@@ -23,6 +25,16 @@ one_shot = true
 
 [node name="KillShapePath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_csn5t")
+
+[node name="OrbConnectPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ei6m4")
+volume_db = -15.0
+bus = &"SoundEffects"
+
+[node name="DiscardShapePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_djbr8")
+volume_db = -10.0
+bus = &"SoundEffects"
 
 [connection signal="timeout" from="DeleteTimer" to="." method="_on_delete_timer_timeout"]
 [connection signal="tree_entered" from="KillShapePath" to="." method="_on_kill_shape_path_tree_entered"]
