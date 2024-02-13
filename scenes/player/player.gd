@@ -32,6 +32,8 @@ var dash_direction
 var current_orb
 var invincible_frames_left = 0
 var can_place_jump_points = true
+var max_orbs = 8
+var orbs_left = 0
 #endregion
 
 #region stats
@@ -124,10 +126,11 @@ func disable():
 	is_disabled = true
 
 func reset():
-	$"../Canvas/UserInterface".set_health(max_health)
 	current_health = max_health
 	velocity = Vector2.ZERO
 	can_move = true
+	orbs_left = max_orbs
+	update_user_interface()
 
 func reset_stats():
 	stats_air_time = 0.0
@@ -266,10 +269,10 @@ func take_damage(damage):
 		$PlayerAnimation.play("hit_player_animation")
 		play_animation("damage")
 		current_health -= damage
-		$"../Canvas/UserInterface".set_health(current_health)
+		update_user_interface()
 	else:
 		$Camera.shake()
-		$"../Canvas/UserInterface".set_health(0)
+		update_user_interface()
 		die()
 
 func die():
@@ -285,12 +288,14 @@ func die():
 func try_place_orb():
 	if is_on_floor() or not can_place_jump_points:
 		return
-	elif not current_orb:
+	elif not current_orb and orbs_left > 0:
 		place_temporary_orb(position)
 	elif current_orb:
 		entered_orb.emit(current_orb)
 
 func place_temporary_orb(pos):
+	orbs_left -= 1
+	update_user_interface()
 	var orb = temporary_orb_prefab.instantiate()
 	orb.position = pos
 	get_parent().add_child(orb)
@@ -312,3 +317,7 @@ func squash_and_stretch(was_on_floor):
 		$Animation.material.set_shader_parameter("deformation", Vector2(0, lerpf(current_deformation.y, squash, 0.1)))
 	else:
 		$Animation.material.set_shader_parameter("deformation", lerp(current_deformation, Vector2.ZERO, 0.1))
+
+func update_user_interface():
+	$"../Canvas/UserInterface".set_health(current_health)
+	$"../Canvas/UserInterface".set_orb_left_amount(orbs_left)

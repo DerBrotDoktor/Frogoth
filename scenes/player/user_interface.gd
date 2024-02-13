@@ -5,6 +5,8 @@ extends Control
 @export var red_heart :Texture2D
 @export var gray_heart :Texture2D
 
+@export var orbs_left :Array[Texture2D]
+
 var time = 0.0
 var timer_allowed = false
 
@@ -50,3 +52,7 @@ func set_heart(heart, image):
 func reset_stats():
 	print("reset stats")
 	time = 0.0
+
+func set_orb_left_amount(amount):
+	$OrbsLeft.texture = orbs_left[amount]
+	pass

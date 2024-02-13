@@ -50,10 +50,12 @@ func create_shape(p):
 				point.delete_point()
 		if point:
 			point.is_in_shape = false
-	print("POINTS",points)
+
 	current_shape.finish_shape(points)
 	clear_current()
 	stats_total_shapes += 1
+	player.orbs_left = player.max_orbs
+	player.update_user_interface()
 	await get_tree().create_timer(0.2).timeout
 	#get_parent().check_for_win()
 
@@ -71,6 +73,8 @@ func discard_shape():
 	if current_shape:
 		current_shape.discard_shape()
 		clear_current()
+		player.orbs_left = player.max_orbs
+		player.update_user_interface()
 
 func _on_player_player_died():
 	if current_shape:
