@@ -29,6 +29,7 @@ var is_disabled = false
 var can_move = true
 var current_health
 var dash_direction
+var can_dash = true
 var current_orb
 var invincible_frames_left = 0
 var can_place_jump_points = true
@@ -236,6 +237,8 @@ func dash():
 		velocity = Vector2(input_x * 3000.0, input_y * 3000.0)
 		dash_direction = Vector2(input_x, input_y).normalized()
 		can_move = false
+		can_dash = false
+		update_user_interface()
 		play_animation("dash")
 		$SFXPlayer/DashAudioPlayer.play()
 		$DashTimer.start()
@@ -259,6 +262,10 @@ func _on_dash_delay_timeout():
 	$DashCooldown.start()
 	can_move = true
 	try_place_orb()
+
+func _on_dash_cooldown_timeout():
+	can_dash = true
+	update_user_interface()
 
 func take_damage(damage):
 	if invincible_frames_left > 0:
@@ -323,3 +330,4 @@ func squash_and_stretch(was_on_floor):
 func update_user_interface():
 	$"../Canvas/UserInterface".set_health(current_health)
 	$"../Canvas/UserInterface".set_orb_left_amount(orbs_left)
+	$"../Canvas/UserInterface".set_dash_used(can_dash)

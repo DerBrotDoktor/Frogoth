@@ -788,6 +788,7 @@ bus = &"SoundEffects"
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
 [connection signal="timeout" from="DashDelay" to="." method="_on_dash_delay_timeout"]
+[connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]
 [connection signal="area_exited" from="TriggerArea" to="." method="_on_trigger_area_area_exited"]
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]

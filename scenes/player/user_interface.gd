@@ -5,6 +5,9 @@ extends Control
 @export var red_heart :Texture2D
 @export var gray_heart :Texture2D
 
+@export var dash :Texture2D
+@export var dash_used :Texture2D
+
 @export var orbs_left :Array[Texture2D]
 
 var time = 0.0
@@ -56,3 +59,9 @@ func reset_stats():
 func set_orb_left_amount(amount):
 	$OrbsLeft.texture = orbs_left[amount]
 	pass
+
+func set_dash_used(can_dash):
+	if can_dash:
+		$DashCooldown.texture = dash
+	else:
+		$DashCooldown.texture = dash_used

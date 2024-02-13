@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjr4d282863jf"]
+[gd_scene load_steps=18 format=3 uid="uid://bjr4d282863jf"]
 
 [ext_resource type="Script" path="res://scenes/player/user_interface.gd" id="1_2e1s1"]
 [ext_resource type="Texture2D" uid="uid://dkpbmwg07gd6v" path="res://assets/ui/health/green_heart.png" id="2_0d7dp"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ibn610wdu7lp" path="res://assets/ui/health/gray_heart.png" id="5_3eudh"]
 [ext_resource type="Texture2D" uid="uid://badl5wonu67bj" path="res://assets/ui/orbs_left/orb_ui_8_used.png" id="6_c5n2j"]
 [ext_resource type="Texture2D" uid="uid://c246qnxow3nq0" path="res://assets/ui/orbs_left/orb_ui_7_used.png" id="7_7nham"]
+[ext_resource type="Texture2D" uid="uid://bxlhmqu5xj516" path="res://assets/ui/dash/dash_cooldown_used.png" id="7_cr8bw"]
 [ext_resource type="Texture2D" uid="uid://clre8n8j7i8dw" path="res://assets/ui/orbs_left/orb_ui_6_used.png" id="8_hl6b5"]
 [ext_resource type="Texture2D" uid="uid://droipx0qm3njw" path="res://assets/ui/orbs_left/orb_ui_5_used.png" id="9_pcsqp"]
 [ext_resource type="Texture2D" uid="uid://c3w7btsxu21wr" path="res://assets/ui/orbs_left/orb_ui_4_used.png" id="10_6iruo"]
@@ -14,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://c1nob0ryuxdr0" path="res://assets/ui/orbs_left/orb_ui_2_used.png" id="12_n6lnd"]
 [ext_resource type="Texture2D" uid="uid://dygok8hn23xxr" path="res://assets/ui/orbs_left/orb_ui_1_used.png" id="13_yqsqj"]
 [ext_resource type="Texture2D" uid="uid://2lwjg5fw0ha1" path="res://assets/ui/orbs_left/orb_ui.png" id="14_euhex"]
+[ext_resource type="Texture2D" uid="uid://by5f1k44gm2ln" path="res://assets/ui/dash/dash_cooldown.png" id="15_5p3gt"]
 
 [sub_resource type="Theme" id="Theme_2u5c8"]
 default_font_size = 40
@@ -31,6 +33,8 @@ green_heart = ExtResource("2_0d7dp")
 yellow_heart = ExtResource("3_abtrg")
 red_heart = ExtResource("4_2smar")
 gray_heart = ExtResource("5_3eudh")
+dash = ExtResource("15_5p3gt")
+dash_used = ExtResource("7_cr8bw")
 orbs_left = Array[Texture2D]([ExtResource("6_c5n2j"), ExtResource("7_7nham"), ExtResource("8_hl6b5"), ExtResource("9_pcsqp"), ExtResource("10_6iruo"), ExtResource("11_lpu70"), ExtResource("12_n6lnd"), ExtResource("13_yqsqj"), ExtResource("14_euhex")])
 
 [node name="TimeText" type="Label" parent="."]
@@ -72,3 +76,20 @@ offset_right = 768.0
 offset_bottom = 336.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("14_euhex")
+
+[node name="DashCooldown" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -288.0
+offset_right = 128.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(128, 256)
+texture = ExtResource("15_5p3gt")
