@@ -71,3 +71,10 @@ func set_level_statistics():
 	var total_shapes = $BashPointController.stats_total_shapes
 	$Canvas/LevelFinishScreen.set_statistics(time, badge, air_time, jumps, connected_orbs, total_shapes)
 	pass
+
+func get_current_enemy_count():
+	var returnValue = -1
+	if current_scene:
+		if current_scene.has_method("get_enemy_count"):
+			returnValue = current_scene.get_enemy_count()
+	return returnValue

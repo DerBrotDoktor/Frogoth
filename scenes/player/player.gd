@@ -331,3 +331,5 @@ func update_user_interface():
 	$"../Canvas/UserInterface".set_health(current_health)
 	$"../Canvas/UserInterface".set_orb_left_amount(orbs_left)
 	$"../Canvas/UserInterface".set_dash_used(can_dash)
+	var enemy_count = $"..".get_current_enemy_count()
+	$"../Canvas/UserInterface".set_current_enemy_count(enemy_count)

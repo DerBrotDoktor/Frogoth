@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bjr4d282863jf"]
+[gd_scene load_steps=19 format=3 uid="uid://bjr4d282863jf"]
 
 [ext_resource type="Script" path="res://scenes/player/user_interface.gd" id="1_2e1s1"]
 [ext_resource type="Texture2D" uid="uid://dkpbmwg07gd6v" path="res://assets/ui/health/green_heart.png" id="2_0d7dp"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dygok8hn23xxr" path="res://assets/ui/orbs_left/orb_ui_1_used.png" id="13_yqsqj"]
 [ext_resource type="Texture2D" uid="uid://2lwjg5fw0ha1" path="res://assets/ui/orbs_left/orb_ui.png" id="14_euhex"]
 [ext_resource type="Texture2D" uid="uid://by5f1k44gm2ln" path="res://assets/ui/dash/dash_cooldown.png" id="15_5p3gt"]
+[ext_resource type="Texture2D" uid="uid://sv86mdu0rlca" path="res://assets/ui/enemy_counter.png" id="17_0hxhh"]
 
 [sub_resource type="Theme" id="Theme_2u5c8"]
 default_font_size = 40
@@ -93,3 +94,30 @@ grow_vertical = 0
 scale = Vector2(0.3, 0.3)
 pivot_offset = Vector2(128, 256)
 texture = ExtResource("15_5p3gt")
+
+[node name="CurrentEnemyCountBack" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -128.0
+offset_right = 128.0
+offset_bottom = 256.0
+grow_horizontal = 2
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(128, 0)
+texture = ExtResource("17_0hxhh")
+
+[node name="CurrentEnemyCountLabel" type="Label" parent="CurrentEnemyCountBack"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "-1
+"
+horizontal_alignment = 1
+vertical_alignment = 1

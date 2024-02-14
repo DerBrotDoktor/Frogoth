@@ -65,3 +65,6 @@ func set_dash_used(can_dash):
 		$DashCooldown.texture = dash
 	else:
 		$DashCooldown.texture = dash_used
+
+func set_current_enemy_count(value):
+	$CurrentEnemyCountBack/CurrentEnemyCountLabel.text = str(value)
