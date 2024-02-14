@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://m30ojk8eyhbr" path="res://assets/parallax/sky.png" id="2_v8a2s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3fn0t"]
-font_size = 40
+font_size = 120
 
 [sub_resource type="InputEventKey" id="InputEventKey_h1mgi"]
 device = -1
@@ -26,10 +26,14 @@ grow_vertical = 2
 script = ExtResource("1_8ktxo")
 
 [node name="Background" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_v8a2s")
+expand_mode = 3
 
 [node name="VerticalContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -42,7 +46,7 @@ theme_override_constants/separation = 20
 
 [node name="Title Margin" type="MarginContainer" parent="VerticalContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 30
+theme_override_constants/margin_top = 60
 
 [node name="TitleText" type="Label" parent="VerticalContainer/Title Margin"]
 layout_mode = 2
@@ -59,83 +63,84 @@ theme_override_constants/margin_bottom = 50
 
 [node name="LevelGrid" type="GridContainer" parent="VerticalContainer/LevelMargin"]
 layout_mode = 2
-theme_override_constants/h_separation = 20
+theme_override_constants/h_separation = 60
 theme_override_constants/v_separation = 20
-columns = 7
+columns = 9
 
 [node name="Level0Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 focus_neighbor_top = NodePath("../../../../BackButton")
 focus_neighbor_bottom = NodePath("../Level2Button")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 100
 text = "0"
 
 [node name="Level1Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 focus_neighbor_top = NodePath("../../../../BackButton")
 focus_neighbor_bottom = NodePath("../Level2Button")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 100
 text = "1"
 
 [node name="Level2Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 focus_neighbor_top = NodePath("../Level1Button")
 focus_neighbor_bottom = NodePath("../Level3Button")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 100
 text = "2
 "
 
 [node name="Level3Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 focus_neighbor_top = NodePath("../Level2Button")
 focus_neighbor_bottom = NodePath("../Level4Button")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 100
 text = "3
 "
 
 [node name="Level4Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 focus_neighbor_top = NodePath("../Level3Button")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 100
 text = "4
 "
 
 [node name="Level5Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 100
 text = "5"
 
 [node name="Level6Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 100
 text = "6"
 
 [node name="Level7Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 100
 text = "7"
 
 [node name="Level8Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 100
 text = "8"
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 16.0
-offset_right = 120.0
-offset_bottom = 47.0
+offset_left = 88.0
+offset_top = 90.0
+offset_right = 388.0
+offset_bottom = 180.0
 focus_neighbor_bottom = NodePath("../VerticalContainer/LevelMargin/LevelGrid/Level1Button")
+theme_override_font_sizes/font_size = 50
 shortcut = SubResource("Shortcut_mvqwp")
 text = "Main Menu"
 

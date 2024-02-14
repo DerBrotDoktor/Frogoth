@@ -5,56 +5,56 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnr4f"]
 bg_color = Color(0.168627, 0.305882, 0.776471, 1)
-border_width_bottom = 15
+border_width_bottom = 40
 border_color = Color(0.0509804, 0.117647, 0.352941, 1)
 border_blend = true
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 shadow_color = Color(0, 0, 0, 1)
-shadow_size = 3
+shadow_size = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1hgi"]
 bg_color = Color(0.168627, 0.305882, 0.776471, 1)
-border_width_bottom = 15
+border_width_bottom = 40
 border_color = Color(0.0509804, 0.117647, 0.352941, 1)
 border_blend = true
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 shadow_color = Color(0, 0, 0, 1)
-shadow_size = 3
+shadow_size = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26k5v"]
 bg_color = Color(0.113725, 0.223529, 0.611765, 1)
-border_width_bottom = 15
+border_width_bottom = 40
 border_color = Color(0.0313726, 0.0862745, 0.286275, 1)
 border_blend = true
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 shadow_color = Color(0, 0, 0, 1)
-shadow_size = 3
+shadow_size = 8
 
 [sub_resource type="Theme" id="Theme_pv8ow"]
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
-Button/constants/outline_size = 8
-Button/font_sizes/font_size = 25
+Button/constants/outline_size = 15
+Button/font_sizes/font_size = 75
 Button/fonts/font = ExtResource("1_861nn")
 Button/styles/focus = SubResource("StyleBoxFlat_lnr4f")
 Button/styles/hover = SubResource("StyleBoxFlat_w1hgi")
 Button/styles/normal = SubResource("StyleBoxFlat_26k5v")
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
-Label/constants/outline_size = 8
-Label/font_sizes/font_size = 16
+Label/constants/outline_size = 15
+Label/font_sizes/font_size = 150
 Label/fonts/font = ExtResource("1_861nn")
 
 [sub_resource type="LabelSettings" id="LabelSettings_dw61o"]
-font_size = 60
-outline_size = 8
+font_size = 150
+outline_size = 25
 outline_color = Color(0, 0, 0, 1)
 
 [node name="PauseMenu" type="Control"]
@@ -84,7 +84,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Title" type="Label" parent="VBoxContainer"]
@@ -95,7 +95,7 @@ label_settings = SubResource("LabelSettings_dw61o")
 horizontal_alignment = 1
 
 [node name="ResumeButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(150, 50)
+custom_minimum_size = Vector2(450, 150)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -104,7 +104,7 @@ focus_neighbor_bottom = NodePath("../RestartButton")
 text = "Resume"
 
 [node name="RestartButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(150, 50)
+custom_minimum_size = Vector2(450, 150)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -113,7 +113,7 @@ focus_neighbor_bottom = NodePath("../SettingsButton")
 text = "Restart"
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(150, 50)
+custom_minimum_size = Vector2(450, 150)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -122,7 +122,7 @@ focus_neighbor_bottom = NodePath("../MainMenuButton")
 text = "Settings"
 
 [node name="MainMenuButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(150, 50)
+custom_minimum_size = Vector2(450, 150)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
