@@ -140,7 +140,6 @@ func reset_stats():
 	stats_total_shapes = 0
 
 func try_jump():
-	var can_dash = $DashTimer.is_stopped() and $DashCooldown.is_stopped() and can_move
 	if Input.is_action_just_pressed("dash") and can_dash:
 		dash()
 	if Input.is_action_just_pressed("jump"):
@@ -204,6 +203,7 @@ func _on_trigger_area_area_entered(area):
 			reset_jump()
 			$DashCooldown.stop()
 			area.use_point()
+			can_dash = true
 		current_orbs.append(area)
 	elif area.is_in_group("temporary_orb"):
 		current_orbs.append(area)
