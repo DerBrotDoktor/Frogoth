@@ -20,6 +20,7 @@ signal player_died()
 @export var squash = 0.2
 @export var stretch = 0.1
 @export var invincible_frames = 30
+@export var knockback_strength = 1000
 
 var can_jump = false
 var can_double_jump = false
@@ -220,6 +221,8 @@ func _on_trigger_area_area_exited(area):
 
 func _on_trigger_area_body_entered(body):
 	if body.is_in_group("bullet"):
+		var knockabck_direction = (position - body.position).normalized()
+		knockback(knockabck_direction)
 		take_damage(1)
 		body.queue_free()
 	elif body.is_in_group("spikes"):
@@ -344,3 +347,7 @@ func update_user_interface():
 	$"../Canvas/UserInterface".set_dash_used(can_dash)
 	var enemy_count = $"..".get_current_enemy_count()
 	$"../Canvas/UserInterface".set_current_enemy_count(enemy_count)
+
+func knockback(direction):
+	velocity += direction * knockback_strength
+	pass
