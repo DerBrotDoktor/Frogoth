@@ -17,7 +17,10 @@ func _on_settings_button_button_up():
 	get_parent().switch_to_child("SettingsMenu")
 
 func _on_main_menu_button_button_up():
+	$"../../SceneTransition/SceneTransitionAnimationPlayer".play("fade_in")
+	await $"../../SceneTransition/SceneTransitionAnimationPlayer".animation_finished
 	get_parent().switch_to_child("MainMenu")
+	$"../../SceneTransition/SceneTransitionAnimationPlayer".play_backwards("fade_in")
 
 func _on_visibility_changed():
 	if $VBoxContainer/ResumeButton.is_inside_tree() and visible:

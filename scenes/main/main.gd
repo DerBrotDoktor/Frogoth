@@ -19,14 +19,18 @@ func load_scene(scene:PackedScene):
 func load_level_by_index(index:int):
 	if index < level.size():
 		$BashPointController.clear_shape()
+		$SceneTransition/SceneTransitionAnimationPlayer.play("fade_in")
+		await $SceneTransition/SceneTransitionAnimationPlayer.animation_finished
 		load_scene(level[index])
 		set_player_position(current_scene.get_player_spawn_position())
 		player.can_place_jump_points = current_scene.can_player_jump_points
 		player.reset()
-		player.enable()
 		reset_stats()
 		current_level_index = index
 		$Canvas.switch_to_child("UserInterface")
+		player.enable()
+		$SceneTransition/SceneTransitionAnimationPlayer.play_backwards("fade_in")
+		await $SceneTransition/SceneTransitionAnimationPlayer.animation_finished
 	else:
 		$Canvas.switch_to_child("MainMenu")
 
