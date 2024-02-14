@@ -30,7 +30,7 @@ var can_move = true
 var current_health
 var dash_direction
 var can_dash = true
-var current_orb
+var current_orbs = []
 var invincible_frames_left = 0
 var can_place_jump_points = true
 var max_orbs = 8
@@ -204,9 +204,11 @@ func _on_trigger_area_area_entered(area):
 			reset_jump()
 			$DashCooldown.stop()
 			area.use_point()
-		current_orb = area
+		current_orbs.append(area)
+		print("Enter", area)
 	elif area.is_in_group("temporary_orb"):
-		current_orb = area
+		current_orbs.append(area)
+		print("Enter", area)
 	elif area.is_in_group("enable_jump_points"):
 		can_place_jump_points = true
 	elif area.is_in_group("dead_zone"):
@@ -214,9 +216,11 @@ func _on_trigger_area_area_entered(area):
 
 func _on_trigger_area_area_exited(area):
 	if area.is_in_group("jump_point"):
-		current_orb = null
+		print("leave", area)
+		current_orbs.erase(area)
 	elif area.is_in_group("temporary_orb"):
-		current_orb = null
+		print("leave", area)
+		current_orbs.erase(area)
 
 func _on_trigger_area_body_entered(body):
 	if body.is_in_group("bullet"):
@@ -297,10 +301,19 @@ func die():
 func try_place_orb():
 	if is_on_floor() or not can_place_jump_points:
 		return
-	elif not current_orb and orbs_left > 0:
+	elif current_orbs.size() <= 0 and orbs_left > 0:
 		place_temporary_orb(position)
-	elif current_orb:
-		entered_orb.emit(current_orb)
+	elif current_orbs.size() > 0:
+		var nearest_orb
+		for orb in current_orbs:
+			if not nearest_orb:
+				nearest_orb = orb
+			else:
+				var distance = orb.position.distance_to(position)
+				var nearest_distance = nearest_orb.position.distance_to(position)
+				if distance < nearest_distance:
+					nearest_orb = orb
+		entered_orb.emit(nearest_orb)
 
 func place_temporary_orb(pos):
 	orbs_left -= 1
