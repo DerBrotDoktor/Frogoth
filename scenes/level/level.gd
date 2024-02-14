@@ -19,5 +19,5 @@ func get_enemy_count():
 	return returnValue
 
 func get_badge():
-	var returnValue
-	return
+	var returnValue = 0
+	return returnValue

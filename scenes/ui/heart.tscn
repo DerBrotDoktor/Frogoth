@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://cu5hn0c5c4p36"]
+
+[ext_resource type="Texture2D" uid="uid://ibn610wdu7lp" path="res://assets/ui/health/gray_heart.png" id="1_ffd5h"]
+[ext_resource type="Script" path="res://scenes/ui/heart.gd" id="2_s7l2q"]
+[ext_resource type="Texture2D" uid="uid://dbtftdevnqyc2" path="res://assets/ui/health/red_heart.png" id="3_0md2v"]
+[ext_resource type="Texture2D" uid="uid://c7cxhur1tcq51" path="res://assets/ui/health/yellow_heart.png" id="4_p3pll"]
+[ext_resource type="Texture2D" uid="uid://dkpbmwg07gd6v" path="res://assets/ui/health/green_heart.png" id="5_tn4ha"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rhcfm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ffd5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0md2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_p3pll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tn4ha")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Heart" type="TextureRect"]
+texture = ExtResource("1_ffd5h")
+script = ExtResource("2_s7l2q")
+sprites = SubResource("SpriteFrames_rhcfm")

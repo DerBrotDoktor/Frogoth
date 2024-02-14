@@ -36,6 +36,7 @@ var invincible_frames_left = 0
 var can_place_jump_points = true
 var max_orbs = 8
 var orbs_left = 0
+var is_dead = true
 #endregion
 
 #region stats
@@ -71,7 +72,8 @@ func _physics_process(delta):
 func add_gravity(delta):
 	if not is_on_floor() and can_move and velocity.y < max_y_velocity:
 		velocity.y += gravity * delta
-	if velocity.y > 0 and not $Animation.animation == "death":
+	var can_play_fall = (not $Animation.animation == "death") or (not $Animation.animation == "damage")
+	if velocity.y > 0 and can_play_fall:
 		play_animation("fall")
 
 func handle_movement(delta):
@@ -114,7 +116,6 @@ func handle_dash_movement():
 		velocity.y = min(velocity.y + dash_acceleration, dash_speed)
 	elif dash_direction.y < 0:
 		velocity.y = max(velocity.y - dash_acceleration, -dash_speed)
-	pass
 
 func enable():
 	$Animation.visible = true
@@ -133,6 +134,7 @@ func reset():
 	can_move = true
 	orbs_left = max_orbs
 	update_user_interface()
+	is_dead = false
 
 func reset_stats():
 	stats_air_time = 0.0
@@ -141,12 +143,14 @@ func reset_stats():
 	stats_total_shapes = 0
 
 func try_jump():
+	if is_dead: return
 	if Input.is_action_just_pressed("dash") and can_dash:
 		dash()
 	if Input.is_action_just_pressed("jump"):
 		$JumpBufferTimer.start()
 
 func handle_jump(delta):
+	if is_dead: return
 	if not $JumpBufferTimer.is_stopped() and can_jump:
 		$JumpBufferTimer.stop()
 		$CoyoteTimer.stop()
@@ -194,6 +198,7 @@ func _on_coyote_timer_timeout():
 	can_tripple_jump = false
 
 func reset_jump():
+	if is_dead: return
 	can_jump = true
 	can_double_jump = true
 	can_tripple_jump = true
@@ -255,7 +260,6 @@ func add_ghost():
 
 func _on_ghost_timer_timeout():
 	add_ghost()
-	
 
 func _on_dash_timer_timeout():
 	$GhostTimer.stop()
@@ -290,19 +294,21 @@ func take_damage(damage):
 		die()
 
 func die():
+	is_dead = true
 	can_move = false
 	can_jump = false
 	can_double_jump = false
 	can_tripple_jump = false
-	velocity = Vector2(0,gravity/2)
+	velocity = Vector2.ZERO
+	velocity = Vector2(0,gravity/2.0)
 	play_animation("death")
 	await  $Animation.animation_finished
 	player_died.emit()
 
 func try_place_orb():
-	if is_on_floor() or not can_place_jump_points:
+	if is_on_floor() or (not can_place_jump_points):
 		return
-	elif current_orbs.size() <= 0 and orbs_left > 0:
+	elif (current_orbs.size() <= 0) and (orbs_left > 0):
 		place_temporary_orb(position)
 	elif current_orbs.size() > 0:
 		var nearest_orb
@@ -325,6 +331,9 @@ func place_temporary_orb(pos):
 	entered_orb.emit(orb)
 
 func play_animation(animation):
+	var animation_not_allowed = ($Animation.animation == "death" or $Animation.animation == "damage")
+	if $Animation.is_playing() and animation_not_allowed:
+		return
 	if animation:
 		$Animation.play(animation)
 	elif not animation:
@@ -350,4 +359,3 @@ func update_user_interface():
 
 func knockback(direction):
 	velocity += direction * knockback_strength
-	pass

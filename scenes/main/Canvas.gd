@@ -2,7 +2,7 @@ extends CanvasLayer
 
 var last_child
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("pause_menu"):
 		toggle_pause_menu()
 	if Input.is_action_pressed("controller_help") and not get_tree().paused:
@@ -34,11 +34,11 @@ func restart_level():
 	get_parent().restart_current_level()
 	$UserInterface.reset_timer()
 
-func switch_to_child(name):
+func switch_to_child(child_name):
 	for child in get_children():
 		if not child == $EscapeDelay:
 			last_child = child if child.visible else last_child
-			child.visible = child.name == name
+			child.visible = child.name == child_name
 
 func switch_to_last_child():
 	$EscapeDelay.start()

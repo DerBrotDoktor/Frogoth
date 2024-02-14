@@ -9,7 +9,7 @@ var start_position
 func _ready():
 	platform =  find_child("Platform")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_falling:
 		position.y = position.y + speed
 

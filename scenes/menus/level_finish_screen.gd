@@ -1,6 +1,6 @@
 extends Control
 
-func set_statistics(time, badge, air_time, jumps, connected_orbs, total_shapes):
+func set_statistics(time, _badge, air_time, jumps, connected_orbs, total_shapes):
 	$ColorRect2/StatsMargin/VBoxContainer/Time.text = str(time) + " s"
 	$ColorRect2/StatsMargin/VBoxContainer/ColorRect/MarginContainer/Statistics/AirtimeLabel.text = "Air time: " + str(air_time) + " s"
 	$ColorRect2/StatsMargin/VBoxContainer/ColorRect/MarginContainer/Statistics/JumpsLabel.text = "Jumps: " + str(jumps)

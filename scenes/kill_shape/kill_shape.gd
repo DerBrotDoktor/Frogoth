@@ -7,16 +7,14 @@ var point_positions = []
 var last_length = 128
 var shape_finished = false
 
+func add_point_object(obj):
+	point_objects.append(obj)
+	add_point(obj.position)
+
 func add_point(point):
-	if not typeof(point) == typeof(Vector2.ZERO):
-		point_objects.append(point)
-		point_positions.append(point.position)
-		$KillShapePath.curve.add_point(point.position)
-		$OrbConnectPlayer.position = point.position
-	else:
-		point_positions.append(point)
-		$KillShapePath.curve.add_point(point)
-		$OrbConnectPlayer.position = point
+	point_positions.append(point)
+	$KillShapePath.curve.add_point(point)
+	$OrbConnectPlayer.position = point
 	if point_positions.size() > 0:
 		place_lightning()
 	if not shape_finished:
@@ -39,31 +37,30 @@ func finish_shape(new_points):
 	for child in $KillShapePath.get_children():
 		child.queue_free()
 	
-	var positions = []
-	for point in new_points:
-		positions.append(point.position)
-		
 	$KillShapePath.curve = Curve2D.new()
 	last_length = 0
 	
+	var positions = []
+	for point in new_points:
+		positions.append(point.position)
 	var polygons = get_polygons(positions)
+	
 	for poly in polygons:
 		var convex = Geometry2D.convex_hull(poly)
-	
 		for point in convex:
 			var is_object = false
 			for obj in new_points:
 				if obj.position == point:
-					add_point(obj)
+					add_point_object(obj)
 					is_object = true
 					obj.will_be_in_shape = true
 			if not is_object:
 				add_point(point)
-		add_point(convex[0])
 		
 		for obj in new_points:
 			if not obj.will_be_in_shape:
 				obj.queue_free()
+		
 		var sprite = Polygon2D.new()
 		sprite.texture = load("res://assets/vfx/kill_shape/lightning_shape.png")
 		sprite.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
@@ -73,7 +70,7 @@ func finish_shape(new_points):
 		var collider = CollisionPolygon2D.new()
 		collider.polygon = convex
 		$KillArea.add_child(collider)
-		
+	
 	for child in $KillShapePath.get_children():
 		child.scale.y = 1.0
 	$Outline.closed = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bjr4d282863jf"]
+[gd_scene load_steps=21 format=3 uid="uid://bjr4d282863jf"]
 
 [ext_resource type="Script" path="res://scenes/player/user_interface.gd" id="1_2e1s1"]
 [ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="1_olx0k"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://2lwjg5fw0ha1" path="res://assets/ui/orbs_left/orb_ui.png" id="14_euhex"]
 [ext_resource type="Texture2D" uid="uid://by5f1k44gm2ln" path="res://assets/ui/dash/dash_cooldown.png" id="15_5p3gt"]
 [ext_resource type="Texture2D" uid="uid://sv86mdu0rlca" path="res://assets/ui/enemy_counter.png" id="17_0hxhh"]
+[ext_resource type="PackedScene" uid="uid://d0ffkm274ebff" path="res://scenes/ui/health_bar.tscn" id="18_xtje2"]
 
 [sub_resource type="Theme" id="Theme_2u5c8"]
 default_font = ExtResource("1_olx0k")
@@ -56,23 +57,8 @@ theme_override_font_sizes/font_size = 150
 text = "0000"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HealthBar" parent="." instance=ExtResource("18_xtje2")]
 layout_mode = 0
-offset_right = 758.0
-offset_bottom = 250.0
-
-[node name="Heart0" type="TextureRect" parent="HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("5_3eudh")
-
-[node name="Heart1" type="TextureRect" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-texture = ExtResource("5_3eudh")
-
-[node name="Heart2" type="TextureRect" parent="HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("5_3eudh")
 
 [node name="OrbsLeft" type="TextureRect" parent="."]
 layout_mode = 1

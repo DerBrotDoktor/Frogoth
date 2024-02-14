@@ -9,12 +9,11 @@ var current_shape
 var stats_connected_orbs = 0
 var stats_total_shapes = 0
 
-func  _process(delta):
+func  _process(_delta):
 	if Input.is_action_just_pressed("discrad_shape"):
 		discard_shape()
 
 func check_point(point):
-	
 	if current_points.size() >= 3:
 		for p in range(current_points.size()):
 			if point == current_points[p]:
@@ -31,7 +30,7 @@ func check_point(point):
 
 func add_point(point):
 	current_points.append(point)
-	current_shape.add_point(point)
+	current_shape.add_point_object(point)
 	point.is_in_shape = true
 	stats_connected_orbs += 1
 
@@ -56,8 +55,6 @@ func create_shape(p):
 	stats_total_shapes += 1
 	player.orbs_left = player.max_orbs
 	player.update_user_interface()
-	await get_tree().create_timer(0.2).timeout
-	#get_parent().check_for_win()
 
 func clear_current():
 	current_shape = null

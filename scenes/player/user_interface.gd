@@ -32,28 +32,9 @@ func _on_visibility_changed():
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func set_health(health):
-	if health >= 3:
-		set_heart($HBoxContainer/Heart0,green_heart)
-		set_heart($HBoxContainer/Heart1,green_heart)
-		set_heart($HBoxContainer/Heart2,green_heart)
-	elif health == 2:
-		set_heart($HBoxContainer/Heart0,yellow_heart)
-		set_heart($HBoxContainer/Heart1,yellow_heart)
-		set_heart($HBoxContainer/Heart2,gray_heart)
-	elif health == 1:
-		set_heart($HBoxContainer/Heart0,red_heart)
-		set_heart($HBoxContainer/Heart1,gray_heart)
-		set_heart($HBoxContainer/Heart2,gray_heart)
-	else:
-		set_heart($HBoxContainer/Heart0,gray_heart)
-		set_heart($HBoxContainer/Heart1,gray_heart)
-		set_heart($HBoxContainer/Heart2,gray_heart)
-
-func set_heart(heart, image):
-	heart.texture = image
+	$HealthBar.set_health(health)
 
 func reset_stats():
-	print("reset stats")
 	time = 0.0
 
 func set_orb_left_amount(amount):
@@ -61,10 +42,7 @@ func set_orb_left_amount(amount):
 	pass
 
 func set_dash_used(can_dash):
-	if can_dash:
-		$DashCooldown.texture = dash
-	else:
-		$DashCooldown.texture = dash_used
+	$DashCooldown.texture = dash if can_dash else dash_used
 
 func set_current_enemy_count(value):
 	$CurrentEnemyCountBack/CurrentEnemyCountLabel.text = str(value)
