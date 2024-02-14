@@ -205,10 +205,8 @@ func _on_trigger_area_area_entered(area):
 			$DashCooldown.stop()
 			area.use_point()
 		current_orbs.append(area)
-		print("Enter", area)
 	elif area.is_in_group("temporary_orb"):
 		current_orbs.append(area)
-		print("Enter", area)
 	elif area.is_in_group("enable_jump_points"):
 		can_place_jump_points = true
 	elif area.is_in_group("dead_zone"):
@@ -216,10 +214,8 @@ func _on_trigger_area_area_entered(area):
 
 func _on_trigger_area_area_exited(area):
 	if area.is_in_group("jump_point"):
-		print("leave", area)
 		current_orbs.erase(area)
 	elif area.is_in_group("temporary_orb"):
-		print("leave", area)
 		current_orbs.erase(area)
 
 func _on_trigger_area_body_entered(body):

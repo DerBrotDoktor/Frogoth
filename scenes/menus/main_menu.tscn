@@ -151,7 +151,7 @@ focus_neighbor_top = NodePath("../SettingsButton")
 text = "Quit"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="button_down" from="VerticalContainer/StartButton" to="." method="_on_start_button_button_down"]
-[connection signal="button_down" from="VerticalContainer/LevelSelectButton" to="." method="_on_level_select_button_button_down"]
-[connection signal="button_down" from="VerticalContainer/SettingsButton" to="." method="_on_settings_button_button_down"]
-[connection signal="button_down" from="VerticalContainer/QuitButton" to="." method="_on_quit_button_button_down"]
+[connection signal="button_up" from="VerticalContainer/StartButton" to="." method="_on_start_button_button_up"]
+[connection signal="button_up" from="VerticalContainer/LevelSelectButton" to="." method="_on_level_select_button_button_up"]
+[connection signal="button_up" from="VerticalContainer/SettingsButton" to="." method="_on_settings_button_button_up"]
+[connection signal="button_up" from="VerticalContainer/QuitButton" to="." method="_on_quit_button_button_up"]
