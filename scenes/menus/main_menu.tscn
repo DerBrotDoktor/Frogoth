@@ -1,13 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7uqvsqtn5b6p"]
+[gd_scene load_steps=10 format=3 uid="uid://c7uqvsqtn5b6p"]
 
+[ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="1_4inao"]
 [ext_resource type="Script" path="res://scenes/menus/main_menu.gd" id="1_6s5vr"]
 [ext_resource type="Texture2D" uid="uid://m30ojk8eyhbr" path="res://assets/parallax/sky.png" id="2_xou8v"]
 [ext_resource type="Texture2D" uid="uid://dechd0hxshq2j" path="res://assets/parallax/paralax_1.png" id="3_npudr"]
 [ext_resource type="Texture2D" uid="uid://dnh4dfbpvvn6l" path="res://assets/parallax/paralax_2.png" id="4_5f8s3"]
-
-[sub_resource type="FontVariation" id="FontVariation_477og"]
-variation_embolden = 0.3
-spacing_glyph = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdcpn"]
 bg_color = Color(0.168627, 0.305882, 0.776471, 1)
@@ -37,18 +34,15 @@ shadow_size = 3
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/constants/outline_size = 10
 Button/font_sizes/font_size = 30
-Button/fonts/font = SubResource("FontVariation_477og")
+Button/fonts/font = ExtResource("1_4inao")
 Button/styles/focus = SubResource("StyleBoxFlat_wdcpn")
 Button/styles/hover = SubResource("StyleBoxFlat_wdcpn")
 Button/styles/normal = SubResource("StyleBoxFlat_0lpqj")
 
-[sub_resource type="SystemFont" id="SystemFont_1fqa6"]
-subpixel_positioning = 0
-
 [sub_resource type="LabelSettings" id="LabelSettings_0exlh"]
-font = SubResource("SystemFont_1fqa6")
-font_size = 60
-outline_size = 7
+font = ExtResource("1_4inao")
+font_size = 70
+outline_size = 13
 outline_color = Color(0, 0, 0, 1)
 
 [node name="MainMenu" type="Control"]

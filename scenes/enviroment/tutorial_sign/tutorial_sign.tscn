@@ -1,9 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://0woesesbbwik"]
+[gd_scene load_steps=5 format=3 uid="uid://0woesesbbwik"]
 
 [ext_resource type="Script" path="res://scenes/enviroment/tutorial_sign/tutorial_sign.gd" id="1_l5yyk"]
 [ext_resource type="Texture2D" uid="uid://cfkjc4fd83h6g" path="res://assets/interactables/tutorial_sign.png" id="2_aayxx"]
+[ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="3_kart3"]
 
 [sub_resource type="Theme" id="Theme_j5iga"]
+default_font = ExtResource("3_kart3")
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 20
 Label/font_sizes/font_size = 80
@@ -34,6 +36,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_j5iga")
+theme_override_font_sizes/font_size = 80
 text = "Test Tutorial Text"
 horizontal_alignment = 1
 

@@ -1,9 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c6nm6w83jynbs"]
 
+[ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="1_861nn"]
 [ext_resource type="Script" path="res://scenes/menus/pause_menu.gd" id="1_mgqje"]
-
-[sub_resource type="SystemFont" id="SystemFont_0rgmh"]
-subpixel_positioning = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnr4f"]
 bg_color = Color(0.168627, 0.305882, 0.776471, 1)
@@ -43,18 +41,20 @@ shadow_size = 3
 
 [sub_resource type="Theme" id="Theme_pv8ow"]
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
-Button/constants/outline_size = 3
-Button/font_sizes/font_size = 23
-Button/fonts/font = SubResource("SystemFont_0rgmh")
+Button/constants/outline_size = 8
+Button/font_sizes/font_size = 25
+Button/fonts/font = ExtResource("1_861nn")
 Button/styles/focus = SubResource("StyleBoxFlat_lnr4f")
 Button/styles/hover = SubResource("StyleBoxFlat_w1hgi")
 Button/styles/normal = SubResource("StyleBoxFlat_26k5v")
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
-Label/constants/outline_size = 5
+Label/constants/outline_size = 8
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_861nn")
 
 [sub_resource type="LabelSettings" id="LabelSettings_dw61o"]
-font_size = 50
-outline_size = 4
+font_size = 60
+outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
 [node name="PauseMenu" type="Control"]
@@ -95,7 +95,7 @@ label_settings = SubResource("LabelSettings_dw61o")
 horizontal_alignment = 1
 
 [node name="ResumeButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(130, 40)
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -104,7 +104,7 @@ focus_neighbor_bottom = NodePath("../RestartButton")
 text = "Resume"
 
 [node name="RestartButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(130, 40)
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -113,7 +113,7 @@ focus_neighbor_bottom = NodePath("../SettingsButton")
 text = "Restart"
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(130, 40)
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -122,7 +122,7 @@ focus_neighbor_bottom = NodePath("../MainMenuButton")
 text = "Settings"
 
 [node name="MainMenuButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(130, 40)
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

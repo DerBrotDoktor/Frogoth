@@ -1,10 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cj5y0tnco4cx1"]
 
 [ext_resource type="Script" path="res://scenes/menus/level_finish_screen.gd" id="1_iw8t1"]
-
-[sub_resource type="FontVariation" id="FontVariation_477og"]
-variation_embolden = 0.3
-spacing_glyph = 1
+[ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="1_pqixf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdcpn"]
 bg_color = Color(0.168627, 0.305882, 0.776471, 1)
@@ -31,10 +28,11 @@ shadow_color = Color(0, 0, 0, 1)
 shadow_size = 3
 
 [sub_resource type="Theme" id="Theme_kd7u0"]
+default_font = ExtResource("1_pqixf")
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/constants/outline_size = 10
-Button/font_sizes/font_size = 30
-Button/fonts/font = SubResource("FontVariation_477og")
+Button/font_sizes/font_size = 35
+Button/fonts/font = ExtResource("1_pqixf")
 Button/styles/focus = SubResource("StyleBoxFlat_wdcpn")
 Button/styles/hover = SubResource("StyleBoxFlat_wdcpn")
 Button/styles/normal = SubResource("StyleBoxFlat_0lpqj")
