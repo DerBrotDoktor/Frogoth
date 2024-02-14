@@ -37,10 +37,10 @@ position = Vector2(4022, -959)
 position = Vector2(2828, -1034)
 
 [node name="JumpPoint4" parent="JumpPoints" instance=ExtResource("3_shno5")]
-position = Vector2(3584, -2145)
+position = Vector2(3793, -2241)
 
 [node name="JumpPoint5" parent="JumpPoints" instance=ExtResource("3_shno5")]
-position = Vector2(-504, -1406)
+position = Vector2(-532, -1434)
 
 [node name="JumpPoint6" parent="JumpPoints" instance=ExtResource("3_shno5")]
 position = Vector2(-161, -780)
@@ -48,36 +48,33 @@ position = Vector2(-161, -780)
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="EnemySingleShot" parent="Enemies" instance=ExtResource("4_ka122")]
-position = Vector2(941, -1264)
+position = Vector2(3610, -1495)
 
 [node name="EnemySingleShot2" parent="Enemies" instance=ExtResource("4_ka122")]
-position = Vector2(528, -1269)
+position = Vector2(660, -1253)
 
 [node name="EnemySingleShot3" parent="Enemies" instance=ExtResource("4_ka122")]
 position = Vector2(1449, -1908)
 
 [node name="EnemySingleShot4" parent="Enemies" instance=ExtResource("4_ka122")]
-position = Vector2(3289, -1613)
+position = Vector2(3255, -1494)
 
 [node name="Platforms" type="Node2D" parent="."]
 
 [node name="PlatformBig2" parent="Platforms" instance=ExtResource("5_1g7wu")]
-position = Vector2(739, -1084)
+position = Vector2(3403, -1296)
 
 [node name="PlatformBig3" parent="Platforms" instance=ExtResource("6_xtdw0")]
-position = Vector2(2828, -566)
+position = Vector2(3312, -656)
 
 [node name="PlatformBig6" parent="Platforms" instance=ExtResource("6_xtdw0")]
-position = Vector2(4230, -1776)
+position = Vector2(4504, -1925)
 
 [node name="PlatformSmall1" parent="Platforms" instance=ExtResource("7_abjgh")]
 position = Vector2(1442, -1681)
 
-[node name="PlatformSmall7" parent="Platforms" instance=ExtResource("7_abjgh")]
-position = Vector2(3579, -697)
-
 [node name="PlatformSmall2" parent="Platforms" instance=ExtResource("8_jjk8j")]
-position = Vector2(4372, -1212)
+position = Vector2(4436, -1216)
 
 [node name="PlatformSmall5" parent="Platforms" instance=ExtResource("8_jjk8j")]
 position = Vector2(1971, -1011)
@@ -86,19 +83,19 @@ position = Vector2(1971, -1011)
 position = Vector2(189, -404)
 
 [node name="PlatformSmall3" parent="Platforms" instance=ExtResource("9_kmecn")]
-position = Vector2(3292, -1437)
+position = Vector2(668, -1073)
 
 [node name="PlatformBig4" parent="Platforms" instance=ExtResource("6_xtdw0")]
 position = Vector2(2222, -2303)
 
 [node name="PlatformBig5" parent="Platforms" instance=ExtResource("6_xtdw0")]
-position = Vector2(-219, -1601)
+position = Vector2(-208, -1731)
 
 [node name="PlatformSmall4" parent="Platforms" instance=ExtResource("9_kmecn")]
-position = Vector2(531, -1830)
+position = Vector2(579, -2138)
 
 [node name="PlatformSmall6" parent="Platforms" instance=ExtResource("9_kmecn")]
-position = Vector2(2941, -1833)
+position = Vector2(2982, -2028)
 
 [node name="Tilemaps" type="Node2D" parent="."]
 

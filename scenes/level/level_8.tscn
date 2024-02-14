@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://02mgq0aad22s"]
+[gd_scene load_steps=31 format=3 uid="uid://02mgq0aad22s"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_ru5d0"]
 [ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/orbs/jump_point.tscn" id="2_1lvuf"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://17i4ie4f1lm3" path="res://scenes/enviroment/platforms/small/platform_small_3.tscn" id="11_bksts"]
 [ext_resource type="PackedScene" uid="uid://btimemg85kwm8" path="res://scenes/enviroment/platforms/big/platform_big_2.tscn" id="12_evt3n"]
 [ext_resource type="PackedScene" uid="uid://jvgqmuavbsuu" path="res://scenes/enemies/enemy_multiple_shot.tscn" id="13_bpfpf"]
+[ext_resource type="Texture2D" uid="uid://htuo3akhgyef" path="res://assets/platforms/platform_small_3.png" id="14_kujs4"]
 [ext_resource type="Texture2D" uid="uid://xjiqsxpm7af5" path="res://assets/platforms/platform_small_1.png" id="15_f4srn"]
 [ext_resource type="PackedScene" uid="uid://dn3xgle2qo4kl" path="res://scenes/enviroment/platforms/small/platform_small_2.tscn" id="16_ry1qh"]
 [ext_resource type="PackedScene" uid="uid://c8qi15jdcx7eo" path="res://scenes/enviroment/platforms/small/platform_small_1.tscn" id="17_5m4xo"]
@@ -63,6 +64,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 340, -242, 0, 0, 0, 0, -602, -55, 0, 0, 0, 0, -1743, 136)
 }
 point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_feqyu"]
+size = Vector2(171, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awyk8"]
 
@@ -254,8 +258,15 @@ rotation = 2.94563
 rotates = false
 loop = false
 
-[node name="PlatformSmall4" parent="MovingPlatforms/MovingPlatform6/Platform" instance=ExtResource("11_bksts")]
+[node name="PlatformSmall4" type="CharacterBody2D" parent="MovingPlatforms/MovingPlatform6/Platform" groups=["platform"]]
 rotation = -2.94563
+
+[node name="Sprite2D" type="Sprite2D" parent="MovingPlatforms/MovingPlatform6/Platform/PlatformSmall4"]
+texture = ExtResource("14_kujs4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatforms/MovingPlatform6/Platform/PlatformSmall4"]
+position = Vector2(-2, -46)
+shape = SubResource("RectangleShape2D_feqyu")
 
 [node name="Enemies" type="Node2D" parent="."]
 

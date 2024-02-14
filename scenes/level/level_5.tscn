@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://cxnis83ngl0xa"]
+[gd_scene load_steps=16 format=3 uid="uid://cxnis83ngl0xa"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_golbj"]
 [ext_resource type="PackedScene" uid="uid://btimemg85kwm8" path="res://scenes/enviroment/platforms/big/platform_big_2.tscn" id="2_5l0t3"]
+[ext_resource type="PackedScene" uid="uid://jvgqmuavbsuu" path="res://scenes/enemies/enemy_multiple_shot.tscn" id="2_fcdeo"]
 [ext_resource type="PackedScene" uid="uid://d0gcu70fmmqi4" path="res://scenes/player/player_spwan_point.tscn" id="2_fx126"]
 [ext_resource type="PackedScene" uid="uid://dm6yss7w4ixcq" path="res://scenes/enviroment/platforms/special/falling_platform.tscn" id="3_fjuox"]
 [ext_resource type="PackedScene" uid="uid://ni6wav7a3376" path="res://scenes/enviroment/spikes/spikes.tscn" id="3_ndonh"]
@@ -23,11 +24,11 @@ player_spawn_point = NodePath("PlayerSpwanPoint")
 
 [node name="Enemies" type="Node2D" parent="."]
 
+[node name="EnemyMultipleShot" parent="Enemies" instance=ExtResource("2_fcdeo")]
+position = Vector2(5001, -1842)
+
 [node name="EnemySingleShot" parent="Enemies" instance=ExtResource("9_i8jsd")]
 position = Vector2(3984, -3302)
-
-[node name="EnemySingleShot2" parent="Enemies" instance=ExtResource("9_i8jsd")]
-position = Vector2(5007, -1826)
 
 [node name="EnemySingleShot3" parent="Enemies" instance=ExtResource("9_i8jsd")]
 position = Vector2(6574, -3129)
@@ -172,6 +173,15 @@ position = Vector2(6744, -907)
 [node name="Spikes16" parent="Spikes" instance=ExtResource("3_ndonh")]
 position = Vector2(6881, -907)
 
+[node name="Spikes23" parent="Spikes" instance=ExtResource("3_ndonh")]
+position = Vector2(8130, -568)
+
+[node name="Spikes24" parent="Spikes" instance=ExtResource("3_ndonh")]
+position = Vector2(8257, -567)
+
+[node name="Spikes25" parent="Spikes" instance=ExtResource("3_ndonh")]
+position = Vector2(8385, -824)
+
 [node name="Spikes17" parent="Spikes" instance=ExtResource("3_ndonh")]
 position = Vector2(8897, -1217)
 
@@ -209,7 +219,7 @@ layer_0/tile_data = PackedInt32Array(327683, 131072, 1, 262147, 65536, 0, 196611
 position = Vector2(0, -17)
 tile_set = ExtResource("13_025m2")
 format = 2
-layer_0/tile_data = PackedInt32Array(-1245180, 131072, 0, -1245179, 262144, 0, -1245178, 262144, 1, -1245177, 0, 1, -1245176, 0, 1, -1245175, 196608, 0, -917485, 0, 1, -786412, 0, 0, -786411, 65536, 0, -786410, 262144, 1, -393193, 0, 0, -327656, 0, 1, -327655, 262144, 1, -327654, 0, 1, -327653, 131072, 1, -131039, 196608, 1, -196574, 131072, 0, -262109, 131072, 0, -262108, 196608, 0, -262107, 0, 1, -262106, 0, 1, -196569, 262144, 0, -196568, 131072, 0, -196567, 0, 1, -131030, 0, 0, -131029, 196608, 1, -131028, 262144, 0, -131027, 196608, 0, -131026, 0, 0, -131025, 65536, 1, -131024, 65536, 1, -131023, 262144, 0, -131022, 131072, 0, -131021, 0, 1, -196556, 65536, 0, -196555, 65536, 1, -196554, 196608, 1, -196553, 196608, 0, -196552, 196608, 1, -196551, 65536, 0, -196550, 131072, 1, -196549, 131072, 0, -196548, 196608, 1, -196547, 65536, 1, -196546, 196608, 0, -262081, 0, 0, -262080, 196608, 1, -393151, 65536, 0, -786366, 65536, 1, -786365, 196608, 0, -720822, 65536, 0, -786357, 196608, 0, -786356, 131072, 1)
+layer_0/tile_data = PackedInt32Array(-1245180, 131072, 0, -1245179, 262144, 0, -1245178, 262144, 1, -1245177, 0, 1, -1245176, 0, 1, -1245175, 196608, 0, -917485, 0, 1, -786412, 0, 0, -786411, 65536, 0, -786410, 262144, 1, -393193, 0, 0, -327656, 0, 1, -327655, 262144, 1, -327654, 0, 1, -327653, 131072, 1, -131039, 196608, 1, -196574, 131072, 0, -262109, 131072, 0, -262108, 196608, 0, -262107, 0, 1, -262106, 0, 1, -196569, 262144, 0, -196568, 131072, 0, -196567, 0, 1, -131030, 0, 0, -131029, 196608, 1, -131028, 262144, 0, -131027, 196608, 0, -131026, 0, 0, -131025, 65536, 1, -131024, 65536, 1, -131023, 262144, 0, -131022, 131072, 0, -131021, 0, 1, -196556, 65536, 0, -196555, 65536, 1, -196554, 196608, 1, -196553, 196608, 0, -196552, 196608, 1, -196551, 65536, 0, -196550, 131072, 1, -196549, 131072, 0, -196548, 196608, 1, -196547, 65536, 1, -196546, 196608, 0, -786366, 65536, 1, -786365, 196608, 0, -720822, 65536, 0, -786357, 196608, 0, -786356, 131072, 1)
 
 [node name="PlayerSpwanPoint" parent="." instance=ExtResource("2_fx126")]
 position = Vector2(793, -2512)

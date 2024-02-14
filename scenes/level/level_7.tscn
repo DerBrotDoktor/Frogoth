@@ -51,17 +51,11 @@ position = Vector2(6680, -3976)
 [node name="JumpPoint15" parent="JumpPoints" instance=ExtResource("3_a1auw")]
 position = Vector2(7600, -4640)
 
-[node name="JumpPoint16" parent="JumpPoints" instance=ExtResource("3_a1auw")]
-position = Vector2(6384, -5016)
-
 [node name="JumpPoint17" parent="JumpPoints" instance=ExtResource("3_a1auw")]
 position = Vector2(5472, -4536)
 
-[node name="JumpPoint19" parent="JumpPoints" instance=ExtResource("3_a1auw")]
-position = Vector2(4136, -4120)
-
 [node name="JumpPoint22" parent="JumpPoints" instance=ExtResource("3_a1auw")]
-position = Vector2(3096, -3640)
+position = Vector2(3480, -3904)
 
 [node name="JumpPoint23" parent="JumpPoints" instance=ExtResource("3_a1auw")]
 position = Vector2(1904, -3264)
@@ -75,11 +69,8 @@ position = Vector2(2376, -4792)
 [node name="JumpPoint27" parent="JumpPoints" instance=ExtResource("3_a1auw")]
 position = Vector2(1664, -5528)
 
-[node name="JumpPoint29" parent="JumpPoints" instance=ExtResource("3_a1auw")]
-position = Vector2(808, -4960)
-
 [node name="JumpPoint30" parent="JumpPoints" instance=ExtResource("3_a1auw")]
-position = Vector2(-248, -5304)
+position = Vector2(-11, -5362)
 
 [node name="JumpPoint31" parent="JumpPoints" instance=ExtResource("3_a1auw")]
 position = Vector2(3832, -5240)

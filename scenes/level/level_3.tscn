@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://ddwu8ev1w36qf"]
+[gd_scene load_steps=13 format=3 uid="uid://ddwu8ev1w36qf"]
 
 [ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/orbs/jump_point.tscn" id="1_pdq3v"]
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_wyfs8"]
 [ext_resource type="PackedScene" uid="uid://d0gcu70fmmqi4" path="res://scenes/player/player_spwan_point.tscn" id="2_dsjd5"]
 [ext_resource type="PackedScene" uid="uid://3j5q0ymm7o8s" path="res://scenes/enemies/enemy_single_shot.tscn" id="2_nl48p"]
 [ext_resource type="PackedScene" uid="uid://ni6wav7a3376" path="res://scenes/enviroment/spikes/spikes.tscn" id="3_6nwyw"]
-[ext_resource type="PackedScene" uid="uid://btimemg85kwm8" path="res://scenes/enviroment/platforms/big/platform_big_2.tscn" id="4_kunf0"]
 [ext_resource type="PackedScene" uid="uid://c8qi15jdcx7eo" path="res://scenes/enviroment/platforms/small/platform_small_1.tscn" id="5_jrfu4"]
 [ext_resource type="PackedScene" uid="uid://c8sw521maw3ue" path="res://scenes/enviroment/platforms/big/platform_big_3.tscn" id="6_7gsco"]
 [ext_resource type="PackedScene" uid="uid://dgcv5ildkajr8" path="res://scenes/enviroment/platforms/big/platform_big_1.tscn" id="7_uhox8"]
@@ -61,6 +60,9 @@ position = Vector2(260, -802)
 [node name="Spikes2" parent="Spikes" instance=ExtResource("3_6nwyw")]
 position = Vector2(570, 746)
 
+[node name="Spikes15" parent="Spikes" instance=ExtResource("3_6nwyw")]
+position = Vector2(-972, -401)
+
 [node name="Spikes3" parent="Spikes" instance=ExtResource("3_6nwyw")]
 position = Vector2(699, 746)
 
@@ -88,10 +90,16 @@ position = Vector2(2744, 623)
 [node name="Spikes11" parent="Spikes" instance=ExtResource("3_6nwyw")]
 position = Vector2(2872, 623)
 
-[node name="Platforms" type="Node2D" parent="."]
+[node name="Spikes12" parent="Spikes" instance=ExtResource("3_6nwyw")]
+position = Vector2(4540, -1427)
 
-[node name="PlatformBig2" parent="Platforms" instance=ExtResource("4_kunf0")]
-position = Vector2(935, -1608)
+[node name="Spikes13" parent="Spikes" instance=ExtResource("3_6nwyw")]
+position = Vector2(4666, -1427)
+
+[node name="Spikes14" parent="Spikes" instance=ExtResource("3_6nwyw")]
+position = Vector2(4793, -1556)
+
+[node name="Platforms" type="Node2D" parent="."]
 
 [node name="PlatformSmall1" parent="Platforms" instance=ExtResource("5_jrfu4")]
 position = Vector2(1580, -958)
@@ -117,6 +125,9 @@ position = Vector2(2852, -588)
 [node name="PlatformSmall5" parent="Platforms" instance=ExtResource("9_ty8jc")]
 position = Vector2(362, -2814)
 
+[node name="PlatformSmall7" parent="Platforms" instance=ExtResource("9_ty8jc")]
+position = Vector2(4197, -2144)
+
 [node name="PlatformBig6" parent="Platforms" instance=ExtResource("7_uhox8")]
 position = Vector2(2066, -2278)
 
@@ -132,8 +143,8 @@ position = Vector2(2904, -2724)
 [node name="PlatformSmall9" parent="Platforms" instance=ExtResource("8_lio1l")]
 position = Vector2(3306, -3052)
 
-[node name="PlatformBig8" parent="Platforms" instance=ExtResource("4_kunf0")]
-position = Vector2(4145, -2201)
+[node name="PlatformSmall11" parent="Platforms" instance=ExtResource("8_lio1l")]
+position = Vector2(857, -1554)
 
 [node name="PlatformSmall10" parent="Platforms" instance=ExtResource("5_jrfu4")]
 position = Vector2(-45, -1948)
