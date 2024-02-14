@@ -123,6 +123,7 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
 size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../QuitButton")
 focus_neighbor_bottom = NodePath("../LevelSelectButton")
 text = "Start"
 
@@ -148,6 +149,7 @@ custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_neighbor_top = NodePath("../SettingsButton")
+focus_neighbor_bottom = NodePath("../StartButton")
 text = "Quit"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

@@ -99,6 +99,7 @@ custom_minimum_size = Vector2(130, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_top = NodePath("../MainMenuButton")
 focus_neighbor_bottom = NodePath("../RestartButton")
 text = "Resume"
 
@@ -126,6 +127,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../SettingsButton")
+focus_neighbor_bottom = NodePath("../ResumeButton")
 text = "Main Menu"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
