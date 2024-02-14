@@ -77,7 +77,7 @@ func attack_area_exited(area):
 		$AttackCooldown.stop()
 
 func _on_attack_cooldown_timeout():
-	if not is_attacking:
+	if target:
 		attack()
 
 func _on_attack_area_area_entered(area):
