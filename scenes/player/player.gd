@@ -270,6 +270,8 @@ func _on_dash_cooldown_timeout():
 func take_damage(damage):
 	if invincible_frames_left > 0:
 		return
+	elif not $DashTimer.is_stopped() or not $DashDelay.is_stopped():
+		return
 	invincible_frames_left = invincible_frames
 	if current_health > 1:
 		$Camera.shake()
