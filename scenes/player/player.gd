@@ -70,8 +70,8 @@ func _physics_process(delta):
 func add_gravity(delta):
 	if not is_on_floor() and can_move and velocity.y < max_y_velocity:
 		velocity.y += gravity * delta
-		if not $Animation.is_playing():
-			play_animation("fall")
+	if velocity.y > 0 and not $Animation.animation == "death":
+		play_animation("fall")
 
 func handle_movement(delta):
 	if not $DashTimer.is_stopped():
