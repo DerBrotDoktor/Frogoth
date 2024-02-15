@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var knockback_strength = 2000
+
 var direction
 var speed
 

@@ -20,7 +20,6 @@ signal player_died()
 @export var squash = 0.2
 @export var stretch = 0.1
 @export var invincible_frames = 30
-@export var knockback_strength = 1000
 
 var can_jump = false
 var can_double_jump = false
@@ -37,6 +36,7 @@ var can_place_jump_points = true
 var max_orbs = 8
 var orbs_left = 0
 var is_dead = true
+var knockback
 #endregion
 
 #region stats
@@ -227,11 +227,18 @@ func _on_trigger_area_area_exited(area):
 func _on_trigger_area_body_entered(body):
 	if body.is_in_group("bullet"):
 		var knockabck_direction = (position - body.position).normalized()
-		knockback(knockabck_direction)
+		set_knockback(knockabck_direction, body.knockback_strength,0.2)
 		take_damage(1)
 		body.queue_free()
 	elif body.is_in_group("spikes"):
-		die()
+		var knockabck_direction = (position - body.position).normalized()
+		if abs(knockabck_direction.y) > abs(knockabck_direction.x):
+			knockabck_direction.y = 0
+		else:
+			knockabck_direction.x = 0
+			print(knockabck_direction,body.knockback_strength*100)
+		set_knockback(knockabck_direction, body.knockback_strength, 0.35)
+		take_damage(1)
 	elif body.is_in_group("platform") and is_on_floor():
 		if body.get_parent().has_method("start_fall"):
 			body.get_parent().start_fall()
@@ -357,5 +364,11 @@ func update_user_interface():
 	var enemy_count = $"..".get_current_enemy_count()
 	$"../Canvas/UserInterface".set_current_enemy_count(enemy_count)
 
-func knockback(direction):
-	velocity += direction * knockback_strength
+func set_knockback(direction,strength,time):
+	can_move = false
+	velocity = direction * strength
+	$KnockbackTime.start(time)
+
+func _on_knockback_time_timeout():
+	knockback = Vector2.ZERO
+	can_move = true

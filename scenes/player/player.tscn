@@ -783,6 +783,9 @@ bus = &"SoundEffects"
 stream = ExtResource("19_6lf02")
 bus = &"SoundEffects"
 
+[node name="KnockbackTime" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
@@ -791,3 +794,4 @@ bus = &"SoundEffects"
 [connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]
 [connection signal="area_exited" from="TriggerArea" to="." method="_on_trigger_area_area_exited"]
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
+[connection signal="timeout" from="KnockbackTime" to="." method="_on_knockback_time_timeout"]

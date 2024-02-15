@@ -1,6 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://ni6wav7a3376"]
+[gd_scene load_steps=6 format=3 uid="uid://ni6wav7a3376"]
 
 [ext_resource type="Texture2D" uid="uid://j04kuw0g2cg1" path="res://assets/interactables/spikes.png" id="1_mx56o"]
+
+[sub_resource type="GDScript" id="GDScript_42eyd"]
+script/source = "extends StaticBody2D
+
+@export var knockback_strength = 2000
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wscuv"]
 size = Vector2(128, 104)
@@ -15,6 +21,7 @@ fill = 1
 fill_from = Vector2(0.410256, 0.401709)
 
 [node name="Spikes" type="StaticBody2D" groups=["spikes"]]
+script = SubResource("GDScript_42eyd")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(0, 12)
