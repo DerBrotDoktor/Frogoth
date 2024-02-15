@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var outline_tile :PackedScene
+@export var backgound :PackedScene
 
 var point_objects = []
 var point_positions = []
@@ -61,9 +62,7 @@ func finish_shape(new_points):
 			if not obj.will_be_in_shape:
 				obj.queue_free()
 		
-		var sprite = Polygon2D.new()
-		sprite.texture = load("res://assets/vfx/kill_shape/lightning_shape.png")
-		sprite.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
+		var sprite = backgound.instantiate()
 		sprite.polygon = convex
 		add_child(sprite)
 		
