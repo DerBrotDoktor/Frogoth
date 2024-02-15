@@ -34,8 +34,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 256
-theme_override_constants/margin_right = 256
+theme_override_constants/margin_left = 600
+theme_override_constants/margin_right = 700
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -49,18 +49,21 @@ columns = 2
 
 [node name="MasterLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 60
 text = "Master"
 
 [node name="MasterSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
+size_flags_vertical = 6
 max_value = 1.0
 step = 0.05
 value = 0.8
 
 [node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 60
 text = "Music"
 
 [node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer"]
@@ -73,6 +76,7 @@ value = 0.8
 
 [node name="SFXLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 60
 text = "SFX"
 
 [node name="SFXSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer"]
@@ -85,6 +89,7 @@ value = 0.8
 
 [node name="FullscreenLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 60
 text = "Fullscreen"
 
 [node name="FullscreenCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer"]
@@ -93,20 +98,22 @@ button_pressed = true
 
 [node name="BorderlessLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 60
 text = "Borderless"
 
 [node name="BorderlessCheckbox" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
+size_flags_vertical = 6
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 2
-offset_left = 24.0
-offset_top = 24.0
-offset_right = 69.0
-offset_bottom = 55.0
-scale = Vector2(1.5, 1.5)
+offset_left = 96.0
+offset_top = 112.0
+offset_right = 243.0
+offset_bottom = 203.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 60
 shortcut = ExtResource("3_5yhl3")
 text = "Back"
 
