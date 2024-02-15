@@ -74,6 +74,7 @@ func finish_shape(new_points):
 	for child in $KillShapePath.get_children():
 		child.scale.y = 1.0
 	$Outline.closed = true
+	$FinishShapePlayer.play()
 	$DeleteTimer.start()
 
 func clear_points():
