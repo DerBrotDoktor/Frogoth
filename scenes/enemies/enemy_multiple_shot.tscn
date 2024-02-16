@@ -594,15 +594,12 @@ angle = 135.0
 bullet_amount = 5
 bullet_speed = 460
 
-[node name="Animation" parent="." index="0"]
+[node name="Animation" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_dj0yx")
 animation = &"idle"
 
 [node name="AttackAreaShape" parent="AttackArea" index="0"]
 shape = SubResource("CircleShape2D_t1eh8")
-
-[node name="AttackCooldown" parent="." index="8"]
-wait_time = 4.5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="9"]
 libraries = {
@@ -614,3 +611,6 @@ autoplay = "RESET"
 stream = ExtResource("7_0uj4l")
 volume_db = 5.0
 bus = &"SoundEffects"
+
+[node name="AttackCooldown" parent="." index="11"]
+wait_time = 4.5

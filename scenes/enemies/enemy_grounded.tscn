@@ -4,26 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bo7xaupqyaojq" path="res://assets/player/player_idle_an.png" id="2_0cywg"]
 [ext_resource type="Shader" path="res://scenes/enemies/distortion.gdshader" id="3_7b4ym"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yrvh7"]
-atlas = ExtResource("2_0cywg")
-region = Rect2(0, 0, 256, 256)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_1sjp7"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yrvh7")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_86s5u"]
 shader = ExtResource("3_7b4ym")
 shader_parameter/center = Vector2(0.5, 0.5)
@@ -116,6 +96,26 @@ _data = {
 "distortion_vfx": SubResource("Animation_j1uvc")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrvh7"]
+atlas = ExtResource("2_0cywg")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1sjp7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrvh7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eiqsm"]
 size = Vector2(92, 187)
 
@@ -130,27 +130,27 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_l2tby")
 
-[node name="Animation" type="AnimatedSprite2D" parent="."]
-z_index = 2
-sprite_frames = SubResource("SpriteFrames_1sjp7")
-
-[node name="Distortion" type="ColorRect" parent="Animation"]
+[node name="Distortion" type="ColorRect" parent="."]
 visible = false
 material = SubResource("ShaderMaterial_86s5u")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -384.0
-offset_top = -384.0
-offset_right = 128.0
-offset_bottom = 128.0
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DistortionVFXPlayer" type="AnimationPlayer" parent="Animation/Distortion"]
+[node name="DistortionVFXPlayer" type="AnimationPlayer" parent="Distortion"]
 libraries = {
 "": SubResource("AnimationLibrary_q33ie")
 }
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+z_index = 2
+sprite_frames = SubResource("SpriteFrames_1sjp7")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, 32.5)

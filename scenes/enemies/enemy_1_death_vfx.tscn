@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvesm6r7d67eb"]
+[gd_scene load_steps=4 format=3 uid="uid://dsgnukw35fh2p"]
 
 [ext_resource type="Texture2D" uid="uid://dbg7ldvt58g0n" path="res://assets/vfx/enemy1_death/spritesheet_enemy1_death_vfx.png" id="1_c0yqb"]
 
@@ -27,15 +27,14 @@ anim_speed_max = 1.0
 collision_mode = 2
 collision_use_scale = true
 
-[node name="Enemy1_death_vfx" type="Node2D"]
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-show_behind_parent = true
+[node name="Enemy1DeathVFX" type="GPUParticles2D"]
 material = SubResource("CanvasItemMaterial_s4m3q")
+emitting = false
 amount = 13
 process_material = SubResource("ParticleProcessMaterial_5wyi2")
 texture = ExtResource("1_c0yqb")
-preprocess = 600.0
+lifetime = 0.4
+one_shot = true
 speed_scale = 3.0
 explosiveness = 1.0
 fixed_fps = 35

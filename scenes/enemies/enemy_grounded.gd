@@ -77,7 +77,7 @@ func attack_area_exited(area):
 		$AttackCooldown.stop()
 
 func _on_attack_cooldown_timeout():
-	if target:
+	if target and not is_dead:
 		attack()
 
 func _on_attack_area_area_entered(area):
@@ -90,10 +90,8 @@ func play_animation(animation):
 	$Animation.play(animation)
 
 func die():
-	$Animation/Distortion/DistortionVFXPlayer.play("distortion_vfx")
 	is_dead = true
 	var main = get_tree().get_root().get_node("Main")
 	if main:
 		main.check_for_win()
-	await $Animation/Distortion/DistortionVFXPlayer.animation_finished
 	queue_free()
