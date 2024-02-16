@@ -39,6 +39,10 @@ func switch_to_child(child_name):
 		if not child == $EscapeDelay:
 			last_child = child if child.visible else last_child
 			child.visible = child.name == child_name
+	if child_name == "MainMenu":
+		$"../AudioPlayer".play_main_menu_music()
+	elif child_name == "UserInterface":
+		$"../AudioPlayer".play_background_music()
 
 func switch_to_last_child():
 	$EscapeDelay.start()

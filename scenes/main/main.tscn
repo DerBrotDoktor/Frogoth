@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://iyel1auqud01"]
+[gd_scene load_steps=31 format=3 uid="uid://iyel1auqud01"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_wtrgv"]
 [ext_resource type="PackedScene" uid="uid://bfqr80qekwaw5" path="res://scenes/player/player.tscn" id="3_cw4d6"]
@@ -24,6 +24,24 @@
 [ext_resource type="PackedScene" uid="uid://i70bm8lucd7m" path="res://scenes/menus/controller_settings_ui.tscn" id="17_8mvke"]
 [ext_resource type="PackedScene" uid="uid://buy8yfrq21gd" path="res://scenes/menus/settings_menu.tscn" id="20_f3gq3"]
 [ext_resource type="AudioStream" uid="uid://83nsiryvh2gg" path="res://assets/sfx/music/Frogoth_BG_music.mp3" id="22_7hg4y"]
+[ext_resource type="AudioStream" uid="uid://dentu4sa6yes7" path="res://assets/sfx/music/menu_music_0.1.mp3" id="24_vcc2i"]
+
+[sub_resource type="GDScript" id="GDScript_x8alp"]
+script/source = "extends Node
+
+func _ready():
+	play_main_menu_music()
+
+func play_background_music():
+	if not $BackgoundMusicPlayer.playing:
+		$BackgoundMusicPlayer.play()
+		$MainMenuPlayer.stop()
+
+func play_main_menu_music():
+	if not $MainMenuPlayer.playing:
+		$BackgoundMusicPlayer.stop()
+		$MainMenuPlayer.play()
+"
 
 [sub_resource type="Environment" id="Environment_2d4y5"]
 background_mode = 3
@@ -131,6 +149,19 @@ wait_time = 0.001
 [node name="Player" parent="." instance=ExtResource("3_cw4d6")]
 z_index = 2
 
+[node name="AudioPlayer" type="Node" parent="."]
+script = SubResource("GDScript_x8alp")
+
+[node name="BackgoundMusicPlayer" type="AudioStreamPlayer" parent="AudioPlayer"]
+process_mode = 3
+stream = ExtResource("22_7hg4y")
+volume_db = -10.0
+bus = &"Music"
+
+[node name="MainMenuPlayer" type="AudioStreamPlayer" parent="AudioPlayer"]
+stream = ExtResource("24_vcc2i")
+volume_db = -20.0
+
 [node name="BashPointController" type="Node" parent="." node_paths=PackedStringArray("player")]
 process_mode = 3
 script = ExtResource("6_n33ax")
@@ -138,13 +169,6 @@ player = NodePath("../Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2d4y5")
-
-[node name="BackgoundMusicPlayer" type="AudioStreamPlayer" parent="."]
-process_mode = 3
-stream = ExtResource("22_7hg4y")
-volume_db = -10.0
-autoplay = true
-bus = &"Music"
 
 [node name="SceneTransition" type="CanvasLayer" parent="."]
 process_mode = 3
