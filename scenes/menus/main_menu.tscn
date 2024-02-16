@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7uqvsqtn5b6p"]
+[gd_scene load_steps=13 format=3 uid="uid://c7uqvsqtn5b6p"]
 
 [ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="1_4inao"]
 [ext_resource type="Script" path="res://scenes/menus/main_menu.gd" id="1_6s5vr"]
 [ext_resource type="Texture2D" uid="uid://m30ojk8eyhbr" path="res://assets/parallax/sky.png" id="2_xou8v"]
 [ext_resource type="Texture2D" uid="uid://dechd0hxshq2j" path="res://assets/parallax/paralax_1.png" id="3_npudr"]
 [ext_resource type="Texture2D" uid="uid://dnh4dfbpvvn6l" path="res://assets/parallax/paralax_2.png" id="4_5f8s3"]
+[ext_resource type="Texture2D" uid="uid://bfgpum7vih67h" path="res://assets/ui/buttons/button.png" id="6_yipjy"]
+[ext_resource type="Texture2D" uid="uid://0oyw7lpc3u77" path="res://assets/ui/buttons/button_pressed.png" id="7_1gb7r"]
+[ext_resource type="Texture2D" uid="uid://du2ffk8u3dgs3" path="res://assets/ui/buttons/button_hover.png" id="8_8cd5u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdcpn"]
 bg_color = Color(0.168627, 0.305882, 0.776471, 1)
@@ -119,38 +122,108 @@ text = "Frogoth"
 label_settings = SubResource("LabelSettings_0exlh")
 horizontal_alignment = 1
 
-[node name="StartButton" type="Button" parent="MarginContainer/VerticalContainer"]
+[node name="StartButton" type="TextureButton" parent="MarginContainer/VerticalContainer"]
 custom_minimum_size = Vector2(600, 180)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
 focus_neighbor_top = NodePath("../QuitButton")
 focus_neighbor_bottom = NodePath("../LevelSelectButton")
-text = "Start"
+texture_normal = ExtResource("6_yipjy")
+texture_pressed = ExtResource("7_1gb7r")
+texture_hover = ExtResource("8_8cd5u")
+texture_focused = ExtResource("8_8cd5u")
+stretch_mode = 6
 
-[node name="LevelSelectButton" type="Button" parent="MarginContainer/VerticalContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VerticalContainer/StartButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_4inao")
+theme_override_font_sizes/font_size = 120
+text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelSelectButton" type="TextureButton" parent="MarginContainer/VerticalContainer"]
 custom_minimum_size = Vector2(600, 180)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
 focus_neighbor_top = NodePath("../StartButton")
 focus_neighbor_bottom = NodePath("../SettingsButton")
-text = "Select Level"
+texture_normal = ExtResource("6_yipjy")
+texture_pressed = ExtResource("7_1gb7r")
+texture_hover = ExtResource("8_8cd5u")
+texture_focused = ExtResource("8_8cd5u")
+stretch_mode = 6
 
-[node name="SettingsButton" type="Button" parent="MarginContainer/VerticalContainer"]
+[node name="Label2" type="Label" parent="MarginContainer/VerticalContainer/LevelSelectButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_4inao")
+theme_override_font_sizes/font_size = 85
+text = "Select Level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsButton" type="TextureButton" parent="MarginContainer/VerticalContainer"]
 custom_minimum_size = Vector2(600, 180)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_neighbor_top = NodePath("../LevelSelectButton")
 focus_neighbor_bottom = NodePath("../QuitButton")
-text = "Settings
-"
+texture_normal = ExtResource("6_yipjy")
+texture_pressed = ExtResource("7_1gb7r")
+texture_hover = ExtResource("8_8cd5u")
+texture_focused = ExtResource("8_8cd5u")
+stretch_mode = 6
 
-[node name="QuitButton" type="Button" parent="MarginContainer/VerticalContainer"]
+[node name="Label3" type="Label" parent="MarginContainer/VerticalContainer/SettingsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_4inao")
+theme_override_font_sizes/font_size = 85
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="MarginContainer/VerticalContainer"]
 custom_minimum_size = Vector2(600, 180)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_neighbor_top = NodePath("../SettingsButton")
 focus_neighbor_bottom = NodePath("../StartButton")
-text = "Quit"
+texture_normal = ExtResource("6_yipjy")
+texture_pressed = ExtResource("7_1gb7r")
+texture_hover = ExtResource("8_8cd5u")
+texture_focused = ExtResource("8_8cd5u")
+stretch_mode = 6
+
+[node name="Label3" type="Label" parent="MarginContainer/VerticalContainer/QuitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_4inao")
+theme_override_font_sizes/font_size = 85
+text = "Quit
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="button_up" from="MarginContainer/VerticalContainer/StartButton" to="." method="_on_start_button_button_up"]
