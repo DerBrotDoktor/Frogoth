@@ -161,6 +161,7 @@ bus = &"Music"
 [node name="MainMenuPlayer" type="AudioStreamPlayer" parent="AudioPlayer"]
 stream = ExtResource("24_vcc2i")
 volume_db = -20.0
+bus = &"Music"
 
 [node name="BashPointController" type="Node" parent="." node_paths=PackedStringArray("player")]
 process_mode = 3
