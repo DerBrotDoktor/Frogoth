@@ -51,6 +51,7 @@ func create_shape(p):
 			point.is_in_shape = false
 
 	current_shape.finish_shape(points)
+	$LightningEffect.play("lightning")
 	clear_current()
 	stats_total_shapes += 1
 	player.orbs_left = player.max_orbs
