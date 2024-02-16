@@ -224,7 +224,6 @@ script = SubResource("GDScript_x8alp")
 [node name="BackgoundMusicPlayer" type="AudioStreamPlayer" parent="AudioPlayer"]
 process_mode = 3
 stream = ExtResource("22_7hg4y")
-volume_db = -10.0
 bus = &"Music"
 
 [node name="MainMenuPlayer" type="AudioStreamPlayer" parent="AudioPlayer"]

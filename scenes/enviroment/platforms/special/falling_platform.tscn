@@ -99,7 +99,6 @@ radius = 15.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vujji"]
 
 [node name="FallingPlatform" type="Node2D"]
-z_index = -1
 script = ExtResource("1_6e0rx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

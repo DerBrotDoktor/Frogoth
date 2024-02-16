@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bdbrnenxnvtyr" path="res://assets/sfx/killing_shape/discard_shape_sfx.mp3" id="3_djbr8"]
 [ext_resource type="AudioStream" uid="uid://b6f6wujtdixxm" path="res://assets/sfx/killing_shape/line_connecting_points_sfx.mp3" id="3_ei6m4"]
 [ext_resource type="PackedScene" uid="uid://dvpm0kwhjvy27" path="res://scenes/kill_shape/kill_shape_backgound.tscn" id="3_qwb2q"]
-[ext_resource type="AudioStream" uid="uid://rqoxgmyhuvg" path="res://assets/sfx/killing_shape/shape_electric_sfx.mp3" id="5_s6k3b"]
+[ext_resource type="AudioStream" uid="uid://3fxu0lfbyv8r" path="res://assets/sfx/killing_shape/killing_shape_sfx2.mp3" id="6_lwtrb"]
 
 [sub_resource type="Curve2D" id="Curve2D_csn5t"]
 
@@ -40,7 +40,8 @@ volume_db = -10.0
 bus = &"SoundEffects"
 
 [node name="FinishShapePlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_s6k3b")
+stream = ExtResource("6_lwtrb")
+volume_db = -5.0
 
 [connection signal="timeout" from="DeleteTimer" to="." method="_on_delete_timer_timeout"]
 [connection signal="tree_entered" from="KillShapePath" to="." method="_on_kill_shape_path_tree_entered"]
