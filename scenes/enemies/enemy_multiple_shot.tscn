@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://jvgqmuavbsuu"]
+[gd_scene load_steps=60 format=3 uid="uid://jvgqmuavbsuu"]
 
 [ext_resource type="PackedScene" uid="uid://cpddwnffvkcgu" path="res://scenes/enemies/enemy_grounded.tscn" id="1_fd1j6"]
 [ext_resource type="Script" path="res://scenes/enemies/enemy_multiple_shot.gd" id="2_ep2wc"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://duh8moi80j24s" path="res://assets/enemy_2/enemy_2_idle_an.png" id="5_g11fh"]
 [ext_resource type="Texture2D" uid="uid://pyvm1s0gujjr" path="res://assets/enemy_2/enemy_2_walk_an.png" id="6_wfasm"]
 [ext_resource type="AudioStream" uid="uid://x6beroms81br" path="res://assets/sfx/enemy/shotgun_enemy_attack_sfx.mp3" id="7_0uj4l"]
+[ext_resource type="PackedScene" uid="uid://c1wishjxkarr7" path="res://scenes/enemies/enemy_2_death_vfx.tscn" id="8_uhdax"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_48wup"]
 atlas = ExtResource("3_ao67i")
@@ -397,6 +398,30 @@ tracks/4/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Enemy2DeathVFX:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Animation:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_3m33s"]
 resource_name = "attack"
@@ -468,6 +493,7 @@ tracks/4/keys = {
 [sub_resource type="Animation" id="Animation_a8pn4"]
 resource_name = "death"
 length = 0.56
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -499,12 +525,9 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.56),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"die"
-}]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -517,6 +540,40 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Enemy2DeathVFX:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.55),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Animation:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.55),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "animation"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Distortion/DistortionVFXPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": PackedStringArray("distortion_vfx"),
+"times": PackedFloat32Array(0.5)
 }
 
 [sub_resource type="Animation" id="Animation_cf7gj"]
@@ -614,3 +671,7 @@ bus = &"SoundEffects"
 
 [node name="AttackCooldown" parent="." index="11"]
 wait_time = 4.5
+
+[node name="Enemy2DeathVFX" parent="." index="12" instance=ExtResource("8_uhdax")]
+
+[connection signal="finished" from="Enemy2DeathVFX" to="." method="_on_enemy_2_death_vfx_finished"]

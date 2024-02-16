@@ -27,3 +27,6 @@ func trigger_area_entererd(area):
 		$AnimationPlayer.stop()
 		is_dead = true
 		$AnimationPlayer.play("death")
+
+func _on_enemy_2_death_vfx_finished():
+	die()
