@@ -112,7 +112,6 @@ theme_override_constants/margin_left = 200
 [node name="VerticalContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_constants/separation = 30
 alignment = 1
 
 [node name="TitleText" type="Label" parent="MarginContainer/VerticalContainer"]
@@ -123,9 +122,9 @@ label_settings = SubResource("LabelSettings_0exlh")
 horizontal_alignment = 1
 
 [node name="StartButton" type="TextureButton" parent="MarginContainer/VerticalContainer"]
-custom_minimum_size = Vector2(600, 180)
+custom_minimum_size = Vector2(512, 256)
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.0
 focus_neighbor_top = NodePath("../QuitButton")
 focus_neighbor_bottom = NodePath("../LevelSelectButton")
@@ -143,16 +142,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_4inao")
-theme_override_font_sizes/font_size = 120
+theme_override_font_sizes/font_size = 130
 text = "Start"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LevelSelectButton" type="TextureButton" parent="MarginContainer/VerticalContainer"]
-custom_minimum_size = Vector2(600, 180)
+custom_minimum_size = Vector2(512, 256)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
 focus_neighbor_top = NodePath("../StartButton")
 focus_neighbor_bottom = NodePath("../SettingsButton")
 texture_normal = ExtResource("6_yipjy")
@@ -169,13 +167,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_4inao")
-theme_override_font_sizes/font_size = 85
+theme_override_font_sizes/font_size = 70
 text = "Select Level"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SettingsButton" type="TextureButton" parent="MarginContainer/VerticalContainer"]
-custom_minimum_size = Vector2(600, 180)
+custom_minimum_size = Vector2(512, 256)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_neighbor_top = NodePath("../LevelSelectButton")
@@ -194,13 +192,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_4inao")
-theme_override_font_sizes/font_size = 85
+theme_override_font_sizes/font_size = 70
 text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="QuitButton" type="TextureButton" parent="MarginContainer/VerticalContainer"]
-custom_minimum_size = Vector2(600, 180)
+custom_minimum_size = Vector2(512, 256)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_neighbor_top = NodePath("../SettingsButton")
@@ -219,7 +217,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_4inao")
-theme_override_font_sizes/font_size = 85
+theme_override_font_sizes/font_size = 70
 text = "Quit
 "
 horizontal_alignment = 1

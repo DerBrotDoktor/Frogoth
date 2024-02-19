@@ -1,7 +1,7 @@
 [gd_scene load_steps=43 format=3 uid="uid://iyel1auqud01"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_wtrgv"]
-[ext_resource type="PackedScene" uid="uid://bv7u7b0pw30jd" path="res://scenes/level/tutorial.tscn" id="2_iy1mu"]
+[ext_resource type="PackedScene" uid="uid://bhid02gskfdbd" path="res://scenes/level/tutorial.tscn" id="2_iy1mu"]
 [ext_resource type="PackedScene" uid="uid://bfqr80qekwaw5" path="res://scenes/player/player.tscn" id="3_cw4d6"]
 [ext_resource type="PackedScene" uid="uid://byylmvxjebsun" path="res://scenes/menus/level_select_menu.tscn" id="3_qm2ey"]
 [ext_resource type="PackedScene" uid="uid://c7uqvsqtn5b6p" path="res://scenes/menus/main_menu.tscn" id="4_3igok"]
@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://co5me6y3u53f8" path="res://assets/parallax/backgound_paralax_3.png" id="16_hue3g"]
 [ext_resource type="PackedScene" uid="uid://i70bm8lucd7m" path="res://scenes/menus/controller_settings_ui.tscn" id="17_8mvke"]
 [ext_resource type="Texture2D" uid="uid://piqjsvgixggj" path="res://assets/parallax/gradient_backgound_paralax_4.png" id="17_tv5hj"]
-[ext_resource type="PackedScene" path="res://scenes/menus/settings_menu.tscn" id="20_f3gq3"]
+[ext_resource type="PackedScene" uid="uid://buy8yfrq21gd" path="res://scenes/menus/settings_menu.tscn" id="20_f3gq3"]
 [ext_resource type="AudioStream" uid="uid://83nsiryvh2gg" path="res://assets/sfx/music/Frogoth_BG_music.mp3" id="22_7hg4y"]
 [ext_resource type="AudioStream" uid="uid://dentu4sa6yes7" path="res://assets/sfx/music/menu_music_0.1.mp3" id="24_vcc2i"]
 [ext_resource type="AudioStream" uid="uid://c2lorlho1gvwv" path="res://assets/sfx/thunder/bg_thunder_sfx1.mp3" id="27_ej63l"]
