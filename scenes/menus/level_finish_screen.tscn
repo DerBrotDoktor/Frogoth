@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/menus/level_finish_screen.gd" id="1_iw8t1"]
 [ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="1_pqixf"]
-[ext_resource type="Texture2D" uid="uid://cthgm8dsxqgdf" path="res://assets/ui/winscreen_background.png" id="3_8qiep"]
+[ext_resource type="Texture2D" uid="uid://cthgm8dsxqgdf" path="res://assets/ui/statsboard_winscreen.png" id="3_8qiep"]
 [ext_resource type="Texture2D" uid="uid://bfgpum7vih67h" path="res://assets/ui/buttons/button.png" id="4_s17cd"]
 [ext_resource type="Texture2D" uid="uid://0oyw7lpc3u77" path="res://assets/ui/buttons/button_pressed.png" id="5_6qym1"]
 [ext_resource type="Texture2D" uid="uid://du2ffk8u3dgs3" path="res://assets/ui/buttons/button_hover.png" id="6_3413w"]
@@ -42,7 +42,7 @@ Button/fonts/font = ExtResource("1_pqixf")
 Button/styles/focus = SubResource("StyleBoxFlat_wdcpn")
 Button/styles/hover = SubResource("StyleBoxFlat_wdcpn")
 Button/styles/normal = SubResource("StyleBoxFlat_0lpqj")
-Label/font_sizes/font_size = 90
+Label/font_sizes/font_size = 80
 
 [node name="LevelFinishScreen" type="Control"]
 layout_mode = 3
@@ -63,16 +63,17 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.533333, 0.533333, 0.533333, 0.545098)
 
-[node name="ColorRect2" type="TextureRect" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1800, 1400)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_8qiep")
-expand_mode = 1
-stretch_mode = 5
+color = Color(0.811765, 0.811765, 0.811765, 0.580392)
 
 [node name="Badge" type="TextureRect" parent="ColorRect2"]
 layout_mode = 1
@@ -94,7 +95,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 200
-theme_override_constants/margin_right = 1000
+theme_override_constants/margin_right = 80
 
 [node name="Buttons" type="VBoxContainer" parent="ColorRect2/MarginContainer"]
 layout_mode = 2
@@ -110,6 +111,7 @@ texture_focused = ExtResource("6_3413w")
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="ColorRect2/MarginContainer/Buttons/NextLevelButton"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -130,6 +132,7 @@ texture_focused = ExtResource("6_3413w")
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="ColorRect2/MarginContainer/Buttons/RestartButton"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -150,6 +153,7 @@ texture_focused = ExtResource("6_3413w")
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="ColorRect2/MarginContainer/Buttons/MainMenuButton"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -167,7 +171,7 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 1000.0
 grow_vertical = 2
-theme_override_constants/margin_left = 1000
+theme_override_constants/margin_left = 80
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect2/StatsMargin"]
 layout_mode = 2
@@ -176,15 +180,18 @@ theme_override_constants/separation = 100
 alignment = 1
 
 [node name="Time" type="Label" parent="ColorRect2/StatsMargin/VBoxContainer"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
+theme_override_font_sizes/font_size = 100
 text = "1500 s
 "
 horizontal_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="ColorRect2/StatsMargin/VBoxContainer"]
-custom_minimum_size = Vector2(900, 900)
+[node name="ColorRect" type="TextureRect" parent="ColorRect2/StatsMargin/VBoxContainer"]
+custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
-color = Color(1, 1, 1, 0)
+texture = ExtResource("3_8qiep")
+stretch_mode = 6
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect2/StatsMargin/VBoxContainer/ColorRect"]
 layout_mode = 1
@@ -193,29 +200,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 8
+theme_override_constants/margin_left = 115
 
 [node name="Statistics" type="VBoxContainer" parent="ColorRect2/StatsMargin/VBoxContainer/ColorRect/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 50
 alignment = 1
 
 [node name="AirtimeLabel" type="Label" parent="ColorRect2/StatsMargin/VBoxContainer/ColorRect/MarginContainer/Statistics"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 text = "Air time:
 "
 
 [node name="JumpsLabel" type="Label" parent="ColorRect2/StatsMargin/VBoxContainer/ColorRect/MarginContainer/Statistics"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 text = "Jumps:
 "
 
 [node name="ConnectedOrbsLabel" type="Label" parent="ColorRect2/StatsMargin/VBoxContainer/ColorRect/MarginContainer/Statistics"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 text = "Connected Orbs:
 "
 
 [node name="TotalShapesLabel" type="Label" parent="ColorRect2/StatsMargin/VBoxContainer/ColorRect/MarginContainer/Statistics"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 text = "Total shapes:
 "
