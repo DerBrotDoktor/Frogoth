@@ -365,6 +365,10 @@ func update_user_interface():
 	$"../Canvas/UserInterface".set_current_enemy_count(enemy_count)
 
 func set_knockback(direction,strength,time):
+	if invincible_frames_left > 0:
+		return
+	elif not $DashTimer.is_stopped() or not $DashDelay.is_stopped():
+		return
 	can_move = false
 	velocity = direction * strength
 	$KnockbackTime.start(time)
