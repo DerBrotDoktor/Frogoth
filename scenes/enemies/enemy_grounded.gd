@@ -73,8 +73,8 @@ func _on_trigger_area_area_entered(area):
 	trigger_area_entererd(area)
 
 func attack_area_exited(area):
-	#if area.is_in_group("player"):
-		#$AttackCooldown.stop()
+	if area.is_in_group("player"):
+		target = null
 	pass
 
 func _on_attack_cooldown_timeout():
