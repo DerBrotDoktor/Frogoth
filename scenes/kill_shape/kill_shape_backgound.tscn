@@ -1,12 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvpm0kwhjvy27"]
-
-[ext_resource type="Shader" path="res://scenes/kill_shape/kill_shape_backgound.gdshader" id="1_leg21"]
-[ext_resource type="Texture2D" uid="uid://bb08fh6q2qr17" path="res://assets/vfx/kill_shape/lightning_shape.png" id="1_p6nqm"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_soqe7"]
-shader = ExtResource("1_leg21")
+[gd_scene format=3 uid="uid://dvpm0kwhjvy27"]
 
 [node name="KillShapeBackgound" type="Polygon2D"]
 texture_repeat = 2
-material = SubResource("ShaderMaterial_soqe7")
-texture = ExtResource("1_p6nqm")

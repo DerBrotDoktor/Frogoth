@@ -2,6 +2,7 @@ extends Node2D
 
 @export var outline_tile :PackedScene
 @export var backgound :PackedScene
+@export var sprites :Array[Texture2D]
 
 var point_objects = []
 var point_positions = []
@@ -64,7 +65,7 @@ func finish_shape(new_points):
 		
 		var sprite = backgound.instantiate()
 		sprite.polygon = convex
-		add_child(sprite)
+		$Polygons.add_child(sprite)
 		
 		var collider = CollisionPolygon2D.new()
 		collider.polygon = convex
@@ -74,6 +75,8 @@ func finish_shape(new_points):
 		child.scale.y = 1.0
 	$Outline.closed = true
 	$FinishShapePlayer.play()
+	_on_sprite_switch_timer_timeout()
+	$SpriteSwitchTimer.start()
 	$DeleteTimer.start()
 
 func clear_points():
@@ -158,3 +161,12 @@ func get_intersection(a1, a2, b1, b2):
 	var dist_b1 = abs(dir_a_perpendicular.dot(to_b1))
 	var dist_b2 = abs(dir_a_perpendicular.dot(to_b2))
 	return (dist_b2 * b1 + dist_b1 * b2) / (dist_b1 + dist_b2)
+
+var last_sprite_idx
+
+func _on_sprite_switch_timer_timeout():
+	var sprite_idx = randi_range(0,sprites.size()-1)
+	if last_sprite_idx == sprite_idx:
+		sprite_idx += 1 if sprite_idx < (sprites.size()-1) else sprite_idx -1
+	for child in $Polygons.get_children():
+		child.texture = sprites[sprite_idx]
