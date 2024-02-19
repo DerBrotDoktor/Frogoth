@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://bp2o7j5jtvfd2" path="res://assets/tileset/ground_1_tileset.tres" id="1_cfrs2"]
 [ext_resource type="TileSet" uid="uid://w07uqdijjh3l" path="res://assets/tileset/walkable_tiles.tres" id="1_ljw55"]
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_nneb6"]
-[ext_resource type="TileSet" uid="uid://dr6l2rwnb2mlp" path="res://assets/tileset/ceiling_tileset.tres" id="2_2n7vl"]
+[ext_resource type="TileSet" uid="uid://fq2u5xepsx1a" path="res://assets/tileset/ceiling_tileset.tres" id="2_2n7vl"]
 [ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/orbs/jump_point.tscn" id="2_air45"]
 [ext_resource type="PackedScene" uid="uid://0woesesbbwik" path="res://scenes/enviroment/tutorial_sign/tutorial_sign.tscn" id="2_jgae1"]
 [ext_resource type="PackedScene" uid="uid://btimemg85kwm8" path="res://scenes/enviroment/platforms/big/platform_big_2.tscn" id="2_v71rc"]
@@ -220,10 +220,10 @@ position = Vector2(23090, -1356)
 position = Vector2(23272, -2420)
 
 [node name="JumpPoint17" parent="JumpPoints" instance=ExtResource("2_air45")]
-position = Vector2(34511, -6108)
+position = Vector2(33983, -6140)
 
 [node name="JumpPoint18" parent="JumpPoints" instance=ExtResource("2_air45")]
-position = Vector2(37466, -5808)
+position = Vector2(36466, -6080)
 
 [node name="JumpPoint19" parent="JumpPoints" instance=ExtResource("2_air45")]
 position = Vector2(36254, -7795)
@@ -341,7 +341,9 @@ shape = SubResource("RectangleShape2D_2n1q5")
 [node name="Text" parent="TutorialSigns/TutorialSign5" index="2"]
 offset_top = -476.0
 offset_bottom = -339.0
-text = "Use your dash or jump, to place your own orbs."
+text = "Use your dash or jump, to place your own orbs.
+You can place 8 orbs and can discard
+ your current shape with pressing F"
 
 [node name="TutorialSign6" parent="TutorialSigns" instance=ExtResource("2_jgae1")]
 position = Vector2(32953, -5620)
@@ -407,6 +409,27 @@ position = Vector2(20117, -2206)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnableJumpPointsArea"]
 position = Vector2(57, -1392.75)
 shape = SubResource("RectangleShape2D_mypdj")
+
+[node name="JumpPoint" parent="." instance=ExtResource("2_air45")]
+position = Vector2(35247, -8195)
+
+[node name="JumpPoint2" parent="." instance=ExtResource("2_air45")]
+position = Vector2(36263, -6859)
+
+[node name="JumpPoint3" parent="." instance=ExtResource("2_air45")]
+position = Vector2(34471, -5139)
+
+[node name="JumpPoint4" parent="." instance=ExtResource("2_air45")]
+position = Vector2(37287, -4643)
+
+[node name="JumpPoint5" parent="." instance=ExtResource("2_air45")]
+position = Vector2(37467, -8545)
+
+[node name="JumpPoint6" parent="." instance=ExtResource("2_air45")]
+position = Vector2(34990, -6076)
+
+[node name="JumpPoint7" parent="." instance=ExtResource("2_air45")]
+position = Vector2(37694, -5884)
 
 [editable path="TutorialSigns/TutorialSign"]
 [editable path="TutorialSigns/TutorialSign2"]
