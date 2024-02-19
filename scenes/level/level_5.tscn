@@ -1,19 +1,25 @@
-[gd_scene load_steps=16 format=3 uid="uid://cxnis83ngl0xa"]
+[gd_scene load_steps=22 format=3 uid="uid://cxnis83ngl0xa"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_golbj"]
 [ext_resource type="PackedScene" uid="uid://btimemg85kwm8" path="res://scenes/enviroment/platforms/big/platform_big_2.tscn" id="2_5l0t3"]
 [ext_resource type="PackedScene" uid="uid://jvgqmuavbsuu" path="res://scenes/enemies/enemy_multiple_shot.tscn" id="2_fcdeo"]
 [ext_resource type="PackedScene" uid="uid://d0gcu70fmmqi4" path="res://scenes/player/player_spwan_point.tscn" id="2_fx126"]
 [ext_resource type="PackedScene" uid="uid://dm6yss7w4ixcq" path="res://scenes/enviroment/platforms/special/falling_platform.tscn" id="3_fjuox"]
-[ext_resource type="PackedScene" uid="uid://ni6wav7a3376" path="res://scenes/enviroment/spikes/spikes.tscn" id="3_ndonh"]
 [ext_resource type="PackedScene" uid="uid://c8qi15jdcx7eo" path="res://scenes/enviroment/platforms/small/platform_small_1.tscn" id="4_sosvb"]
 [ext_resource type="PackedScene" uid="uid://dn3xgle2qo4kl" path="res://scenes/enviroment/platforms/small/platform_small_2.tscn" id="7_foaeo"]
 [ext_resource type="PackedScene" uid="uid://c8sw521maw3ue" path="res://scenes/enviroment/platforms/big/platform_big_3.tscn" id="8_4pcl5"]
 [ext_resource type="PackedScene" uid="uid://3j5q0ymm7o8s" path="res://scenes/enemies/enemy_single_shot.tscn" id="9_i8jsd"]
 [ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/orbs/jump_point.tscn" id="10_fj7w1"]
+[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_1.tscn" id="11_c4i4x"]
 [ext_resource type="TileSet" uid="uid://bp2o7j5jtvfd2" path="res://assets/tileset/ground_1_tileset.tres" id="11_c4k4w"]
+[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_2.tscn" id="12_3p3f4"]
 [ext_resource type="PackedScene" uid="uid://dgcv5ildkajr8" path="res://scenes/enviroment/platforms/big/platform_big_1.tscn" id="12_i0j7x"]
 [ext_resource type="TileSet" uid="uid://w07uqdijjh3l" path="res://assets/tileset/walkable_tiles.tres" id="13_025m2"]
+[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_3.tscn" id="13_wdhjo"]
+[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_4.tscn" id="14_4a5qx"]
+[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_5.tscn" id="15_cjrxx"]
+[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_6.tscn" id="16_xwh0d"]
+[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_7.tscn" id="17_287lv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvcdb"]
 size = Vector2(20, 3.355)
@@ -125,80 +131,71 @@ position = Vector2(5897, -684)
 
 [node name="Spikes" type="Node2D" parent="."]
 
-[node name="Spikes" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(1340, -1859)
+[node name="Spikes19" parent="Spikes" instance=ExtResource("11_c4i4x")]
+position = Vector2(3905, -53)
 
-[node name="Spikes2" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(1468, -1859)
+[node name="Spikes15" parent="Spikes" instance=ExtResource("11_c4i4x")]
+position = Vector2(2357, -1844)
 
-[node name="Spikes3" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(1596, -1859)
+[node name="Spikes8" parent="Spikes" instance=ExtResource("11_c4i4x")]
+position = Vector2(1346, -1847)
 
-[node name="Spikes4" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(1723, -1859)
+[node name="Spikes2" parent="Spikes" instance=ExtResource("12_3p3f4")]
+position = Vector2(6756, -903)
 
-[node name="Spikes5" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(1851, -1859)
+[node name="Spikes27" parent="Spikes" instance=ExtResource("12_3p3f4")]
+position = Vector2(8386, -819)
 
-[node name="Spikes6" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(1979, -1859)
+[node name="Spikes12" parent="Spikes" instance=ExtResource("12_3p3f4")]
+position = Vector2(1982, -1842)
 
-[node name="Spikes7" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(2108, -1859)
+[node name="Spikes3" parent="Spikes" instance=ExtResource("13_wdhjo")]
+position = Vector2(6878, -903)
 
-[node name="Spikes8" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(2236, -1859)
+[node name="Spikes24" parent="Spikes" instance=ExtResource("13_wdhjo")]
+position = Vector2(9408, -1207)
 
-[node name="Spikes9" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(2364, -1859)
+[node name="Spikes9" parent="Spikes" instance=ExtResource("13_wdhjo")]
+position = Vector2(1471, -1842)
 
-[node name="Spikes10" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(3902, -64)
+[node name="Spikes23" parent="Spikes" instance=ExtResource("14_4a5qx")]
+position = Vector2(9279, -1204)
 
-[node name="Spikes11" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(4030, -64)
+[node name="Spikes13" parent="Spikes" instance=ExtResource("14_4a5qx")]
+position = Vector2(2102, -1845)
 
-[node name="Spikes12" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(4158, -64)
+[node name="Spikes26" parent="Spikes" instance=ExtResource("15_cjrxx")]
+position = Vector2(8130, -566)
 
-[node name="Spikes13" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(3650, -191)
+[node name="Spikes21" parent="Spikes" instance=ExtResource("15_cjrxx")]
+position = Vector2(8768, -1332)
 
-[node name="Spikes14" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(3778, -191)
+[node name="Spikes18" parent="Spikes" instance=ExtResource("15_cjrxx")]
+position = Vector2(4161, -56)
 
-[node name="Spikes15" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(6744, -907)
+[node name="Spikes14" parent="Spikes" instance=ExtResource("15_cjrxx")]
+position = Vector2(2230, -1847)
 
-[node name="Spikes16" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(6881, -907)
+[node name="Spikes10" parent="Spikes" instance=ExtResource("15_cjrxx")]
+position = Vector2(1600, -1843)
 
-[node name="Spikes23" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(8130, -568)
+[node name="Spikes25" parent="Spikes" instance=ExtResource("16_xwh0d")]
+position = Vector2(8255, -563)
 
-[node name="Spikes24" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(8257, -567)
+[node name="Spikes22" parent="Spikes" instance=ExtResource("16_xwh0d")]
+position = Vector2(8893, -1203)
 
-[node name="Spikes25" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(8385, -824)
+[node name="Spikes17" parent="Spikes" instance=ExtResource("16_xwh0d")]
+position = Vector2(4032, -53)
 
-[node name="Spikes17" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(8897, -1217)
+[node name="Spikes20" parent="Spikes" instance=ExtResource("17_287lv")]
+position = Vector2(9085, -1202)
 
-[node name="Spikes18" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(8769, -1345)
+[node name="Spikes16" parent="Spikes" instance=ExtResource("17_287lv")]
+position = Vector2(3711, -180)
 
-[node name="Spikes19" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(9025, -1217)
-
-[node name="Spikes20" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(9153, -1217)
-
-[node name="Spikes21" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(9281, -1217)
-
-[node name="Spikes22" parent="Spikes" instance=ExtResource("3_ndonh")]
-position = Vector2(9409, -1217)
+[node name="Spikes11" parent="Spikes" instance=ExtResource("17_287lv")]
+position = Vector2(1791, -1843)
 
 [node name="DeadZone" type="Area2D" parent="." groups=["dead_zone"]]
 position = Vector2(628, 1375)

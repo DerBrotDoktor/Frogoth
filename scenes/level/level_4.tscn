@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cxs4r4jwdplql"]
+[gd_scene load_steps=25 format=3 uid="uid://cxs4r4jwdplql"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_3wrvq"]
 [ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/orbs/jump_point.tscn" id="2_4omrp"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://c8sw521maw3ue" path="res://scenes/enviroment/platforms/big/platform_big_3.tscn" id="4_o0w7o"]
 [ext_resource type="PackedScene" uid="uid://dgcv5ildkajr8" path="res://scenes/enviroment/platforms/big/platform_big_1.tscn" id="5_g6cp1"]
 [ext_resource type="PackedScene" uid="uid://dn3xgle2qo4kl" path="res://scenes/enviroment/platforms/small/platform_small_2.tscn" id="6_5yu0i"]
-[ext_resource type="PackedScene" uid="uid://ni6wav7a3376" path="res://scenes/enviroment/spikes/spikes.tscn" id="6_mav4t"]
 [ext_resource type="PackedScene" uid="uid://17i4ie4f1lm3" path="res://scenes/enviroment/platforms/small/platform_small_3.tscn" id="7_hcnyn"]
 [ext_resource type="PackedScene" uid="uid://c8qi15jdcx7eo" path="res://scenes/enviroment/platforms/small/platform_small_1.tscn" id="8_d64j0"]
 [ext_resource type="PackedScene" uid="uid://d0gcu70fmmqi4" path="res://scenes/player/player_spwan_point.tscn" id="11_x2yo8"]
@@ -16,6 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://jvgqmuavbsuu" path="res://scenes/enemies/enemy_multiple_shot.tscn" id="14_2e07t"]
 [ext_resource type="PackedScene" uid="uid://dgd8nl3naigxy" path="res://scenes/enviroment/platforms/special/moving_platform.tscn" id="15_hx5mn"]
 [ext_resource type="Texture2D" uid="uid://cj6hrpqgedd73" path="res://assets/platforms/platform_big_3.png" id="16_wlpm4"]
+[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_1.tscn" id="17_xtwey"]
+[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_2.tscn" id="18_akdg5"]
+[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_3.tscn" id="19_gh2w5"]
+[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_4.tscn" id="20_q7phq"]
+[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_5.tscn" id="21_vyved"]
+[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_6.tscn" id="22_21y7y"]
+[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_7.tscn" id="23_wftks"]
 
 [sub_resource type="Curve2D" id="Curve2D_15qhk"]
 _data = {
@@ -93,169 +99,155 @@ position = Vector2(3959, -874)
 
 [node name="Spikes" type="Node2D" parent="."]
 
-[node name="Spikes2" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(1726, -3143)
-rotation = 3.13675
+[node name="Spikes36" parent="Spikes" instance=ExtResource("17_xtwey")]
+position = Vector2(5427, -3915)
+rotation = 3.13937
 
-[node name="Spikes3" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(1853, -3144)
-rotation = 3.13675
+[node name="Spikes12" parent="Spikes" instance=ExtResource("17_xtwey")]
+position = Vector2(2360, -3147)
+rotation = -3.12793
+scale = Vector2(1, 1)
 
-[node name="Spikes4" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(1982, -3146)
-rotation = 3.13675
+[node name="Spikes40" parent="Spikes" instance=ExtResource("18_akdg5")]
+position = Vector2(6070, -3916)
+rotation = -3.13617
 
-[node name="Spikes5" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(2109, -3147)
-rotation = 3.13675
+[node name="Spikes14" parent="Spikes" instance=ExtResource("18_akdg5")]
+position = Vector2(2616, -3149)
+rotation = -3.12722
+scale = Vector2(1, 1)
 
-[node name="Spikes6" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(2237, -3148)
-rotation = 3.13675
+[node name="Spikes10" parent="Spikes" instance=ExtResource("18_akdg5")]
+position = Vector2(2112, -3152)
+rotation = 3.13494
 
-[node name="Spikes7" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(2364, -3149)
-rotation = 3.13675
+[node name="Spikes39" parent="Spikes" instance=ExtResource("19_gh2w5")]
+position = Vector2(5938, -3914)
+rotation = -3.13617
 
-[node name="Spikes8" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(2493, -3151)
-rotation = 3.13675
+[node name="Spikes9" parent="Spikes" instance=ExtResource("19_gh2w5")]
+position = Vector2(1984, -3151)
+rotation = 3.1361
+scale = Vector2(1, 1)
 
-[node name="Spikes9" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(2620, -3152)
-rotation = 3.13675
+[node name="Spikes35" parent="Spikes" instance=ExtResource("20_q7phq")]
+position = Vector2(5302, -3913)
+rotation = -3.12562
+scale = Vector2(1, 1)
 
-[node name="Spikes10" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(2749, -3147)
-rotation = 3.13675
+[node name="Spikes11" parent="Spikes" instance=ExtResource("20_q7phq")]
+position = Vector2(2238, -3148)
+rotation = -3.13045
 
-[node name="Spikes11" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(2878, -3149)
-rotation = 3.13675
+[node name="Spikes37" parent="Spikes" instance=ExtResource("21_vyved")]
+position = Vector2(5554, -3914)
+rotation = 3.13937
 
-[node name="Spikes12" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(3005, -3150)
-rotation = 3.13675
+[node name="Spikes16" parent="Spikes" instance=ExtResource("21_vyved")]
+position = Vector2(3001, -3143)
+rotation = -3.12985
+scale = Vector2(1, 1)
 
-[node name="Spikes13" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(3900, -3909)
-rotation = 3.14918
+[node name="Spikes13" parent="Spikes" instance=ExtResource("21_vyved")]
+position = Vector2(2488, -3146)
+rotation = -3.13313
 
-[node name="Spikes14" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(4027, -3910)
-rotation = 3.14918
+[node name="Spikes41" parent="Spikes" instance=ExtResource("22_21y7y")]
+position = Vector2(7615, -3532)
+rotation = -3.13799
+scale = Vector2(1, 1)
 
-[node name="Spikes15" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(4156, -3912)
-rotation = 3.14918
+[node name="Spikes38" parent="Spikes" instance=ExtResource("23_wftks")]
+position = Vector2(5746, -3916)
+rotation = -3.13617
 
-[node name="Spikes16" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(4283, -3913)
-rotation = 3.14918
+[node name="Spikes15" parent="Spikes" instance=ExtResource("23_wftks")]
+position = Vector2(2809, -3145)
+rotation = -3.11585
 
-[node name="Spikes17" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(4411, -3914)
-rotation = 3.14918
+[node name="Spikes8" parent="Spikes" instance=ExtResource("23_wftks")]
+position = Vector2(1792, -3149)
+rotation = 3.1334
 
-[node name="Spikes18" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(4538, -3915)
-rotation = 3.14918
+[node name="Spikes26" parent="Spikes" instance=ExtResource("17_xtwey")]
+position = Vector2(6836, -3915)
+rotation = -3.12793
+scale = Vector2(1, 1)
 
-[node name="Spikes19" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(4667, -3917)
-rotation = 3.14918
+[node name="Spikes27" parent="Spikes" instance=ExtResource("18_akdg5")]
+position = Vector2(7092, -3917)
+rotation = -3.12722
+scale = Vector2(1, 1)
 
-[node name="Spikes20" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(4794, -3918)
-rotation = 3.14918
+[node name="Spikes28" parent="Spikes" instance=ExtResource("18_akdg5")]
+position = Vector2(6588, -3920)
+rotation = 3.13494
 
-[node name="Spikes21" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(4923, -3913)
-rotation = 3.14918
+[node name="Spikes29" parent="Spikes" instance=ExtResource("19_gh2w5")]
+position = Vector2(6460, -3919)
+rotation = 3.1361
+scale = Vector2(1, 1)
 
-[node name="Spikes22" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(5052, -3915)
-rotation = 3.14918
+[node name="Spikes30" parent="Spikes" instance=ExtResource("20_q7phq")]
+position = Vector2(6714, -3916)
+rotation = -3.13045
 
-[node name="Spikes23" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(5179, -3916)
-rotation = 3.14918
+[node name="Spikes31" parent="Spikes" instance=ExtResource("21_vyved")]
+position = Vector2(7477, -3911)
+rotation = -3.12985
+scale = Vector2(1, 1)
 
-[node name="Spikes24" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(5303, -3910)
-rotation = 3.14918
+[node name="Spikes32" parent="Spikes" instance=ExtResource("21_vyved")]
+position = Vector2(6964, -3914)
+rotation = -3.13313
 
-[node name="Spikes25" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(5430, -3911)
-rotation = 3.14918
+[node name="Spikes33" parent="Spikes" instance=ExtResource("23_wftks")]
+position = Vector2(7285, -3913)
+rotation = -3.11585
 
-[node name="Spikes26" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(5559, -3913)
-rotation = 3.14918
+[node name="Spikes34" parent="Spikes" instance=ExtResource("23_wftks")]
+position = Vector2(6268, -3917)
+rotation = 3.1334
 
-[node name="Spikes27" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(5686, -3914)
-rotation = 3.14918
+[node name="Spikes17" parent="Spikes" instance=ExtResource("17_xtwey")]
+position = Vector2(4532, -3918)
+rotation = -3.12793
+scale = Vector2(1, 1)
 
-[node name="Spikes28" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(5814, -3915)
-rotation = 3.14918
+[node name="Spikes18" parent="Spikes" instance=ExtResource("18_akdg5")]
+position = Vector2(4788, -3920)
+rotation = -3.12722
+scale = Vector2(1, 1)
 
-[node name="Spikes29" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(5941, -3916)
-rotation = 3.14918
+[node name="Spikes19" parent="Spikes" instance=ExtResource("18_akdg5")]
+position = Vector2(4284, -3923)
+rotation = 3.13494
 
-[node name="Spikes30" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(6070, -3918)
-rotation = 3.14918
+[node name="Spikes20" parent="Spikes" instance=ExtResource("19_gh2w5")]
+position = Vector2(4156, -3922)
+rotation = 3.1361
+scale = Vector2(1, 1)
 
-[node name="Spikes31" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(6197, -3919)
-rotation = 3.14918
+[node name="Spikes21" parent="Spikes" instance=ExtResource("20_q7phq")]
+position = Vector2(4410, -3919)
+rotation = -3.13045
 
-[node name="Spikes32" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(6326, -3914)
-rotation = 3.14918
+[node name="Spikes22" parent="Spikes" instance=ExtResource("21_vyved")]
+position = Vector2(5173, -3914)
+rotation = -3.12985
+scale = Vector2(1, 1)
 
-[node name="Spikes33" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(6455, -3916)
-rotation = 3.14918
+[node name="Spikes23" parent="Spikes" instance=ExtResource("21_vyved")]
+position = Vector2(4660, -3917)
+rotation = -3.13313
 
-[node name="Spikes34" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(6582, -3917)
-rotation = 3.14918
+[node name="Spikes24" parent="Spikes" instance=ExtResource("23_wftks")]
+position = Vector2(4981, -3916)
+rotation = -3.11585
 
-[node name="Spikes35" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(6708, -3912)
-rotation = 3.14918
-
-[node name="Spikes36" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(6835, -3913)
-rotation = 3.14918
-
-[node name="Spikes37" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(6964, -3915)
-rotation = 3.14918
-
-[node name="Spikes38" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(7094, -3914)
-rotation = 3.14918
-
-[node name="Spikes39" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(7225, -3912)
-rotation = 3.14918
-
-[node name="Spikes40" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(7355, -3913)
-rotation = 3.14918
-
-[node name="Spikes41" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(7486, -3914)
-rotation = 3.14918
-
-[node name="Spikes42" parent="Spikes" instance=ExtResource("6_mav4t")]
-position = Vector2(7620, -3527)
-rotation = 3.14918
+[node name="Spikes25" parent="Spikes" instance=ExtResource("23_wftks")]
+position = Vector2(3964, -3920)
+rotation = 3.1334
 
 [node name="Platforms" type="Node2D" parent="."]
 

@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://bp2o7j5jtvfd2" path="res://assets/tileset/ground_1_tileset.tres" id="1_cfrs2"]
 [ext_resource type="TileSet" uid="uid://w07uqdijjh3l" path="res://assets/tileset/walkable_tiles.tres" id="1_ljw55"]
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_nneb6"]
-[ext_resource type="TileSet" uid="uid://fq2u5xepsx1a" path="res://assets/tileset/ceiling_tileset.tres" id="2_2n7vl"]
+[ext_resource type="TileSet" uid="uid://dr6l2rwnb2mlp" path="res://assets/tileset/ceiling_tileset.tres" id="2_2n7vl"]
 [ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/orbs/jump_point.tscn" id="2_air45"]
 [ext_resource type="PackedScene" uid="uid://0woesesbbwik" path="res://scenes/enviroment/tutorial_sign/tutorial_sign.tscn" id="2_jgae1"]
 [ext_resource type="PackedScene" uid="uid://btimemg85kwm8" path="res://scenes/enviroment/platforms/big/platform_big_2.tscn" id="2_v71rc"]
