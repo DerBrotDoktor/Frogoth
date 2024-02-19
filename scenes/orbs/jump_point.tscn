@@ -135,7 +135,7 @@ one_shot = true
 
 [node name="UsePointPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_gd53a")
-volume_db = -5.0
+volume_db = -3.0
 bus = &"SoundEffects"
 
 [connection signal="timeout" from="RefreshTimer" to="." method="_on_refresh_timer_timeout"]

@@ -766,21 +766,22 @@ bus = &"SoundEffects"
 
 [node name="AirJumpAudioPlayer" type="AudioStreamPlayer" parent="SFXPlayer"]
 stream = ExtResource("16_4dsqo")
-volume_db = -20.0
+volume_db = -19.0
 bus = &"SoundEffects"
 
 [node name="DashAudioPlayer" type="AudioStreamPlayer" parent="SFXPlayer"]
 stream = ExtResource("17_eof52")
-volume_db = -10.0
+volume_db = -1.0
 bus = &"SoundEffects"
 
 [node name="WalkAudioPlayer" type="AudioStreamPlayer" parent="SFXPlayer"]
 stream = ExtResource("18_ua06j")
-volume_db = -10.0
+volume_db = 0.5
 bus = &"SoundEffects"
 
 [node name="DamageAudioPlayer" type="AudioStreamPlayer" parent="SFXPlayer"]
 stream = ExtResource("19_6lf02")
+volume_db = -3.0
 bus = &"SoundEffects"
 
 [node name="KnockbackTime" type="Timer" parent="."]

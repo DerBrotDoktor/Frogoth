@@ -256,11 +256,12 @@ script = SubResource("GDScript_x8alp")
 [node name="BackgoundMusicPlayer" type="AudioStreamPlayer" parent="AudioPlayer"]
 process_mode = 3
 stream = ExtResource("22_7hg4y")
+volume_db = 9.0
 bus = &"Music"
 
 [node name="MainMenuPlayer" type="AudioStreamPlayer" parent="AudioPlayer"]
 stream = ExtResource("24_vcc2i")
-volume_db = -20.0
+volume_db = -6.5
 bus = &"Music"
 
 [node name="BashPointController" type="Node" parent="." node_paths=PackedStringArray("player")]
@@ -278,17 +279,17 @@ script = SubResource("GDScript_eki4m")
 
 [node name="Thunder1" type="AudioStreamPlayer" parent="BashPointController/ThunderAudioSFX"]
 stream = ExtResource("27_ej63l")
-volume_db = -5.0
+volume_db = -8.0
 bus = &"ThunderEffects"
 
 [node name="Thunder3" type="AudioStreamPlayer" parent="BashPointController/ThunderAudioSFX"]
 stream = ExtResource("29_v114x")
-volume_db = -5.0
+volume_db = -8.0
 bus = &"ThunderEffects"
 
 [node name="Thunder4" type="AudioStreamPlayer" parent="BashPointController/ThunderAudioSFX"]
 stream = ExtResource("30_ujyxu")
-volume_db = -5.0
+volume_db = -8.0
 bus = &"ThunderEffects"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

@@ -123,7 +123,7 @@ shape = SubResource("RectangleShape2D_vujji")
 
 [node name="FalingPreperationPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_7tpvr")
-volume_db = -15.0
+volume_db = -6.0
 bus = &"SoundEffects"
 
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
