@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://iyel1auqud01"]
+[gd_scene load_steps=43 format=3 uid="uid://iyel1auqud01"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_wtrgv"]
 [ext_resource type="PackedScene" uid="uid://bfqr80qekwaw5" path="res://scenes/player/player.tscn" id="3_cw4d6"]
@@ -16,13 +16,16 @@
 [ext_resource type="PackedScene" uid="uid://cxs4r4jwdplql" path="res://scenes/level/level_4.tscn" id="7_mk7qn"]
 [ext_resource type="PackedScene" uid="uid://pj1yr5tgu5bu" path="res://scenes/level/level_6.tscn" id="7_sa5si"]
 [ext_resource type="PackedScene" uid="uid://clsrvetv1bio4" path="res://scenes/level/level_7.tscn" id="8_210py"]
-[ext_resource type="Texture2D" uid="uid://dnh4dfbpvvn6l" path="res://assets/parallax/paralax_2.png" id="8_cxncj"]
 [ext_resource type="Script" path="res://scenes/main/Canvas.gd" id="9_77551"]
 [ext_resource type="PackedScene" uid="uid://02mgq0aad22s" path="res://scenes/level/level_8.tscn" id="9_q56fa"]
 [ext_resource type="PackedScene" uid="uid://c6nm6w83jynbs" path="res://scenes/menus/pause_menu.tscn" id="10_u7rrt"]
 [ext_resource type="Shader" path="res://scenes/main/lightning_shader.gdshader" id="11_723k2"]
+[ext_resource type="Texture2D" uid="uid://bltsc6nvba24b" path="res://assets/parallax/backgound_paralax_1.png" id="14_20ut8"]
 [ext_resource type="PackedScene" uid="uid://cj5y0tnco4cx1" path="res://scenes/menus/level_finish_screen.tscn" id="14_nbfd2"]
+[ext_resource type="Texture2D" uid="uid://bew5bia38bgx4" path="res://assets/parallax/backgound_paralax_2.png" id="15_o7o5w"]
+[ext_resource type="Texture2D" uid="uid://co5me6y3u53f8" path="res://assets/parallax/backgound_paralax_3.png" id="16_hue3g"]
 [ext_resource type="PackedScene" uid="uid://i70bm8lucd7m" path="res://scenes/menus/controller_settings_ui.tscn" id="17_8mvke"]
+[ext_resource type="Texture2D" uid="uid://piqjsvgixggj" path="res://assets/parallax/gradient_backgound_paralax_4.png" id="17_tv5hj"]
 [ext_resource type="PackedScene" uid="uid://buy8yfrq21gd" path="res://scenes/menus/settings_menu.tscn" id="20_f3gq3"]
 [ext_resource type="AudioStream" uid="uid://83nsiryvh2gg" path="res://assets/sfx/music/Frogoth_BG_music.mp3" id="22_7hg4y"]
 [ext_resource type="AudioStream" uid="uid://dentu4sa6yes7" path="res://assets/sfx/music/menu_music_0.1.mp3" id="24_vcc2i"]
@@ -51,12 +54,27 @@ func play_main_menu_music():
 		$MainMenuPlayer.play()
 "
 
+[sub_resource type="Animation" id="Animation_svxbw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ParallaxBackground/Sky/Sprite2D:material:shader_parameter/color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_4muef"]
 resource_name = "lightning"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../ParallaxBackground/ParallaxLayer/Sprite2D:material:shader_parameter/color")
+tracks/0/path = NodePath("../ParallaxBackground/Sky/Sprite2D:material:shader_parameter/color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -78,21 +96,6 @@ tracks/1/keys = {
 "args": [],
 "method": &"play_thunder"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_svxbw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../ParallaxBackground/ParallaxLayer/Sprite2D:material:shader_parameter/color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f3lrh"]
@@ -163,36 +166,65 @@ player = NodePath("Player")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -2
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0, 0)
 motion_mirroring = Vector2(3072, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
 z_index = -2
 material = SubResource("ShaderMaterial_0h0bh")
 position = Vector2(2355.2, 1177.6)
 scale = Vector2(2.3, 2.3)
 texture = ExtResource("6_2g7ui")
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Skyline" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.2, 0.7)
 motion_mirroring = Vector2(4416, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Skyline"]
 z_index = -2
 position = Vector2(2208, -550)
 scale = Vector2(2.3, 2.3)
 texture = ExtResource("7_3mtfd")
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="FarBuildings" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(4416, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FarBuildings"]
+position = Vector2(2208, -787)
+scale = Vector2(2.3, 2.3)
+texture = ExtResource("14_20ut8")
+
+[node name="BackgroundBuildingsMiddle" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.3, 0.7)
 motion_mirroring = Vector2(4416, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackgroundBuildingsMiddle"]
+z_index = -2
+position = Vector2(2208, -619)
+scale = Vector2(2.3, 2.3)
+texture = ExtResource("15_o7o5w")
+
+[node name="BackgroundBuildingsFront" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.7)
+motion_mirroring = Vector2(4416, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackgroundBuildingsFront"]
+z_index = -2
+position = Vector2(2208, -341)
+scale = Vector2(2.3, 2.3)
+texture = ExtResource("16_hue3g")
+
+[node name="Gradient3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.7)
+motion_mirroring = Vector2(4416, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Gradient3"]
 z_index = -2
 position = Vector2(2208, -550)
 scale = Vector2(2.3, 2.3)
-texture = ExtResource("8_cxncj")
+texture = ExtResource("17_tv5hj")
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 process_mode = 3
