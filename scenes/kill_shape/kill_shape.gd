@@ -73,7 +73,7 @@ func finish_shape(new_points):
 	
 	for child in $KillShapePath.get_children():
 		child.scale.y = 1.0
-	$Outline.closed = true
+ 	$Outline.closed = true
 	$FinishShapePlayer.play()
 	_on_sprite_switch_timer_timeout()
 	$SpriteSwitchTimer.start()
