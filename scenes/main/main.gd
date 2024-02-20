@@ -80,6 +80,8 @@ func set_level_statistics():
 	var jumps = player.stats_jumps
 	var connected_orbs = $BashPointController.stats_connected_orbs
 	var total_shapes = $BashPointController.stats_total_shapes
+	if total_shapes == 1:
+		badge = 5
 	$Canvas/LevelFinishScreen.set_statistics(time, badge, air_time, jumps, connected_orbs, total_shapes)
 	pass
 
