@@ -17,6 +17,7 @@ func load_scene(scene:PackedScene):
 	call_deferred("add_child",current_scene)
 
 func load_level_by_index(index:int):
+	delete_shapes()
 	if index < level.size():
 		$BashPointController.clear_shape()
 		$SceneTransition/SceneTransitionAnimationPlayer.play("fade_in")
@@ -82,3 +83,8 @@ func get_current_enemy_count():
 		if current_scene.has_method("get_enemy_count"):
 			returnValue = current_scene.get_enemy_count()
 	return returnValue
+
+func delete_shapes():
+	for child in $BashPointController.get_children():
+		if child.has_method("delete_shape"):
+			child.delete_shape()
