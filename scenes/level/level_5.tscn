@@ -28,6 +28,7 @@ size = Vector2(20, 3.355)
 script = ExtResource("1_golbj")
 player_spawn_point = NodePath("PlayerSpwanPoint")
 level_name = "Level 5"
+badge_times = Array[int]([28, 31, 37, 41])
 
 [node name="Enemies" type="Node2D" parent="."]
 

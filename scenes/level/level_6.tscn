@@ -39,6 +39,7 @@ size = Vector2(106, 8)
 script = ExtResource("1_ukgpi")
 player_spawn_point = NodePath("PlayerSpwanPoint")
 level_name = "Level 6"
+badge_times = Array[int]([28, 31, 36, 40])
 
 [node name="PlayerSpwanPoint" parent="." instance=ExtResource("2_oymyw")]
 position = Vector2(590, -603)
