@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 var last_child
+var current_child_name
 
 func _process(_delta):
 	if Input.is_action_just_pressed("pause_menu"):
@@ -39,6 +40,7 @@ func switch_to_child(child_name):
 		if not child == $EscapeDelay:
 			last_child = child if child.visible else last_child
 			child.visible = child.name == child_name
+			current_child_name = child_name
 	if child_name == "MainMenu":
 		$"../AudioPlayer".play_main_menu_music()
 	elif child_name == "UserInterface":

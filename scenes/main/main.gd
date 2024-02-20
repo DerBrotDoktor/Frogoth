@@ -10,6 +10,11 @@ func _ready():
 	player.disable()
 	$Canvas.switch_to_child("MainMenu")
 
+func _process(_delta):
+	if Input.is_action_just_pressed("quick_restart"):
+		if $Canvas.current_child_name == "UserInterface":
+			restart_current_level()
+
 func load_scene(scene:PackedScene):
 	if current_scene:
 		current_scene.queue_free()
