@@ -1,12 +1,12 @@
 extends Control
 
-func set_statistics(time, _badge, air_time, jumps, connected_orbs, total_shapes):
+func set_statistics(time, badge, air_time, jumps, connected_orbs, total_shapes):
 	$ColorRect2/StatsMargin/VBoxContainer/Time.text = str(time) + " s"
 	$ColorRect2/StatsMargin/VBoxContainer/ColorRect/MarginContainer/Statistics/AirtimeLabel.text = "Air time: " + str(air_time) + " s"
 	$ColorRect2/StatsMargin/VBoxContainer/ColorRect/MarginContainer/Statistics/JumpsLabel.text = "Jumps: " + str(jumps)
 	$ColorRect2/StatsMargin/VBoxContainer/ColorRect/MarginContainer/Statistics/ConnectedOrbsLabel.text = "Connected Orbs: " + str(connected_orbs)
 	$ColorRect2/StatsMargin/VBoxContainer/ColorRect/MarginContainer/Statistics/TotalShapesLabel.text = "Total shapes: " + str(total_shapes)
-
+	$ColorRect2/MarginContainer2/Badge.set_sprite(badge)
 
 func _on_next_level_button_button_down():
 	get_parent().next_level()

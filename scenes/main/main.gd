@@ -68,7 +68,7 @@ func next_level():
 
 func set_level_statistics():
 	var time = int($Canvas/UserInterface.time)
-	var badge = current_scene.get_badge()
+	var badge = current_scene.get_badge(int($Canvas/UserInterface.time))
 	var air_time = int(player.stats_air_time)
 	var jumps = player.stats_jumps
 	var connected_orbs = $BashPointController.stats_connected_orbs
