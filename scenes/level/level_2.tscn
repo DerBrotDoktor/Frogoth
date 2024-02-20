@@ -30,6 +30,7 @@ size = Vector2(491, 20)
 [node name="Level2" type="Node2D" node_paths=PackedStringArray("player_spawn_point")]
 script = ExtResource("1_3wrvq")
 player_spawn_point = NodePath("PlayerSpwanPoint")
+level_name = "Level 2"
 
 [node name="JumpPoints" type="Node2D" parent="."]
 

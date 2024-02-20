@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var player_spawn_point :Sprite2D
+@export var level_name :String
 @export var can_player_jump_points = true ##if false the player cant place jump points at the beginning of the level
 @export var badge_times :Array[int]
 

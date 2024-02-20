@@ -11,16 +11,17 @@
 [ext_resource type="PackedScene" uid="uid://dn3xgle2qo4kl" path="res://scenes/enviroment/platforms/small/platform_small_2.tscn" id="9_ty8jc"]
 [ext_resource type="TileSet" uid="uid://bp2o7j5jtvfd2" path="res://assets/tileset/ground_1_tileset.tres" id="11_ms8v5"]
 [ext_resource type="TileSet" uid="uid://w07uqdijjh3l" path="res://assets/tileset/walkable_tiles.tres" id="12_87aou"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_1.tscn" id="13_o1qfh"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_2.tscn" id="14_mqpgr"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_3.tscn" id="15_7vqg4"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_5.tscn" id="17_a4kjd"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_6.tscn" id="18_rkjnd"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_7.tscn" id="19_mekjf"]
+[ext_resource type="PackedScene" uid="uid://ig1uyb17ex25" path="res://scenes/enviroment/spikes/spikes_1.tscn" id="13_o1qfh"]
+[ext_resource type="PackedScene" uid="uid://5rgie8kr0y4h" path="res://scenes/enviroment/spikes/spikes_2.tscn" id="14_mqpgr"]
+[ext_resource type="PackedScene" uid="uid://bnujdtd2m4g1n" path="res://scenes/enviroment/spikes/spikes_3.tscn" id="15_7vqg4"]
+[ext_resource type="PackedScene" uid="uid://cvrq0qhaoni3t" path="res://scenes/enviroment/spikes/spikes_5.tscn" id="17_a4kjd"]
+[ext_resource type="PackedScene" uid="uid://d1jbeg4vofhsg" path="res://scenes/enviroment/spikes/spikes_6.tscn" id="18_rkjnd"]
+[ext_resource type="PackedScene" uid="uid://bjmcwiyef73e7" path="res://scenes/enviroment/spikes/spikes_7.tscn" id="19_mekjf"]
 
-[node name="Level5" type="Node2D" node_paths=PackedStringArray("player_spawn_point")]
+[node name="Level3" type="Node2D" node_paths=PackedStringArray("player_spawn_point")]
 script = ExtResource("1_wyfs8")
 player_spawn_point = NodePath("PlayerSpwanPoint")
+level_name = "Level 3"
 
 [node name="JumpPoints" type="Node2D" parent="."]
 

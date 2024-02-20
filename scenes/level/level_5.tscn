@@ -10,23 +10,24 @@
 [ext_resource type="PackedScene" uid="uid://c8sw521maw3ue" path="res://scenes/enviroment/platforms/big/platform_big_3.tscn" id="8_4pcl5"]
 [ext_resource type="PackedScene" uid="uid://3j5q0ymm7o8s" path="res://scenes/enemies/enemy_single_shot.tscn" id="9_i8jsd"]
 [ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/orbs/jump_point.tscn" id="10_fj7w1"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_1.tscn" id="11_c4i4x"]
+[ext_resource type="PackedScene" uid="uid://ig1uyb17ex25" path="res://scenes/enviroment/spikes/spikes_1.tscn" id="11_c4i4x"]
 [ext_resource type="TileSet" uid="uid://bp2o7j5jtvfd2" path="res://assets/tileset/ground_1_tileset.tres" id="11_c4k4w"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_2.tscn" id="12_3p3f4"]
+[ext_resource type="PackedScene" uid="uid://5rgie8kr0y4h" path="res://scenes/enviroment/spikes/spikes_2.tscn" id="12_3p3f4"]
 [ext_resource type="PackedScene" uid="uid://dgcv5ildkajr8" path="res://scenes/enviroment/platforms/big/platform_big_1.tscn" id="12_i0j7x"]
 [ext_resource type="TileSet" uid="uid://w07uqdijjh3l" path="res://assets/tileset/walkable_tiles.tres" id="13_025m2"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_3.tscn" id="13_wdhjo"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_4.tscn" id="14_4a5qx"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_5.tscn" id="15_cjrxx"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_6.tscn" id="16_xwh0d"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_7.tscn" id="17_287lv"]
+[ext_resource type="PackedScene" uid="uid://bnujdtd2m4g1n" path="res://scenes/enviroment/spikes/spikes_3.tscn" id="13_wdhjo"]
+[ext_resource type="PackedScene" uid="uid://c70p2pfgj38l" path="res://scenes/enviroment/spikes/spikes_4.tscn" id="14_4a5qx"]
+[ext_resource type="PackedScene" uid="uid://cvrq0qhaoni3t" path="res://scenes/enviroment/spikes/spikes_5.tscn" id="15_cjrxx"]
+[ext_resource type="PackedScene" uid="uid://d1jbeg4vofhsg" path="res://scenes/enviroment/spikes/spikes_6.tscn" id="16_xwh0d"]
+[ext_resource type="PackedScene" uid="uid://bjmcwiyef73e7" path="res://scenes/enviroment/spikes/spikes_7.tscn" id="17_287lv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvcdb"]
 size = Vector2(20, 3.355)
 
-[node name="Level7" type="Node2D" node_paths=PackedStringArray("player_spawn_point")]
+[node name="Level5" type="Node2D" node_paths=PackedStringArray("player_spawn_point")]
 script = ExtResource("1_golbj")
 player_spawn_point = NodePath("PlayerSpwanPoint")
+level_name = "Level 5"
 
 [node name="Enemies" type="Node2D" parent="."]
 

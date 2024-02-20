@@ -15,13 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://jvgqmuavbsuu" path="res://scenes/enemies/enemy_multiple_shot.tscn" id="14_2e07t"]
 [ext_resource type="PackedScene" uid="uid://dgd8nl3naigxy" path="res://scenes/enviroment/platforms/special/moving_platform.tscn" id="15_hx5mn"]
 [ext_resource type="Texture2D" uid="uid://cj6hrpqgedd73" path="res://assets/platforms/platform_big_3.png" id="16_wlpm4"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_1.tscn" id="17_xtwey"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_2.tscn" id="18_akdg5"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_3.tscn" id="19_gh2w5"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_4.tscn" id="20_q7phq"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_5.tscn" id="21_vyved"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_6.tscn" id="22_21y7y"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_7.tscn" id="23_wftks"]
+[ext_resource type="PackedScene" uid="uid://ig1uyb17ex25" path="res://scenes/enviroment/spikes/spikes_1.tscn" id="17_xtwey"]
+[ext_resource type="PackedScene" uid="uid://5rgie8kr0y4h" path="res://scenes/enviroment/spikes/spikes_2.tscn" id="18_akdg5"]
+[ext_resource type="PackedScene" uid="uid://bnujdtd2m4g1n" path="res://scenes/enviroment/spikes/spikes_3.tscn" id="19_gh2w5"]
+[ext_resource type="PackedScene" uid="uid://c70p2pfgj38l" path="res://scenes/enviroment/spikes/spikes_4.tscn" id="20_q7phq"]
+[ext_resource type="PackedScene" uid="uid://cvrq0qhaoni3t" path="res://scenes/enviroment/spikes/spikes_5.tscn" id="21_vyved"]
+[ext_resource type="PackedScene" uid="uid://d1jbeg4vofhsg" path="res://scenes/enviroment/spikes/spikes_6.tscn" id="22_21y7y"]
+[ext_resource type="PackedScene" uid="uid://bjmcwiyef73e7" path="res://scenes/enviroment/spikes/spikes_7.tscn" id="23_wftks"]
 
 [sub_resource type="Curve2D" id="Curve2D_15qhk"]
 _data = {
@@ -32,9 +32,10 @@ point_count = 3
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n02pu"]
 size = Vector2(279, 10)
 
-[node name="Level3" type="Node2D" node_paths=PackedStringArray("player_spawn_point")]
+[node name="Level4" type="Node2D" node_paths=PackedStringArray("player_spawn_point")]
 script = ExtResource("1_3wrvq")
 player_spawn_point = NodePath("PlayerSpwanPoint")
+level_name = "Level 4"
 
 [node name="PlayerSpwanPoint" parent="." instance=ExtResource("11_x2yo8")]
 position = Vector2(738, -88)
@@ -106,7 +107,6 @@ rotation = 3.13937
 [node name="Spikes12" parent="Spikes" instance=ExtResource("17_xtwey")]
 position = Vector2(2360, -3147)
 rotation = -3.12793
-scale = Vector2(1, 1)
 
 [node name="Spikes40" parent="Spikes" instance=ExtResource("18_akdg5")]
 position = Vector2(6070, -3916)
@@ -115,7 +115,6 @@ rotation = -3.13617
 [node name="Spikes14" parent="Spikes" instance=ExtResource("18_akdg5")]
 position = Vector2(2616, -3149)
 rotation = -3.12722
-scale = Vector2(1, 1)
 
 [node name="Spikes10" parent="Spikes" instance=ExtResource("18_akdg5")]
 position = Vector2(2112, -3152)
@@ -128,12 +127,10 @@ rotation = -3.13617
 [node name="Spikes9" parent="Spikes" instance=ExtResource("19_gh2w5")]
 position = Vector2(1984, -3151)
 rotation = 3.1361
-scale = Vector2(1, 1)
 
 [node name="Spikes35" parent="Spikes" instance=ExtResource("20_q7phq")]
 position = Vector2(5302, -3913)
 rotation = -3.12562
-scale = Vector2(1, 1)
 
 [node name="Spikes11" parent="Spikes" instance=ExtResource("20_q7phq")]
 position = Vector2(2238, -3148)
@@ -146,7 +143,6 @@ rotation = 3.13937
 [node name="Spikes16" parent="Spikes" instance=ExtResource("21_vyved")]
 position = Vector2(3001, -3143)
 rotation = -3.12985
-scale = Vector2(1, 1)
 
 [node name="Spikes13" parent="Spikes" instance=ExtResource("21_vyved")]
 position = Vector2(2488, -3146)
@@ -155,7 +151,6 @@ rotation = -3.13313
 [node name="Spikes41" parent="Spikes" instance=ExtResource("22_21y7y")]
 position = Vector2(7615, -3532)
 rotation = -3.13799
-scale = Vector2(1, 1)
 
 [node name="Spikes38" parent="Spikes" instance=ExtResource("23_wftks")]
 position = Vector2(5746, -3916)
@@ -172,12 +167,10 @@ rotation = 3.1334
 [node name="Spikes26" parent="Spikes" instance=ExtResource("17_xtwey")]
 position = Vector2(6836, -3915)
 rotation = -3.12793
-scale = Vector2(1, 1)
 
 [node name="Spikes27" parent="Spikes" instance=ExtResource("18_akdg5")]
 position = Vector2(7092, -3917)
 rotation = -3.12722
-scale = Vector2(1, 1)
 
 [node name="Spikes28" parent="Spikes" instance=ExtResource("18_akdg5")]
 position = Vector2(6588, -3920)
@@ -186,7 +179,6 @@ rotation = 3.13494
 [node name="Spikes29" parent="Spikes" instance=ExtResource("19_gh2w5")]
 position = Vector2(6460, -3919)
 rotation = 3.1361
-scale = Vector2(1, 1)
 
 [node name="Spikes30" parent="Spikes" instance=ExtResource("20_q7phq")]
 position = Vector2(6714, -3916)
@@ -195,7 +187,6 @@ rotation = -3.13045
 [node name="Spikes31" parent="Spikes" instance=ExtResource("21_vyved")]
 position = Vector2(7477, -3911)
 rotation = -3.12985
-scale = Vector2(1, 1)
 
 [node name="Spikes32" parent="Spikes" instance=ExtResource("21_vyved")]
 position = Vector2(6964, -3914)
@@ -212,12 +203,10 @@ rotation = 3.1334
 [node name="Spikes17" parent="Spikes" instance=ExtResource("17_xtwey")]
 position = Vector2(4532, -3918)
 rotation = -3.12793
-scale = Vector2(1, 1)
 
 [node name="Spikes18" parent="Spikes" instance=ExtResource("18_akdg5")]
 position = Vector2(4788, -3920)
 rotation = -3.12722
-scale = Vector2(1, 1)
 
 [node name="Spikes19" parent="Spikes" instance=ExtResource("18_akdg5")]
 position = Vector2(4284, -3923)
@@ -226,7 +215,6 @@ rotation = 3.13494
 [node name="Spikes20" parent="Spikes" instance=ExtResource("19_gh2w5")]
 position = Vector2(4156, -3922)
 rotation = 3.1361
-scale = Vector2(1, 1)
 
 [node name="Spikes21" parent="Spikes" instance=ExtResource("20_q7phq")]
 position = Vector2(4410, -3919)
@@ -235,7 +223,6 @@ rotation = -3.13045
 [node name="Spikes22" parent="Spikes" instance=ExtResource("21_vyved")]
 position = Vector2(5173, -3914)
 rotation = -3.12985
-scale = Vector2(1, 1)
 
 [node name="Spikes23" parent="Spikes" instance=ExtResource("21_vyved")]
 position = Vector2(4660, -3917)

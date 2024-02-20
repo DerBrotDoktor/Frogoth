@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://bv7u7b0pw30jd"]
+[gd_scene load_steps=34 format=3 uid="uid://bv7u7b0pw30jd"]
 
 [ext_resource type="TileSet" uid="uid://bp2o7j5jtvfd2" path="res://assets/tileset/ground_1_tileset.tres" id="1_cfrs2"]
 [ext_resource type="TileSet" uid="uid://w07uqdijjh3l" path="res://assets/tileset/walkable_tiles.tres" id="1_ljw55"]
@@ -24,28 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://d1jbeg4vofhsg" path="res://scenes/enviroment/spikes/spikes_6.tscn" id="22_a1mgv"]
 [ext_resource type="PackedScene" uid="uid://bjmcwiyef73e7" path="res://scenes/enviroment/spikes/spikes_7.tscn" id="23_77gmg"]
 [ext_resource type="PackedScene" uid="uid://ig1uyb17ex25" path="res://scenes/enviroment/spikes/spikes_1.tscn" id="24_p1j5d"]
-[ext_resource type="Texture2D" uid="uid://pkod6yfhkyfb" path="res://assets/decor/arch.png" id="25_31ti2"]
-[ext_resource type="Texture2D" uid="uid://1x7kub2yduou" path="res://assets/decor/fence.png" id="26_ryjk0"]
-[ext_resource type="Texture2D" uid="uid://by7jtfvwyvay8" path="res://assets/decor/wall_2.png" id="27_61oyh"]
-[ext_resource type="Texture2D" uid="uid://byebw2hu8v4i4" path="res://assets/decor/wall_1.png" id="28_scwuo"]
-[ext_resource type="Texture2D" uid="uid://b2dn0kpdsqxos" path="res://assets/decor/pillar_1.png" id="29_38eh2"]
-[ext_resource type="Texture2D" uid="uid://bsfv7ipad1a1" path="res://assets/decor/lamp_1.png" id="30_ee4up"]
-[ext_resource type="Texture2D" uid="uid://dj6ea6rpq04vv" path="res://assets/decor/statue_1.png" id="31_cuekw"]
-[ext_resource type="Texture2D" uid="uid://cr6uiwiymj8xx" path="res://assets/decor/lamp_2.png" id="32_mtasf"]
-[ext_resource type="Texture2D" uid="uid://cchp6iw37yiqw" path="res://assets/decor/lamp_3.png" id="33_c1e5g"]
-[ext_resource type="Texture2D" uid="uid://cxhkp53qkkixt" path="res://assets/decor/lamp_4.png" id="34_6iiy5"]
-[ext_resource type="Texture2D" uid="uid://bqxijul3kmlup" path="res://assets/decor/lamp_5.png" id="35_btty8"]
-[ext_resource type="Texture2D" uid="uid://y12veppqw4jr" path="res://assets/decor/pillar_2.png" id="36_rhkix"]
-[ext_resource type="Texture2D" uid="uid://c2pf4v4p73lj8" path="res://assets/decor/statue_2.png" id="37_sg6eq"]
-[ext_resource type="Texture2D" uid="uid://t4xg46sf43nm" path="res://assets/decor/layer_4_rocks/big_rock.png" id="38_sq8gj"]
-[ext_resource type="Texture2D" uid="uid://db8i85a7afpwa" path="res://assets/decor/layer_4_rocks/l4_rock_1.png" id="39_ric3s"]
-[ext_resource type="Texture2D" uid="uid://c31161v1jvdyp" path="res://assets/decor/layer_4_rocks/l4_rock_2.png" id="40_8hhvv"]
-[ext_resource type="Texture2D" uid="uid://cyr6mxduip1hh" path="res://assets/decor/layer_4_rocks/l4_rock_4.png" id="41_g6o6y"]
-[ext_resource type="Texture2D" uid="uid://b0pp0fjdlvk7k" path="res://assets/decor/layer_4_rocks/l4_rock_5.png" id="42_gl23w"]
-[ext_resource type="Texture2D" uid="uid://djhyrsofk5cbg" path="res://assets/decor/layer_4_rocks/l4_rock_6.png" id="43_5oo4s"]
-[ext_resource type="Texture2D" uid="uid://b6divdhck2444" path="res://assets/decor/layer_4_rocks/l4_rock_7.png" id="44_bokko"]
-[ext_resource type="Texture2D" uid="uid://cep3j36eam5sq" path="res://assets/decor/layer_4_rocks/l4_rock_8.png" id="45_cp6v8"]
-[ext_resource type="PackedScene" uid="uid://cnn1r7uyeri2u" path="res://scenes/enviroment/decor/chain.tscn" id="46_aevu0"]
 
 [sub_resource type="Curve2D" id="Curve2D_v58ew"]
 _data = {
@@ -94,6 +72,7 @@ size = Vector2(144, 3552.5)
 [node name="Tutorial" type="Node2D" node_paths=PackedStringArray("player_spawn_point")]
 script = ExtResource("1_nneb6")
 player_spawn_point = NodePath("PlayerSpwanPoint")
+level_name = "Tutorial"
 can_player_jump_points = false
 
 [node name="Platforms" type="Node2D" parent="."]
@@ -452,131 +431,6 @@ position = Vector2(34990, -6076)
 
 [node name="JumpPoint7" parent="." instance=ExtResource("2_air45")]
 position = Vector2(37694, -5884)
-
-[node name="Arch" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(245, -183)
-texture = ExtResource("25_31ti2")
-
-[node name="Fence" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(-163, -134)
-texture = ExtResource("26_ryjk0")
-
-[node name="Wall2" type="Sprite2D" parent="."]
-z_index = -2
-position = Vector2(295, -13)
-texture = ExtResource("27_61oyh")
-
-[node name="Wall1" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(26, -93)
-texture = ExtResource("28_scwuo")
-
-[node name="Pillar1" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(2327, -254)
-texture = ExtResource("29_38eh2")
-
-[node name="Lamp1" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(2387, -62)
-scale = Vector2(0.671875, 0.578125)
-texture = ExtResource("30_ee4up")
-
-[node name="Statue1" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(2785, -189)
-texture = ExtResource("31_cuekw")
-
-[node name="Lamp2" type="Sprite2D" parent="."]
-position = Vector2(760, -591)
-scale = Vector2(0.703125, 0.697917)
-texture = ExtResource("32_mtasf")
-
-[node name="Lamp3" type="Sprite2D" parent="."]
-position = Vector2(246, -401)
-scale = Vector2(0.554688, 0.552083)
-texture = ExtResource("33_c1e5g")
-
-[node name="Lamp4" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(956, -710)
-scale = Vector2(0.570313, 0.541667)
-texture = ExtResource("34_6iiy5")
-
-[node name="Lamp5" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(1151, -652)
-scale = Vector2(0.734375, 0.609375)
-texture = ExtResource("35_btty8")
-
-[node name="Pillar2" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(968, -80)
-texture = ExtResource("36_rhkix")
-
-[node name="Statue2" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(2339, -529)
-texture = ExtResource("37_sg6eq")
-
-[node name="BigRock" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(1800, -99)
-texture = ExtResource("38_sq8gj")
-
-[node name="L4Rock1" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(2229, -28)
-texture = ExtResource("39_ric3s")
-
-[node name="L4Rock2" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(400, -23)
-texture = ExtResource("40_8hhvv")
-
-[node name="L4Rock4" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(591, -32)
-texture = ExtResource("41_g6o6y")
-
-[node name="L4Rock5" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(1317, -45)
-texture = ExtResource("42_gl23w")
-
-[node name="L4Rock6" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(682, -51)
-texture = ExtResource("43_5oo4s")
-
-[node name="L4Rock7" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(2905, -48)
-texture = ExtResource("44_bokko")
-
-[node name="L4Rock8" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(1488, -61)
-texture = ExtResource("45_cp6v8")
-
-[node name="Chain3" parent="." instance=ExtResource("46_aevu0")]
-z_index = -2
-position = Vector2(1132, -1461)
-scale = Vector2(0.551895, 0.551895)
-points = PackedVector2Array(12.7018, -1413.32, 35.5645, 1350.75)
-
-[node name="Chain2" parent="." instance=ExtResource("46_aevu0")]
-z_index = -2
-position = Vector2(950, -1165)
-scale = Vector2(0.306316, 0.306316)
-points = PackedVector2Array(32.646, -3336.42, 35.5645, 1350.75)
-
-[node name="Chain" parent="." instance=ExtResource("46_aevu0")]
-position = Vector2(745, -1344)
-scale = Vector2(0.518021, 0.518021)
-points = PackedVector2Array(12.7018, -1413.32, 35.5645, 1350.75)
 
 [editable path="TutorialSigns/TutorialSign"]
 [editable path="TutorialSigns/TutorialSign2"]

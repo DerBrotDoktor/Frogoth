@@ -25,3 +25,6 @@ func _on_main_menu_button_button_up():
 func _on_visibility_changed():
 	if $VBoxContainer/ResumeButton.is_inside_tree() and visible:
 		$VBoxContainer/ResumeButton.grab_focus()
+
+func set_level(level_name):
+	$LevelText.text = level_name

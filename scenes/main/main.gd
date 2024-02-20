@@ -35,6 +35,7 @@ func load_level_by_index(index:int):
 		current_level_index = index
 		$Canvas.switch_to_child("UserInterface")
 		player.enable()
+		$Canvas/PauseMenu.set_level(current_scene.level_name)
 		$SceneTransition/SceneTransitionAnimationPlayer.play_backwards("fade_in")
 		await $SceneTransition/SceneTransitionAnimationPlayer.animation_finished
 	else:
