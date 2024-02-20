@@ -20,10 +20,10 @@
 [ext_resource type="PackedScene" uid="uid://02mgq0aad22s" path="res://scenes/level/level_8.tscn" id="9_q56fa"]
 [ext_resource type="PackedScene" uid="uid://c6nm6w83jynbs" path="res://scenes/menus/pause_menu.tscn" id="10_u7rrt"]
 [ext_resource type="Shader" path="res://scenes/main/lightning_shader.gdshader" id="11_723k2"]
-[ext_resource type="Texture2D" uid="uid://bltsc6nvba24b" path="res://assets/parallax/backgound_paralax_1.png" id="14_20ut8"]
+[ext_resource type="Texture2D" uid="uid://bsoq40pmjw7nv" path="res://assets/parallax/back.png" id="14_02id7"]
 [ext_resource type="PackedScene" uid="uid://cj5y0tnco4cx1" path="res://scenes/menus/level_finish_screen.tscn" id="14_nbfd2"]
-[ext_resource type="Texture2D" uid="uid://bew5bia38bgx4" path="res://assets/parallax/backgound_paralax_2.png" id="15_o7o5w"]
-[ext_resource type="Texture2D" uid="uid://co5me6y3u53f8" path="res://assets/parallax/backgound_paralax_3.png" id="16_hue3g"]
+[ext_resource type="Texture2D" uid="uid://3msahbjx315n" path="res://assets/parallax/middle.png" id="15_f1k3l"]
+[ext_resource type="Texture2D" uid="uid://cr1y6svrog7bq" path="res://assets/parallax/front.png" id="16_6gtoh"]
 [ext_resource type="PackedScene" uid="uid://i70bm8lucd7m" path="res://scenes/menus/controller_settings_ui.tscn" id="17_8mvke"]
 [ext_resource type="Texture2D" uid="uid://piqjsvgixggj" path="res://assets/parallax/gradient_backgound_paralax_4.png" id="17_tv5hj"]
 [ext_resource type="PackedScene" uid="uid://buy8yfrq21gd" path="res://scenes/menus/settings_menu.tscn" id="20_f3gq3"]
@@ -194,7 +194,7 @@ motion_mirroring = Vector2(4416, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FarBuildings"]
 position = Vector2(2208, -787)
 scale = Vector2(2.3, 2.3)
-texture = ExtResource("14_20ut8")
+texture = ExtResource("14_02id7")
 
 [node name="BackgroundBuildingsMiddle" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.3, 0.7)
@@ -204,7 +204,7 @@ motion_mirroring = Vector2(4416, 0)
 z_index = -2
 position = Vector2(2208, -619)
 scale = Vector2(2.3, 2.3)
-texture = ExtResource("15_o7o5w")
+texture = ExtResource("15_f1k3l")
 
 [node name="BackgroundBuildingsFront" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.2, 0.7)
@@ -214,7 +214,7 @@ motion_mirroring = Vector2(4416, 0)
 z_index = -2
 position = Vector2(2208, -341)
 scale = Vector2(2.3, 2.3)
-texture = ExtResource("16_hue3g")
+texture = ExtResource("16_6gtoh")
 
 [node name="Gradient3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.2, 0.7)
