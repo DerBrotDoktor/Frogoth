@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://b534dj4lmdign"]
+[gd_scene load_steps=13 format=3 uid="uid://b534dj4lmdign"]
 
 [ext_resource type="Script" path="res://scenes/kill_shape/kill_shape.gd" id="1_sr5bi"]
 [ext_resource type="PackedScene" uid="uid://t04ny4yh8fr2" path="res://scenes/kill_shape/kill_shape_outline_tile.tscn" id="2_1f81m"]
 [ext_resource type="AudioStream" uid="uid://bdbrnenxnvtyr" path="res://assets/sfx/killing_shape/discard_shape_sfx.mp3" id="3_djbr8"]
 [ext_resource type="AudioStream" uid="uid://b6f6wujtdixxm" path="res://assets/sfx/killing_shape/line_connecting_points_sfx.mp3" id="3_ei6m4"]
 [ext_resource type="PackedScene" uid="uid://dvpm0kwhjvy27" path="res://scenes/kill_shape/kill_shape_backgound.tscn" id="3_qwb2q"]
+[ext_resource type="Texture2D" uid="uid://dhx0pr1arc2gd" path="res://assets/vfx/kill_shape/lightning_shape_1.png" id="4_qwhis"]
 [ext_resource type="Texture2D" uid="uid://dchglvnwy2mny" path="res://assets/vfx/kill_shape/lightning_shape_2.png" id="5_pw650"]
 [ext_resource type="Texture2D" uid="uid://cy7lxyalrnbmv" path="res://assets/vfx/kill_shape/lightning_shape_3.png" id="6_fgdmv"]
 [ext_resource type="AudioStream" uid="uid://3fxu0lfbyv8r" path="res://assets/sfx/killing_shape/killing_shape_sfx2.mp3" id="6_lwtrb"]
@@ -18,7 +19,7 @@ process_mode = 1
 script = ExtResource("1_sr5bi")
 outline_tile = ExtResource("2_1f81m")
 backgound = ExtResource("3_qwb2q")
-sprites = Array[Texture2D]([null, ExtResource("5_pw650"), ExtResource("6_fgdmv"), ExtResource("7_klih0"), ExtResource("8_duxrs")])
+sprites = Array[Texture2D]([ExtResource("4_qwhis"), ExtResource("5_pw650"), ExtResource("6_fgdmv"), ExtResource("7_klih0"), ExtResource("8_duxrs")])
 
 [node name="Outline" type="Line2D" parent="."]
 default_color = Color(1, 1, 1, 0.807843)
