@@ -54,6 +54,7 @@ func create_shape(p):
 	$LightningEffect.play("lightning")
 	clear_current()
 	stats_total_shapes += 1
+	player.show_enemy_indicators($"..".get_current_enemies())
 	
 	await get_tree().create_timer(0.1).timeout
 	player.orbs_left = player.max_orbs

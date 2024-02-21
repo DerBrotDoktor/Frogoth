@@ -226,9 +226,10 @@ position = Vector2(2208, -550)
 scale = Vector2(2.3, 2.3)
 texture = ExtResource("17_tv5hj")
 
-[node name="Canvas" type="CanvasLayer" parent="."]
+[node name="Canvas" type="CanvasLayer" parent="." node_paths=PackedStringArray("player")]
 process_mode = 3
 script = ExtResource("9_77551")
+player = NodePath("../Player")
 
 [node name="UserInterface" parent="Canvas" instance=ExtResource("6_a7p0o")]
 

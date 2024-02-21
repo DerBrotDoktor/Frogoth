@@ -92,6 +92,13 @@ func get_current_enemy_count():
 			returnValue = current_scene.get_enemy_count()
 	return returnValue
 
+func get_current_enemies():
+	var returnValue
+	if current_scene:
+		if current_scene.has_method("get_enemies"):
+			returnValue = current_scene.get_enemies()
+	return returnValue
+
 func delete_shapes():
 	for child in $BashPointController.get_children():
 		if child.has_method("delete_shape"):

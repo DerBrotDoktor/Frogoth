@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+@export var player :CharacterBody2D
+
 var last_child
 var current_child_name
 
@@ -45,6 +47,10 @@ func switch_to_child(child_name):
 		$"../AudioPlayer".play_main_menu_music()
 	elif child_name == "UserInterface":
 		$"../AudioPlayer".play_background_music()
+	if child_name == "PauseMenu":
+		player.enable()
+	else:
+		player.disable()
 
 func switch_to_last_child():
 	$EscapeDelay.start()

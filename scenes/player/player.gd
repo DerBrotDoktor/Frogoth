@@ -120,15 +120,19 @@ func handle_dash_movement():
 func enable():
 	$Animation.visible = true
 	$Camera.enabled = true
+	$EnemyIndicatorController.visible = true
 	await get_tree().create_timer(0.1).timeout
 	is_disabled = false
 
 func disable():
 	$Camera.enabled = false
 	$Animation.visible = false
+	$EnemyIndicatorController.visible = false
 	is_disabled = true
 
 func reset():
+	for child in $EnemyIndicatorController.get_children():
+		child.queue_free()
 	current_health = max_health
 	velocity = Vector2.ZERO
 	can_move = true
@@ -363,6 +367,9 @@ func update_user_interface():
 	$"../Canvas/UserInterface".set_dash_used(can_dash)
 	var enemy_count = $"..".get_current_enemy_count()
 	$"../Canvas/UserInterface".set_current_enemy_count(enemy_count)
+
+func show_enemy_indicators(targets):
+	$EnemyIndicatorController.show_indicators(targets)
 
 func set_knockback(direction,strength,time):
 	if invincible_frames_left > 0:

@@ -20,6 +20,13 @@ func get_enemy_count():
 			returnValue += 1
 	return returnValue
 
+func get_enemies():
+	var returnValue = []
+	for child in $Enemies.get_children():
+		if child.has_method("die") and child.is_dead == false:
+			returnValue.append(child)
+	return returnValue
+
 func get_badge(seconds):
 	var returnValue = 0
 	print(seconds)
