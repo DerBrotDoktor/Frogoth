@@ -61,10 +61,12 @@ scale_curve = SubResource("CurveTexture_ypx2j")
 color_ramp = SubResource("GradientTexture1D_kengx")
 anim_speed_max = 1.0
 anim_speed_curve = SubResource("CurveTexture_fvipj")
+anim_offset_max = 1.0
 
 [node name="DustMenuVFX" type="Node2D"]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+self_modulate = Color(2, 2, 2, 1)
 material = SubResource("CanvasItemMaterial_ioudh")
 position = Vector2(1660, 1031)
 amount = 30
