@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b534dj4lmdign"]
+[gd_scene load_steps=14 format=3 uid="uid://b534dj4lmdign"]
 
 [ext_resource type="Script" path="res://scenes/kill_shape/kill_shape.gd" id="1_sr5bi"]
 [ext_resource type="PackedScene" uid="uid://t04ny4yh8fr2" path="res://scenes/kill_shape/kill_shape_outline_tile.tscn" id="2_1f81m"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://3fxu0lfbyv8r" path="res://assets/sfx/killing_shape/killing_shape_sfx2.mp3" id="6_lwtrb"]
 [ext_resource type="Texture2D" uid="uid://bsy8hnnfch4k7" path="res://assets/vfx/kill_shape/lightning_shape_4.png" id="7_klih0"]
 [ext_resource type="Texture2D" uid="uid://cibybbmk3bsgu" path="res://assets/vfx/kill_shape/lightning_shape_5.png" id="8_duxrs"]
+[ext_resource type="PackedScene" uid="uid://b6a6x0tsnxdw3" path="res://scenes/kill_shape/lightning_particles.tscn" id="9_v3v8d"]
 
 [sub_resource type="Curve2D" id="Curve2D_csn5t"]
 
@@ -20,6 +21,7 @@ script = ExtResource("1_sr5bi")
 outline_tile = ExtResource("2_1f81m")
 backgound = ExtResource("3_qwb2q")
 sprites = Array[Texture2D]([ExtResource("4_qwhis"), ExtResource("5_pw650"), ExtResource("6_fgdmv"), ExtResource("7_klih0"), ExtResource("8_duxrs")])
+lightning_particle = ExtResource("9_v3v8d")
 
 [node name="Outline" type="Line2D" parent="."]
 default_color = Color(1, 1, 1, 0.807843)

@@ -3,6 +3,7 @@ extends Node2D
 @export var outline_tile :PackedScene
 @export var backgound :PackedScene
 @export var sprites :Array[Texture2D]
+@export var lightning_particle :PackedScene
 
 var point_objects = []
 var point_positions = []
@@ -33,6 +34,11 @@ func place_lightning():
 		new_path_follow.start()
 	last_length = length
 
+func place_lightning_particle(point):
+	var particle = lightning_particle.instantiate()
+	particle.position = point
+	add_child(particle)
+
 func finish_shape(new_points):
 	shape_finished = true
 	clear_points()
@@ -56,6 +62,7 @@ func finish_shape(new_points):
 					add_point_object(obj)
 					is_object = true
 					obj.will_be_in_shape = true
+					place_lightning_particle(point)
 			if not is_object:
 				add_point(point)
 		
@@ -73,7 +80,7 @@ func finish_shape(new_points):
 	
 	for child in $KillShapePath.get_children():
 		child.scale.y = 1.0
- 	$Outline.closed = true
+	$Outline.closed = true
 	$FinishShapePlayer.play()
 	_on_sprite_switch_timer_timeout()
 	$SpriteSwitchTimer.start()
