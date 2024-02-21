@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://csqng2jvrecie"]
+
+[ext_resource type="Texture2D" uid="uid://bl6l66n1vbsp" path="res://assets/ui/buttons/level_lock.png" id="1_15b1v"]
+[ext_resource type="Texture2D" uid="uid://blgw2jn54mjr1" path="res://assets/ui/buttons/level_select_button.png" id="1_g0i30"]
+[ext_resource type="Script" path="res://scenes/menus/level_select_button.gd" id="2_586bl"]
+[ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="3_gm6e8"]
+
+[node name="LevelSelectButton" type="TextureButton"]
+custom_minimum_size = Vector2(180, 180)
+offset_right = 180.0
+offset_bottom = 180.0
+texture_normal = ExtResource("1_g0i30")
+script = ExtResource("2_586bl")
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_gm6e8")
+theme_override_font_sizes/font_size = 90
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelLock" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(128, 128)
+mouse_filter = 2
+texture = ExtResource("1_15b1v")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

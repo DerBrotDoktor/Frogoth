@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://byylmvxjebsun"]
+[gd_scene load_steps=8 format=3 uid="uid://byylmvxjebsun"]
 
 [ext_resource type="Script" path="res://scenes/menus/level_select_menu.gd" id="1_8ktxo"]
 [ext_resource type="Texture2D" uid="uid://m30ojk8eyhbr" path="res://assets/parallax/sky.png" id="2_v8a2s"]
+[ext_resource type="PackedScene" uid="uid://csqng2jvrecie" path="res://scenes/menus/level_select_button.tscn" id="3_r7r17"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3fn0t"]
 font_size = 120
@@ -16,7 +17,7 @@ button_index = 1
 [sub_resource type="Shortcut" id="Shortcut_mvqwp"]
 events = [SubResource("InputEventKey_h1mgi"), SubResource("InputEventJoypadButton_h8bnw")]
 
-[node name="LevelSelectMenu" type="Control"]
+[node name="LevelSelectMenu" type="Control" node_paths=PackedStringArray("level_buttons")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,6 +25,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8ktxo")
+level_amount = 9
+level_buttons = [NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton0"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton1"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton2"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton3"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton4"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton5"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton6"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton7"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton8")]
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -57,81 +60,48 @@ horizontal_alignment = 1
 [node name="LevelMargin" type="MarginContainer" parent="VerticalContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
+theme_override_constants/margin_top = 150
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="LevelGrid" type="GridContainer" parent="VerticalContainer/LevelMargin"]
+[node name="LevelGrid" type="HBoxContainer" parent="VerticalContainer/LevelMargin"]
 layout_mode = 2
-theme_override_constants/h_separation = 60
-theme_override_constants/v_separation = 20
-columns = 9
+alignment = 1
 
-[node name="Level0Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
-custom_minimum_size = Vector2(180, 180)
+[node name="LevelButton0" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
 layout_mode = 2
-focus_neighbor_top = NodePath("../../../../BackButton")
-focus_neighbor_bottom = NodePath("../Level2Button")
-theme_override_font_sizes/font_size = 100
-text = "0"
 
-[node name="Level1Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
-custom_minimum_size = Vector2(180, 180)
+[node name="LevelButton1" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
 layout_mode = 2
-focus_neighbor_top = NodePath("../../../../BackButton")
-focus_neighbor_bottom = NodePath("../Level2Button")
-theme_override_font_sizes/font_size = 100
-text = "1"
+level_number = 1
 
-[node name="Level2Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
-custom_minimum_size = Vector2(180, 180)
+[node name="LevelButton2" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Level1Button")
-focus_neighbor_bottom = NodePath("../Level3Button")
-theme_override_font_sizes/font_size = 100
-text = "2
-"
+level_number = 2
 
-[node name="Level3Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
-custom_minimum_size = Vector2(180, 180)
+[node name="LevelButton3" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Level2Button")
-focus_neighbor_bottom = NodePath("../Level4Button")
-theme_override_font_sizes/font_size = 100
-text = "3
-"
+level_number = 3
 
-[node name="Level4Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
-custom_minimum_size = Vector2(180, 180)
+[node name="LevelButton4" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Level3Button")
-theme_override_font_sizes/font_size = 100
-text = "4
-"
+level_number = 4
 
-[node name="Level5Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
-custom_minimum_size = Vector2(180, 180)
+[node name="LevelButton5" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 100
-text = "5"
+level_number = 5
 
-[node name="Level6Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
-custom_minimum_size = Vector2(180, 180)
+[node name="LevelButton6" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 100
-text = "6"
+level_number = 6
 
-[node name="Level7Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
-custom_minimum_size = Vector2(180, 180)
+[node name="LevelButton7" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 100
-text = "7"
+level_number = 7
 
-[node name="Level8Button" type="Button" parent="VerticalContainer/LevelMargin/LevelGrid"]
-custom_minimum_size = Vector2(180, 180)
+[node name="LevelButton8" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 100
-text = "8"
+level_number = 8
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 0
@@ -139,19 +109,18 @@ offset_left = 88.0
 offset_top = 90.0
 offset_right = 388.0
 offset_bottom = 180.0
-focus_neighbor_bottom = NodePath("../VerticalContainer/LevelMargin/LevelGrid/Level1Button")
 theme_override_font_sizes/font_size = 50
 shortcut = SubResource("Shortcut_mvqwp")
 text = "Main Menu"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level0Button" to="." method="load_level" binds= [1]]
-[connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level1Button" to="." method="load_level" binds= [2]]
-[connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level2Button" to="." method="load_level" binds= [3]]
-[connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level3Button" to="." method="load_level" binds= [4]]
-[connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level4Button" to="." method="load_level" binds= [5]]
-[connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level5Button" to="." method="load_level" binds= [6]]
-[connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level6Button" to="." method="load_level" binds= [7]]
-[connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level7Button" to="." method="load_level" binds= [8]]
-[connection signal="pressed" from="VerticalContainer/LevelMargin/LevelGrid/Level8Button" to="." method="load_level" binds= [9]]
+[connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton0" to="." method="load_level"]
+[connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton1" to="." method="load_level"]
+[connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton2" to="." method="load_level"]
+[connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton3" to="." method="load_level"]
+[connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton4" to="." method="load_level"]
+[connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton5" to="." method="load_level"]
+[connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton6" to="." method="load_level"]
+[connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton7" to="." method="load_level"]
+[connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton8" to="." method="load_level"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

@@ -67,6 +67,7 @@ func finish_level():
 	$Canvas.switch_to_child("LevelFinishScreen")
 	get_tree().paused = true
 	set_level_statistics()
+	$Canvas/LevelSelectMenu.unlock_level(current_level_index+1)
 	pass
 
 func next_level():
