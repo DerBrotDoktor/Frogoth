@@ -48,6 +48,7 @@ func save():
 func new_data():
 	level_locked.clear()
 	level_locked.append(false)
-	for i in range (1,level_amount):
+	level_locked.append(false)
+	for i in range (2,level_amount):
 		level_locked.append(true)
 	print("save: ", level_locked)
