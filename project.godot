@@ -21,6 +21,7 @@ window/size/viewport_width=3456
 window/size/viewport_height=1944
 window/size/mode=3
 window/stretch/mode="canvas_items"
+window/stretch/scale=0.75
 
 [input]
 
