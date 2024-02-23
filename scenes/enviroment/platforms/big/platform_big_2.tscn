@@ -6,6 +6,8 @@
 size = Vector2(683, 20)
 
 [node name="PlatformBig2" type="StaticBody2D" groups=["platform"]]
+collision_layer = 8
+collision_mask = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_p1nev")

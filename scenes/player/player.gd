@@ -262,6 +262,9 @@ func dash():
 		$SFXPlayer/DashAudioPlayer.play()
 		$DashTimer.start()
 		$GhostTimer.start()
+		set_collision_layer_value(4,false)
+		set_collision_mask_value(4,false)
+		
 
 func add_ghost():
 	var ghost = ghost_node.instantiate()
@@ -279,6 +282,8 @@ func _on_dash_timer_timeout():
 func _on_dash_delay_timeout():
 	$DashCooldown.start()
 	can_move = true
+	set_collision_layer_value(4,true)
+	set_collision_mask_value(4,true)
 	try_place_orb()
 
 func _on_dash_cooldown_timeout():

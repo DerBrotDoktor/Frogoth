@@ -680,6 +680,8 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 9
+collision_mask = 9
 script = ExtResource("1_il0n1")
 normal_speed = 670.0
 jump_velocity = -1100.0
