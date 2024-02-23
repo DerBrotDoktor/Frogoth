@@ -136,6 +136,8 @@ rotates = false
 loop = false
 
 [node name="PlatformBig1" type="CharacterBody2D" parent="MovingPlatform/Platform" groups=["platform"]]
+collision_layer = 8
+collision_mask = 8
 
 [node name="Sprite" type="Sprite2D" parent="MovingPlatform/Platform/PlatformBig1"]
 texture = ExtResource("13_tyr7x")

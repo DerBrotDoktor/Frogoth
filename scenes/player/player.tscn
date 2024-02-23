@@ -20,7 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://co8g58x3flmpj" path="res://assets/sfx/player/walk_sfx.mp3" id="18_ua06j"]
 [ext_resource type="AudioStream" uid="uid://duvmvucant0du" path="res://assets/sfx/player/player_damage_sfx.mp3" id="19_6lf02"]
 [ext_resource type="Script" path="res://scenes/player/enemy_indicator_controller.gd" id="20_hjysh"]
-[ext_resource type="PackedScene" path="res://scenes/ui/enemy_inidcator.tscn" id="21_gitdl"]
+[ext_resource type="PackedScene" uid="uid://bsk168y5iskk7" path="res://scenes/ui/enemy_inidcator.tscn" id="21_gitdl"]
 [ext_resource type="PackedScene" path="res://scenes/vfx/player_damage_particle_vfx.tscn" id="22_5cqjo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fl175"]
@@ -683,7 +683,7 @@ _data = {
 collision_layer = 9
 collision_mask = 9
 script = ExtResource("1_il0n1")
-normal_speed = 670.0
+normal_speed = 680.0
 jump_velocity = -1100.0
 acceleration = 94.0
 deceleration = 0.19
@@ -691,7 +691,7 @@ dash_speed = 3000
 dash_acceleration = 50.0
 dash_deceleration = 8.0
 ghost_node = ExtResource("2_rl3rv")
-gravity = 2750
+gravity = 3000
 temporary_orb_prefab = ExtResource("3_qo4h5")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]

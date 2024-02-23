@@ -162,6 +162,8 @@ loop = false
 
 [node name="PlatformBig1" type="CharacterBody2D" parent="MovingPlatforms/MovingPlatform/Platform" groups=["platform"]]
 rotation = 3.10982
+collision_layer = 8
+collision_mask = 8
 
 [node name="Sprite" type="Sprite2D" parent="MovingPlatforms/MovingPlatform/Platform/PlatformBig1"]
 texture = ExtResource("7_ysjqu")
@@ -182,6 +184,8 @@ loop = false
 
 [node name="PlatformBig3" type="CharacterBody2D" parent="MovingPlatforms/MovingPlatform2/Platform" groups=["platform"]]
 rotation = 0.229107
+collision_layer = 8
+collision_mask = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingPlatforms/MovingPlatform2/Platform/PlatformBig3"]
 texture = ExtResource("10_k7l2i")
@@ -202,6 +206,8 @@ loop = false
 
 [node name="PlatformSmall1" type="CharacterBody2D" parent="MovingPlatforms/MovingPlatform3/Platform" groups=["platform"]]
 rotation = 3.14159
+collision_layer = 8
+collision_mask = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingPlatforms/MovingPlatform3/Platform/PlatformSmall1"]
 texture = ExtResource("15_f4srn")
@@ -222,6 +228,8 @@ loop = false
 
 [node name="PlatformBig1" type="CharacterBody2D" parent="MovingPlatforms/MovingPlatform4/Platform" groups=["platform"]]
 rotation = -3.03814
+collision_layer = 8
+collision_mask = 8
 
 [node name="Sprite" type="Sprite2D" parent="MovingPlatforms/MovingPlatform4/Platform/PlatformBig1"]
 texture = ExtResource("7_ysjqu")
@@ -242,6 +250,8 @@ loop = false
 
 [node name="PlatformBig3" type="CharacterBody2D" parent="MovingPlatforms/MovingPlatform5/Platform" groups=["platform"]]
 rotation = 3.13721
+collision_layer = 8
+collision_mask = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingPlatforms/MovingPlatform5/Platform/PlatformBig3"]
 texture = ExtResource("10_k7l2i")
@@ -262,6 +272,8 @@ loop = false
 
 [node name="PlatformSmall4" type="CharacterBody2D" parent="MovingPlatforms/MovingPlatform6/Platform" groups=["platform"]]
 rotation = -2.94563
+collision_layer = 8
+collision_mask = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingPlatforms/MovingPlatform6/Platform/PlatformSmall4"]
 texture = ExtResource("14_kujs4")
@@ -321,3 +333,6 @@ shape = SubResource("RectangleShape2D_awyk8")
 
 [node name="PlayerSpwanPoint" parent="." instance=ExtResource("4_xpxn8")]
 position = Vector2(170, -6219)
+
+[node name="JumpPoint" parent="." instance=ExtResource("2_1lvuf")]
+position = Vector2(6706, -10327)

@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://bp2o7j5jtvfd2" path="res://assets/tileset/ground_1_tileset.tres" id="1_cfrs2"]
 [ext_resource type="TileSet" uid="uid://w07uqdijjh3l" path="res://assets/tileset/walkable_tiles.tres" id="1_ljw55"]
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_nneb6"]
-[ext_resource type="TileSet" uid="uid://dr6l2rwnb2mlp" path="res://assets/tileset/ceiling_tileset.tres" id="2_2n7vl"]
+[ext_resource type="TileSet" uid="uid://fq2u5xepsx1a" path="res://assets/tileset/ceiling_tileset.tres" id="2_2n7vl"]
 [ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/orbs/jump_point.tscn" id="2_air45"]
 [ext_resource type="PackedScene" uid="uid://0woesesbbwik" path="res://scenes/enviroment/tutorial_sign/tutorial_sign.tscn" id="2_jgae1"]
 [ext_resource type="PackedScene" uid="uid://btimemg85kwm8" path="res://scenes/enviroment/platforms/big/platform_big_2.tscn" id="2_v71rc"]
@@ -21,9 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://dn3xgle2qo4kl" path="res://scenes/enviroment/platforms/small/platform_small_2.tscn" id="15_4fary"]
 [ext_resource type="PackedScene" uid="uid://c8qi15jdcx7eo" path="res://scenes/enviroment/platforms/small/platform_small_1.tscn" id="15_rmg51"]
 [ext_resource type="PackedScene" uid="uid://dgcv5ildkajr8" path="res://scenes/enviroment/platforms/big/platform_big_1.tscn" id="18_6dyac"]
-[ext_resource type="PackedScene" uid="uid://d1jbeg4vofhsg" path="res://scenes/enviroment/spikes/spikes_6.tscn" id="22_a1mgv"]
-[ext_resource type="PackedScene" uid="uid://bjmcwiyef73e7" path="res://scenes/enviroment/spikes/spikes_7.tscn" id="23_77gmg"]
-[ext_resource type="PackedScene" uid="uid://ig1uyb17ex25" path="res://scenes/enviroment/spikes/spikes_1.tscn" id="24_p1j5d"]
+[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_6.tscn" id="22_a1mgv"]
+[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_7.tscn" id="23_77gmg"]
+[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_1.tscn" id="24_p1j5d"]
 
 [sub_resource type="Curve2D" id="Curve2D_v58ew"]
 _data = {
@@ -142,6 +142,8 @@ loop = false
 
 [node name="PlatformBig1" type="CharacterBody2D" parent="MovingPlatforms/MovingPlatform/Platform" groups=["platform"]]
 rotation = 3.10982
+collision_layer = 8
+collision_mask = 8
 
 [node name="Sprite" type="Sprite2D" parent="MovingPlatforms/MovingPlatform/Platform/PlatformBig1"]
 texture = ExtResource("11_00e6m")
@@ -162,6 +164,8 @@ loop = false
 
 [node name="PlatformBig3" type="CharacterBody2D" parent="MovingPlatforms/MovingPlatform2/Platform" groups=["platform"]]
 rotation = 3.10982
+collision_layer = 8
+collision_mask = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingPlatforms/MovingPlatform2/Platform/PlatformBig3"]
 texture = ExtResource("12_mv3m2")
@@ -272,7 +276,7 @@ position = Vector2(8771, -1209)
 [node name="TutorialSigns" type="Node2D" parent="."]
 
 [node name="TutorialSign" parent="TutorialSigns" instance=ExtResource("2_jgae1")]
-position = Vector2(1375, 18)
+position = Vector2(571, 18)
 
 [node name="TriggerAreaShape" parent="TutorialSigns/TutorialSign/TriggerArea" index="0"]
 visible = false
@@ -311,7 +315,7 @@ shape = SubResource("RectangleShape2D_2n1q5")
 [node name="Text" parent="TutorialSigns/TutorialSign3" index="2"]
 offset_top = -476.0
 offset_bottom = -339.0
-text = "Use SHIFT + W,A,S,D to dash.
+text = "Use SHIFT + W,A,S,D to dash
 
 "
 

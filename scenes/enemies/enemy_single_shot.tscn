@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ckajt1whbx8ki" path="res://assets/enemy_1/enemy_1_idle_an.png" id="5_u7jid"]
 [ext_resource type="Texture2D" uid="uid://bh0tc6aw2350p" path="res://assets/enemy_1/enemy_1_walk_an.png" id="6_i5tfn"]
 [ext_resource type="AudioStream" uid="uid://cn3nbuvt72vug" path="res://assets/sfx/enemy/single_shot_enemy_attack_sfx.mp3" id="7_a7evb"]
-[ext_resource type="PackedScene" uid="uid://dsgnukw35fh2p" path="res://scenes/enemies/enemy_1_death_vfx.tscn" id="8_ciwbh"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/enemy_1_death_vfx.tscn" id="8_ciwbh"]
 [ext_resource type="Texture2D" uid="uid://cwqqfbwxjqovf" path="res://assets/vfx/bullet/charge_attack_spritesheet.png" id="9_iascu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d6v6o"]
@@ -711,7 +711,7 @@ animations = [{
 
 [node name="EnemySingleShot" instance=ExtResource("1_ou6ub")]
 script = ExtResource("2_g0l75")
-bullet_speed = 560
+bullet_speed = 700
 
 [node name="Animation" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_fd74i")
