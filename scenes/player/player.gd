@@ -57,7 +57,7 @@ func _process(delta):
 		invincible_frames_left -= 1
 
 func _physics_process(delta):
-	if is_disabled:
+	if is_disabled or is_dead:
 		return
 	
 	add_gravity(delta)

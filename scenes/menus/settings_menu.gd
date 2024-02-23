@@ -34,3 +34,8 @@ func _on_fullscreen_check_box_toggled(toggled_on):
 
 func _on_borderless_checkbox_toggled(toggled_on):
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, toggled_on)
+
+
+func _on_visibility_changed():
+	if $MarginContainer/VBoxContainer/GridContainer/MasterSlider.is_inside_tree() and visible:
+		$MarginContainer/VBoxContainer/GridContainer/MasterSlider.grab_focus()
