@@ -2,6 +2,10 @@ extends "res://scenes/enemies/enemy_grounded.gd"
 
 var is_player_in_range = false
 
+func flip():
+	super.flip()
+	$ChargeAnimation.position.x = -$ChargeAnimation.position.x
+
 func attack():
 	$AttackCooldown.start()
 	is_attacking = true

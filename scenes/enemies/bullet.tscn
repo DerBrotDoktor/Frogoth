@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://77vbimjom55n"]
+[gd_scene load_steps=19 format=3 uid="uid://77vbimjom55n"]
 
 [ext_resource type="Script" path="res://scenes/enemies/bullet.gd" id="1_aeqp4"]
 [ext_resource type="Texture2D" uid="uid://dlvebixrcbt05" path="res://assets/vfx/bullet/fire_blast_spritesheet.png" id="2_2il0n"]
+[ext_resource type="Texture2D" uid="uid://cnrhakwe1ukyu" path="res://assets/vfx/bullet/attack_fading_spritesheet.png" id="3_hcu6n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kx5hc"]
 atlas = ExtResource("2_2il0n")
@@ -25,6 +26,30 @@ region = Rect2(1024, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pg3p1"]
 atlas = ExtResource("2_2il0n")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arfhj"]
+atlas = ExtResource("3_hcu6n")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg4tt"]
+atlas = ExtResource("3_hcu6n")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luvms"]
+atlas = ExtResource("3_hcu6n")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvmfi"]
+atlas = ExtResource("3_hcu6n")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvf65"]
+atlas = ExtResource("3_hcu6n")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b30j2"]
+atlas = ExtResource("3_hcu6n")
 region = Rect2(1280, 0, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gqi5h"]
@@ -51,6 +76,29 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arfhj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kg4tt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_luvms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvmfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvf65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b30j2")
+}],
+"loop": false,
+"name": &"destroy",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gody5"]
@@ -71,7 +119,6 @@ z_index = 3
 position = Vector2(-20, -10)
 sprite_frames = SubResource("SpriteFrames_gqi5h")
 autoplay = "default"
-frame_progress = 0.886806
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -86,4 +133,10 @@ visible = false
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_p2shs")
 
+[node name="DestroyTimer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+autostart = true
+
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
+[connection signal="timeout" from="DestroyTimer" to="." method="destroy_bullet"]
