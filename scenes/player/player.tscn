@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=3 uid="uid://bfqr80qekwaw5"]
+[gd_scene load_steps=118 format=3 uid="uid://bfqr80qekwaw5"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_il0n1"]
 [ext_resource type="PackedScene" uid="uid://beocyu2m1xsx1" path="res://scenes/player/player_ghost.tscn" id="2_rl3rv"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://6resjbt0w5er" path="res://assets/player/player_walk_an.png" id="12_td2et"]
 [ext_resource type="Texture2D" uid="uid://dwgdpffg18asi" path="res://assets/vfx/player/double_jump_vfx.png" id="13_wrofw"]
 [ext_resource type="Texture2D" uid="uid://dwcw2ubchcj7a" path="res://assets/vfx/player/running_vfx.png" id="14_8qkos"]
+[ext_resource type="Texture2D" uid="uid://ddx2ialgl1g67" path="res://assets/vfx/player/last_jump_spritesheet.png" id="14_jtclw"]
 [ext_resource type="AudioStream" uid="uid://tvxj03pydxbp" path="res://assets/sfx/player/ground_jump_sfx.mp3" id="15_0a8o5"]
 [ext_resource type="AudioStream" uid="uid://y32bxgdxymnc" path="res://assets/sfx/player/air_jump_sfx.mp3" id="16_4dsqo"]
 [ext_resource type="AudioStream" uid="uid://chs37fmb14lyr" path="res://assets/sfx/player/dash_sfx.mp3" id="17_eof52"]
@@ -563,6 +564,26 @@ region = Rect2(512, 0, 256, 256)
 atlas = ExtResource("13_wrofw")
 region = Rect2(768, 0, 256, 256)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7vsc"]
+atlas = ExtResource("14_jtclw")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0toxs"]
+atlas = ExtResource("14_jtclw")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sej73"]
+atlas = ExtResource("14_jtclw")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smll"]
+atlas = ExtResource("14_jtclw")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mxtn"]
+atlas = ExtResource("14_jtclw")
+region = Rect2(1024, 0, 256, 256)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_swm48"]
 animations = [{
 "frames": [{
@@ -580,6 +601,26 @@ animations = [{
 }],
 "loop": false,
 "name": &"jump",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7vsc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0toxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sej73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3smll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mxtn")
+}],
+"loop": false,
+"name": &"tripple_jump",
 "speed": 12.0
 }]
 
@@ -677,6 +718,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("JumpVFXAnimation:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"jump"]
+}
 
 [sub_resource type="Animation" id="Animation_8njlr"]
 resource_name = "hit_player_animation"
@@ -722,12 +775,65 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("JumpVFXAnimation:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"jump"]
+}
+
+[sub_resource type="Animation" id="Animation_i2rx4"]
+resource_name = "tripple_jump_vfx"
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("JumpVFXAnimation:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"tripple_jump"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("JumpVFXAnimation:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("JumpVFXAnimation:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.05, 0.075, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6gob2"]
 _data = {
 "RESET": SubResource("Animation_8u4v0"),
 "hit_player_animation": SubResource("Animation_8njlr"),
-"jump_vfx": SubResource("Animation_dnidn")
+"jump_vfx": SubResource("Animation_dnidn"),
+"tripple_jump_vfx": SubResource("Animation_i2rx4")
 }
 
 [node name="Player" type="CharacterBody2D"]
@@ -765,7 +871,7 @@ position = Vector2(-88, -48)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_qtlfl")
 autoplay = "default"
-frame_progress = 0.285997
+frame_progress = 0.190088
 flip_h = true
 
 [node name="Collider" type="CollisionShape2D" parent="."]

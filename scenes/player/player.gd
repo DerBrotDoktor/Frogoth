@@ -81,10 +81,10 @@ func handle_movement(delta):
 		handle_dash_movement()
 		return
 	var direction = Input.get_axis("left", "right")
-	if (not direction) or (not can_move) and $WalkVFX.visible:
+	if (not direction) or (not can_move) or (not is_on_floor()) and $WalkVFX.visible:
 		$WalkVFX.visible = false 
 	if direction and can_move:
-		if not $WalkVFX.visible:
+		if not $WalkVFX.visible and is_on_floor():
 			$WalkVFX.visible = true
 		if direction > 0:
 			$Animation.flip_h = false
@@ -169,8 +169,8 @@ func handle_jump(delta):
 		$JumpBufferTimer.stop()
 		$CoyoteTimer.stop()
 		if can_tripple_jump:
-			can_tripple_jump = false
 			can_jump = true
+			can_tripple_jump = false
 			can_double_jump = true
 			start_jump()
 		elif can_double_jump:
@@ -193,7 +193,10 @@ func start_jump():
 	else:
 		play_animation("jump")
 	if not is_on_floor() and not $PlayerAnimation.is_playing():
-		$PlayerAnimation.play("jump_vfx")
+		if not can_jump:
+			$PlayerAnimation.play("tripple_jump_vfx")
+		else:
+			$PlayerAnimation.play("jump_vfx")
 		$SFXPlayer/AirJumpAudioPlayer.play()
 	else:
 		$SFXPlayer/GroundJumpAudioPlayer.play()
