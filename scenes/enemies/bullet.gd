@@ -19,4 +19,12 @@ func _physics_process(_delta):
 
 func _on_trigger_area_body_entered(body):
 	if not body.is_in_group("player") and not body.is_in_group("bullet"):
-		queue_free()
+		direction = null
+		velocity = Vector2.ZERO
+		$Collider.set_deferred("disabled",true)
+		destroy_bullet()
+
+func destroy_bullet():
+	$Sprite.play("destroy")
+	await $Sprite.animation_finished
+	queue_free()
