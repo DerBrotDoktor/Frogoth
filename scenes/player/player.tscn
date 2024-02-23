@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://bfqr80qekwaw5"]
+[gd_scene load_steps=103 format=3 uid="uid://bfqr80qekwaw5"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_il0n1"]
 [ext_resource type="PackedScene" uid="uid://beocyu2m1xsx1" path="res://scenes/player/player_ghost.tscn" id="2_rl3rv"]
@@ -20,7 +20,8 @@
 [ext_resource type="AudioStream" uid="uid://co8g58x3flmpj" path="res://assets/sfx/player/walk_sfx.mp3" id="18_ua06j"]
 [ext_resource type="AudioStream" uid="uid://duvmvucant0du" path="res://assets/sfx/player/player_damage_sfx.mp3" id="19_6lf02"]
 [ext_resource type="Script" path="res://scenes/player/enemy_indicator_controller.gd" id="20_hjysh"]
-[ext_resource type="PackedScene" uid="uid://bsk168y5iskk7" path="res://scenes/ui/enemy_inidcator.tscn" id="21_gitdl"]
+[ext_resource type="PackedScene" path="res://scenes/ui/enemy_inidcator.tscn" id="21_gitdl"]
+[ext_resource type="PackedScene" path="res://scenes/vfx/player_damage_particle_vfx.tscn" id="22_5cqjo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fl175"]
 shader = ExtResource("4_wsp2d")
@@ -795,6 +796,8 @@ follow_viewport_enabled = true
 script = ExtResource("20_hjysh")
 camera = NodePath("../Camera")
 enemy_indicator = ExtResource("21_gitdl")
+
+[node name="PlayerDamageParticleVFX" parent="." instance=ExtResource("22_5cqjo")]
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
