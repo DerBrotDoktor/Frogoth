@@ -81,9 +81,16 @@ func handle_movement(delta):
 		handle_dash_movement()
 		return
 	var direction = Input.get_axis("left", "right")
+	if (not direction) or (not can_move) and $WalkVFX.visible:
+		$WalkVFX.visible = false 
 	if direction and can_move:
+		if not $WalkVFX.visible:
+			$WalkVFX.visible = true
 		if direction > 0:
 			$Animation.flip_h = false
+			$WalkVFX.flip_h = true
+			if $WalkVFX.position.x > 0:
+				$WalkVFX.position.x = -$WalkVFX.position.x
 			velocity.x = min(velocity.x + acceleration, normal_speed)
 			if is_on_floor():
 				play_animation("walk")
@@ -92,6 +99,9 @@ func handle_movement(delta):
 		elif direction < 0:
 			velocity.x = max(velocity.x - acceleration, -normal_speed)
 			$Animation.flip_h = true
+			$WalkVFX.flip_h = false
+			if $WalkVFX.position.x < 0:
+				$WalkVFX.position.x = -$WalkVFX.position.x
 			if is_on_floor():
 				play_animation("walk")
 				if not $SFXPlayer/WalkAudioPlayer.playing:
