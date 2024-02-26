@@ -228,8 +228,8 @@ loop = false
 
 [node name="PlatformBig1" type="CharacterBody2D" parent="MovingPlatforms/MovingPlatform4/Platform" groups=["platform"]]
 rotation = -3.03814
-collision_layer = 8
-collision_mask = 8
+collision_layer = 9
+collision_mask = 9
 
 [node name="Sprite" type="Sprite2D" parent="MovingPlatforms/MovingPlatform4/Platform/PlatformBig1"]
 texture = ExtResource("7_ysjqu")
@@ -250,8 +250,8 @@ loop = false
 
 [node name="PlatformBig3" type="CharacterBody2D" parent="MovingPlatforms/MovingPlatform5/Platform" groups=["platform"]]
 rotation = 3.13721
-collision_layer = 8
-collision_mask = 8
+collision_layer = 9
+collision_mask = 9
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingPlatforms/MovingPlatform5/Platform/PlatformBig3"]
 texture = ExtResource("10_k7l2i")
@@ -335,4 +335,4 @@ shape = SubResource("RectangleShape2D_awyk8")
 position = Vector2(170, -6219)
 
 [node name="JumpPoint" parent="." instance=ExtResource("2_1lvuf")]
-position = Vector2(6706, -10327)
+position = Vector2(6982, -10655)
