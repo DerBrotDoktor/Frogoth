@@ -16,6 +16,7 @@ func _on_quit_button_button_up():
 func _on_visibility_changed():
 	if $MarginContainer/VerticalContainer/StartButton.is_inside_tree() and visible:
 		get_tree().paused = true
+		await get_tree().create_timer(0.1).timeout
 		$MarginContainer/VerticalContainer/StartButton.grab_focus()
 
 func _on_settings_button_button_up():
