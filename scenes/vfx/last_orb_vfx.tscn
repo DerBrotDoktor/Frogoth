@@ -16,9 +16,10 @@ point_count = 4
 curve = SubResource("Curve_vuvko")
 
 [sub_resource type="Curve" id="Curve_bjo8q"]
+min_value = -1024.0
 max_value = 1024.0
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.541667, 427.604), 2177.95, 2177.95, 0, 0, Vector2(0.6375, 956.484), 0.0, 0.0, 0, 0, Vector2(1, 1024), 0.0, 0.0, 0, 0]
-point_count = 4
+_data = [Vector2(0, -1024), 0.0, 5130.33, 0, 0, Vector2(0.0758018, 1024), 3499.76, 3499.76, 0, 0, Vector2(0.504373, 411.797), 2177.95, 2177.95, 0, 0, Vector2(0.597668, 901.559), 0.0, 0.0, 0, 0, Vector2(1, 1024), 0.0, 0.0, 0, 0]
+point_count = 5
 
 [sub_resource type="CurveTexture" id="CurveTexture_if4ib"]
 curve = SubResource("Curve_bjo8q")
@@ -47,8 +48,9 @@ point_count = 3
 curve = SubResource("Curve_tjbc0")
 
 [sub_resource type="Curve" id="Curve_u6xxu"]
-max_value = 1.3
-_data = [Vector2(0, 1.3), 0.0, 0.0, 0, 0, Vector2(0.741667, 0.957143), 0.0, 0.0, 0, 0, Vector2(0.983333, 0), 0.0, 0.0, 0, 0]
+min_value = -1.0
+max_value = 2.0
+_data = [Vector2(0, 0.284), 0.0, -0.224, 0, 1, Vector2(0.795918, 0.105714), -0.224, 0.0, 1, 0, Vector2(0.994169, 0.0388572), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_fbh08"]
@@ -58,27 +60,26 @@ curve = SubResource("Curve_u6xxu")
 particle_flag_disable_z = true
 angle_max = 720.0
 spread = 180.0
-radial_velocity_min = 119.4
-radial_velocity_max = 119.4
+radial_velocity_min = 34.91
+radial_velocity_max = 39.11
 radial_velocity_curve = SubResource("CurveTexture_mjxpp")
 gravity = Vector3(0, 0, 0)
-radial_accel_min = -2.99
-radial_accel_max = 43.29
+radial_accel_min = 18.42
+radial_accel_max = 23.82
 radial_accel_curve = SubResource("CurveTexture_4fehs")
 damping_max = 1.0
 damping_curve = SubResource("CurveTexture_if4ib")
+scale_max = 1.3
 scale_curve = SubResource("CurveTexture_fbh08")
 alpha_curve = SubResource("CurveTexture_g31uq")
 emission_curve = SubResource("CurveTexture_4bajb")
 anim_speed_min = 0.1
 anim_speed_max = 1.6
 
-[node name="Node" type="Node"]
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="LastOrbVFX" type="GPUParticles2D"]
 self_modulate = Color(1.4, 1.4, 1.4, 1)
 material = SubResource("CanvasItemMaterial_ytacm")
-amount = 35
+amount = 60
 process_material = SubResource("ParticleProcessMaterial_8bycg")
 texture = ExtResource("1_o70ot")
 lifetime = 1.6

@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://b3xpdi26ydynv"]
+
+[ext_resource type="Texture2D" uid="uid://borm6sgcym6bb" path="res://assets/vfx/bullet/fire_charge2.png" id="1_ftc74"]
+
+[sub_resource type="Curve" id="Curve_jdb3x"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.104956, 1), 0.0, 0.0, 0, 0, Vector2(0.720117, 0.695429), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_8eykf"]
+curve = SubResource("Curve_jdb3x")
+
+[sub_resource type="Curve" id="Curve_7db4e"]
+max_value = 12.57
+_data = [Vector2(0, 1.73825), 0.0, 0.0, 0, 0, Vector2(0.297376, 10.2356), 0.0, 0.0, 0, 0, Vector2(0.504373, 2.95215), 0.0, 0.0, 0, 0, Vector2(0.778426, 6.87399), -28.1849, -28.1849, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_x134d"]
+curve = SubResource("Curve_7db4e")
+
+[sub_resource type="Curve" id="Curve_bibf2"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.00457144), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_e661w"]
+curve = SubResource("Curve_bibf2")
+
+[sub_resource type="Curve" id="Curve_qsrbk"]
+min_value = -10.0
+_data = [Vector2(0, -0.500572), 0.0, 12.5536, 0, 1, Vector2(0.119534, 1), 15.092, 15.092, 0, 0, Vector2(0.766764, 1), 0.0, 0.0, 0, 0, Vector2(0.991254, 1), 0.0, 0.0, 1, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_22qtk"]
+curve = SubResource("Curve_qsrbk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rhb3x"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 200.0
+emission_ring_inner_radius = 150.0
+orbit_velocity_min = -0.101
+orbit_velocity_max = -0.079
+orbit_velocity_curve = SubResource("CurveTexture_e661w")
+radial_velocity_min = -292.89
+radial_velocity_max = -119.92
+radial_velocity_curve = SubResource("CurveTexture_22qtk")
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -615.15
+radial_accel_max = 50.0
+scale_min = 0.01
+scale_max = 0.1
+alpha_curve = SubResource("CurveTexture_8eykf")
+emission_curve = SubResource("CurveTexture_x134d")
+
+[node name="EnemyCharge2VFX" type="GPUParticles2D"]
+self_modulate = Color(1.2, 1.2, 1.2, 1)
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_rhb3x")
+texture = ExtResource("1_ftc74")
+lifetime = 1.1
+fixed_fps = 45
+trail_lifetime = 0.2
