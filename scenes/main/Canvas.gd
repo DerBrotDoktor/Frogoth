@@ -47,7 +47,7 @@ func switch_to_child(child_name):
 		$"../AudioPlayer".play_main_menu_music()
 	elif child_name == "UserInterface":
 		$"../AudioPlayer".play_background_music()
-	if  child_name == "MainMenu" or child_name == "SettingsMenu":
+	if  (child_name == "MainMenu") or (child_name == "SettingsMenu") or (child_name == "LevelSelectMenu"):
 		player.disable()
 	else:
 		player.enable()

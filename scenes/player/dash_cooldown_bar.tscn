@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://3kfct5n0mk2w"]
+
+[ext_resource type="Texture2D" uid="uid://dolfk23ree6b2" path="res://assets/ui/dash/dash_progress_bar.png" id="1_0opq6"]
+[ext_resource type="Script" path="res://scenes/player/DashCooldownBar.gd" id="2_4fg7g"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t4tkp"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 10.0
+angle_max = 50.0
+spread = 180.0
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 5.0
+
+[node name="DashCooldownBar" type="Node2D"]
+script = ExtResource("2_4fg7g")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_t4tkp")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2(-26.1183, -27.7352, 50.961, 57.7492)
+
+[node name="ProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+value = 1.0
+fill_mode = 5
+texture_under = ExtResource("1_0opq6")
+texture_progress = ExtResource("1_0opq6")
+tint_under = Color(0.219608, 0.219608, 0.219608, 0.509804)

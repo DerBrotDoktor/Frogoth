@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	disable()
+	$ProgressBar.visible = false
 
 func enable():
 	$ProgressBar.visible = true
