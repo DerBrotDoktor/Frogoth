@@ -1,5 +1,7 @@
 extends Node2D
 
+var was_visible = false
+
 func _ready():
 	$ProgressBar.visible = false
 
@@ -7,8 +9,10 @@ func enable():
 	$ProgressBar.visible = true
 
 func disable():
+	was_visible = $ProgressBar.visible
 	$ProgressBar.visible = false
-	$GPUParticles2D.restart()
+	if was_visible:
+		$GPUParticles2D.restart()
 
 func _process(delta):
 	if visible:
