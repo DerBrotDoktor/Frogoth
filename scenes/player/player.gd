@@ -225,7 +225,7 @@ func _on_trigger_area_area_entered(area):
 		if not area.used:
 			reset_jump()
 			$DashCooldown.stop()
-			$DashCooldownBar.visible = false
+			$DashCooldownBar.disable()
 			area.use_point()
 			can_dash = true
 		current_orbs.append(area)
@@ -295,7 +295,7 @@ func _on_dash_timer_timeout():
 
 func _on_dash_delay_timeout():
 	$DashCooldown.start()
-	$DashCooldownBar.visible = true
+	$DashCooldownBar.enable()
 	can_move = true
 	set_collision_layer_value(4,true)
 	set_collision_mask_value(4,true)
@@ -303,7 +303,7 @@ func _on_dash_delay_timeout():
 
 func _on_dash_cooldown_timeout():
 	can_dash = true
-	$DashCooldownBar.visible = false
+	$DashCooldownBar.disable()
 	update_user_interface()
 
 func take_damage(damage):

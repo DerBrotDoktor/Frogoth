@@ -1,13 +1,15 @@
-extends TextureProgressBar
+extends Node2D
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	disable()
 
+func enable():
+	$ProgressBar.visible = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func disable():
+	$ProgressBar.visible = false
+	$GPUParticles2D.restart()
+
 func _process(delta):
 	if visible:
-		value = 100 - ($"../DashCooldown".time_left * 100)
-	pass
+		$ProgressBar.value = 100 - ($"../DashCooldown".time_left * 100)

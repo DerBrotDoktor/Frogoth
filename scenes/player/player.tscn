@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://bfqr80qekwaw5"]
+[gd_scene load_steps=119 format=3 uid="uid://bfqr80qekwaw5"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_il0n1"]
 [ext_resource type="PackedScene" uid="uid://beocyu2m1xsx1" path="res://scenes/player/player_ghost.tscn" id="2_rl3rv"]
@@ -24,8 +24,7 @@
 [ext_resource type="Script" path="res://scenes/player/enemy_indicator_controller.gd" id="20_hjysh"]
 [ext_resource type="PackedScene" path="res://scenes/ui/enemy_inidcator.tscn" id="21_gitdl"]
 [ext_resource type="PackedScene" path="res://scenes/vfx/player_damage_particle_vfx.tscn" id="22_5cqjo"]
-[ext_resource type="Texture2D" uid="uid://dolfk23ree6b2" path="res://assets/ui/dash/dash_progress_bar.png" id="25_de4g5"]
-[ext_resource type="Script" path="res://scenes/player/DashCooldownBar.gd" id="26_eqbh2"]
+[ext_resource type="PackedScene" uid="uid://3kfct5n0mk2w" path="res://scenes/player/dash_cooldown_bar.tscn" id="25_7lob2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fl175"]
 shader = ExtResource("4_wsp2d")
@@ -968,17 +967,8 @@ enemy_indicator = ExtResource("21_gitdl")
 
 [node name="PlayerDamageParticleVFX" parent="." instance=ExtResource("22_5cqjo")]
 
-[node name="DashCooldownBar" type="TextureProgressBar" parent="."]
-offset_left = 88.0
-offset_top = -224.0
-offset_right = 152.0
-offset_bottom = -160.0
-value = 1.0
-fill_mode = 5
-texture_under = ExtResource("25_de4g5")
-texture_progress = ExtResource("25_de4g5")
-tint_under = Color(0.219608, 0.219608, 0.219608, 0.509804)
-script = ExtResource("26_eqbh2")
+[node name="DashCooldownBar" parent="." instance=ExtResource("25_7lob2")]
+position = Vector2(128, -192)
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
