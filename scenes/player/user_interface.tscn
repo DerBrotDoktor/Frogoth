@@ -68,6 +68,7 @@ offset_bottom = 506.0
 texture = ExtResource("14_euhex")
 
 [node name="DashCooldown" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
