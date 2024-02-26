@@ -6,10 +6,10 @@ func _ready():
 
 func show_text():
 	$LeaveTimer.stop()
-	$Text.visible = true
+	$TextContainer.visible = true
 
 func hide_text():
-	$Text.visible = false
+	$TextContainer.visible = false
 
 func _on_trigger_area_area_entered(area):
 	if area.is_in_group("player"):
