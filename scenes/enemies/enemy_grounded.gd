@@ -45,6 +45,7 @@ func flip():
 
 func trigger_area_entererd(area):
 	if area.is_in_group("killing_area"):
+		$DeathAudioPlayer.play()
 		die()
 	
 func attack_area_entererd(area):

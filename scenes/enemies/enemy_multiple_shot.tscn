@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://duh8moi80j24s" path="res://assets/enemy_2/enemy_2_idle_an.png" id="5_g11fh"]
 [ext_resource type="Texture2D" uid="uid://pyvm1s0gujjr" path="res://assets/enemy_2/enemy_2_walk_an.png" id="6_wfasm"]
 [ext_resource type="AudioStream" uid="uid://x6beroms81br" path="res://assets/sfx/enemy/shotgun_enemy_attack_sfx.mp3" id="7_0uj4l"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/enemy_2_death_vfx.tscn" id="8_uhdax"]
+[ext_resource type="PackedScene" uid="uid://c1wishjxkarr7" path="res://scenes/enemies/enemy_2_death_vfx.tscn" id="8_uhdax"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_48wup"]
 atlas = ExtResource("3_ao67i")
@@ -389,7 +389,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AttackPlayer:playing")
+tracks/4/path = NodePath("Enemy2DeathVFX:emitting")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -401,26 +401,26 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Enemy2DeathVFX:emitting")
+tracks/5/path = NodePath("Animation:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Animation:visible")
+tracks/6/path = NodePath("DeathAudioPlayer:playing")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_3m33s"]
@@ -574,6 +574,18 @@ tracks/6/loop_wrap = true
 tracks/6/keys = {
 "clips": PackedStringArray("distortion_vfx"),
 "times": PackedFloat32Array(0.5)
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DeathAudioPlayer:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_cf7gj"]

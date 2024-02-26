@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cpddwnffvkcgu"]
+[gd_scene load_steps=14 format=3 uid="uid://cpddwnffvkcgu"]
 
 [ext_resource type="Script" path="res://scenes/enemies/enemy_grounded.gd" id="1_l2tby"]
 [ext_resource type="Texture2D" uid="uid://bo7xaupqyaojq" path="res://assets/player/player_idle_an.png" id="2_0cywg"]
 [ext_resource type="Shader" path="res://scenes/enemies/distortion.gdshader" id="3_7b4ym"]
+[ext_resource type="AudioStream" uid="uid://dvqjgddh7j37p" path="res://assets/sfx/enemy/enemy_death_sfx.mp3" id="4_nspeg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_86s5u"]
 shader = ExtResource("3_7b4ym")
@@ -187,6 +188,9 @@ shape = SubResource("CircleShape2D_14u2w")
 
 [node name="AttackCooldown" type="Timer" parent="."]
 one_shot = true
+
+[node name="DeathAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_nspeg")
 
 [connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]
 [connection signal="area_exited" from="TriggerArea" to="." method="_on_trigger_area_area_exited"]

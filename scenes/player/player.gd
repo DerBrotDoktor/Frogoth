@@ -362,6 +362,8 @@ func place_temporary_orb(pos):
 	orb.position = pos
 	get_parent().add_child(orb)
 	entered_orb.emit(orb)
+	if orbs_left == 0:
+		$SFXPlayer/LastOrbPlacedPlayer.play()
 
 func play_animation(animation):
 	var animation_not_allowed = ($Animation.animation == "death" or $Animation.animation == "damage")

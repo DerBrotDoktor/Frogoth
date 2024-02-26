@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=3 uid="uid://bfqr80qekwaw5"]
+[gd_scene load_steps=120 format=3 uid="uid://bfqr80qekwaw5"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_il0n1"]
 [ext_resource type="PackedScene" uid="uid://beocyu2m1xsx1" path="res://scenes/player/player_ghost.tscn" id="2_rl3rv"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" path="res://scenes/player/enemy_indicator_controller.gd" id="20_hjysh"]
 [ext_resource type="PackedScene" path="res://scenes/ui/enemy_inidcator.tscn" id="21_gitdl"]
 [ext_resource type="PackedScene" path="res://scenes/vfx/player_damage_particle_vfx.tscn" id="22_5cqjo"]
+[ext_resource type="AudioStream" uid="uid://eet0qccg811q" path="res://assets/sfx/orb/last_orb_sfx.mp3" id="22_fhwqx"]
 [ext_resource type="PackedScene" uid="uid://3kfct5n0mk2w" path="res://scenes/player/dash_cooldown_bar.tscn" id="25_7lob2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fl175"]
@@ -954,6 +955,9 @@ bus = &"SoundEffects"
 stream = ExtResource("19_6lf02")
 volume_db = -3.0
 bus = &"SoundEffects"
+
+[node name="LastOrbPlacedPlayer" type="AudioStreamPlayer" parent="SFXPlayer"]
+stream = ExtResource("22_fhwqx")
 
 [node name="KnockbackTime" type="Timer" parent="."]
 one_shot = true

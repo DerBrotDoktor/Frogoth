@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ckajt1whbx8ki" path="res://assets/enemy_1/enemy_1_idle_an.png" id="5_u7jid"]
 [ext_resource type="Texture2D" uid="uid://bh0tc6aw2350p" path="res://assets/enemy_1/enemy_1_walk_an.png" id="6_i5tfn"]
 [ext_resource type="AudioStream" uid="uid://cn3nbuvt72vug" path="res://assets/sfx/enemy/single_shot_enemy_attack_sfx.mp3" id="7_a7evb"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/enemy_1_death_vfx.tscn" id="8_ciwbh"]
+[ext_resource type="PackedScene" uid="uid://dsgnukw35fh2p" path="res://scenes/enemies/enemy_1_death_vfx.tscn" id="8_ciwbh"]
 [ext_resource type="Texture2D" uid="uid://cwqqfbwxjqovf" path="res://assets/vfx/bullet/charge_attack_spritesheet.png" id="9_iascu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d6v6o"]
@@ -426,6 +426,18 @@ tracks/8/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../DeathAudioPlayer:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_rg7ba"]
 resource_name = "attack"
@@ -589,6 +601,18 @@ tracks/5/loop_wrap = true
 tracks/5/keys = {
 "clips": PackedStringArray("distortion_vfx"),
 "times": PackedFloat32Array(0.2)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../DeathAudioPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_vafe8"]
