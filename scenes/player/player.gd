@@ -317,7 +317,6 @@ func take_damage(damage):
 		$JumpVFXAnimation.visible = false
 		$SFXPlayer/DamageAudioPlayer.play()
 		$PlayerAnimation.play("hit_player_animation")
-		$PlayerDamageParticleVFX.emitting = true
 		play_animation("damage")
 		current_health -= damage
 		update_user_interface()
