@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c86q4v5upw6nr"]
+[gd_scene load_steps=10 format=3 uid="uid://cnayky75tjc5n"]
 
 [ext_resource type="Script" path="res://scenes/ui/badge.gd" id="1_humgx"]
 [ext_resource type="Texture2D" uid="uid://ds1s76nkuw3a6" path="res://assets/badges/badge_normal.png" id="2_rkn6s"]
