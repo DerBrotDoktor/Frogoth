@@ -126,8 +126,8 @@ size = Vector2(99, 193)
 radius = 663.505
 
 [node name="EnemyGrounded" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 10
+collision_mask = 10
 script = ExtResource("1_l2tby")
 
 [node name="Distortion" type="ColorRect" parent="."]
