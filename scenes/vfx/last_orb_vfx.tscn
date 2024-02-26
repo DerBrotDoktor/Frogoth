@@ -1,7 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://c8uahgcbmmlgp"]
+[gd_scene load_steps=16 format=3 uid="uid://c8uahgcbmmlgp"]
 
 [ext_resource type="Texture2D" uid="uid://cxslxmwnpbyi8" path="res://assets/vfx/player/empty_orbs_spritesheet3.png" id="1_o70ot"]
-[ext_resource type="Texture2D" uid="uid://c8uej0dhpn2pa" path="res://assets/player/player.png" id="2_yvjgo"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ytacm"]
 particles_animation = true
@@ -87,7 +86,3 @@ speed_scale = 2.0
 explosiveness = 1.0
 randomness = 1.0
 fixed_fps = 60
-
-[node name="Player" type="Sprite2D" parent="."]
-position = Vector2(-24, -27)
-texture = ExtResource("2_yvjgo")
