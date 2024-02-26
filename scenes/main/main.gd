@@ -33,6 +33,7 @@ func load_level_by_index(index:int):
 		player.reset()
 		reset_stats()
 		current_level_index = index
+		$Canvas/UserInterface.badge_times = current_scene.badge_times
 		$Canvas.switch_to_child("UserInterface")
 		player.enable()
 		$Canvas/PauseMenu.set_level(current_scene.level_name)

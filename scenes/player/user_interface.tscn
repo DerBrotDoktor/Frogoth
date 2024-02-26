@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bjr4d282863jf"]
+[gd_scene load_steps=27 format=3 uid="uid://bjr4d282863jf"]
 
 [ext_resource type="Script" path="res://scenes/player/user_interface.gd" id="1_2e1s1"]
 [ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="1_olx0k"]
@@ -18,11 +18,39 @@
 [ext_resource type="Texture2D" uid="uid://2lwjg5fw0ha1" path="res://assets/ui/orbs_left/orb_ui.png" id="14_euhex"]
 [ext_resource type="Texture2D" uid="uid://by5f1k44gm2ln" path="res://assets/ui/dash/dash_cooldown.png" id="15_5p3gt"]
 [ext_resource type="Texture2D" uid="uid://sv86mdu0rlca" path="res://assets/ui/enemy_counter.png" id="17_0hxhh"]
+[ext_resource type="Texture2D" uid="uid://bgwwc2yi0ewen" path="res://assets/badges/badge_diamond.png" id="18_urkug"]
 [ext_resource type="PackedScene" uid="uid://d0ffkm274ebff" path="res://scenes/ui/health_bar.tscn" id="18_xtje2"]
+[ext_resource type="Texture2D" uid="uid://d3hqq0efd15ba" path="res://assets/badges/badge_gold.png" id="19_mdb25"]
+[ext_resource type="Texture2D" uid="uid://bfic3auakoqbh" path="res://assets/badges/badge_silver.png" id="20_et30p"]
+[ext_resource type="Texture2D" uid="uid://dt16k0rc88f14" path="res://assets/badges/badge_bronze.png" id="21_08pvu"]
+[ext_resource type="Texture2D" uid="uid://ds1s76nkuw3a6" path="res://assets/badges/badge_normal.png" id="22_0ljda"]
 
 [sub_resource type="Theme" id="Theme_2u5c8"]
 default_font = ExtResource("1_olx0k")
 default_font_size = 40
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_udo2v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_0ljda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_08pvu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_et30p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_mdb25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_urkug")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="UserInterface" type="Control"]
 layout_mode = 3
@@ -40,22 +68,7 @@ gray_heart = ExtResource("5_3eudh")
 dash = ExtResource("15_5p3gt")
 dash_used = ExtResource("7_cr8bw")
 orbs_left = Array[Texture2D]([ExtResource("6_c5n2j"), ExtResource("7_7nham"), ExtResource("8_hl6b5"), ExtResource("9_pcsqp"), ExtResource("10_6iruo"), ExtResource("11_lpu70"), ExtResource("12_n6lnd"), ExtResource("13_yqsqj"), ExtResource("14_euhex")])
-
-[node name="TimeText" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -481.0
-offset_top = 31.0
-offset_right = -41.0
-offset_bottom = 220.0
-grow_horizontal = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 15
-theme_override_font_sizes/font_size = 150
-text = "0000"
-horizontal_alignment = 1
+badges = SubResource("SpriteFrames_udo2v")
 
 [node name="HealthBar" parent="." instance=ExtResource("18_xtje2")]
 layout_mode = 0
@@ -109,3 +122,28 @@ text = "-1
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 256.0
+grow_horizontal = 2
+theme_override_constants/margin_right = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 2
+
+[node name="TimeText" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 150
+text = "0000"
+horizontal_alignment = 2
+
+[node name="CurrentBadge" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("18_urkug")

@@ -10,17 +10,22 @@ extends Control
 
 @export var orbs_left :Array[Texture2D]
 
+@export var badges :SpriteFrames
+
 var time = 0.0
 var timer_allowed = false
+var badge_times
+var current_badge = 0
 
 func _process(delta):
 	if timer_allowed:
 		time += delta
-		$TimeText.text = str(int(time))
+		$MarginContainer/HBoxContainer/TimeText.text = str(int(time))
+		check_badge()
 
 func reset_timer():
 	time = 0.0
-	$TimeText.text = str(int(time))
+	$MarginContainer/HBoxContainer/TimeText.text = str(int(time))
 
 func _on_visibility_changed():
 	timer_allowed = visible
@@ -46,3 +51,30 @@ func set_dash_used(can_dash):
 
 func set_current_enemy_count(value):
 	$CurrentEnemyCountBack/CurrentEnemyCountLabel.text = str(value)
+
+func check_badge():
+	var badge = 0
+	var seconds = int(time)
+	print(seconds)
+	if badge_times.size()  == 4:
+		if seconds < badge_times[0]:
+			print(badge_times[0])
+			badge = 4
+		elif seconds < badge_times[1]:
+			print(badge_times[1])
+			badge = 3
+		elif seconds < badge_times[2]:
+			print(badge_times[2])
+			badge = 2
+		elif seconds < badge_times[3]:
+			print(badge_times[3])
+			badge = 1
+		elif seconds > badge_times[3]:
+			badge = 0
+	
+	if badge != current_badge:
+		update_badge(badge)
+
+func update_badge(badge):
+	current_badge = badge
+	$MarginContainer/HBoxContainer/CurrentBadge.texture = badges.get_frame_texture("default",badge)
