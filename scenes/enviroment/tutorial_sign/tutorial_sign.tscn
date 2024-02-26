@@ -46,6 +46,10 @@ theme_override_font_sizes/font_size = 80
 text = "Test Tutorial Text"
 horizontal_alignment = 1
 
+[node name="KeyboardPrompts" type="Node2D" parent="TextContainer"]
+
+[node name="ControllerPrompts" type="Node2D" parent="TextContainer"]
+
 [connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]
 [connection signal="area_exited" from="TriggerArea" to="." method="_on_trigger_area_area_exited"]
 [connection signal="timeout" from="LeaveTimer" to="." method="_on_leave_timer_timeout"]

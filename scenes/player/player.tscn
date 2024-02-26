@@ -22,7 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://co8g58x3flmpj" path="res://assets/sfx/player/walk_sfx.mp3" id="18_ua06j"]
 [ext_resource type="AudioStream" uid="uid://duvmvucant0du" path="res://assets/sfx/player/player_damage_sfx.mp3" id="19_6lf02"]
 [ext_resource type="Script" path="res://scenes/player/enemy_indicator_controller.gd" id="20_hjysh"]
-[ext_resource type="PackedScene" uid="uid://bsk168y5iskk7" path="res://scenes/ui/enemy_inidcator.tscn" id="21_gitdl"]
+[ext_resource type="PackedScene" path="res://scenes/ui/enemy_inidcator.tscn" id="21_gitdl"]
 [ext_resource type="AudioStream" uid="uid://eet0qccg811q" path="res://assets/sfx/orb/last_orb_sfx.mp3" id="22_fhwqx"]
 [ext_resource type="PackedScene" uid="uid://3kfct5n0mk2w" path="res://scenes/player/dash_cooldown_bar.tscn" id="25_7lob2"]
 
@@ -841,8 +841,8 @@ _data = {
 collision_layer = 9
 collision_mask = 9
 script = ExtResource("1_il0n1")
-normal_speed = 780.0
-jump_velocity = -1200.0
+normal_speed = 680.0
+jump_velocity = -1100.0
 acceleration = 94.0
 deceleration = 0.19
 dash_speed = 3000
