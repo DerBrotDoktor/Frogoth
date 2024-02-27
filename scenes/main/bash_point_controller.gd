@@ -33,7 +33,11 @@ func add_point(point):
 	current_shape.add_point_object(point)
 	point.is_in_shape = true
 	stats_connected_orbs += 1
-
+	if point.has_method("highlight_point"):
+		point.highlight_point()
+	if current_points.size() > 2:
+		if current_points[current_points.size()-3].has_method("not_highlight_point"):
+			current_points[current_points.size()-3].not_highlight_point()
 func new_shape():
 	current_shape = shape_prefab.instantiate()
 	add_child(current_shape)
