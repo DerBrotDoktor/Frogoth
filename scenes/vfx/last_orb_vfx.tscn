@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c8uahgcbmmlgp"]
+[gd_scene load_steps=17 format=3 uid="uid://c8uahgcbmmlgp"]
 
 [ext_resource type="Texture2D" uid="uid://cxslxmwnpbyi8" path="res://assets/vfx/player/empty_orbs_spritesheet3.png" id="1_o70ot"]
 
@@ -76,6 +76,14 @@ emission_curve = SubResource("CurveTexture_4bajb")
 anim_speed_min = 0.1
 anim_speed_max = 1.6
 
+[sub_resource type="GDScript" id="GDScript_wvl3x"]
+script/source = "extends GPUParticles2D
+
+func _on_finished():
+	queue_free()
+	pass # Replace with function body.
+"
+
 [node name="LastOrbVFX" type="GPUParticles2D"]
 self_modulate = Color(1.4, 1.4, 1.4, 1)
 z_index = 2
@@ -90,3 +98,6 @@ speed_scale = 2.0
 explosiveness = 1.0
 randomness = 1.0
 fixed_fps = 60
+script = SubResource("GDScript_wvl3x")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
