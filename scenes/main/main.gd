@@ -76,7 +76,7 @@ func next_level():
 		load_level_by_index(current_level_index+1)
 
 func set_level_statistics():
-	var time = int($Canvas/UserInterface.time)
+	var time = str($Canvas/UserInterface.time).pad_decimals(2)
 	var badge = current_scene.get_badge(int($Canvas/UserInterface.time))
 	var air_time = int(player.stats_air_time)
 	var jumps = player.stats_jumps
