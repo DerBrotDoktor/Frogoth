@@ -9,10 +9,7 @@ func enable():
 	$ProgressBar.visible = true
 
 func disable():
-	was_visible = $ProgressBar.visible
-	$ProgressBar.visible = false
-	if was_visible:
-		$GPUParticles2D.restart()
+	$AnimationPlayer.play("full")
 
 func _process(delta):
 	if visible:
