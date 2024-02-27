@@ -381,6 +381,7 @@ func play_animation(animation):
 func squash_and_stretch(was_on_floor):
 	if not was_on_floor and is_on_floor():
 		$SquashTimer.start()
+		$PlayerAnimation.play("landing_vfx")
 	var current_deformation = $Animation.material.get_shader_parameter("deformation")
 	if not $StretchTimer.is_stopped():
 		$Animation.material.set_shader_parameter("deformation", Vector2(lerpf(current_deformation.x, stretch, 0.1), 0))
