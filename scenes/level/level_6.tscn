@@ -16,12 +16,12 @@
 [ext_resource type="TileSet" uid="uid://w07uqdijjh3l" path="res://assets/tileset/walkable_tiles.tres" id="14_uf4hw"]
 [ext_resource type="PackedScene" uid="uid://dgd8nl3naigxy" path="res://scenes/enviroment/platforms/special/moving_platform.tscn" id="16_6i6xt"]
 [ext_resource type="Texture2D" uid="uid://xjiqsxpm7af5" path="res://assets/platforms/platform_small_1.png" id="17_xe35b"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_5.tscn" id="18_3jyou"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_6.tscn" id="19_6lvr7"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_7.tscn" id="20_2jfn6"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_2.tscn" id="21_gw042"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_3.tscn" id="22_e1yup"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_1.tscn" id="22_lkfgw"]
+[ext_resource type="PackedScene" uid="uid://cvrq0qhaoni3t" path="res://scenes/enviroment/spikes/spikes_5.tscn" id="18_3jyou"]
+[ext_resource type="PackedScene" uid="uid://d1jbeg4vofhsg" path="res://scenes/enviroment/spikes/spikes_6.tscn" id="19_6lvr7"]
+[ext_resource type="PackedScene" uid="uid://bjmcwiyef73e7" path="res://scenes/enviroment/spikes/spikes_7.tscn" id="20_2jfn6"]
+[ext_resource type="PackedScene" uid="uid://5rgie8kr0y4h" path="res://scenes/enviroment/spikes/spikes_2.tscn" id="21_gw042"]
+[ext_resource type="PackedScene" uid="uid://bnujdtd2m4g1n" path="res://scenes/enviroment/spikes/spikes_3.tscn" id="22_e1yup"]
+[ext_resource type="PackedScene" uid="uid://ig1uyb17ex25" path="res://scenes/enviroment/spikes/spikes_1.tscn" id="22_lkfgw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pccc"]
 size = Vector2(12313, 377)

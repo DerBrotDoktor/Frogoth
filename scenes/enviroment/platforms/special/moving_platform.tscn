@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgd8nl3naigxy"]
+[gd_scene load_steps=7 format=3 uid="uid://dgd8nl3naigxy"]
 
 [ext_resource type="Script" path="res://scenes/enviroment/platforms/special/moving_platform.gd" id="1_m17mn"]
 [ext_resource type="Shader" path="res://scenes/enviroment/platforms/special/moving_platform.gdshader" id="2_vlqrg"]
 [ext_resource type="Texture2D" uid="uid://si70jlu0eqg3" path="res://assets/decor/chain_tile.png" id="3_lrgdd"]
+[ext_resource type="Texture2D" uid="uid://c4a4o36nsjn6" path="res://assets/decor/chain_end.png" id="4_ftss3"]
 
 [sub_resource type="Curve2D" id="Curve2D_tq8gb"]
 _data = {
@@ -27,3 +28,9 @@ material = SubResource("ShaderMaterial_bmikk")
 width = 128.0
 texture = ExtResource("3_lrgdd")
 texture_mode = 1
+
+[node name="ChainEnd1" type="Sprite2D" parent="."]
+texture = ExtResource("4_ftss3")
+
+[node name="ChainEnd2" type="Sprite2D" parent="."]
+texture = ExtResource("4_ftss3")

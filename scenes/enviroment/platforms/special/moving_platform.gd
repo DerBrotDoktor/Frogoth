@@ -9,6 +9,9 @@ var platform
 func _ready():
 	$PathSprite.points = curve.get_baked_points()
 	$PathSprite.material.set_shader_parameter("speed", chain_speed)
+	if $PathSprite.points.size() > 0:
+		$ChainEnd1.position = $PathSprite.points[0]
+		$ChainEnd2.position = $PathSprite.points[$PathSprite.points.size()-1]
 	for child in get_children():
 		if child.name == "Platform":
 			platform = child
