@@ -1,7 +1,7 @@
 extends Control
 
 func _input(event):
-	if visible and (event is InputEventKey) and $PressKeyDelay.is_stopped():
+	if visible and (event is InputEventKey or event is InputEventJoypadButton) and $PressKeyDelay.is_stopped():
 		if event.is_released():
 			get_parent().switch_to_child("MainMenu")
 
