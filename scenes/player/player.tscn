@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=3 uid="uid://bfqr80qekwaw5"]
+[gd_scene load_steps=120 format=3 uid="uid://bfqr80qekwaw5"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_il0n1"]
 [ext_resource type="PackedScene" uid="uid://beocyu2m1xsx1" path="res://scenes/player/player_ghost.tscn" id="2_rl3rv"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bsk168y5iskk7" path="res://scenes/ui/enemy_inidcator.tscn" id="21_gitdl"]
 [ext_resource type="AudioStream" uid="uid://eet0qccg811q" path="res://assets/sfx/orb/last_orb_sfx.mp3" id="22_fhwqx"]
 [ext_resource type="PackedScene" uid="uid://3kfct5n0mk2w" path="res://scenes/player/dash_cooldown_bar.tscn" id="25_7lob2"]
+[ext_resource type="PackedScene" uid="uid://c8uahgcbmmlgp" path="res://scenes/vfx/last_orb_vfx.tscn" id="26_kc4vf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fl175"]
 shader = ExtResource("4_wsp2d")
@@ -851,6 +852,7 @@ dash_deceleration = 8.0
 ghost_node = ExtResource("2_rl3rv")
 gravity = 3000
 temporary_orb_prefab = ExtResource("3_qo4h5")
+last_orb_vfx_prefab = ExtResource("26_kc4vf")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 z_index = 2

@@ -20,6 +20,7 @@ signal player_died()
 @export var squash = 0.2
 @export var stretch = 0.1
 @export var invincible_frames = 30
+@export var last_orb_vfx_prefab :PackedScene
 
 var can_jump = false
 var can_double_jump = false
@@ -363,6 +364,10 @@ func place_temporary_orb(pos):
 	entered_orb.emit(orb)
 	if orbs_left == 0:
 		$SFXPlayer/LastOrbPlacedPlayer.play()
+		var last_orb_vfx = last_orb_vfx_prefab.instantiate()
+		last_orb_vfx.global_position = global_position
+		get_parent().add_child(last_orb_vfx)
+		last_orb_vfx.emitting = true
 
 func play_animation(animation):
 	var animation_not_allowed = ($Animation.animation == "death" or $Animation.animation == "damage")
