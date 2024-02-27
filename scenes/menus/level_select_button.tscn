@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvm01dqpggme7"]
+[gd_scene load_steps=7 format=3 uid="uid://bvm01dqpggme7"]
 
 [ext_resource type="Texture2D" uid="uid://bl6l66n1vbsp" path="res://assets/ui/buttons/level_lock.png" id="1_15b1v"]
 [ext_resource type="Texture2D" uid="uid://blgw2jn54mjr1" path="res://assets/ui/buttons/level_select_button.png" id="1_g0i30"]
 [ext_resource type="Script" path="res://scenes/menus/level_select_button.gd" id="2_586bl"]
+[ext_resource type="Texture2D" uid="uid://cd2e2plx6fcdn" path="res://assets/ui/buttons/level_select_button_pressed.png" id="2_x8uqo"]
+[ext_resource type="Texture2D" uid="uid://dpq6aexpbskl1" path="res://assets/ui/buttons/level_select_button_hover.png" id="3_dxqmi"]
 [ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="3_gm6e8"]
 
 [node name="LevelSelectButton" type="TextureButton"]
@@ -10,6 +12,9 @@ custom_minimum_size = Vector2(180, 180)
 offset_right = 180.0
 offset_bottom = 180.0
 texture_normal = ExtResource("1_g0i30")
+texture_pressed = ExtResource("2_x8uqo")
+texture_hover = ExtResource("3_dxqmi")
+texture_focused = ExtResource("3_dxqmi")
 script = ExtResource("2_586bl")
 
 [node name="Text" type="Label" parent="."]
@@ -20,9 +25,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
+theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("3_gm6e8")
-theme_override_font_sizes/font_size = 90
+theme_override_font_sizes/font_size = 100
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
