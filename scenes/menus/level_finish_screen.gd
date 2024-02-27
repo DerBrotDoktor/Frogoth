@@ -9,15 +9,18 @@ func set_statistics(time, badge, air_time, jumps, connected_orbs, total_shapes):
 	$ColorRect2/MarginContainer2/Badge.set_sprite(badge)
 
 func _on_next_level_button_button_down():
-	get_parent().next_level()
+	if $InputBlockTimer.is_stopped:
+		get_parent().next_level()
 
 func _on_restart_button_button_down():
-	get_parent().restart_level()
+	if $InputBlockTimer.is_stopped:
+		get_parent().restart_level()
 
 func _on_main_menu_button_button_down():
-	get_parent().switch_to_child("MainMenu")
-
+	if $InputBlockTimer.is_stopped:
+		get_parent().switch_to_child("MainMenu")
 
 func _on_visibility_changed():
 	if $ColorRect2/MarginContainer/Buttons/NextLevelButton.is_inside_tree() and visible:
 		$ColorRect2/MarginContainer/Buttons/NextLevelButton.grab_focus()
+		$InputBlockTimer.start()

@@ -238,6 +238,9 @@ layout_mode = 2
 text = "Total shapes:
 "
 
+[node name="InputBlockTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="button_down" from="ColorRect2/MarginContainer/Buttons/NextLevelButton" to="." method="_on_next_level_button_button_down"]
 [connection signal="button_down" from="ColorRect2/MarginContainer/Buttons/RestartButton" to="." method="_on_restart_button_button_down"]
