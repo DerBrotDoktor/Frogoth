@@ -233,20 +233,27 @@ script = ExtResource("9_77551")
 player = NodePath("../Player")
 
 [node name="UserInterface" parent="Canvas" instance=ExtResource("6_a7p0o")]
+visible = false
 
 [node name="PauseMenu" parent="Canvas" instance=ExtResource("10_u7rrt")]
+visible = false
 
 [node name="MainMenu" parent="Canvas" instance=ExtResource("4_3igok")]
 
 [node name="LevelSelectMenu" parent="Canvas" instance=ExtResource("3_qm2ey")]
+visible = false
 
 [node name="LevelFinishScreen" parent="Canvas" instance=ExtResource("14_nbfd2")]
+visible = false
 
 [node name="ControllerSettingsUI" parent="Canvas" instance=ExtResource("17_8mvke")]
+visible = false
 
 [node name="SettingsMenu" parent="Canvas" instance=ExtResource("20_f3gq3")]
+visible = false
 
 [node name="WarningScreen" parent="Canvas" instance=ExtResource("26_fok5k")]
+visible = false
 
 [node name="EscapeDelay" type="Timer" parent="Canvas"]
 wait_time = 0.001

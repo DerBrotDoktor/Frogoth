@@ -130,13 +130,13 @@ func handle_dash_movement():
 
 func enable():
 	$Animation.visible = true
-	$Camera.enabled = true
 	$EnemyIndicatorController.visible = true
 	await get_tree().create_timer(0.1).timeout
+	$Camera.position_smoothing_enabled = true
 	is_disabled = false
 
 func disable():
-	$Camera.enabled = false
+	$Camera.position_smoothing_enabled = false
 	$Animation.visible = false
 	$EnemyIndicatorController.visible = false
 	is_disabled = true
