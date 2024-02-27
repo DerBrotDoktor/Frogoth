@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bv7u7b0pw30jd"]
+[gd_scene load_steps=46 format=3 uid="uid://bv7u7b0pw30jd"]
 
 [ext_resource type="TileSet" uid="uid://bp2o7j5jtvfd2" path="res://assets/tileset/ground_1_tileset.tres" id="1_cfrs2"]
 [ext_resource type="TileSet" uid="uid://w07uqdijjh3l" path="res://assets/tileset/walkable_tiles.tres" id="1_ljw55"]
@@ -25,12 +25,16 @@
 [ext_resource type="Texture2D" uid="uid://cvkcs6m3aj052" path="res://assets/xelu_controller_and_key_prompts_pack/Keyboard Light/KeyLight0097.png" id="19_7brxy"]
 [ext_resource type="Texture2D" uid="uid://dwvnc7biiwyij" path="res://assets/xelu_controller_and_key_prompts_pack/Keyboard Light/KeyLight0095.png" id="20_40npm"]
 [ext_resource type="Texture2D" uid="uid://cjlr2a1ixau0m" path="res://assets/xelu_controller_and_key_prompts_pack/Keyboard Light/KeyLight0148.png" id="21_wet2r"]
+[ext_resource type="Texture2D" uid="uid://bn0lyojrlioq8" path="res://assets/xelu_controller_and_key_prompts_pack/Playstation/Playstation0025.png" id="21_x3xwc"]
 [ext_resource type="Texture2D" uid="uid://bltguf4hipd8c" path="res://assets/xelu_controller_and_key_prompts_pack/Keyboard Light/KeyLight0140.png" id="22_5um34"]
 [ext_resource type="PackedScene" uid="uid://d1jbeg4vofhsg" path="res://scenes/enviroment/spikes/spikes_6.tscn" id="22_a1mgv"]
 [ext_resource type="PackedScene" uid="uid://bjmcwiyef73e7" path="res://scenes/enviroment/spikes/spikes_7.tscn" id="23_77gmg"]
+[ext_resource type="Texture2D" uid="uid://iaph7t6y3rfd" path="res://assets/xelu_controller_and_key_prompts_pack/Positional Prompts/Positional_Prompts_Down.png" id="23_frs6w"]
 [ext_resource type="Texture2D" uid="uid://beumevw1pst05" path="res://assets/xelu_controller_and_key_prompts_pack/Keyboard Light/KeyLight0078.png" id="23_qymle"]
 [ext_resource type="Texture2D" uid="uid://btmt7xbmm0w33" path="res://assets/xelu_controller_and_key_prompts_pack/Keyboard Light/KeyLight0098.png" id="24_mo43k"]
 [ext_resource type="PackedScene" uid="uid://ig1uyb17ex25" path="res://scenes/enviroment/spikes/spikes_1.tscn" id="24_p1j5d"]
+[ext_resource type="Texture2D" uid="uid://dd1f3gbpqf33v" path="res://assets/xelu_controller_and_key_prompts_pack/Positional Prompts/Positional_Prompts_Right.png" id="26_jdor0"]
+[ext_resource type="Texture2D" uid="uid://dofg8bh2ub887" path="res://assets/xelu_controller_and_key_prompts_pack/Positional Prompts/Positional_Prompts_Left.png" id="28_mxqiv"]
 
 [sub_resource type="Curve2D" id="Curve2D_v58ew"]
 _data = {
@@ -320,15 +324,23 @@ theme_override_font_sizes/font_size = 80
 text = "Use"
 horizontal_alignment = 1
 
-[node name="KeyLight0097" type="Sprite2D" parent="TutorialSigns/TutorialSign/TextContainer" index="2"]
+[node name="KeyLight0097" type="Sprite2D" parent="TutorialSigns/TutorialSign/TextContainer/KeyboardPrompts" index="0"]
 position = Vector2(102.4, -520)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("19_7brxy")
 
-[node name="KeyLight0095" type="Sprite2D" parent="TutorialSigns/TutorialSign/TextContainer" index="3"]
+[node name="KeyLight0095" type="Sprite2D" parent="TutorialSigns/TutorialSign/TextContainer/KeyboardPrompts" index="1"]
 position = Vector2(-102.4, -520)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("20_40npm")
+
+[node name="ControllerPrompts" parent="TutorialSigns/TutorialSign/TextContainer" index="3"]
+visible = false
+
+[node name="Playstation0025" type="Sprite2D" parent="TutorialSigns/TutorialSign/TextContainer/ControllerPrompts" index="0"]
+position = Vector2(0, -520)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("21_x3xwc")
 
 [node name="TutorialSign2" parent="TutorialSigns" instance=ExtResource("2_jgae1")]
 position = Vector2(3820, 7)
@@ -338,14 +350,10 @@ visible = false
 position = Vector2(-51, -131)
 shape = SubResource("RectangleShape2D_2n1q5")
 
-[node name="KeyLight0148" type="Sprite2D" parent="TutorialSigns/TutorialSign2/TextContainer" index="0"]
-position = Vector2(0, -511)
-texture = ExtResource("21_wet2r")
-
-[node name="Text" parent="TutorialSigns/TutorialSign2/TextContainer" index="1"]
+[node name="Text" parent="TutorialSigns/TutorialSign2/TextContainer" index="0"]
 text = "to jump up to 3 times"
 
-[node name="Text3" type="Label" parent="TutorialSigns/TutorialSign2/TextContainer" index="2"]
+[node name="Text3" type="Label" parent="TutorialSigns/TutorialSign2/TextContainer" index="1"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -362,6 +370,18 @@ theme = SubResource("Theme_j5iga")
 theme_override_font_sizes/font_size = 80
 text = "Use"
 horizontal_alignment = 1
+
+[node name="KeyLight0148" type="Sprite2D" parent="TutorialSigns/TutorialSign2/TextContainer/KeyboardPrompts" index="0"]
+position = Vector2(0, -510)
+texture = ExtResource("21_wet2r")
+
+[node name="ControllerPrompts" parent="TutorialSigns/TutorialSign2/TextContainer" index="3"]
+visible = false
+
+[node name="PositionalPromptsDown" type="Sprite2D" parent="TutorialSigns/TutorialSign2/TextContainer/ControllerPrompts" index="0"]
+position = Vector2(0, -510)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("23_frs6w")
 
 [node name="TutorialSign3" parent="TutorialSigns" instance=ExtResource("2_jgae1")]
 position = Vector2(7619, -1407)
@@ -412,14 +432,27 @@ theme_override_font_sizes/font_size = 80
 text = "to dash"
 horizontal_alignment = 1
 
-[node name="KeyLight0140" type="Sprite2D" parent="TutorialSigns/TutorialSign3/TextContainer" index="3"]
+[node name="KeyLight0078" type="Sprite2D" parent="TutorialSigns/TutorialSign3/TextContainer/KeyboardPrompts" index="0"]
+position = Vector2(180, -470)
+texture = ExtResource("23_qymle")
+
+[node name="KeyLight0140" type="Sprite2D" parent="TutorialSigns/TutorialSign3/TextContainer/KeyboardPrompts" index="1"]
 position = Vector2(-157, -450)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("22_5um34")
 
-[node name="KeyLight0078" type="Sprite2D" parent="TutorialSigns/TutorialSign3/TextContainer" index="4"]
-position = Vector2(179, -467)
-texture = ExtResource("23_qymle")
+[node name="ControllerPrompts" parent="TutorialSigns/TutorialSign3/TextContainer" index="4"]
+visible = false
+
+[node name="PositionalPromptsRight" type="Sprite2D" parent="TutorialSigns/TutorialSign3/TextContainer/ControllerPrompts" index="0"]
+position = Vector2(-158, -453)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("26_jdor0")
+
+[node name="Playstation0025" type="Sprite2D" parent="TutorialSigns/TutorialSign3/TextContainer/ControllerPrompts" index="1"]
+position = Vector2(180, -450)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("21_x3xwc")
 
 [node name="TutorialSign4" parent="TutorialSigns" instance=ExtResource("2_jgae1")]
 position = Vector2(16369, -2040)
@@ -447,12 +480,7 @@ visible = false
 position = Vector2(-51, -589.5)
 shape = SubResource("RectangleShape2D_2n1q5")
 
-[node name="KeyLight0098" type="Sprite2D" parent="TutorialSigns/TutorialSign5/TextContainer" index="0"]
-position = Vector2(6, -334)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("24_mo43k")
-
-[node name="Text" parent="TutorialSigns/TutorialSign5/TextContainer" index="1"]
+[node name="Text" parent="TutorialSigns/TutorialSign5/TextContainer" index="0"]
 offset_left = -435.0
 offset_top = -937.0
 offset_right = 436.0
@@ -462,6 +490,19 @@ to place your own orbs.
 You can place 8 orbs 
 and can discard your 
 current shape with"
+
+[node name="KeyLight0098" type="Sprite2D" parent="TutorialSigns/TutorialSign5/TextContainer/KeyboardPrompts" index="0"]
+position = Vector2(0, -330)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("24_mo43k")
+
+[node name="ControllerPrompts" parent="TutorialSigns/TutorialSign5/TextContainer" index="2"]
+visible = false
+
+[node name="PositionalPromptsLeft" type="Sprite2D" parent="TutorialSigns/TutorialSign5/TextContainer/ControllerPrompts" index="0"]
+position = Vector2(0, -335)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("28_mxqiv")
 
 [node name="TutorialSign6" parent="TutorialSigns" instance=ExtResource("2_jgae1")]
 position = Vector2(32953, -5620)

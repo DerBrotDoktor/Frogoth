@@ -1,28 +1,35 @@
 extends Node2D
 
+enum InputMethods {KEYBOARD, CONTROLLER}
 
-enum INPUT_METHODS {KEYBOARD, CONTROLLER}
-
-var last_input_method :INPUT_METHODS
-
-func _input(event):
-	if event is InputEventJoypadButton and last_input_method == INPUT_METHODS.KEYBOARD:
-		last_input_method = INPUT_METHODS.CONTROLLER
-		update_key_prompts()
-	elif (event is InputEventKey or event is InputEventMouseButton) and last_input_method == INPUT_METHODS.CONTROLLER:
-		last_input_method = INPUT_METHODS.KEYBOARD
-		update_key_prompts()
-
-func update_key_prompts():
-	if last_input_method == INPUT_METHODS.KEYBOARD:
-		$TextContainer/KeyboardPrompts.visible = true
-		$TextContainer/ControllerPrompts.visible = false
-	elif last_input_method == INPUT_METHODS.CONTROLLER:
-		$TextContainer/KeyboardPrompts.visible = false
-		$TextContainer/ControllerPrompts.visible = true
+var last_input_method :InputMethods = InputMethods.KEYBOARD
 
 func _ready():
 	hide_text()
+	update_key_prompts()
+
+func _input(event):
+	var event_is_controller = event is InputEventJoypadButton or event is InputEventJoypadMotion
+	var event_is_keyboard = event is InputEventKey or event is InputEventMouseButton
+	
+	if event_is_controller and last_input_method == InputMethods.KEYBOARD:
+		if event is InputEventJoypadMotion:
+			if (event.axis_value < 0.2) and (event.axis_value > -0.2):
+				return
+		last_input_method = InputMethods.CONTROLLER
+		update_key_prompts()
+		
+	elif event_is_keyboard and last_input_method == InputMethods.CONTROLLER:
+		last_input_method = InputMethods.KEYBOARD
+		update_key_prompts()
+
+func update_key_prompts():
+	if last_input_method == InputMethods.KEYBOARD:
+		$TextContainer/KeyboardPrompts.visible = true
+		$TextContainer/ControllerPrompts.visible = false
+	elif last_input_method == InputMethods.CONTROLLER:
+		$TextContainer/KeyboardPrompts.visible = false
+		$TextContainer/ControllerPrompts.visible = true
 
 func show_text():
 	$LeaveTimer.stop()
