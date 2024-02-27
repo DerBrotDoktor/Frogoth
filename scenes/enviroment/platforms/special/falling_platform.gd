@@ -15,9 +15,12 @@ func _physics_process(_delta):
 
 func start_fall():
 	$AnimationPlayer.play("fall_preperation")
+	$FallingPlatformDust.start()
 	$FalingPreperationPlayer.play()
 	$AnimationTimer.start()
+
 func fall():
+	$FallingPlatformDust.stop()
 	if platform:
 		is_falling = true
 		platform.process_mode = PROCESS_MODE_DISABLED

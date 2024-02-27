@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dm6yss7w4ixcq"]
+[gd_scene load_steps=10 format=3 uid="uid://dm6yss7w4ixcq"]
 
 [ext_resource type="Script" path="res://scenes/enviroment/platforms/special/falling_platform.gd" id="1_6e0rx"]
 [ext_resource type="AudioStream" uid="uid://c1u3s7d2w0dpv" path="res://assets/sfx/enviroment/falling_platform_sfx.mp3" id="2_7tpvr"]
+[ext_resource type="PackedScene" uid="uid://cd0fwinh0ceu8" path="res://scenes/vfx/falling_platform_dust.tscn" id="3_pnt7o"]
 
 [sub_resource type="Animation" id="Animation_vard7"]
 length = 0.001
@@ -125,6 +126,8 @@ shape = SubResource("RectangleShape2D_vujji")
 stream = ExtResource("2_7tpvr")
 volume_db = -6.0
 bus = &"SoundEffects"
+
+[node name="FallingPlatformDust" parent="." instance=ExtResource("3_pnt7o")]
 
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
 [connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]
