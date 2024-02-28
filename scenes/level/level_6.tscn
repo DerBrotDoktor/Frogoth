@@ -290,9 +290,10 @@ texture = ExtResource("24_chrn4")
 
 [node name="Statue2" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(4127, -1289)
-rotation = -0.0609727
+position = Vector2(1829, -3433)
+rotation = 0.00632527
 texture = ExtResource("25_g8g3y")
+flip_h = true
 
 [node name="Pillar1" type="Sprite2D" parent="."]
 z_index = -2
