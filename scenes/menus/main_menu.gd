@@ -21,3 +21,10 @@ func _on_visibility_changed():
 
 func _on_settings_button_button_up():
 	get_parent().switch_to_child("SettingsMenu")
+
+func play_click_sound():
+	$ClickSoundPlayer.play()
+
+func play_hover_sound():
+	if visible:
+		$HoverSoundPlayer.play()

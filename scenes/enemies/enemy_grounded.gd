@@ -97,3 +97,6 @@ func die():
 	if main:
 		main.check_for_win()
 	queue_free()
+
+func is_on_screen():
+	return $VisibleOnScreenNotifier.is_on_screen()

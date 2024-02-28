@@ -16,3 +16,12 @@ func lock_button():
 func unlock_button():
 	disabled = false
 	$LevelLock.visible = false
+
+func _on_button_down():
+	$"../../../..".play_click_sound()
+
+func _on_focus_entered():
+	$"../../../..".play_hover_sound()
+
+func _on_mouse_entered():
+	$"../../../..".play_hover_sound()

@@ -24,3 +24,10 @@ func _on_visibility_changed():
 	if $ColorRect2/MarginContainer/Buttons/NextLevelButton.is_inside_tree() and visible:
 		$ColorRect2/MarginContainer/Buttons/NextLevelButton.grab_focus()
 		$InputBlockTimer.start()
+
+func play_click_sound():
+	$ClickSoundPlayer.play()
+
+func play_hover_sound():
+	if visible:
+		$HoverSoundPlayer.play()

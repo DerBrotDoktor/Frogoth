@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c7uqvsqtn5b6p"]
+[gd_scene load_steps=16 format=3 uid="uid://c7uqvsqtn5b6p"]
 
 [ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="1_4inao"]
 [ext_resource type="Script" path="res://scenes/menus/main_menu.gd" id="1_6s5vr"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://bfgpum7vih67h" path="res://assets/ui/buttons/button.png" id="6_yipjy"]
 [ext_resource type="Texture2D" uid="uid://0oyw7lpc3u77" path="res://assets/ui/buttons/button_pressed.png" id="7_1gb7r"]
 [ext_resource type="Texture2D" uid="uid://du2ffk8u3dgs3" path="res://assets/ui/buttons/button_hover.png" id="8_8cd5u"]
+[ext_resource type="AudioStream" uid="uid://bqc5ixsdchxca" path="res://assets/sfx/ui/ui_click_sfx.mp3" id="10_d4n40"]
+[ext_resource type="AudioStream" uid="uid://qawii75qexb5" path="res://assets/sfx/ui/ui_hover_sfx.mp3" id="11_p221l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdcpn"]
 bg_color = Color(0.168627, 0.305882, 0.776471, 1)
@@ -226,8 +228,28 @@ text = "Quit
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ClickSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_d4n40")
+bus = &"UI"
+
+[node name="HoverSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_p221l")
+bus = &"UI"
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="button_down" from="MarginContainer/VerticalContainer/StartButton" to="." method="play_click_sound"]
 [connection signal="button_up" from="MarginContainer/VerticalContainer/StartButton" to="." method="_on_start_button_button_up"]
+[connection signal="focus_entered" from="MarginContainer/VerticalContainer/StartButton" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="MarginContainer/VerticalContainer/StartButton" to="." method="play_hover_sound"]
+[connection signal="button_down" from="MarginContainer/VerticalContainer/LevelSelectButton" to="." method="play_click_sound"]
 [connection signal="button_up" from="MarginContainer/VerticalContainer/LevelSelectButton" to="." method="_on_level_select_button_button_up"]
+[connection signal="focus_entered" from="MarginContainer/VerticalContainer/LevelSelectButton" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="MarginContainer/VerticalContainer/LevelSelectButton" to="." method="play_hover_sound"]
+[connection signal="button_down" from="MarginContainer/VerticalContainer/SettingsButton" to="." method="play_click_sound"]
 [connection signal="button_up" from="MarginContainer/VerticalContainer/SettingsButton" to="." method="_on_settings_button_button_up"]
+[connection signal="focus_entered" from="MarginContainer/VerticalContainer/SettingsButton" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="MarginContainer/VerticalContainer/SettingsButton" to="." method="play_hover_sound"]
+[connection signal="button_down" from="MarginContainer/VerticalContainer/QuitButton" to="." method="play_click_sound"]
 [connection signal="button_up" from="MarginContainer/VerticalContainer/QuitButton" to="." method="_on_quit_button_button_up"]
+[connection signal="focus_entered" from="MarginContainer/VerticalContainer/QuitButton" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="MarginContainer/VerticalContainer/QuitButton" to="." method="play_hover_sound"]

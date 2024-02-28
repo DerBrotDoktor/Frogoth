@@ -24,6 +24,7 @@ func load_scene(scene:PackedScene):
 func load_level_by_index(index:int):
 	delete_shapes()
 	if index < level.size():
+		player.disable()
 		$BashPointController.clear_shape()
 		$SceneTransition/SceneTransitionAnimationPlayer.play("fade_in")
 		await $SceneTransition/SceneTransitionAnimationPlayer.animation_finished
@@ -35,10 +36,10 @@ func load_level_by_index(index:int):
 		current_level_index = index
 		$Canvas/UserInterface.badge_times = current_scene.badge_times
 		$Canvas.switch_to_child("UserInterface")
-		player.enable()
 		$Canvas/PauseMenu.set_level(current_scene.level_name)
 		$SceneTransition/SceneTransitionAnimationPlayer.play_backwards("fade_in")
 		await $SceneTransition/SceneTransitionAnimationPlayer.animation_finished
+		player.enable()
 	else:
 		$Canvas.switch_to_child("MainMenu")
 

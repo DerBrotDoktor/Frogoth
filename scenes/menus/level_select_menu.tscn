@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://byylmvxjebsun"]
+[gd_scene load_steps=10 format=3 uid="uid://byylmvxjebsun"]
 
 [ext_resource type="Script" path="res://scenes/menus/level_select_menu.gd" id="1_8ktxo"]
 [ext_resource type="Texture2D" uid="uid://m30ojk8eyhbr" path="res://assets/parallax/sky.png" id="2_v8a2s"]
-[ext_resource type="PackedScene" uid="uid://csqng2jvrecie" path="res://scenes/menus/level_select_button.tscn" id="3_r7r17"]
+[ext_resource type="PackedScene" uid="uid://bvm01dqpggme7" path="res://scenes/menus/level_select_button.tscn" id="3_r7r17"]
+[ext_resource type="AudioStream" uid="uid://bqc5ixsdchxca" path="res://assets/sfx/ui/ui_click_sfx.mp3" id="4_8juqq"]
+[ext_resource type="AudioStream" uid="uid://qawii75qexb5" path="res://assets/sfx/ui/ui_hover_sfx.mp3" id="5_qe6lp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3fn0t"]
 font_size = 120
@@ -113,6 +115,14 @@ theme_override_font_sizes/font_size = 50
 shortcut = SubResource("Shortcut_mvqwp")
 text = "Main Menu"
 
+[node name="ClickSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_8juqq")
+bus = &"UI"
+
+[node name="HoverSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qe6lp")
+bus = &"UI"
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton0" to="." method="load_level"]
 [connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton1" to="." method="load_level"]
@@ -123,4 +133,7 @@ text = "Main Menu"
 [connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton6" to="." method="load_level"]
 [connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton7" to="." method="load_level"]
 [connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton8" to="." method="load_level"]
+[connection signal="button_down" from="BackButton" to="." method="play_click_sound"]
+[connection signal="focus_entered" from="BackButton" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="BackButton" to="." method="play_hover_sound"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

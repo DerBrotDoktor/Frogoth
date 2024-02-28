@@ -28,3 +28,10 @@ func _on_visibility_changed():
 
 func set_level(level_name):
 	$LevelText.text = level_name
+
+func play_hover_sound():
+	$HoverSoundPlayer.play()
+
+func play_click_sound():
+	if visible:
+		$ClickSoundPlayer.play()

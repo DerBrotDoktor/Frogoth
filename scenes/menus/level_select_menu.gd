@@ -52,3 +52,10 @@ func new_data():
 	for i in range (2,level_amount):
 		level_locked.append(true)
 	print("save: ", level_locked)
+
+func play_click_sound():
+	$ClickSoundPlayer.play()
+
+func play_hover_sound():
+	if visible:
+		$HoverSoundPlayer.play()

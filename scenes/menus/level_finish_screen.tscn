@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cj5y0tnco4cx1"]
+[gd_scene load_steps=13 format=3 uid="uid://cj5y0tnco4cx1"]
 
 [ext_resource type="Script" path="res://scenes/menus/level_finish_screen.gd" id="1_iw8t1"]
 [ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="1_pqixf"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bfgpum7vih67h" path="res://assets/ui/buttons/button.png" id="4_s17cd"]
 [ext_resource type="Texture2D" uid="uid://0oyw7lpc3u77" path="res://assets/ui/buttons/button_pressed.png" id="5_6qym1"]
 [ext_resource type="Texture2D" uid="uid://du2ffk8u3dgs3" path="res://assets/ui/buttons/button_hover.png" id="6_3413w"]
+[ext_resource type="AudioStream" uid="uid://bqc5ixsdchxca" path="res://assets/sfx/ui/ui_click_sfx.mp3" id="8_amct8"]
+[ext_resource type="AudioStream" uid="uid://qawii75qexb5" path="res://assets/sfx/ui/ui_hover_sfx.mp3" id="9_munlw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdcpn"]
 bg_color = Color(0.168627, 0.305882, 0.776471, 1)
@@ -241,7 +243,24 @@ text = "Total shapes:
 [node name="InputBlockTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="ClickSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_amct8")
+bus = &"UI"
+
+[node name="HoverSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_munlw")
+bus = &"UI"
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="button_down" from="ColorRect2/MarginContainer/Buttons/NextLevelButton" to="." method="play_click_sound"]
 [connection signal="button_down" from="ColorRect2/MarginContainer/Buttons/NextLevelButton" to="." method="_on_next_level_button_button_down"]
+[connection signal="focus_entered" from="ColorRect2/MarginContainer/Buttons/NextLevelButton" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="ColorRect2/MarginContainer/Buttons/NextLevelButton" to="." method="play_hover_sound"]
+[connection signal="button_down" from="ColorRect2/MarginContainer/Buttons/RestartButton" to="." method="play_click_sound"]
 [connection signal="button_down" from="ColorRect2/MarginContainer/Buttons/RestartButton" to="." method="_on_restart_button_button_down"]
+[connection signal="focus_entered" from="ColorRect2/MarginContainer/Buttons/RestartButton" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="ColorRect2/MarginContainer/Buttons/RestartButton" to="." method="play_hover_sound"]
+[connection signal="button_down" from="ColorRect2/MarginContainer/Buttons/MainMenuButton" to="." method="play_click_sound"]
 [connection signal="button_down" from="ColorRect2/MarginContainer/Buttons/MainMenuButton" to="." method="_on_main_menu_button_button_down"]
+[connection signal="focus_entered" from="ColorRect2/MarginContainer/Buttons/MainMenuButton" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="ColorRect2/MarginContainer/Buttons/MainMenuButton" to="." method="play_hover_sound"]

@@ -192,6 +192,10 @@ one_shot = true
 [node name="DeathAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_nspeg")
 
+[node name="VisibleOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.999999, 29)
+scale = Vector2(3.7, 5.7)
+
 [connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]
 [connection signal="area_exited" from="TriggerArea" to="." method="_on_trigger_area_area_exited"]
 [connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
