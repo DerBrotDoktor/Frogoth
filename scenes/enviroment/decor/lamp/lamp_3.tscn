@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpakb7b5tdoew"]
+
+[ext_resource type="Texture2D" uid="uid://cchp6iw37yiqw" path="res://assets/decor/lamp_3.png" id="1_vu05h"]
+
+[sub_resource type="Gradient" id="Gradient_7mt88"]
+offsets = PackedFloat32Array(0.116883, 0.655844)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a1ht0"]
+gradient = SubResource("Gradient_7mt88")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[node name="Lamp3" type="Sprite2D"]
+self_modulate = Color(1.5, 1.5, 1.5, 1)
+texture = ExtResource("1_vu05h")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(10, 10)
+color = Color(0.501961, 0.188235, 0, 1)
+texture = SubResource("GradientTexture2D_a1ht0")
