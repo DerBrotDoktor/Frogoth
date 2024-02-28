@@ -23,6 +23,10 @@ func _on_thunder_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("ThunderEffects"), linear_to_db(value))
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("ThunderEffects"), value < 0.05)
 
+func _on_ui_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("UI"), linear_to_db(value))
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("UI"), value < 0.05)
+
 func _on_back_button_pressed():
 	get_parent().switch_to_last_child()
 
@@ -39,3 +43,11 @@ func _on_borderless_checkbox_toggled(toggled_on):
 func _on_visibility_changed():
 	if $MarginContainer/VBoxContainer/GridContainer/MasterSlider.is_inside_tree() and visible:
 		$MarginContainer/VBoxContainer/GridContainer/MasterSlider.grab_focus()
+
+func play_click_sound():
+	$ClickSoundPlayer.play()
+
+func play_hover_sound():
+	$HoverSoundPlayer.play()
+
+
