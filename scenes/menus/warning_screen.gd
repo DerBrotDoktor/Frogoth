@@ -1,7 +1,7 @@
 extends Control
 
 func _input(event):
-	if visible and (event is InputEventKey or event is InputEventJoypadButton) and $PressKeyDelay.is_stopped():
+	if visible and (event is InputEventKey or event is InputEventJoypadButton or event is InputEventMouseButton) and $PressKeyDelay.is_stopped():
 		if event.is_released():
 			$"..".warning_finished()
 
