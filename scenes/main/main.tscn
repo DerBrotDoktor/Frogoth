@@ -26,10 +26,10 @@
 [ext_resource type="Texture2D" uid="uid://cr1y6svrog7bq" path="res://assets/parallax/front.png" id="16_6gtoh"]
 [ext_resource type="PackedScene" uid="uid://i70bm8lucd7m" path="res://scenes/menus/controller_settings_ui.tscn" id="17_8mvke"]
 [ext_resource type="Texture2D" uid="uid://piqjsvgixggj" path="res://assets/parallax/gradient_backgound_paralax_4.png" id="17_tv5hj"]
+[ext_resource type="PackedScene" uid="uid://bg142qlgmcfnf" path="res://scenes/menus/logo_screen.tscn" id="19_yn3my"]
 [ext_resource type="PackedScene" uid="uid://buy8yfrq21gd" path="res://scenes/menus/settings_menu.tscn" id="20_f3gq3"]
 [ext_resource type="AudioStream" uid="uid://83nsiryvh2gg" path="res://assets/sfx/music/Frogoth_BG_music.mp3" id="22_7hg4y"]
 [ext_resource type="AudioStream" uid="uid://dentu4sa6yes7" path="res://assets/sfx/music/menu_music_0.1.mp3" id="24_vcc2i"]
-[ext_resource type="PackedScene" uid="uid://c5q1wq7kipyky" path="res://scenes/menus/warning_screen.tscn" id="26_fok5k"]
 [ext_resource type="AudioStream" uid="uid://c2lorlho1gvwv" path="res://assets/sfx/thunder/bg_thunder_sfx1.mp3" id="27_ej63l"]
 [ext_resource type="AudioStream" uid="uid://cu83u5bhdqv7k" path="res://assets/sfx/thunder/bg_thunder_sfx3.mp3" id="29_v114x"]
 [ext_resource type="AudioStream" uid="uid://dq42j263l8qkv" path="res://assets/sfx/thunder/bg_thunder_sfx4.mp3" id="30_ujyxu"]
@@ -40,9 +40,6 @@ shader_parameter/color = Color(0, 0, 0, 1)
 
 [sub_resource type="GDScript" id="GDScript_x8alp"]
 script/source = "extends Node
-
-func _ready():
-	play_main_menu_music()
 
 func play_background_music():
 	if not $BackgoundMusicPlayer.playing:
@@ -252,9 +249,6 @@ visible = false
 [node name="SettingsMenu" parent="Canvas" instance=ExtResource("20_f3gq3")]
 visible = false
 
-[node name="WarningScreen" parent="Canvas" instance=ExtResource("26_fok5k")]
-visible = false
-
 [node name="EscapeDelay" type="Timer" parent="Canvas"]
 wait_time = 0.001
 
@@ -305,6 +299,10 @@ bus = &"ThunderEffects"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2d4y5")
+
+[node name="LogoScreenLayer" type="CanvasLayer" parent="."]
+
+[node name="LogoScreen" parent="LogoScreenLayer" instance=ExtResource("19_yn3my")]
 
 [node name="SceneTransition" type="CanvasLayer" parent="."]
 process_mode = 3

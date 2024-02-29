@@ -3,7 +3,7 @@ extends Control
 func _input(event):
 	if visible and (event is InputEventKey or event is InputEventJoypadButton) and $PressKeyDelay.is_stopped():
 		if event.is_released():
-			get_parent().switch_to_child("MainMenu")
+			$"..".warning_finished()
 
 func _on_press_key_delay_timeout():
 	$PressKeyText/AnimationPlayer.play("press_key_text")

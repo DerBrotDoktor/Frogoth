@@ -8,7 +8,7 @@ var current_scene
 
 func _ready():
 	player.disable()
-	$Canvas.switch_to_child("WarningScreen")
+	$Canvas.switch_to_child("nothing")
 
 func _process(_delta):
 	if Input.is_action_just_pressed("quick_restart"):
