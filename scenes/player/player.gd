@@ -193,12 +193,10 @@ func start_jump():
 		play_animation("double_jump")
 	else:
 		play_animation("jump")
-	if not is_on_floor() and not ($PlayerAnimation.is_playing() and $PlayerAnimation.current_animation == "hit_player_animation"):
+	if not is_on_floor() and not $PlayerAnimation.current_animation == "hit_player_animation":
 		if not can_jump:
-			$PlayerAnimation.play("RESET")
 			$PlayerAnimation.play("tripple_jump_vfx")
 		else:
-			$PlayerAnimation.play("RESET")
 			$PlayerAnimation.play("jump_vfx")
 		$SFXPlayer/AirJumpAudioPlayer.play()
 	else:
@@ -257,7 +255,6 @@ func _on_trigger_area_body_entered(body):
 			knockabck_direction.y = 0
 		else:
 			knockabck_direction.x = 0
-			print(knockabck_direction,body.knockback_strength*100)
 		set_knockback(knockabck_direction, body.knockback_strength, 0.35)
 		take_damage(1)
 	elif body.is_in_group("platform") and is_on_floor():
@@ -319,6 +316,8 @@ func take_damage(damage):
 		$Camera.shake()
 		$JumpVFXAnimation.visible = false
 		$SFXPlayer/DamageAudioPlayer.play()
+		$PlayerAnimation.play("RESET")
+		$LandingVfxAnimation.visible = false
 		$PlayerAnimation.play("hit_player_animation")
 		play_animation("damage")
 		current_health -= damage
@@ -383,7 +382,8 @@ func play_animation(animation):
 func squash_and_stretch(was_on_floor):
 	if not was_on_floor and is_on_floor():
 		$SquashTimer.start()
-		$PlayerAnimation.play("landing_vfx")
+		if not $PlayerAnimation.current_animation == "hit_player_animation":
+			$PlayerAnimation.play("landing_vfx")
 	var current_deformation = $Animation.material.get_shader_parameter("deformation")
 	if not $StretchTimer.is_stopped():
 		$Animation.material.set_shader_parameter("deformation", Vector2(lerpf(current_deformation.x, stretch, 0.1), 0))
