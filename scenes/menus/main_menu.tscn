@@ -182,7 +182,7 @@ custom_minimum_size = Vector2(512, 256)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_neighbor_top = NodePath("../LevelSelectButton")
-focus_neighbor_bottom = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../CreditsButton")
 texture_normal = ExtResource("6_yipjy")
 texture_pressed = ExtResource("7_1gb7r")
 texture_hover = ExtResource("8_8cd5u")
@@ -202,11 +202,36 @@ text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="QuitButton" type="TextureButton" parent="MarginContainer/VerticalContainer"]
+[node name="CreditsButton" type="TextureButton" parent="MarginContainer/VerticalContainer"]
 custom_minimum_size = Vector2(512, 256)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_neighbor_top = NodePath("../SettingsButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
+texture_normal = ExtResource("6_yipjy")
+texture_pressed = ExtResource("7_1gb7r")
+texture_hover = ExtResource("8_8cd5u")
+texture_focused = ExtResource("8_8cd5u")
+stretch_mode = 6
+
+[node name="Label3" type="Label" parent="MarginContainer/VerticalContainer/CreditsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_4inao")
+theme_override_font_sizes/font_size = 70
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="MarginContainer/VerticalContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../CreditsButton")
 focus_neighbor_bottom = NodePath("../StartButton")
 texture_normal = ExtResource("6_yipjy")
 texture_pressed = ExtResource("7_1gb7r")
@@ -250,6 +275,10 @@ bus = &"UI"
 [connection signal="button_up" from="MarginContainer/VerticalContainer/SettingsButton" to="." method="_on_settings_button_button_up"]
 [connection signal="focus_entered" from="MarginContainer/VerticalContainer/SettingsButton" to="." method="play_hover_sound"]
 [connection signal="mouse_entered" from="MarginContainer/VerticalContainer/SettingsButton" to="." method="play_hover_sound"]
+[connection signal="button_down" from="MarginContainer/VerticalContainer/CreditsButton" to="." method="play_click_sound"]
+[connection signal="button_up" from="MarginContainer/VerticalContainer/CreditsButton" to="." method="_on_credits_button_button_up"]
+[connection signal="focus_entered" from="MarginContainer/VerticalContainer/CreditsButton" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="MarginContainer/VerticalContainer/CreditsButton" to="." method="play_hover_sound"]
 [connection signal="button_down" from="MarginContainer/VerticalContainer/QuitButton" to="." method="play_click_sound"]
 [connection signal="button_up" from="MarginContainer/VerticalContainer/QuitButton" to="." method="_on_quit_button_button_up"]
 [connection signal="focus_entered" from="MarginContainer/VerticalContainer/QuitButton" to="." method="play_hover_sound"]

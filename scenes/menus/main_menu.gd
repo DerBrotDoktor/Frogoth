@@ -28,3 +28,6 @@ func play_click_sound():
 func play_hover_sound():
 	if visible:
 		$HoverSoundPlayer.play()
+
+func _on_credits_button_button_up():
+	get_parent().switch_to_child("CreditsScreen")
