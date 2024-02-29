@@ -10,3 +10,7 @@ func _on_press_key_delay_timeout():
 
 func start_press_key_text_animation():
 	$PressKeyText/AnimationPlayer.play("pulsating")
+
+func _on_visibility_changed():
+	if visible:
+		$PressKeyDelay.start()

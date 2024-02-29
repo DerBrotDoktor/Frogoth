@@ -13,7 +13,10 @@ config_version=5
 config/name="Frogoth"
 run/main_scene="res://scenes/main/main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=40
 
 [display]
 

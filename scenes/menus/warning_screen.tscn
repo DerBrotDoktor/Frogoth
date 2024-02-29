@@ -123,7 +123,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0745098, 0.0745098, 0.0745098, 1)
+color = Color(0.141176, 0.141176, 0.141176, 1)
 
 [node name="Text" type="Label" parent="."]
 layout_mode = 1
@@ -134,7 +134,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.745098, 0.745098, 0.745098, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
+theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("1_on8a2")
 theme_override_font_sizes/font_size = 100
 text = "Warning!
@@ -155,7 +155,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.745098, 0.745098, 0.745098, 0)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
-theme_override_constants/outline_size = 10
+theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("1_on8a2")
 theme_override_font_sizes/font_size = 100
 text = "Press any key to continue"
@@ -168,6 +168,6 @@ libraries = {
 
 [node name="PressKeyDelay" type="Timer" parent="."]
 one_shot = true
-autostart = true
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="timeout" from="PressKeyDelay" to="." method="_on_press_key_delay_timeout"]
