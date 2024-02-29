@@ -20,10 +20,10 @@
 [ext_resource type="AudioStream" uid="uid://y32bxgdxymnc" path="res://assets/sfx/player/air_jump_sfx.mp3" id="16_4dsqo"]
 [ext_resource type="Texture2D" uid="uid://dgadbj2p1rifc" path="res://assets/vfx/player/landing_vfx.png" id="16_uw5v5"]
 [ext_resource type="AudioStream" uid="uid://chs37fmb14lyr" path="res://assets/sfx/player/dash_sfx.mp3" id="17_eof52"]
-[ext_resource type="AudioStream" uid="uid://co8g58x3flmpj" path="res://assets/sfx/player/walk_sfx.mp3" id="18_ua06j"]
 [ext_resource type="AudioStream" uid="uid://duvmvucant0du" path="res://assets/sfx/player/player_damage_sfx.mp3" id="19_6lf02"]
 [ext_resource type="Script" path="res://scenes/player/enemy_indicator_controller.gd" id="20_hjysh"]
-[ext_resource type="PackedScene" path="res://scenes/ui/enemy_inidcator.tscn" id="21_gitdl"]
+[ext_resource type="PackedScene" uid="uid://bsk168y5iskk7" path="res://scenes/ui/enemy_inidcator.tscn" id="21_gitdl"]
+[ext_resource type="AudioStream" uid="uid://825tvws38n51" path="res://assets/sfx/player/walk_sfx_0.4.mp3" id="22_4xnhh"]
 [ext_resource type="AudioStream" uid="uid://eet0qccg811q" path="res://assets/sfx/orb/last_orb_sfx.mp3" id="22_fhwqx"]
 [ext_resource type="PackedScene" uid="uid://3kfct5n0mk2w" path="res://scenes/player/dash_cooldown_bar.tscn" id="25_7lob2"]
 [ext_resource type="PackedScene" uid="uid://c8uahgcbmmlgp" path="res://scenes/vfx/last_orb_vfx.tscn" id="26_kc4vf"]
@@ -590,7 +590,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"walk",
-"speed": 20.0
+"speed": 24.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hjfc2"]
@@ -1108,8 +1108,8 @@ volume_db = -1.0
 bus = &"SoundEffects"
 
 [node name="WalkAudioPlayer" type="AudioStreamPlayer" parent="SFXPlayer"]
-stream = ExtResource("18_ua06j")
-volume_db = 0.5
+stream = ExtResource("22_4xnhh")
+volume_db = -0.1
 bus = &"SoundEffects"
 
 [node name="DamageAudioPlayer" type="AudioStreamPlayer" parent="SFXPlayer"]

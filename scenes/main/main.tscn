@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://iyel1auqud01"]
+[gd_scene load_steps=45 format=3 uid="uid://iyel1auqud01"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_wtrgv"]
 [ext_resource type="PackedScene" uid="uid://bv7u7b0pw30jd" path="res://scenes/level/tutorial.tscn" id="2_iy1mu"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://scenes/main/Canvas.gd" id="9_77551"]
 [ext_resource type="PackedScene" uid="uid://02mgq0aad22s" path="res://scenes/level/level_8.tscn" id="9_q56fa"]
 [ext_resource type="PackedScene" uid="uid://c6nm6w83jynbs" path="res://scenes/menus/pause_menu.tscn" id="10_u7rrt"]
+[ext_resource type="PackedScene" uid="uid://c82ntg1hepcio" path="res://scenes/level/the_end.tscn" id="11_5mqt2"]
 [ext_resource type="Shader" path="res://scenes/main/lightning_shader.gdshader" id="11_723k2"]
 [ext_resource type="Texture2D" uid="uid://bsoq40pmjw7nv" path="res://assets/parallax/back.png" id="14_02id7"]
 [ext_resource type="PackedScene" uid="uid://cj5y0tnco4cx1" path="res://scenes/menus/level_finish_screen.tscn" id="14_nbfd2"]
@@ -26,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://cr1y6svrog7bq" path="res://assets/parallax/front.png" id="16_6gtoh"]
 [ext_resource type="PackedScene" uid="uid://i70bm8lucd7m" path="res://scenes/menus/controller_settings_ui.tscn" id="17_8mvke"]
 [ext_resource type="Texture2D" uid="uid://piqjsvgixggj" path="res://assets/parallax/gradient_backgound_paralax_4.png" id="17_tv5hj"]
-[ext_resource type="PackedScene" uid="uid://bg142qlgmcfnf" path="res://scenes/menus/logo_screen.tscn" id="19_yn3my"]
+[ext_resource type="PackedScene" path="res://scenes/menus/logo_screen.tscn" id="19_yn3my"]
 [ext_resource type="PackedScene" uid="uid://buy8yfrq21gd" path="res://scenes/menus/settings_menu.tscn" id="20_f3gq3"]
 [ext_resource type="AudioStream" uid="uid://83nsiryvh2gg" path="res://assets/sfx/music/Frogoth_BG_music.mp3" id="22_7hg4y"]
 [ext_resource type="AudioStream" uid="uid://dentu4sa6yes7" path="res://assets/sfx/music/menu_music_0.1.mp3" id="24_vcc2i"]
@@ -158,7 +159,7 @@ _data = {
 
 [node name="Main" type="Node" node_paths=PackedStringArray("player")]
 script = ExtResource("1_wtrgv")
-level = Array[PackedScene]([ExtResource("2_iy1mu"), ExtResource("6_st07r"), ExtResource("6_fs1sm"), ExtResource("7_30kpi"), ExtResource("7_mk7qn"), ExtResource("7_780fm"), ExtResource("7_sa5si"), ExtResource("8_210py"), ExtResource("9_q56fa")])
+level = Array[PackedScene]([ExtResource("2_iy1mu"), ExtResource("6_st07r"), ExtResource("6_fs1sm"), ExtResource("7_30kpi"), ExtResource("7_mk7qn"), ExtResource("7_780fm"), ExtResource("7_sa5si"), ExtResource("8_210py"), ExtResource("9_q56fa"), ExtResource("11_5mqt2")])
 player = NodePath("Player")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]

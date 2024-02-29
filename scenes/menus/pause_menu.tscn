@@ -180,6 +180,7 @@ bus = &"UI"
 
 [node name="HoverSoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_xpcgq")
+volume_db = -10.0
 bus = &"UI"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

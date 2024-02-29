@@ -179,6 +179,7 @@ bus = &"UI"
 
 [node name="HoverSoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_63h6m")
+volume_db = -10.0
 bus = &"UI"
 
 [node name="Settingsslider" type="Sprite2D" parent="."]
