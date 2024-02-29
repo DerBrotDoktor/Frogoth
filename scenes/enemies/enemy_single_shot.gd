@@ -11,6 +11,13 @@ func attack():
 	is_attacking = true
 	play_animation("attack")
 
+func shoot():
+	if is_instance_valid(target):
+		super.shoot()
+	else:
+		$AnimationPlayer.stop()
+		$AnimationPlayer.play("RESET")
+
 func play_animation(animation):
 	if not is_dead:
 		$AnimationPlayer.play(animation)

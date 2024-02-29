@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://cn3nbuvt72vug" path="res://assets/sfx/enemy/single_shot_enemy_attack_sfx.mp3" id="7_a7evb"]
 [ext_resource type="PackedScene" uid="uid://dsgnukw35fh2p" path="res://scenes/enemies/enemy_1_death_vfx.tscn" id="8_ciwbh"]
 [ext_resource type="Texture2D" uid="uid://cwqqfbwxjqovf" path="res://assets/vfx/bullet/charge_attack_spritesheet.png" id="9_iascu"]
-[ext_resource type="PackedScene" uid="uid://b3xpdi26ydynv" path="res://scenes/vfx/enemy_charge_2.tscn" id="10_pgjax"]
+[ext_resource type="PackedScene" path="res://scenes/vfx/enemy_charge_2.tscn" id="10_pgjax"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d6v6o"]
 atlas = ExtResource("3_t545x")

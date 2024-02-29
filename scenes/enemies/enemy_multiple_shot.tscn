@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://pyvm1s0gujjr" path="res://assets/enemy_2/enemy_2_walk_an.png" id="6_wfasm"]
 [ext_resource type="AudioStream" uid="uid://x6beroms81br" path="res://assets/sfx/enemy/shotgun_enemy_attack_sfx.mp3" id="7_0uj4l"]
 [ext_resource type="PackedScene" uid="uid://c1wishjxkarr7" path="res://scenes/enemies/enemy_2_death_vfx.tscn" id="8_uhdax"]
-[ext_resource type="PackedScene" uid="uid://b3xpdi26ydynv" path="res://scenes/vfx/enemy_charge_2.tscn" id="9_w4nag"]
+[ext_resource type="PackedScene" path="res://scenes/vfx/enemy_charge_2.tscn" id="9_w4nag"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_48wup"]
 atlas = ExtResource("3_ao67i")
