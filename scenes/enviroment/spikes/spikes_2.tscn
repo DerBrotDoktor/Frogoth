@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b7p7765s2ahyu" path="res://assets/interactables/spike_2.png" id="1_g1cn0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n26tu"]
-size = Vector2(128, 113)
+size = Vector2(114, 99)
 
 [node name="Spikes2" type="StaticBody2D" groups=["spikes"]]
 script = ExtResource("1_2gv21")
@@ -13,5 +13,5 @@ script = ExtResource("1_2gv21")
 texture = ExtResource("1_g1cn0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7.5)
+position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_n26tu")
