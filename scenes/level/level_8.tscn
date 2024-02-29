@@ -30,9 +30,6 @@
 [ext_resource type="Texture2D" uid="uid://by7jtfvwyvay8" path="res://assets/decor/wall_2.png" id="27_x4fkp"]
 [ext_resource type="Texture2D" uid="uid://byebw2hu8v4i4" path="res://assets/decor/wall_1.png" id="28_nsw1a"]
 [ext_resource type="Texture2D" uid="uid://dj6ea6rpq04vv" path="res://assets/decor/statue_1.png" id="29_n1ig7"]
-[ext_resource type="Texture2D" uid="uid://x3lv6g70c8ht" path="res://assets/decor/candle_3.png" id="30_e40hn"]
-[ext_resource type="Texture2D" uid="uid://c57glyripgin2" path="res://assets/decor/candle_2.png" id="31_p656i"]
-[ext_resource type="Texture2D" uid="uid://bsra8l1nj7n58" path="res://assets/decor/candle_1.png" id="32_pbax2"]
 [ext_resource type="Texture2D" uid="uid://b63lkdurgqaq8" path="res://assets/decor/fence_full.png" id="33_5htkc"]
 [ext_resource type="Texture2D" uid="uid://bdbkns6fgj2cl" path="res://assets/decor/fauna/grass_2.png" id="34_tnnxx"]
 [ext_resource type="Texture2D" uid="uid://ds2avmae8jdw4" path="res://assets/decor/fauna/grass_3.png" id="35_p07vd"]
@@ -65,7 +62,10 @@
 [ext_resource type="Texture2D" uid="uid://bgvej3ejldu4p" path="res://assets/ceiling/ceiling_5.png" id="63_immf6"]
 [ext_resource type="Texture2D" uid="uid://ye2agx2842hs" path="res://assets/decor/flying_decor/flying_rock_2.png" id="64_rj3k8"]
 [ext_resource type="Texture2D" uid="uid://o58jwopapw53" path="res://assets/decor/flying_decor/flying_pillar_1.png" id="65_oncr7"]
+[ext_resource type="PackedScene" uid="uid://5vbb1u78442m" path="res://scenes/enviroment/decor/lamp/candle_1.tscn" id="65_qak2a"]
+[ext_resource type="PackedScene" uid="uid://b8iuw0jaene56" path="res://scenes/enviroment/decor/lamp/candle_3.tscn" id="66_hwybj"]
 [ext_resource type="Texture2D" uid="uid://0ddtngahj2w3" path="res://assets/decor/flying_decor/flying_pillar_2.png" id="66_pyftw"]
+[ext_resource type="PackedScene" uid="uid://c31d5mg0q3u11" path="res://scenes/enviroment/decor/lamp/candle_2.tscn" id="67_uamgq"]
 [ext_resource type="Texture2D" uid="uid://c1wmnte44qeie" path="res://assets/decor/flying_decor/flying_rock_4.png" id="67_ug6nu"]
 
 [sub_resource type="Curve2D" id="Curve2D_acf7d"]
@@ -434,18 +434,6 @@ texture = ExtResource("28_nsw1a")
 position = Vector2(10160, -6320)
 texture = ExtResource("29_n1ig7")
 
-[node name="Candle3" type="Sprite2D" parent="."]
-position = Vector2(10909, -6190)
-texture = ExtResource("30_e40hn")
-
-[node name="Candle2" type="Sprite2D" parent="."]
-position = Vector2(11968, -6192)
-texture = ExtResource("31_p656i")
-
-[node name="Candle1" type="Sprite2D" parent="."]
-position = Vector2(10656, -6206)
-texture = ExtResource("32_pbax2")
-
 [node name="FenceFull" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(10912, -6264)
@@ -585,10 +573,6 @@ texture = ExtResource("36_j76ww")
 z_index = -1
 position = Vector2(-1817, -6291)
 texture = ExtResource("43_bgses")
-
-[node name="Candle4" type="Sprite2D" parent="."]
-position = Vector2(-1824, -6521)
-texture = ExtResource("32_pbax2")
 
 [node name="Grass15" type="Sprite2D" parent="."]
 position = Vector2(-1803, -6187)
@@ -897,3 +881,21 @@ z_index = -1
 position = Vector2(5049, -5930)
 texture = ExtResource("24_qoj7e")
 flip_h = true
+
+[node name="Candle4" parent="." instance=ExtResource("65_qak2a")]
+position = Vector2(-1825, -6519)
+
+[node name="Candle3" parent="." instance=ExtResource("66_hwybj")]
+position = Vector2(10935, -6202)
+
+[node name="Candle1" parent="." instance=ExtResource("65_qak2a")]
+position = Vector2(10637, -6206)
+
+[node name="PointLight2D" parent="Candle1" index="0"]
+position = Vector2(8, 7)
+energy = 0.5
+
+[node name="Candle2" parent="." instance=ExtResource("67_uamgq")]
+position = Vector2(11962, -6186)
+
+[editable path="Candle1"]
