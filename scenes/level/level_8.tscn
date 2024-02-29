@@ -122,7 +122,7 @@ size = Vector2(171, 6)
 script = ExtResource("1_ru5d0")
 player_spawn_point = NodePath("PlayerSpwanPoint")
 level_name = "Level 8"
-badge_times = Array[int]([73, 75, 79, 83])
+badge_times = Array[int]([48, 61, 69, 77])
 
 [node name="Platforms" type="Node2D" parent="."]
 

@@ -25,12 +25,12 @@
 [ext_resource type="Texture2D" uid="uid://cjlr2a1ixau0m" path="res://assets/xelu_controller_and_key_prompts_pack/Keyboard Light/KeyLight0148.png" id="21_wet2r"]
 [ext_resource type="Texture2D" uid="uid://bn0lyojrlioq8" path="res://assets/xelu_controller_and_key_prompts_pack/Playstation/Playstation0025.png" id="21_x3xwc"]
 [ext_resource type="Texture2D" uid="uid://bltguf4hipd8c" path="res://assets/xelu_controller_and_key_prompts_pack/Keyboard Light/KeyLight0140.png" id="22_5um34"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_6.tscn" id="22_a1mgv"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_7.tscn" id="23_77gmg"]
+[ext_resource type="PackedScene" uid="uid://d1jbeg4vofhsg" path="res://scenes/enviroment/spikes/spikes_6.tscn" id="22_a1mgv"]
+[ext_resource type="PackedScene" uid="uid://bjmcwiyef73e7" path="res://scenes/enviroment/spikes/spikes_7.tscn" id="23_77gmg"]
 [ext_resource type="Texture2D" uid="uid://iaph7t6y3rfd" path="res://assets/xelu_controller_and_key_prompts_pack/Positional Prompts/Positional_Prompts_Down.png" id="23_frs6w"]
 [ext_resource type="Texture2D" uid="uid://beumevw1pst05" path="res://assets/xelu_controller_and_key_prompts_pack/Keyboard Light/KeyLight0078.png" id="23_qymle"]
 [ext_resource type="Texture2D" uid="uid://btmt7xbmm0w33" path="res://assets/xelu_controller_and_key_prompts_pack/Keyboard Light/KeyLight0098.png" id="24_mo43k"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_1.tscn" id="24_p1j5d"]
+[ext_resource type="PackedScene" uid="uid://ig1uyb17ex25" path="res://scenes/enviroment/spikes/spikes_1.tscn" id="24_p1j5d"]
 [ext_resource type="Texture2D" uid="uid://dd1f3gbpqf33v" path="res://assets/xelu_controller_and_key_prompts_pack/Positional Prompts/Positional_Prompts_Right.png" id="26_jdor0"]
 [ext_resource type="Texture2D" uid="uid://dofg8bh2ub887" path="res://assets/xelu_controller_and_key_prompts_pack/Positional Prompts/Positional_Prompts_Left.png" id="28_mxqiv"]
 [ext_resource type="PackedScene" uid="uid://3j5q0ymm7o8s" path="res://scenes/enemies/enemy_single_shot.tscn" id="34_hj22d"]
@@ -616,7 +616,6 @@ layer_0/tile_data = PackedInt32Array(-3080250, 65536, 2, -3014714, 65536, 0, -29
 position = Vector2(84, -77)
 
 [node name="DeadZone" type="Area2D" parent="." groups=["dead_zone"]]
-visible = false
 position = Vector2(34895, 521)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadZone"]
@@ -755,12 +754,13 @@ position = Vector2(11046, -2415)
 texture = ExtResource("52_7cho2")
 
 [node name="Skull2" type="Sprite2D" parent="Enviroment"]
-position = Vector2(24532, -2090)
+z_index = -1
+position = Vector2(24544, -2102)
 texture = ExtResource("36_v8wwi")
 
 [node name="BigRock" type="Sprite2D" parent="Enviroment"]
 z_index = -1
-position = Vector2(24409, -2142)
+position = Vector2(24327, -2109)
 texture = ExtResource("54_efti0")
 
 [node name="L4Rock1" type="Sprite2D" parent="Enviroment"]

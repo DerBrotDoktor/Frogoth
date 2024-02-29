@@ -25,7 +25,7 @@
 script = ExtResource("1_wyfs8")
 player_spawn_point = NodePath("PlayerSpwanPoint")
 level_name = "Level 3"
-badge_times = Array[int]([21, 25, 28, 30])
+badge_times = Array[int]([18, 20, 23, 27])
 
 [node name="JumpPoints" type="Node2D" parent="."]
 

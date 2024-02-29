@@ -78,7 +78,7 @@ size = Vector2(106, 8)
 script = ExtResource("1_ukgpi")
 player_spawn_point = NodePath("PlayerSpwanPoint")
 level_name = "Level 6"
-badge_times = Array[int]([28, 31, 36, 40])
+badge_times = Array[int]([23, 26, 29, 33])
 
 [node name="PlayerSpwanPoint" parent="." instance=ExtResource("2_oymyw")]
 position = Vector2(590, -603)
@@ -228,8 +228,8 @@ loop = false
 
 [node name="PlatformSmall1" type="CharacterBody2D" parent="MovingPlatform/Platform" groups=["platform"]]
 rotation = 1.22747
-collision_layer = 9
-collision_mask = 9
+collision_layer = 8
+collision_mask = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingPlatform/Platform/PlatformSmall1"]
 texture = ExtResource("17_xe35b")
