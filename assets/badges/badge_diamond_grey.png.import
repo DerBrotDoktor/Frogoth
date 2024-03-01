@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cthgm8dsxqgdf"
-path="res://.godot/imported/statsboard_winscreen.png-e8e3b2bbbb3e2ce407b9a0f51a370a90.ctex"
+uid="uid://7o5heie8fn2s"
+path="res://.godot/imported/badge_diamond_grey.png-623696e0f4ab412ff06e3c392d78208c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/statsboard_winscreen.png"
-dest_files=["res://.godot/imported/statsboard_winscreen.png-e8e3b2bbbb3e2ce407b9a0f51a370a90.ctex"]
+source_file="res://assets/badges/badge_diamond_grey.png"
+dest_files=["res://.godot/imported/badge_diamond_grey.png-623696e0f4ab412ff06e3c392d78208c.ctex"]
 
 [params]
 

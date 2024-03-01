@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cnayky75tjc5n"]
+[gd_scene load_steps=17 format=3 uid="uid://cnayky75tjc5n"]
 
 [ext_resource type="Script" path="res://scenes/ui/badge.gd" id="1_humgx"]
 [ext_resource type="Texture2D" uid="uid://ds1s76nkuw3a6" path="res://assets/badges/badge_normal.png" id="2_rkn6s"]
@@ -8,6 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://bgwwc2yi0ewen" path="res://assets/badges/badge_diamond.png" id="6_160s8"]
 [ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="7_2mkuu"]
 [ext_resource type="Texture2D" uid="uid://b022lbjhua5i" path="res://assets/badges/badge_clown.png" id="7_q1o0k"]
+[ext_resource type="Texture2D" uid="uid://hs1xv5avupv7" path="res://assets/badges/badge_normal_grey.png" id="8_f6351"]
+[ext_resource type="Texture2D" uid="uid://cd8wu6pkx7ufg" path="res://assets/ui/finish_screen/medal_banner.png" id="9_ruc1d"]
+[ext_resource type="Texture2D" uid="uid://7o5heie8fn2s" path="res://assets/badges/badge_diamond_grey.png" id="10_tnk2v"]
+[ext_resource type="Texture2D" uid="uid://cmu8dl5ceruy1" path="res://assets/badges/badge_gold_grey.png" id="11_da4bq"]
+[ext_resource type="Texture2D" uid="uid://cli8yfjdxdukh" path="res://assets/badges/badge_silver_grey.png" id="12_ss573"]
+[ext_resource type="Texture2D" uid="uid://dnpb63wl1i7vk" path="res://assets/badges/badge_bronze_grey.png" id="13_4c0uv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sehxd"]
 animations = [{
@@ -35,6 +41,29 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_exov8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_f6351")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4c0uv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ss573")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_da4bq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_tnk2v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Badge" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -43,6 +72,7 @@ offset_bottom = 40.0
 script = ExtResource("1_humgx")
 sprites = SubResource("SpriteFrames_sehxd")
 rank_names = Array[String](["Frog Rank", "Bronze Rank", "Silver Rank", "Gold Rank", "Diamond Rank", "One Shape Rank"])
+dark_sprites = SubResource("SpriteFrames_exov8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -59,15 +89,73 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Sprite" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(384, 384)
 layout_mode = 2
 texture = ExtResource("2_rkn6s")
+stretch_mode = 5
 
 [node name="RanktText" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 2
+theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("7_2mkuu")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 80
 text = "Frog Rank"
 horizontal_alignment = 1
+
+[node name="Banner" type="Control" parent="."]
+anchors_preset = 0
+offset_top = -90.0
+offset_right = 40.0
+offset_bottom = -50.0
+
+[node name="Background" type="TextureRect" parent="Banner"]
+layout_mode = 0
+offset_left = -586.0
+offset_top = -791.0
+offset_right = -330.0
+offset_bottom = -535.0
+scale = Vector2(4.35434, 4.35434)
+texture = ExtResource("9_ruc1d")
+
+[node name="Badges" type="Control" parent="Banner"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Badge1" type="TextureRect" parent="Banner/Badges"]
+layout_mode = 2
+offset_left = -260.0
+offset_top = -284.0
+offset_right = -4.0
+offset_bottom = -28.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("10_tnk2v")
+
+[node name="Badge2" type="TextureRect" parent="Banner/Badges"]
+layout_mode = 2
+offset_left = -127.0
+offset_top = -312.0
+offset_right = 129.0
+offset_bottom = -56.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("11_da4bq")
+
+[node name="Badge3" type="TextureRect" parent="Banner/Badges"]
+layout_mode = 2
+offset_left = 12.0
+offset_top = -334.0
+offset_right = 268.0
+offset_bottom = -78.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("12_ss573")
+
+[node name="Badge4" type="TextureRect" parent="Banner/Badges"]
+layout_mode = 2
+offset_left = 156.0
+offset_top = -341.0
+offset_right = 412.0
+offset_bottom = -85.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("13_4c0uv")
