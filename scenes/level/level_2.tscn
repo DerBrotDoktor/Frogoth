@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://jslvxnacwmvr"]
+[gd_scene load_steps=63 format=3 uid="uid://jslvxnacwmvr"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_3wrvq"]
 [ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/orbs/jump_point.tscn" id="2_4omrp"]
@@ -59,7 +59,6 @@
 [ext_resource type="PackedScene" uid="uid://dpakb7b5tdoew" path="res://scenes/enviroment/decor/lamp/lamp_3.tscn" id="57_4a2fm"]
 [ext_resource type="PackedScene" uid="uid://c31d5mg0q3u11" path="res://scenes/enviroment/decor/lamp/candle_2.tscn" id="58_kjco5"]
 [ext_resource type="Texture2D" uid="uid://iow6t5e1c022" path="res://assets/decor/flying_decor/flying_rock_3.png" id="59_6bcr2"]
-[ext_resource type="Texture2D" uid="uid://b4qjyis4tjmkd" path="res://assets/decor/flying_decor/flying_rock_5.png" id="60_kbrei"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqnud"]
 size = Vector2(40.49, 20)
@@ -199,11 +198,6 @@ collision_mask = 8
 
 [node name="Sprite" type="Sprite2D" parent="MovingPlatform/Platform/PlatformBig1"]
 texture = ExtResource("13_tyr7x")
-
-[node name="FlyingRock5" type="Sprite2D" parent="MovingPlatform/Platform/PlatformBig1/Sprite"]
-z_index = -1
-position = Vector2(-227, -197)
-texture = ExtResource("60_kbrei")
 
 [node name="Grass14" type="Sprite2D" parent="MovingPlatform/Platform/PlatformBig1/Sprite"]
 z_index = -1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://ddwu8ev1w36qf"]
+[gd_scene load_steps=60 format=3 uid="uid://ddwu8ev1w36qf"]
 
 [ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/orbs/jump_point.tscn" id="1_pdq3v"]
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_wyfs8"]
@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://1x7kub2yduou" path="res://assets/decor/fence.png" id="20_hyh0w"]
 [ext_resource type="Texture2D" uid="uid://b63lkdurgqaq8" path="res://assets/decor/fence_full.png" id="21_x28bx"]
 [ext_resource type="Texture2D" uid="uid://pkod6yfhkyfb" path="res://assets/decor/arch.png" id="22_o7qa8"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/decor/lamp/candle_2.tscn" id="23_3mjrg"]
+[ext_resource type="PackedScene" uid="uid://c31d5mg0q3u11" path="res://scenes/enviroment/decor/lamp/candle_2.tscn" id="23_3mjrg"]
 [ext_resource type="Texture2D" uid="uid://b0tv43gww4gnq" path="res://assets/decor/fauna/grass_1.png" id="24_b5kl8"]
 [ext_resource type="Texture2D" uid="uid://bh3qmr0508qy1" path="res://assets/decor/fauna/grass_4.png" id="25_r11cn"]
 [ext_resource type="Texture2D" uid="uid://drlw8we7xuh3o" path="res://assets/decor/ribs.png" id="28_mgnyr"]
@@ -59,8 +59,6 @@
 [ext_resource type="Texture2D" uid="uid://t4xg46sf43nm" path="res://assets/decor/layer_4_rocks/big_rock.png" id="57_ts4pc"]
 [ext_resource type="Texture2D" uid="uid://c31161v1jvdyp" path="res://assets/decor/layer_4_rocks/l4_rock_2.png" id="58_it63x"]
 [ext_resource type="Texture2D" uid="uid://cep3j36eam5sq" path="res://assets/decor/layer_4_rocks/l4_rock_8.png" id="59_ss5mu"]
-[ext_resource type="Texture2D" uid="uid://4epk3rwuoe2" path="res://assets/decor/debris/air_ship_2.png" id="60_r6bs8"]
-[ext_resource type="Texture2D" uid="uid://brs56u3bknl1j" path="res://assets/decor/debris/gallow.png" id="61_2offt"]
 
 [node name="Level3" type="Node2D" node_paths=PackedStringArray("player_spawn_point")]
 script = ExtResource("1_wyfs8")
@@ -618,17 +616,5 @@ texture = ExtResource("56_s44el")
 position = Vector2(3928, -952)
 texture = ExtResource("25_r11cn")
 
-[node name="AirShip2" type="Sprite2D" parent="."]
-z_index = -2
-position = Vector2(2983, -3906)
-scale = Vector2(0.327143, 0.254054)
-texture = ExtResource("60_r6bs8")
-
-[node name="Gallow" type="Sprite2D" parent="."]
-z_index = -2
-position = Vector2(409, -260)
-scale = Vector2(0.185198, 0.280686)
-texture = ExtResource("61_2offt")
-flip_h = true
-
 [editable path="Lamp2"]
+[editable path="Lamp1"]
