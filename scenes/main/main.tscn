@@ -23,8 +23,8 @@
 [ext_resource type="Shader" path="res://scenes/main/lightning_shader.gdshader" id="11_723k2"]
 [ext_resource type="Texture2D" uid="uid://bsoq40pmjw7nv" path="res://assets/parallax/back.png" id="14_02id7"]
 [ext_resource type="PackedScene" uid="uid://cj5y0tnco4cx1" path="res://scenes/menus/level_finish_screen.tscn" id="14_nbfd2"]
-[ext_resource type="Texture2D" uid="uid://3msahbjx315n" path="res://assets/parallax/middle.png" id="15_f1k3l"]
 [ext_resource type="Texture2D" uid="uid://cr1y6svrog7bq" path="res://assets/parallax/front.png" id="16_6gtoh"]
+[ext_resource type="Texture2D" uid="uid://bew5bia38bgx4" path="res://assets/parallax/backgound_paralax_2.png" id="16_biciv"]
 [ext_resource type="PackedScene" uid="uid://i70bm8lucd7m" path="res://scenes/menus/controller_settings_ui.tscn" id="17_8mvke"]
 [ext_resource type="Texture2D" uid="uid://piqjsvgixggj" path="res://assets/parallax/gradient_backgound_paralax_4.png" id="17_tv5hj"]
 [ext_resource type="PackedScene" uid="uid://bg142qlgmcfnf" path="res://scenes/menus/logo_screen.tscn" id="19_yn3my"]
@@ -168,62 +168,62 @@ layer = -2
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0, 0)
-motion_mirroring = Vector2(3072, 0)
+motion_mirroring = Vector2(5120, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
 z_index = -2
 material = SubResource("ShaderMaterial_0h0bh")
-position = Vector2(2355.2, 1177.6)
-scale = Vector2(2.3, 2.3)
+position = Vector2(3070, 1280)
+scale = Vector2(3, 3)
 texture = ExtResource("6_2g7ui")
 
 [node name="Skyline" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.2, 0.7)
-motion_mirroring = Vector2(4416, 0)
+motion_mirroring = Vector2(4800, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Skyline"]
 z_index = -2
-position = Vector2(2208, -550)
-scale = Vector2(2.3, 2.3)
+position = Vector2(2400, -639.602)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("7_3mtfd")
 
 [node name="FarBuildings" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.5, 1)
-motion_mirroring = Vector2(4416, 0)
+motion_scale = Vector2(0.4, 0.9)
+motion_mirroring = Vector2(4800, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FarBuildings"]
-position = Vector2(2208, -787)
-scale = Vector2(2.3, 2.3)
+position = Vector2(2300, -931.748)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("14_02id7")
 
 [node name="BackgroundBuildingsMiddle" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.3, 0.7)
-motion_mirroring = Vector2(4416, 0)
+motion_scale = Vector2(0.6, 0.8)
+motion_mirroring = Vector2(4800, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackgroundBuildingsMiddle"]
 z_index = -2
-position = Vector2(2208, -619)
-scale = Vector2(2.3, 2.3)
-texture = ExtResource("15_f1k3l")
+position = Vector2(2400, -683.496)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("16_biciv")
 
 [node name="BackgroundBuildingsFront" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.2, 0.7)
-motion_mirroring = Vector2(4416, 0)
+motion_scale = Vector2(0.8, 0.9)
+motion_mirroring = Vector2(4800, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackgroundBuildingsFront"]
 z_index = -2
-position = Vector2(2208, -341)
-scale = Vector2(2.3, 2.3)
+position = Vector2(2404.84, -644.602)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("16_6gtoh")
 
 [node name="Gradient3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.2, 0.7)
-motion_mirroring = Vector2(4416, 0)
+motion_mirroring = Vector2(4800, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Gradient3"]
 z_index = -2
-position = Vector2(2208, -550)
-scale = Vector2(2.3, 2.3)
+position = Vector2(2400, -630)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("17_tv5hj")
 
 [node name="Canvas" type="CanvasLayer" parent="." node_paths=PackedStringArray("player")]
@@ -238,6 +238,7 @@ visible = false
 visible = false
 
 [node name="MainMenu" parent="Canvas" instance=ExtResource("4_3igok")]
+visible = false
 
 [node name="LevelSelectMenu" parent="Canvas" instance=ExtResource("3_qm2ey")]
 visible = false
@@ -252,6 +253,7 @@ visible = false
 visible = false
 
 [node name="CreditsScreen" parent="Canvas" instance=ExtResource("26_lg5nl")]
+visible = false
 
 [node name="EscapeDelay" type="Timer" parent="Canvas"]
 wait_time = 0.001
@@ -307,6 +309,7 @@ environment = SubResource("Environment_2d4y5")
 [node name="LogoScreenLayer" type="CanvasLayer" parent="."]
 
 [node name="LogoScreen" parent="LogoScreenLayer" instance=ExtResource("19_yn3my")]
+visible = false
 
 [node name="SceneTransition" type="CanvasLayer" parent="."]
 process_mode = 3

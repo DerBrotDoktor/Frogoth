@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	visible = true
 	$AnimationPlayer.play("logos")
 
 func warning_finished():
