@@ -74,9 +74,9 @@
 [ext_resource type="Texture2D" uid="uid://bpnredwa82tvq" path="res://assets/decor/flying_decor/flying_rock_1.png" id="72_kjt3q"]
 [ext_resource type="Texture2D" uid="uid://cep3j36eam5sq" path="res://assets/decor/layer_4_rocks/l4_rock_8.png" id="73_o8daa"]
 [ext_resource type="Texture2D" uid="uid://3hv17xyqad0e" path="res://assets/decor/fauna/plant_3.png" id="74_s3p56"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/decor/lamp/candle_2.tscn" id="75_n8swn"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/decor/lamp/candle_1.tscn" id="76_rcl7v"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/decor/lamp/candle_3.tscn" id="77_5h2mf"]
+[ext_resource type="PackedScene" uid="uid://c31d5mg0q3u11" path="res://scenes/enviroment/decor/lamp/candle_2.tscn" id="75_n8swn"]
+[ext_resource type="PackedScene" uid="uid://5vbb1u78442m" path="res://scenes/enviroment/decor/lamp/candle_1.tscn" id="76_rcl7v"]
+[ext_resource type="PackedScene" uid="uid://b8iuw0jaene56" path="res://scenes/enviroment/decor/lamp/candle_3.tscn" id="77_5h2mf"]
 [ext_resource type="Texture2D" uid="uid://dj4r1xqxfwy35" path="res://assets/decor/rocks/rock_7.png" id="78_0g0ad"]
 [ext_resource type="Texture2D" uid="uid://djhyrsofk5cbg" path="res://assets/decor/layer_4_rocks/l4_rock_6.png" id="79_248hw"]
 [ext_resource type="Texture2D" uid="uid://dt2xyajspcj4r" path="res://assets/decor/layer_4_rocks/l4_rock_3.png" id="80_7jrvj"]
@@ -1660,42 +1660,36 @@ texture = ExtResource("70_ngaef")
 z_index = -1
 position = Vector2(22787, -4000)
 rotation = 1.30221
-scale = Vector2(1, 1)
 texture = ExtResource("42_njr14")
 
 [node name="ChainTile7" type="Sprite2D" parent="Enviroment"]
 z_index = -1
 position = Vector2(22787, -4000)
 rotation = 1.30221
-scale = Vector2(1, 1)
 texture = ExtResource("42_njr14")
 
 [node name="ChainTile8" type="Sprite2D" parent="Enviroment"]
 z_index = -1
 position = Vector2(22821, -3877)
 rotation = 1.30221
-scale = Vector2(1, 1)
 texture = ExtResource("42_njr14")
 
 [node name="ChainTile9" type="Sprite2D" parent="Enviroment"]
 z_index = -1
 position = Vector2(22854, -3757)
 rotation = 1.30221
-scale = Vector2(1, 1)
 texture = ExtResource("42_njr14")
 
 [node name="ChainTile10" type="Sprite2D" parent="Enviroment"]
 z_index = -1
 position = Vector2(22888, -3634)
 rotation = 1.30221
-scale = Vector2(1, 1)
 texture = ExtResource("42_njr14")
 
 [node name="ChainTile11" type="Sprite2D" parent="Enviroment"]
 z_index = -1
 position = Vector2(22922, -3511)
 rotation = 1.30221
-scale = Vector2(1, 1)
 texture = ExtResource("42_njr14")
 
 [node name="ChainEnd8" type="Sprite2D" parent="Enviroment"]
@@ -1801,7 +1795,6 @@ texture = ExtResource("74_s3p56")
 [node name="Plant48" type="Sprite2D" parent="Enviroment"]
 position = Vector2(27053, -5158)
 rotation = -0.290704
-scale = Vector2(1, 1)
 texture = ExtResource("71_xs2iy")
 
 [node name="Plant49" type="Sprite2D" parent="Enviroment"]

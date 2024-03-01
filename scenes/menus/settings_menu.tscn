@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scenes/menus/settings_menu.gd" id="1_yayyu"]
 [ext_resource type="Texture2D" uid="uid://bi3m7cg14mn4" path="res://assets/ui/slider/grabber.png" id="1_yc83u"]
 [ext_resource type="Texture2D" uid="uid://c0kt2a5kjcryi" path="res://assets/ui/slider/grabber_highlight.png" id="2_uidlc"]
-[ext_resource type="Shortcut" uid="uid://iivvhqc8ebr3" path="res://scenes/menus/back_button_shortcut.tres" id="3_5yhl3"]
+[ext_resource type="Shortcut" uid="uid://b5pj4b4tov5wb" path="res://scenes/menus/back_button_shortcut.tres" id="3_5yhl3"]
 [ext_resource type="Texture2D" uid="uid://cls307wb1qe1c" path="res://assets/ui/buttons/checkbox.png" id="3_71v6d"]
 [ext_resource type="Texture2D" uid="uid://gb5owr2h6cjm" path="res://assets/ui/slider/settingsslider.png" id="3_y5mon"]
 [ext_resource type="Texture2D" uid="uid://bfw22wontngdh" path="res://assets/ui/buttons/checked_checkbox.png" id="4_jbxg0"]

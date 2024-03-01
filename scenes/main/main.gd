@@ -108,3 +108,12 @@ func delete_shapes():
 	for child in $BashPointController.get_children():
 		if child.has_method("delete_shape"):
 			child.delete_shape()
+
+func remove_ui():
+	$Canvas.switch_to_child("nothing")
+
+func play_credits():
+	$SceneTransition/SceneTransitionAnimationPlayer.play("fade_in")
+	await $SceneTransition/SceneTransitionAnimationPlayer.animation_finished
+	$Canvas.switch_to_child("CreditsScreen")
+	$SceneTransition/SceneTransitionAnimationPlayer.play_backwards("fade_in")

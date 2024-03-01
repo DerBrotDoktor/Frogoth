@@ -1,7 +1,7 @@
-[gd_scene load_steps=84 format=3 uid="uid://c82ntg1hepcio"]
+[gd_scene load_steps=86 format=3 uid="uid://c82ntg1hepcio"]
 
 [ext_resource type="PackedScene" uid="uid://d0gcu70fmmqi4" path="res://scenes/player/player_spwan_point.tscn" id="1_bwcjm"]
-[ext_resource type="Script" path="res://scenes/level/level.gd" id="1_hmkru"]
+[ext_resource type="Script" path="res://scenes/level/the_end.gd" id="1_cije3"]
 [ext_resource type="PackedScene" uid="uid://c8sw521maw3ue" path="res://scenes/enviroment/platforms/big/platform_big_3.tscn" id="2_ibybs"]
 [ext_resource type="TileSet" uid="uid://bp2o7j5jtvfd2" path="res://assets/tileset/ground_1_tileset.tres" id="2_y6m6n"]
 [ext_resource type="PackedScene" uid="uid://btimemg85kwm8" path="res://scenes/enviroment/platforms/big/platform_big_2.tscn" id="3_2hgaq"]
@@ -44,7 +44,9 @@
 [ext_resource type="Texture2D" uid="uid://cfkjc4fd83h6g" path="res://assets/interactables/tutorial_sign.png" id="42_xgr3p"]
 [ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="43_h84bw"]
 [ext_resource type="Texture2D" uid="uid://bqxijul3kmlup" path="res://assets/decor/lamp_5.png" id="44_difwa"]
+[ext_resource type="Texture2D" uid="uid://btmt7xbmm0w33" path="res://assets/xelu_controller_and_key_prompts_pack/Keyboard Light/KeyLight0098.png" id="44_h2g6j"]
 [ext_resource type="Texture2D" uid="uid://d3xkh7tp3qm4v" path="res://assets/decor/fauna/plant_1.png" id="45_au342"]
+[ext_resource type="Texture2D" uid="uid://dofg8bh2ub887" path="res://assets/xelu_controller_and_key_prompts_pack/Positional Prompts/Positional_Prompts_Left.png" id="45_m4po2"]
 [ext_resource type="Texture2D" uid="uid://3hv17xyqad0e" path="res://assets/decor/fauna/plant_3.png" id="46_r404t"]
 [ext_resource type="Texture2D" uid="uid://dd7752cblny82" path="res://assets/decor/flying_decor/cage_1.png" id="47_82k1q"]
 [ext_resource type="Texture2D" uid="uid://b6divdhck2444" path="res://assets/decor/layer_4_rocks/l4_rock_7.png" id="48_w8u4h"]
@@ -102,7 +104,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrmnw"]
-size = Vector2(765, 580)
+size = Vector2(2991, 2017)
 
 [sub_resource type="Theme" id="Theme_j5iga"]
 default_font = ExtResource("43_h84bw")
@@ -131,8 +133,9 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 1)
 
 [node name="TheEnd" type="Node2D" node_paths=PackedStringArray("player_spawn_point")]
-script = ExtResource("1_hmkru")
+script = ExtResource("1_cije3")
 player_spawn_point = NodePath("PlayerSpwanPoint")
+level_name = "The End"
 can_player_jump_points = false
 camera_limits = Vector4i(-1000, -19000, 8300, 540)
 
@@ -713,7 +716,7 @@ texture = ExtResource("42_xgr3p")
 [node name="TriggerArea" type="Area2D" parent="TutorialSign"]
 
 [node name="TriggerAreaShape" type="CollisionShape2D" parent="TutorialSign/TriggerArea"]
-position = Vector2(14.5, -280)
+position = Vector2(71.5, -578.5)
 shape = SubResource("RectangleShape2D_yrmnw")
 
 [node name="LeaveTimer" type="Timer" parent="TutorialSign"]
@@ -729,10 +732,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -420.0
-offset_top = -442.0
-offset_right = 421.0
-offset_bottom = -305.0
+offset_left = -500.5
+offset_top = -845.0
+offset_right = 501.5
+offset_bottom = -536.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -740,13 +743,43 @@ theme = SubResource("Theme_j5iga")
 theme_override_font_sizes/font_size = 80
 text = "Thank you for playing!
 This is the end of the game
-Press F to finsih the game"
+Press"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Text2" type="Label" parent="TutorialSign/TextContainer"]
+self_modulate = Color(1.5, 1.5, 1.5, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.5
+offset_top = -340.0
+offset_right = 501.5
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_j5iga")
+theme_override_font_sizes/font_size = 80
+text = "to finsih the game"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="KeyboardPrompts" type="Node2D" parent="TutorialSign/TextContainer"]
 
+[node name="KeyLight0098" type="Sprite2D" parent="TutorialSign/TextContainer/KeyboardPrompts"]
+position = Vector2(0, -436)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("44_h2g6j")
+
 [node name="ControllerPrompts" type="Node2D" parent="TutorialSign/TextContainer"]
+
+[node name="PositionalPromptsLeft" type="Sprite2D" parent="TutorialSign/TextContainer/ControllerPrompts"]
+position = Vector2(0, -435)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("45_m4po2")
 
 [node name="Grass9" type="Sprite2D" parent="."]
 z_index = -1
