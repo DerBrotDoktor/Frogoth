@@ -274,7 +274,6 @@ texture = ExtResource("24_42mdp")
 z_index = 1
 position = Vector2(-2703, -2705)
 rotation = -0.648285
-scale = Vector2(1, 1)
 texture = ExtResource("25_u8vi2")
 
 [node name="Arch2" type="Sprite2D" parent="SetDressing"]

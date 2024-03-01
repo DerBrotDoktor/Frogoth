@@ -25,6 +25,7 @@ func fall():
 		is_falling = true
 		platform.process_mode = PROCESS_MODE_DISABLED
 		start_position = position
+		z_index = -2
 
 func stop_fall():
 	is_falling = false
@@ -32,6 +33,7 @@ func stop_fall():
 	pass
 
 func respawn():
+	z_index = 0
 	visible = false
 	position = start_position
 	$AnimationPlayer.play("respawn")

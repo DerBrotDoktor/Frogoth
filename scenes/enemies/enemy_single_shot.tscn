@@ -791,7 +791,7 @@ bus = &"SoundEffects"
 
 [node name="ChargeAnimation" type="AnimatedSprite2D" parent="." index="13"]
 visible = false
-z_index = 2
+z_index = 4
 position = Vector2(37, 28)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_bex7g")
