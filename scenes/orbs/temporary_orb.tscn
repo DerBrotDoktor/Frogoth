@@ -111,6 +111,7 @@ script = ExtResource("1_bb338")
 shape = SubResource("CircleShape2D_60t3f")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+z_index = 2
 sprite_frames = SubResource("SpriteFrames_tbvlu")
 autoplay = "default"
 frame_progress = 0.972063

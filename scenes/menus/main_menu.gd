@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	$MarginContainer/VerticalContainer/StartButton.grab_focus()
+	$MarginContainer/VBoxContainer/VerticalContainer/StartButton.grab_focus()
 	get_tree().paused = true
 
 func _on_start_button_button_up():
@@ -14,10 +14,10 @@ func _on_quit_button_button_up():
 	get_tree().quit()
 
 func _on_visibility_changed():
-	if $MarginContainer/VerticalContainer/StartButton.is_inside_tree() and visible:
+	if $MarginContainer/VBoxContainer/VerticalContainer/StartButton.is_inside_tree() and visible:
 		get_tree().paused = true
 		await get_tree().create_timer(0.1).timeout
-		$MarginContainer/VerticalContainer/StartButton.grab_focus()
+		$MarginContainer/VBoxContainer/VerticalContainer/StartButton.grab_focus()
 
 func _on_settings_button_button_up():
 	get_parent().switch_to_child("SettingsMenu")
