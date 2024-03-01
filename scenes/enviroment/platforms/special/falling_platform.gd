@@ -14,10 +14,11 @@ func _physics_process(_delta):
 		position.y = position.y + speed
 
 func start_fall():
-	$AnimationPlayer.play("fall_preperation")
-	$FallingPlatformDust.start()
-	$FalingPreperationPlayer.play()
-	$AnimationTimer.start()
+	if $AnimationTimer.is_stopped():
+		$AnimationPlayer.play("fall_preperation")
+		$FallingPlatformDust.start()
+		$FalingPreperationPlayer.play()
+		$AnimationTimer.start()
 
 func fall():
 	$FallingPlatformDust.stop()

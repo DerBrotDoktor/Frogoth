@@ -257,7 +257,7 @@ func _on_trigger_area_body_entered(body):
 			knockabck_direction.x = 0
 		set_knockback(knockabck_direction, body.knockback_strength, 0.35)
 		take_damage(1)
-	elif body.is_in_group("platform") and is_on_floor():
+	elif body.is_in_group("platform") and (is_on_floor() or (not $DashTimer.is_stopped())):
 		if body.get_parent().has_method("start_fall"):
 			body.get_parent().start_fall()
 

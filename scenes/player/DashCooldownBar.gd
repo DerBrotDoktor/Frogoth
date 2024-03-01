@@ -1,7 +1,5 @@
 extends Node2D
 
-var was_visible = false
-
 func _ready():
 	$ProgressBar.visible = false
 
