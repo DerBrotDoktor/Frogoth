@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://c82ntg1hepcio"]
+[gd_scene load_steps=55 format=3 uid="uid://c82ntg1hepcio"]
 
 [ext_resource type="PackedScene" uid="uid://d0gcu70fmmqi4" path="res://scenes/player/player_spwan_point.tscn" id="1_bwcjm"]
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_hmkru"]
@@ -43,6 +43,9 @@
 [ext_resource type="Script" path="res://scenes/enviroment/tutorial_sign/tutorial_sign.gd" id="41_xcxd2"]
 [ext_resource type="Texture2D" uid="uid://cfkjc4fd83h6g" path="res://assets/interactables/tutorial_sign.png" id="42_xgr3p"]
 [ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="43_h84bw"]
+[ext_resource type="Texture2D" uid="uid://bqxijul3kmlup" path="res://assets/decor/lamp_5.png" id="44_difwa"]
+[ext_resource type="Texture2D" uid="uid://d3xkh7tp3qm4v" path="res://assets/decor/fauna/plant_1.png" id="45_au342"]
+[ext_resource type="Texture2D" uid="uid://3hv17xyqad0e" path="res://assets/decor/fauna/plant_3.png" id="46_r404t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jsf8u"]
 texture = ExtResource("4_4racs")
@@ -80,11 +83,21 @@ Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 20
 Label/font_sizes/font_size = 80
 
+[sub_resource type="Gradient" id="Gradient_oxgia"]
+offsets = PackedFloat32Array(0, 0.94186)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_txq6j"]
+gradient = SubResource("Gradient_oxgia")
+fill = 1
+fill_from = Vector2(0.491453, 0.538462)
+fill_to = Vector2(0.858974, 0.0598291)
+
 [node name="TheEnd" type="Node2D" node_paths=PackedStringArray("player_spawn_point")]
 script = ExtResource("1_hmkru")
 player_spawn_point = NodePath("PlayerSpwanPoint")
 can_player_jump_points = false
-camera_limits = Vector4i(-500, -19000, 8000, 300)
+camera_limits = Vector4i(-1000, -19000, 8300, 540)
 
 [node name="PlayerSpwanPoint" parent="." instance=ExtResource("1_bwcjm")]
 position = Vector2(682, -220)
@@ -396,6 +409,12 @@ z_index = -2
 position = Vector2(157, -435)
 texture = ExtResource("10_6r2u7")
 
+[node name="Grass12" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(7376, -339)
+scale = Vector2(1.66216, 1.90708)
+texture = ExtResource("26_bwsm8")
+
 [node name="Lamp3" parent="." instance=ExtResource("11_8x3do")]
 z_index = -2
 position = Vector2(291, -342)
@@ -635,11 +654,13 @@ position = Vector2(7312, -394)
 texture = ExtResource("19_c2kqo")
 
 [node name="FogTest3" type="Sprite2D" parent="."]
+visible = false
 z_index = -2
 position = Vector2(1912, -617)
 texture = ExtResource("40_etjga")
 
 [node name="FogTest4" type="Sprite2D" parent="."]
+visible = false
 z_index = -2
 position = Vector2(5439, -721)
 texture = ExtResource("40_etjga")
@@ -682,13 +703,71 @@ size_flags_horizontal = 4
 theme = SubResource("Theme_j5iga")
 theme_override_font_sizes/font_size = 80
 text = "Thank you for playing!
-This is the end of the game.
-Press F to return to the main menu."
+This is the end of the game
+Press F to finsih the game"
 horizontal_alignment = 1
 
 [node name="KeyboardPrompts" type="Node2D" parent="TutorialSign/TextContainer"]
 
 [node name="ControllerPrompts" type="Node2D" parent="TutorialSign/TextContainer"]
+
+[node name="Grass9" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(7100, -375)
+scale = Vector2(2.63024, 3.31036)
+texture = ExtResource("12_s03sn")
+
+[node name="Grass11" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(7199, -319)
+texture = ExtResource("13_gnx3m")
+
+[node name="Grass13" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(7333, -297)
+texture = ExtResource("28_ccd6y")
+
+[node name="Grass10" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(7248, -286)
+texture = ExtResource("27_1x81p")
+
+[node name="Skull3" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(7081, -306)
+scale = Vector2(0.606913, 0.594901)
+texture = ExtResource("29_k10dv")
+flip_h = true
+
+[node name="Lamp5" type="Sprite2D" parent="."]
+modulate = Color(0.231373, 0.372549, 0.415686, 1)
+self_modulate = Color(2, 2, 2, 1)
+z_index = -1
+position = Vector2(7118, -299)
+rotation = 0.923801
+scale = Vector2(0.408216, 0.269816)
+texture = ExtResource("44_difwa")
+
+[node name="PointLight2D" type="PointLight2D" parent="Lamp5"]
+position = Vector2(4.86452, 14.849)
+rotation = -1.10768
+scale = Vector2(26.5463, 20.2225)
+skew = 0.388903
+color = Color(0.184314, 0.337255, 0.164706, 1)
+energy = 4.16
+texture = SubResource("GradientTexture2D_txq6j")
+
+[node name="Plant1" type="Sprite2D" parent="."]
+position = Vector2(6868, -303)
+texture = ExtResource("45_au342")
+
+[node name="Plant3" type="Sprite2D" parent="."]
+position = Vector2(6990, -306)
+texture = ExtResource("25_t0opb")
+
+[node name="Plant4" type="Sprite2D" parent="."]
+position = Vector2(7144, -190)
+texture = ExtResource("46_r404t")
 
 [connection signal="area_entered" from="TutorialSign/TriggerArea" to="TutorialSign" method="_on_trigger_area_area_entered"]
 [connection signal="area_exited" from="TutorialSign/TriggerArea" to="TutorialSign" method="_on_trigger_area_area_exited"]
