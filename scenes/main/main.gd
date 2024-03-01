@@ -29,6 +29,8 @@ func load_level_by_index(index:int):
 		$SceneTransition/SceneTransitionAnimationPlayer.play("fade_in")
 		await $SceneTransition/SceneTransitionAnimationPlayer.animation_finished
 		load_scene(level[index])
+		var limits = current_scene.get_camera_limits()
+		player.set_camera_limits(limits)
 		set_player_position(current_scene.get_player_spawn_position())
 		player.can_place_jump_points = current_scene.can_player_jump_points
 		player.reset()

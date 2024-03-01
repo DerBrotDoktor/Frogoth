@@ -4,6 +4,7 @@ extends Node2D
 @export var level_name :String
 @export var can_player_jump_points = true ##if false the player cant place jump points at the beginning of the level
 @export var badge_times :Array[int]
+@export var camera_limits :Vector4i
 
 func _ready():
 	player_spawn_point.visible = false
@@ -46,3 +47,6 @@ func get_badge(seconds):
 		elif seconds > badge_times[3]:
 			returnValue = 0
 	return returnValue
+
+func get_camera_limits():
+	return camera_limits

@@ -414,3 +414,9 @@ func set_knockback(direction,strength,time):
 func _on_knockback_time_timeout():
 	knockback = Vector2.ZERO
 	can_move = true
+
+func set_camera_limits(limits):
+	$Camera.limit_left = limits.x
+	$Camera.limit_top = limits.y
+	$Camera.limit_right = limits.z
+	$Camera.limit_bottom = limits.w
