@@ -98,7 +98,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"destroy",
-"speed": 5.0
+"speed": 12.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gody5"]
@@ -118,7 +118,10 @@ script = ExtResource("1_aeqp4")
 z_index = 4
 position = Vector2(-20, -10)
 sprite_frames = SubResource("SpriteFrames_gqi5h")
+animation = &"destroy"
 autoplay = "default"
+frame = 5
+frame_progress = 1.0
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 rotation = 1.5708
