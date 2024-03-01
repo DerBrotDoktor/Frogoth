@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://c82ntg1hepcio"]
+[gd_scene load_steps=84 format=3 uid="uid://c82ntg1hepcio"]
 
 [ext_resource type="PackedScene" uid="uid://d0gcu70fmmqi4" path="res://scenes/player/player_spwan_point.tscn" id="1_bwcjm"]
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_hmkru"]
@@ -46,6 +46,33 @@
 [ext_resource type="Texture2D" uid="uid://bqxijul3kmlup" path="res://assets/decor/lamp_5.png" id="44_difwa"]
 [ext_resource type="Texture2D" uid="uid://d3xkh7tp3qm4v" path="res://assets/decor/fauna/plant_1.png" id="45_au342"]
 [ext_resource type="Texture2D" uid="uid://3hv17xyqad0e" path="res://assets/decor/fauna/plant_3.png" id="46_r404t"]
+[ext_resource type="Texture2D" uid="uid://dd7752cblny82" path="res://assets/decor/flying_decor/cage_1.png" id="47_82k1q"]
+[ext_resource type="Texture2D" uid="uid://b6divdhck2444" path="res://assets/decor/layer_4_rocks/l4_rock_7.png" id="48_w8u4h"]
+[ext_resource type="Texture2D" uid="uid://cyr6mxduip1hh" path="res://assets/decor/layer_4_rocks/l4_rock_4.png" id="49_0puvb"]
+[ext_resource type="Texture2D" uid="uid://c31161v1jvdyp" path="res://assets/decor/layer_4_rocks/l4_rock_2.png" id="50_k57jm"]
+[ext_resource type="Texture2D" uid="uid://ye2agx2842hs" path="res://assets/decor/flying_decor/flying_rock_2.png" id="51_07uqh"]
+[ext_resource type="Texture2D" uid="uid://dl8ncw0chcok2" path="res://assets/decor/fauna/plant_6.png" id="52_obgsp"]
+[ext_resource type="Texture2D" uid="uid://c2pf7b48p7xhv" path="res://assets/decor/fauna/plant_7.png" id="53_wqwe3"]
+[ext_resource type="Texture2D" uid="uid://2vg8v8t83d2n" path="res://assets/decor/fauna/plant_8.png" id="54_e46cp"]
+[ext_resource type="Texture2D" uid="uid://cwupym6vulop8" path="res://assets/decor/flying_decor/statue_3.png" id="55_w7acv"]
+[ext_resource type="Texture2D" uid="uid://bpnredwa82tvq" path="res://assets/decor/flying_decor/flying_rock_1.png" id="56_is7f0"]
+[ext_resource type="Texture2D" uid="uid://dt2xyajspcj4r" path="res://assets/decor/layer_4_rocks/l4_rock_3.png" id="57_ajjxq"]
+[ext_resource type="Texture2D" uid="uid://o58jwopapw53" path="res://assets/decor/flying_decor/flying_pillar_1.png" id="58_acllh"]
+[ext_resource type="Texture2D" uid="uid://dfy1l1shns1fx" path="res://assets/decor/flying_decor/flying_rock_6.png" id="59_82iwh"]
+[ext_resource type="Texture2D" uid="uid://m7kmr6cyimju" path="res://assets/decor/flying_decor/bridge_1.png" id="60_m7usp"]
+[ext_resource type="Texture2D" uid="uid://nj2vvgj1y6fh" path="res://assets/decor/flying_decor/bridge_2.png" id="61_y55hv"]
+[ext_resource type="PackedScene" uid="uid://cnn1r7uyeri2u" path="res://scenes/enviroment/decor/chain.tscn" id="62_4dxtx"]
+[ext_resource type="Texture2D" uid="uid://iow6t5e1c022" path="res://assets/decor/flying_decor/flying_rock_3.png" id="63_2ghnc"]
+[ext_resource type="Texture2D" uid="uid://b4qjyis4tjmkd" path="res://assets/decor/flying_decor/flying_rock_5.png" id="64_2ymvm"]
+[ext_resource type="Texture2D" uid="uid://tt8lpy5ocqjj" path="res://assets/decor/chain_tile_small.png" id="65_chuos"]
+[ext_resource type="Texture2D" uid="uid://c4a4o36nsjn6" path="res://assets/decor/chain_end.png" id="66_xvy3y"]
+[ext_resource type="PackedScene" uid="uid://b68wv6x02xc4a" path="res://scenes/enviroment/decor/lamp/lamp_2.tscn" id="67_gddah"]
+[ext_resource type="Texture2D" uid="uid://bsra8l1nj7n58" path="res://assets/decor/candle_1.png" id="68_fig5l"]
+[ext_resource type="Texture2D" uid="uid://dj6ea6rpq04vv" path="res://assets/decor/statue_1.png" id="69_8tpfm"]
+[ext_resource type="PackedScene" uid="uid://dfepc1vlcyy7u" path="res://scenes/enviroment/decor/lamp/lamp_5.tscn" id="70_t14o8"]
+[ext_resource type="PackedScene" uid="uid://beondpitwxvnc" path="res://scenes/enviroment/decor/lamp/lamp_4.tscn" id="71_rs3aj"]
+[ext_resource type="Texture2D" uid="uid://0ddtngahj2w3" path="res://assets/decor/flying_decor/flying_pillar_2.png" id="72_06lb4"]
+[ext_resource type="Texture2D" uid="uid://c11x7vdbitdnb" path="res://assets/decor/pink1.png" id="73_ss4wi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jsf8u"]
 texture = ExtResource("4_4racs")
@@ -92,6 +119,16 @@ gradient = SubResource("Gradient_oxgia")
 fill = 1
 fill_from = Vector2(0.491453, 0.538462)
 fill_to = Vector2(0.858974, 0.0598291)
+
+[sub_resource type="Gradient" id="Gradient_56mdg"]
+offsets = PackedFloat32Array(0.116883, 0.655844)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0prud"]
+gradient = SubResource("Gradient_56mdg")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
 
 [node name="TheEnd" type="Node2D" node_paths=PackedStringArray("player_spawn_point")]
 script = ExtResource("1_hmkru")
@@ -379,6 +416,7 @@ position = Vector2(566, -17566)
 position = Vector2(1702, -5991)
 
 [node name="PlatformBig2" parent="Platforms" instance=ExtResource("3_2hgaq")]
+z_index = -1
 position = Vector2(3606, -16098)
 
 [node name="PlatformBig1" parent="Platforms" instance=ExtResource("4_6dpeb")]
@@ -654,13 +692,11 @@ position = Vector2(7312, -394)
 texture = ExtResource("19_c2kqo")
 
 [node name="FogTest3" type="Sprite2D" parent="."]
-visible = false
 z_index = -2
 position = Vector2(1912, -617)
 texture = ExtResource("40_etjga")
 
 [node name="FogTest4" type="Sprite2D" parent="."]
-visible = false
 z_index = -2
 position = Vector2(5439, -721)
 texture = ExtResource("40_etjga")
@@ -706,6 +742,7 @@ text = "Thank you for playing!
 This is the end of the game
 Press F to finsih the game"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="KeyboardPrompts" type="Node2D" parent="TutorialSign/TextContainer"]
 
@@ -769,6 +806,570 @@ texture = ExtResource("25_t0opb")
 position = Vector2(7144, -190)
 texture = ExtResource("46_r404t")
 
+[node name="Cage1" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5065, -329)
+rotation = 1.1968
+scale = Vector2(0.67648, 0.648872)
+texture = ExtResource("47_82k1q")
+
+[node name="L4Rock7" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(4950, -284)
+rotation = -0.0279789
+scale = Vector2(0.627759, 0.530366)
+texture = ExtResource("48_w8u4h")
+
+[node name="L4Rock4" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5109, -288)
+texture = ExtResource("49_0puvb")
+
+[node name="Plant5" type="Sprite2D" parent="."]
+position = Vector2(4805, -346)
+rotation = -0.0517867
+scale = Vector2(0.777293, 0.825346)
+texture = ExtResource("45_au342")
+
+[node name="L4Rock2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4009, -154)
+texture = ExtResource("50_k57jm")
+
+[node name="FlyingRock2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4587, -173)
+rotation = 0.564494
+scale = Vector2(0.580533, 0.643409)
+texture = ExtResource("51_07uqh")
+
+[node name="Plant6" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(5778, -463)
+rotation = 0.0812628
+texture = ExtResource("52_obgsp")
+
+[node name="Plant7" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(2903, -246)
+texture = ExtResource("53_wqwe3")
+
+[node name="Plant8" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3597, -167)
+texture = ExtResource("54_e46cp")
+
+[node name="Grass14" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5739, -413)
+rotation = 0.0897813
+texture = ExtResource("27_1x81p")
+
+[node name="Statue3" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4881, -1469)
+texture = ExtResource("55_w7acv")
+
+[node name="FlyingRock1" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(6822, -1095)
+texture = ExtResource("56_is7f0")
+flip_h = true
+
+[node name="L4Rock3" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(6907, -990)
+rotation = 1.3395
+scale = Vector2(0.380716, 0.253173)
+texture = ExtResource("57_ajjxq")
+
+[node name="L4Rock8" type="Sprite2D" parent="."]
+position = Vector2(6945, -1020)
+rotation = 0.106779
+scale = Vector2(0.254244, 0.419467)
+texture = ExtResource("57_ajjxq")
+
+[node name="FlyingPillar1" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4859, -986)
+rotation = 3.11251
+texture = ExtResource("58_acllh")
+
+[node name="FlyingRock6" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4736, -1237)
+rotation = 0.925004
+scale = Vector2(0.227517, 0.231916)
+texture = ExtResource("59_82iwh")
+
+[node name="Bridge1" type="Sprite2D" parent="."]
+position = Vector2(2139, -3826)
+texture = ExtResource("60_m7usp")
+
+[node name="Bridge2" type="Sprite2D" parent="."]
+position = Vector2(4574, -13108)
+rotation = 0.165546
+texture = ExtResource("61_y55hv")
+
+[node name="Chain" parent="." instance=ExtResource("62_4dxtx")]
+position = Vector2(2087, -3911)
+points = PackedVector2Array(1, -4, -352, -2089)
+
+[node name="LampPost7" parent="." instance=ExtResource("33_143f8")]
+z_index = -1
+position = Vector2(3256, -9459)
+rotation = -0.8519
+flip_h = true
+
+[node name="FlyingRock7" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4052, -6070)
+texture = ExtResource("59_82iwh")
+
+[node name="FlyingRock3" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4800, -6659)
+texture = ExtResource("56_is7f0")
+
+[node name="FlyingRock4" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5646, -6290)
+texture = ExtResource("63_2ghnc")
+
+[node name="FlyingRock5" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4886, -5846)
+texture = ExtResource("64_2ymvm")
+
+[node name="ChainTileSmall" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4179, -5933)
+rotation = 0.874116
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4227, -5884)
+rotation = 0.703856
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall3" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4284, -5840)
+rotation = 0.59905
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall4" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4338, -5803)
+rotation = 0.59905
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall5" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4395, -5767)
+rotation = 0.512653
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall6" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4458, -5734)
+rotation = 0.434367
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall7" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4521, -5706)
+rotation = 0.378503
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall8" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4586, -5685)
+rotation = 0.247387
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall9" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4653, -5671)
+rotation = 0.135023
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall10" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4720, -5665)
+rotation = 0.0319052
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall11" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4787, -5663)
+rotation = 0.0319052
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall12" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5022, -5823)
+rotation = 0.657079
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall13" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5080, -5790)
+rotation = 0.30293
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall14" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5148, -5779)
+rotation = -0.0112746
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall15" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5215, -5792)
+rotation = -0.341264
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall16" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5273, -5823)
+rotation = -0.718827
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall17" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5321, -5862)
+rotation = -0.718827
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall18" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5372, -5905)
+rotation = -0.718827
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall19" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5421, -5951)
+rotation = -0.813543
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall20" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5464, -6003)
+rotation = -0.958935
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall21" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5507, -6062)
+rotation = -0.99533
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall22" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5545, -6117)
+rotation = -0.99533
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall25" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4913, -5647)
+rotation = -1.56094
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall26" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4914, -5710)
+rotation = -1.56094
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall23" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5583, -6173)
+rotation = -0.99533
+texture = ExtResource("65_chuos")
+
+[node name="ChainTileSmall24" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5583, -6173)
+rotation = -0.99533
+texture = ExtResource("65_chuos")
+
+[node name="ChainEnd" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4155, -5969)
+rotation = 0.426728
+scale = Vector2(0.752341, 0.789545)
+texture = ExtResource("66_xvy3y")
+
+[node name="ChainEnd2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4830, -5666)
+rotation = -0.319789
+scale = Vector2(0.752341, 0.789545)
+texture = ExtResource("66_xvy3y")
+
+[node name="ChainEnd3" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4986, -5857)
+rotation = 0.0672714
+scale = Vector2(0.752341, 0.789545)
+texture = ExtResource("66_xvy3y")
+
+[node name="ChainEnd5" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4913, -5751)
+rotation = 0.146734
+scale = Vector2(0.552973, 0.504421)
+texture = ExtResource("66_xvy3y")
+
+[node name="ChainEnd6" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4911, -5604)
+rotation = 0.146734
+scale = Vector2(0.552973, 0.504421)
+texture = ExtResource("66_xvy3y")
+
+[node name="ChainEnd4" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5609, -6220)
+rotation = -2.7297
+scale = Vector2(0.752341, 0.789545)
+texture = ExtResource("66_xvy3y")
+
+[node name="Candle5" parent="." instance=ExtResource("23_fx5t0")]
+position = Vector2(4084, -6120)
+
+[node name="Candle6" parent="." instance=ExtResource("21_ik11i")]
+position = Vector2(5633, -6434)
+rotation = -0.496955
+
+[node name="Plant9" type="Sprite2D" parent="."]
+position = Vector2(4853, -6687)
+rotation = -0.510508
+texture = ExtResource("46_r404t")
+
+[node name="Lamp4" parent="." instance=ExtResource("67_gddah")]
+z_index = -2
+position = Vector2(4905, -5502)
+
+[node name="FlyingRock8" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3422, -9246)
+texture = ExtResource("51_07uqh")
+
+[node name="Plant10" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3397, -9149)
+texture = ExtResource("45_au342")
+
+[node name="Plant11" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3182, -9473)
+rotation = -0.0555353
+scale = Vector2(0.38715, 0.364213)
+texture = ExtResource("45_au342")
+
+[node name="LightRayTest8" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(3202, -9691)
+texture = ExtResource("40_nlggk")
+
+[node name="FlyingRock9" type="Sprite2D" parent="."]
+position = Vector2(3569, -9350)
+rotation = 0.217708
+scale = Vector2(0.400374, 0.369751)
+texture = ExtResource("56_is7f0")
+
+[node name="Plant13" type="Sprite2D" parent="."]
+position = Vector2(3580, -9345)
+rotation = 0.574703
+scale = Vector2(0.439444, 0.399226)
+texture = ExtResource("25_t0opb")
+
+[node name="Candle7" type="Sprite2D" parent="."]
+self_modulate = Color(1.5, 1.5, 1.5, 1)
+z_index = -1
+position = Vector2(1609, -6070)
+scale = Vector2(0.833333, 0.751748)
+texture = ExtResource("68_fig5l")
+
+[node name="PointLight2D" type="PointLight2D" parent="Candle7"]
+scale = Vector2(10, 10)
+color = Color(0.501961, 0.188235, 0, 1)
+energy = 1.3
+texture = SubResource("GradientTexture2D_0prud")
+
+[node name="L4Rock9" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1776, -6066)
+rotation = -0.101262
+scale = Vector2(0.859375, 0.773438)
+texture = ExtResource("32_ddt0f")
+
+[node name="Statue1" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(5859, -10699)
+texture = ExtResource("69_8tpfm")
+
+[node name="Candle8" parent="." instance=ExtResource("23_fx5t0")]
+position = Vector2(5863, -10875)
+
+[node name="Candle9" parent="." instance=ExtResource("21_ik11i")]
+z_index = -1
+position = Vector2(5775, -10533)
+scale = Vector2(0.705479, 0.653846)
+
+[node name="Candle10" parent="." instance=ExtResource("20_qsl81")]
+position = Vector2(5824, -10553)
+scale = Vector2(0.715686, 0.845133)
+
+[node name="Grass15" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(5742, -10551)
+texture = ExtResource("26_bwsm8")
+
+[node name="Lamp6" parent="." instance=ExtResource("70_t14o8")]
+modulate = Color(1, 0.498039, 1, 1)
+position = Vector2(3824, -16480)
+
+[node name="PointLight2D" parent="Lamp6" index="0"]
+z_index = -1
+position = Vector2(7.00006, 17.0001)
+scale = Vector2(13.0781, 13.1094)
+color = Color(0.654902, 0.105882, 0.509804, 1)
+energy = 1.5
+
+[node name="Lamp7" parent="." instance=ExtResource("71_rs3aj")]
+modulate = Color(1, 0.498039, 1, 1)
+position = Vector2(3315, -16610)
+
+[node name="PointLight2D" parent="Lamp7" index="0"]
+z_index = -1
+position = Vector2(5.00006, 7.99988)
+scale = Vector2(13.5469, 12.8281)
+color = Color(0.654902, 0.105882, 0.509804, 1)
+energy = 1.5
+
+[node name="Lamp9" parent="." instance=ExtResource("67_gddah")]
+modulate = Color(1, 0.498039, 1, 1)
+position = Vector2(3600, -16865)
+
+[node name="PointLight2D" parent="Lamp9" index="0"]
+z_index = -1
+position = Vector2(3.00009, 8.99964)
+scale = Vector2(13.7969, 13.4062)
+color = Color(0.654902, 0.105882, 0.509804, 1)
+energy = 1.5
+
+[node name="FlyingRock10" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4010, -16355)
+rotation = 0.15489
+scale = Vector2(0.554688, 0.580357)
+texture = ExtResource("56_is7f0")
+
+[node name="FlyingRock11" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4153, -16650)
+rotation = -0.478704
+scale = Vector2(0.759804, 0.746988)
+texture = ExtResource("51_07uqh")
+
+[node name="FlyingRock17" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3921, -16660)
+rotation = -0.478704
+scale = Vector2(0.115291, 0.0985976)
+texture = ExtResource("51_07uqh")
+flip_h = true
+
+[node name="FlyingRock19" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3294, -16450)
+rotation = -0.478704
+scale = Vector2(0.115291, 0.0985976)
+texture = ExtResource("51_07uqh")
+flip_h = true
+
+[node name="FlyingRock12" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3941, -16839.5)
+rotation = -0.799234
+scale = Vector2(0.745098, 0.725904)
+texture = ExtResource("63_2ghnc")
+
+[node name="FlyingPillar2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3130, -16440)
+rotation = -0.315785
+scale = Vector2(0.748514, 0.717262)
+texture = ExtResource("72_06lb4")
+
+[node name="FlyingRock13" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3192, -16918)
+rotation = 0.858974
+scale = Vector2(0.654018, 0.765625)
+texture = ExtResource("59_82iwh")
+
+[node name="Statue4" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3420, -17064.3)
+rotation = 0.134884
+scale = Vector2(0.808989, 0.713018)
+texture = ExtResource("55_w7acv")
+
+[node name="L4Rock10" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3749.84, -16920.1)
+rotation = 0.491493
+scale = Vector2(0.729275, 0.676666)
+texture = ExtResource("57_ajjxq")
+
+[node name="FlyingRock14" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3722, -17037)
+rotation = -0.210254
+scale = Vector2(0.480392, 0.542169)
+texture = ExtResource("63_2ghnc")
+flip_h = true
+
+[node name="FlyingRock15" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3344, -16840)
+rotation = 0.67762
+scale = Vector2(0.328125, 0.283482)
+texture = ExtResource("56_is7f0")
+flip_h = true
+
+[node name="FlyingRock16" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3206, -16677)
+rotation = 0.174263
+scale = Vector2(0.358433, 0.321873)
+texture = ExtResource("64_2ymvm")
+
+[node name="FlyingRock18" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4025, -16578)
+rotation = -0.942432
+scale = Vector2(0.256696, 0.227679)
+texture = ExtResource("59_82iwh")
+flip_h = true
+
+[node name="Pink1" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.670588)
+z_index = -1
+position = Vector2(3593, -16637)
+texture = ExtResource("73_ss4wi")
+
 [connection signal="area_entered" from="TutorialSign/TriggerArea" to="TutorialSign" method="_on_trigger_area_area_entered"]
 [connection signal="area_exited" from="TutorialSign/TriggerArea" to="TutorialSign" method="_on_trigger_area_area_exited"]
 [connection signal="timeout" from="TutorialSign/LeaveTimer" to="TutorialSign" method="_on_leave_timer_timeout"]
+
+[editable path="Lamp6"]
+[editable path="Lamp7"]
+[editable path="Lamp9"]
