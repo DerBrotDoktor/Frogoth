@@ -431,7 +431,8 @@ position = Vector2(12621, -6245)
 texture = ExtResource("28_nsw1a")
 
 [node name="Statue1" type="Sprite2D" parent="."]
-position = Vector2(10160, -6320)
+z_index = -1
+position = Vector2(10172, -6350)
 texture = ExtResource("29_n1ig7")
 
 [node name="FenceFull" type="Sprite2D" parent="."]
@@ -479,7 +480,7 @@ position = Vector2(11004, -6174)
 texture = ExtResource("34_tnnxx")
 
 [node name="Grass3" type="Sprite2D" parent="."]
-position = Vector2(12408, -6195)
+position = Vector2(12409, -6182.5)
 texture = ExtResource("35_p07vd")
 
 [node name="Grass4" type="Sprite2D" parent="."]
@@ -504,7 +505,7 @@ texture = ExtResource("39_d0cj6")
 position = Vector2(12070, -6199)
 texture = ExtResource("40_a0w1m")
 
-[node name="Grass6" type="Sprite2D" parent="."]
+[node name="q" type="Sprite2D" parent="."]
 position = Vector2(12172, -6183)
 texture = ExtResource("35_p07vd")
 
@@ -526,7 +527,7 @@ position = Vector2(10511, -6360)
 
 [node name="LampPost6" parent="." instance=ExtResource("41_xios1")]
 z_index = -1
-position = Vector2(12407, -6364)
+position = Vector2(12408, -6351.5)
 flip_h = true
 
 [node name="Grass7" type="Sprite2D" parent="."]

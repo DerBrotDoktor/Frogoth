@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://ddwu8ev1w36qf"]
+[gd_scene load_steps=60 format=3 uid="uid://ddwu8ev1w36qf"]
 
 [ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/orbs/jump_point.tscn" id="1_pdq3v"]
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_wyfs8"]
@@ -44,6 +44,21 @@
 [ext_resource type="Texture2D" uid="uid://coq25pjd3y4nc" path="res://assets/ceiling/ceiling_3.png" id="42_v1w20"]
 [ext_resource type="Texture2D" uid="uid://c2r12wekh26q4" path="res://assets/ceiling/ceiling_4.png" id="43_s2ral"]
 [ext_resource type="Texture2D" uid="uid://bgvej3ejldu4p" path="res://assets/ceiling/ceiling_5.png" id="44_joigt"]
+[ext_resource type="Texture2D" uid="uid://bdbkns6fgj2cl" path="res://assets/decor/fauna/grass_2.png" id="45_7pxn4"]
+[ext_resource type="Texture2D" uid="uid://d3xkh7tp3qm4v" path="res://assets/decor/fauna/plant_1.png" id="46_rvjqd"]
+[ext_resource type="Texture2D" uid="uid://3hv17xyqad0e" path="res://assets/decor/fauna/plant_3.png" id="47_hwgt4"]
+[ext_resource type="Texture2D" uid="uid://m7kmr6cyimju" path="res://assets/decor/flying_decor/bridge_1.png" id="48_xnxa4"]
+[ext_resource type="Texture2D" uid="uid://nj2vvgj1y6fh" path="res://assets/decor/flying_decor/bridge_2.png" id="49_5q6i5"]
+[ext_resource type="Texture2D" uid="uid://b4qjyis4tjmkd" path="res://assets/decor/flying_decor/flying_rock_5.png" id="50_lddoo"]
+[ext_resource type="Texture2D" uid="uid://ye2agx2842hs" path="res://assets/decor/flying_decor/flying_rock_2.png" id="51_u4rlk"]
+[ext_resource type="PackedScene" uid="uid://pmx8o228vh87" path="res://scenes/enviroment/decor/lamp/lamp_1.tscn" id="52_gmk25"]
+[ext_resource type="Texture2D" uid="uid://by7jtfvwyvay8" path="res://assets/decor/wall_2.png" id="53_r51mt"]
+[ext_resource type="Texture2D" uid="uid://byebw2hu8v4i4" path="res://assets/decor/wall_1.png" id="54_fdr8n"]
+[ext_resource type="Texture2D" uid="uid://db8i85a7afpwa" path="res://assets/decor/layer_4_rocks/l4_rock_1.png" id="55_il1re"]
+[ext_resource type="Texture2D" uid="uid://b6divdhck2444" path="res://assets/decor/layer_4_rocks/l4_rock_7.png" id="56_s44el"]
+[ext_resource type="Texture2D" uid="uid://t4xg46sf43nm" path="res://assets/decor/layer_4_rocks/big_rock.png" id="57_ts4pc"]
+[ext_resource type="Texture2D" uid="uid://c31161v1jvdyp" path="res://assets/decor/layer_4_rocks/l4_rock_2.png" id="58_it63x"]
+[ext_resource type="Texture2D" uid="uid://cep3j36eam5sq" path="res://assets/decor/layer_4_rocks/l4_rock_8.png" id="59_ss5mu"]
 
 [node name="Level3" type="Node2D" node_paths=PackedStringArray("player_spawn_point")]
 script = ExtResource("1_wyfs8")
@@ -242,6 +257,18 @@ flip_h = true
 position = Vector2(4653, -1879)
 scale = Vector2(0.677152, 0.691051)
 
+[node name="Chain3" parent="." instance=ExtResource("31_asjmo")]
+position = Vector2(1113.31, -1295.48)
+points = PackedVector2Array(1120.69, -970.518, 1668.69, -559.518)
+
+[node name="Chain" parent="Chain3" instance=ExtResource("31_asjmo")]
+position = Vector2(736.779, -691.768)
+points = PackedVector2Array(180.909, -298.75, -304.091, 1738.25)
+
+[node name="Chain" parent="Chain3/Chain" instance=ExtResource("31_asjmo")]
+position = Vector2(1077.53, 537.928)
+points = PackedVector2Array(52.3801, -339.679, 468.38, 917.321)
+
 [node name="Grass1" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(-525, -1033)
@@ -340,11 +367,6 @@ position = Vector2(3368, -3806)
 scale = Vector2(0.570833, 0.547118)
 texture = ExtResource("39_3gau2")
 
-[node name="Chain2" parent="." instance=ExtResource("31_asjmo")]
-z_index = -2
-position = Vector2(3747, -3738)
-points = PackedVector2Array(-436, -322, -435, 234)
-
 [node name="Ceiling1" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(5243, -4257)
@@ -426,5 +448,171 @@ texture = ExtResource("40_jnrak")
 [node name="Ceiling16" type="Sprite2D" parent="."]
 position = Vector2(4857, -4601)
 texture = ExtResource("43_s2ral")
+
+[node name="Grass9" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-45, -2093)
+texture = ExtResource("30_mxrj0")
+
+[node name="Grass10" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(364, -2961)
+texture = ExtResource("29_p71in")
+
+[node name="Grass2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1932, -3314)
+texture = ExtResource("24_b5kl8")
+
+[node name="Grass11" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4195, -2277)
+texture = ExtResource("45_7pxn4")
+
+[node name="Plant1" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(1586, -973)
+scale = Vector2(0.884313, 0.897496)
+texture = ExtResource("46_rvjqd")
+
+[node name="Plant3" type="Sprite2D" parent="."]
+position = Vector2(874, -1536)
+scale = Vector2(0.814034, 0.861974)
+texture = ExtResource("47_hwgt4")
+
+[node name="Bridge1" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2094, -2578)
+texture = ExtResource("48_xnxa4")
+
+[node name="Bridge2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2997, -2112)
+texture = ExtResource("49_5q6i5")
+
+[node name="FlyingRock5" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2546, -2342)
+rotation = 0.109853
+scale = Vector2(0.71875, 0.613722)
+texture = ExtResource("50_lddoo")
+
+[node name="FlyingRock2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2743, -2324)
+rotation = 0.504792
+scale = Vector2(0.337239, 0.408783)
+texture = ExtResource("39_3gau2")
+
+[node name="FlyingRock3" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2425, -2524)
+rotation = -0.496917
+scale = Vector2(0.271362, 0.329374)
+texture = ExtResource("39_3gau2")
+
+[node name="Grass12" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2107, -2444)
+texture = ExtResource("24_b5kl8")
+
+[node name="Plant2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1919, -2606)
+texture = ExtResource("46_rvjqd")
+
+[node name="FlyingRock4" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3195, -1804)
+texture = ExtResource("51_u4rlk")
+
+[node name="Chain4" parent="." instance=ExtResource("31_asjmo")]
+position = Vector2(2216.24, -2839.98)
+points = PackedVector2Array(-161.239, 488.983, -1232.24, -1680.02)
+
+[node name="Chain" parent="Chain4" instance=ExtResource("31_asjmo")]
+position = Vector2(920.941, 789.61)
+points = PackedVector2Array(-152.179, 175.373, 1342.82, -2303.63)
+
+[node name="Lamp1" parent="." instance=ExtResource("52_gmk25")]
+z_index = -1
+position = Vector2(1990, -853)
+scale = Vector2(0.775328, 0.75319)
+
+[node name="Wall2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4257, -1240)
+texture = ExtResource("53_r51mt")
+
+[node name="Wall1" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(263, -222)
+texture = ExtResource("54_fdr8n")
+flip_h = true
+
+[node name="Grass13" type="Sprite2D" parent="."]
+position = Vector2(246, -173)
+texture = ExtResource("29_p71in")
+
+[node name="Plant4" type="Sprite2D" parent="."]
+position = Vector2(4234, -1219)
+texture = ExtResource("47_hwgt4")
+flip_h = true
+
+[node name="L4Rock1" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1641, -282)
+texture = ExtResource("55_il1re")
+
+[node name="L4Rock7" type="Sprite2D" parent="."]
+position = Vector2(1519, -289)
+texture = ExtResource("56_s44el")
+flip_h = true
+
+[node name="Grass14" type="Sprite2D" parent="."]
+position = Vector2(1580, -286)
+texture = ExtResource("45_7pxn4")
+
+[node name="BigRock" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1854, -477)
+texture = ExtResource("57_ts4pc")
+
+[node name="Plant5" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1875, -447)
+texture = ExtResource("47_hwgt4")
+
+[node name="Grass15" type="Sprite2D" parent="."]
+position = Vector2(2109, -302)
+texture = ExtResource("25_r11cn")
+
+[node name="L4Rock2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4653, -1569)
+texture = ExtResource("58_it63x")
+
+[node name="L4Rock3" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3669, -801)
+texture = ExtResource("58_it63x")
+
+[node name="L4Rock8" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3769, -806)
+texture = ExtResource("59_ss5mu")
+
+[node name="Grass16" type="Sprite2D" parent="."]
+position = Vector2(3792, -801)
+texture = ExtResource("29_p71in")
+
+[node name="L4Rock9" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4026, -934)
+texture = ExtResource("56_s44el")
+
+[node name="Grass17" type="Sprite2D" parent="."]
+position = Vector2(3928, -952)
+texture = ExtResource("25_r11cn")
 
 [editable path="Lamp2"]
