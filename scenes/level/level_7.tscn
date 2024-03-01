@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://pkod6yfhkyfb" path="res://assets/decor/arch.png" id="22_ogw5x"]
 [ext_resource type="Texture2D" uid="uid://db8i85a7afpwa" path="res://assets/decor/layer_4_rocks/l4_rock_1.png" id="23_fid5r"]
 [ext_resource type="Texture2D" uid="uid://b0tv43gww4gnq" path="res://assets/decor/fauna/grass_1.png" id="24_b50vf"]
-[ext_resource type="PackedScene" uid="uid://5vbb1u78442m" path="res://scenes/enviroment/decor/lamp/candle_1.tscn" id="25_amhnp"]
+[ext_resource type="PackedScene" path="res://scenes/enviroment/decor/lamp/candle_1.tscn" id="25_amhnp"]
 [ext_resource type="Texture2D" uid="uid://den1ggx1pyylq" path="res://assets/decor/fauna/plant_2.png" id="26_k4jfu"]
 [ext_resource type="Texture2D" uid="uid://by7jtfvwyvay8" path="res://assets/decor/wall_2.png" id="27_2usku"]
 [ext_resource type="PackedScene" uid="uid://b6nawnfjje3oo" path="res://scenes/enviroment/decor/lamp/lamp_post_2.tscn" id="28_1vvqx"]
@@ -49,6 +49,7 @@ script = ExtResource("1_hjeyq")
 player_spawn_point = NodePath("PlayerSpwanPoint")
 level_name = "Level 7"
 badge_times = Array[int]([25, 31, 34, 38])
+camera_limits = Vector4i(-2000, -6200, 10000, -500)
 
 [node name="PlayerSpwanPoint" parent="." instance=ExtResource("2_6w4m5")]
 position = Vector2(4040, -1488)

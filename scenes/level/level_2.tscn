@@ -57,7 +57,7 @@
 [ext_resource type="PackedScene" uid="uid://ctnglaj5bln2s" path="res://scenes/enviroment/decor/lamp/lamp_post_1.tscn" id="55_3kecd"]
 [ext_resource type="PackedScene" uid="uid://b6nawnfjje3oo" path="res://scenes/enviroment/decor/lamp/lamp_post_2.tscn" id="56_7fftc"]
 [ext_resource type="PackedScene" uid="uid://dpakb7b5tdoew" path="res://scenes/enviroment/decor/lamp/lamp_3.tscn" id="57_4a2fm"]
-[ext_resource type="PackedScene" uid="uid://c31d5mg0q3u11" path="res://scenes/enviroment/decor/lamp/candle_2.tscn" id="58_kjco5"]
+[ext_resource type="PackedScene" path="res://scenes/enviroment/decor/lamp/candle_2.tscn" id="58_kjco5"]
 [ext_resource type="Texture2D" uid="uid://iow6t5e1c022" path="res://assets/decor/flying_decor/flying_rock_3.png" id="59_6bcr2"]
 [ext_resource type="Texture2D" uid="uid://b4qjyis4tjmkd" path="res://assets/decor/flying_decor/flying_rock_5.png" id="60_kbrei"]
 
@@ -78,6 +78,7 @@ script = ExtResource("1_3wrvq")
 player_spawn_point = NodePath("PlayerSpwanPoint")
 level_name = "Level 2"
 badge_times = Array[int]([17, 19, 22, 26])
+camera_limits = Vector4i(-1500, -4000, 6500, 500)
 
 [node name="JumpPoints" type="Node2D" parent="."]
 

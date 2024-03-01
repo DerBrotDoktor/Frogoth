@@ -62,10 +62,10 @@
 [ext_resource type="Texture2D" uid="uid://bgvej3ejldu4p" path="res://assets/ceiling/ceiling_5.png" id="63_immf6"]
 [ext_resource type="Texture2D" uid="uid://ye2agx2842hs" path="res://assets/decor/flying_decor/flying_rock_2.png" id="64_rj3k8"]
 [ext_resource type="Texture2D" uid="uid://o58jwopapw53" path="res://assets/decor/flying_decor/flying_pillar_1.png" id="65_oncr7"]
-[ext_resource type="PackedScene" uid="uid://5vbb1u78442m" path="res://scenes/enviroment/decor/lamp/candle_1.tscn" id="65_qak2a"]
-[ext_resource type="PackedScene" uid="uid://b8iuw0jaene56" path="res://scenes/enviroment/decor/lamp/candle_3.tscn" id="66_hwybj"]
+[ext_resource type="PackedScene" path="res://scenes/enviroment/decor/lamp/candle_1.tscn" id="65_qak2a"]
+[ext_resource type="PackedScene" path="res://scenes/enviroment/decor/lamp/candle_3.tscn" id="66_hwybj"]
 [ext_resource type="Texture2D" uid="uid://0ddtngahj2w3" path="res://assets/decor/flying_decor/flying_pillar_2.png" id="66_pyftw"]
-[ext_resource type="PackedScene" uid="uid://c31d5mg0q3u11" path="res://scenes/enviroment/decor/lamp/candle_2.tscn" id="67_uamgq"]
+[ext_resource type="PackedScene" path="res://scenes/enviroment/decor/lamp/candle_2.tscn" id="67_uamgq"]
 [ext_resource type="Texture2D" uid="uid://c1wmnte44qeie" path="res://assets/decor/flying_decor/flying_rock_4.png" id="67_ug6nu"]
 
 [sub_resource type="Curve2D" id="Curve2D_acf7d"]
@@ -123,6 +123,7 @@ script = ExtResource("1_ru5d0")
 player_spawn_point = NodePath("PlayerSpwanPoint")
 level_name = "Level 8"
 badge_times = Array[int]([48, 61, 69, 77])
+camera_limits = Vector4i(-2500, -12000, 14500, -5700)
 
 [node name="Platforms" type="Node2D" parent="."]
 

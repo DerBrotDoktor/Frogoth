@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://cpddwnffvkcgu" path="res://scenes/enemies/enemy_grounded.tscn" id="5_hni4f"]
 [ext_resource type="PackedScene" uid="uid://17i4ie4f1lm3" path="res://scenes/enviroment/platforms/small/platform_small_3.tscn" id="6_cqneq"]
 [ext_resource type="TileSet" uid="uid://bp2o7j5jtvfd2" path="res://assets/tileset/ground_1_tileset.tres" id="9_25mpj"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_1.tscn" id="9_toqlv"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_7.tscn" id="10_5uvvg"]
+[ext_resource type="PackedScene" uid="uid://ig1uyb17ex25" path="res://scenes/enviroment/spikes/spikes_1.tscn" id="9_toqlv"]
+[ext_resource type="PackedScene" uid="uid://bjmcwiyef73e7" path="res://scenes/enviroment/spikes/spikes_7.tscn" id="10_5uvvg"]
 [ext_resource type="PackedScene" uid="uid://dm6yss7w4ixcq" path="res://scenes/enviroment/platforms/special/falling_platform.tscn" id="11_6d2oy"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/spikes/spikes_2.tscn" id="11_1026k"]
+[ext_resource type="PackedScene" uid="uid://5rgie8kr0y4h" path="res://scenes/enviroment/spikes/spikes_2.tscn" id="11_1026k"]
 [ext_resource type="PackedScene" uid="uid://dgcv5ildkajr8" path="res://scenes/enviroment/platforms/big/platform_big_1.tscn" id="12_4kisb"]
 [ext_resource type="TileSet" uid="uid://dr6l2rwnb2mlp" path="res://assets/tileset/ceiling_tileset.tres" id="12_amdoo"]
 [ext_resource type="TileSet" uid="uid://w07uqdijjh3l" path="res://assets/tileset/walkable_tiles.tres" id="12_ku0d7"]
@@ -134,13 +134,6 @@ visible = false
 position = Vector2(-51, -131)
 shape = SubResource("RectangleShape2D_eauuh")
 
-[node name="Text" parent="Signs/TutorialSign" index="2"]
-offset_top = -476.0
-offset_bottom = -339.0
-text = "Use A/D to walk.
-Use Shift and W/A/S/D to dash in any direction
-(Left Shoulder Button for Controller inputs)"
-
 [node name="TutorialSign2" parent="Signs" instance=ExtResource("3_exuu5")]
 position = Vector2(3212, 3)
 
@@ -148,15 +141,6 @@ position = Vector2(3212, 3)
 visible = false
 position = Vector2(104.5, -656.5)
 shape = SubResource("RectangleShape2D_odn1k")
-
-[node name="Text" parent="Signs/TutorialSign2" index="2"]
-offset_left = -416.0
-offset_top = -431.0
-offset_right = 477.0
-offset_bottom = -294.0
-text = "Use Space to use Jump
-You can Jump 3 times"
-metadata/_edit_use_anchors_ = true
 
 [node name="TutorialSign3" parent="Signs" instance=ExtResource("3_exuu5")]
 position = Vector2(5549, -765)
@@ -166,33 +150,12 @@ visible = false
 position = Vector2(276, -541.5)
 shape = SubResource("RectangleShape2D_sv23o")
 
-[node name="Text" parent="Signs/TutorialSign3" index="2"]
-offset_left = -559.5
-offset_top = -571.0
-offset_right = 626.5
-offset_bottom = -122.0
-text = "Jump into Orbs and press space to jump on them
-Touching a Orb will refill your Jump and Dash
-
-"
-metadata/_edit_use_anchors_ = true
-
 [node name="TutorialSign4" parent="Signs" instance=ExtResource("3_exuu5")]
 position = Vector2(8834, 10)
 
 [node name="TriggerAreaShape" parent="Signs/TutorialSign4/TriggerArea" index="0"]
 position = Vector2(276, -541.5)
 shape = SubResource("RectangleShape2D_sv23o")
-
-[node name="Text" parent="Signs/TutorialSign4" index="2"]
-offset_left = -786.0
-offset_top = -499.0
-offset_right = 530.0
-offset_bottom = -50.0
-text = "Jumping or dashing creates points
- Jumping on them connects them
-"
-metadata/_edit_use_anchors_ = true
 
 [node name="TutorialSign5" parent="Signs" instance=ExtResource("3_exuu5")]
 position = Vector2(11712, 5)
@@ -201,44 +164,12 @@ position = Vector2(11712, 5)
 position = Vector2(-114.25, -657.75)
 shape = SubResource("RectangleShape2D_daswy")
 
-[node name="Text" parent="Signs/TutorialSign5" index="2"]
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -967.0
-offset_top = -689.0
-offset_right = 1004.0
-offset_bottom = 325.0
-grow_horizontal = 1
-grow_vertical = 1
-theme_override_font_sizes/font_size = 55
-text = "Connect at least 3 Orb's or Points
-to form a “shape” that
-can kill enemies
- 
-You can also use Yellow Orbs to make your Shape"
-metadata/_edit_use_anchors_ = true
-
 [node name="TutorialSign6" parent="Signs" instance=ExtResource("3_exuu5")]
 position = Vector2(13674, -5)
 
 [node name="TriggerAreaShape" parent="Signs/TutorialSign6/TriggerArea" index="0"]
 position = Vector2(480.75, -751.5)
 shape = SubResource("RectangleShape2D_ctu2m")
-
-[node name="Text" parent="Signs/TutorialSign6" index="2"]
-offset_left = -1079.0
-offset_top = -698.0
-offset_right = 1004.0
-offset_bottom = -77.0
-text = "You can place up to 8 Points.
-
-When all Points are used up press F to cancel your Points 
-
-(Tipp: You can connect more than 8 points for a Shape)"
-metadata/_edit_use_anchors_ = true
 
 [node name="DeadZone" type="Area2D" parent="." groups=["dead_zone"]]
 visible = false
