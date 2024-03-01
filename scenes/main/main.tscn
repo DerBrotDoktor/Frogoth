@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://iyel1auqud01"]
+[gd_scene load_steps=47 format=3 uid="uid://iyel1auqud01"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_wtrgv"]
 [ext_resource type="PackedScene" uid="uid://bv7u7b0pw30jd" path="res://scenes/level/tutorial.tscn" id="2_iy1mu"]
@@ -19,15 +19,16 @@
 [ext_resource type="Script" path="res://scenes/main/Canvas.gd" id="9_77551"]
 [ext_resource type="PackedScene" uid="uid://02mgq0aad22s" path="res://scenes/level/level_8.tscn" id="9_q56fa"]
 [ext_resource type="PackedScene" uid="uid://c6nm6w83jynbs" path="res://scenes/menus/pause_menu.tscn" id="10_u7rrt"]
-[ext_resource type="PackedScene" path="res://scenes/level/the_end.tscn" id="11_5mqt2"]
+[ext_resource type="PackedScene" uid="uid://c82ntg1hepcio" path="res://scenes/level/the_end.tscn" id="11_5mqt2"]
 [ext_resource type="Shader" path="res://scenes/main/lightning_shader.gdshader" id="11_723k2"]
 [ext_resource type="Texture2D" uid="uid://bsoq40pmjw7nv" path="res://assets/parallax/back.png" id="14_02id7"]
+[ext_resource type="Texture2D" uid="uid://cn0hoxddkhdl0" path="res://assets/parallax/gradient.png" id="14_6ecpg"]
 [ext_resource type="PackedScene" uid="uid://cj5y0tnco4cx1" path="res://scenes/menus/level_finish_screen.tscn" id="14_nbfd2"]
 [ext_resource type="Texture2D" uid="uid://cr1y6svrog7bq" path="res://assets/parallax/front.png" id="16_6gtoh"]
 [ext_resource type="Texture2D" uid="uid://bew5bia38bgx4" path="res://assets/parallax/backgound_paralax_2.png" id="16_biciv"]
 [ext_resource type="PackedScene" uid="uid://i70bm8lucd7m" path="res://scenes/menus/controller_settings_ui.tscn" id="17_8mvke"]
 [ext_resource type="Texture2D" uid="uid://piqjsvgixggj" path="res://assets/parallax/gradient_backgound_paralax_4.png" id="17_tv5hj"]
-[ext_resource type="PackedScene" uid="uid://bg142qlgmcfnf" path="res://scenes/menus/logo_screen.tscn" id="19_yn3my"]
+[ext_resource type="PackedScene" path="res://scenes/menus/logo_screen.tscn" id="19_yn3my"]
 [ext_resource type="PackedScene" uid="uid://buy8yfrq21gd" path="res://scenes/menus/settings_menu.tscn" id="20_f3gq3"]
 [ext_resource type="AudioStream" uid="uid://83nsiryvh2gg" path="res://assets/sfx/music/Frogoth_BG_music.mp3" id="22_7hg4y"]
 [ext_resource type="AudioStream" uid="uid://dentu4sa6yes7" path="res://assets/sfx/music/menu_music_0.1.mp3" id="24_vcc2i"]
@@ -177,13 +178,21 @@ position = Vector2(3070, 1280)
 scale = Vector2(3, 3)
 texture = ExtResource("6_2g7ui")
 
+[node name="Gradient" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(4800, 0)
+
+[node name="Gradient" type="Sprite2D" parent="ParallaxBackground/Gradient"]
+position = Vector2(2570, -1526)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("14_6ecpg")
+
 [node name="Skyline" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.2, 0.7)
 motion_mirroring = Vector2(4800, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Skyline"]
 z_index = -2
-position = Vector2(2400, -639.602)
+position = Vector2(2400, -604)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("7_3mtfd")
 
@@ -192,7 +201,7 @@ motion_scale = Vector2(0.4, 0.9)
 motion_mirroring = Vector2(4800, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FarBuildings"]
-position = Vector2(2300, -931.748)
+position = Vector2(2300, -953)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("14_02id7")
 
