@@ -35,3 +35,6 @@ func play_hover_sound():
 func play_click_sound():
 	if visible:
 		$ClickSoundPlayer.play()
+
+func _on_level_select_button_up():
+	get_parent().switch_to_child("LevelSelectMenu")

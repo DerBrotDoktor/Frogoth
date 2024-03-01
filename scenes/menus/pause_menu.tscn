@@ -86,8 +86,8 @@ custom_minimum_size = Vector2(512, 256)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-focus_neighbor_top = NodePath("../ResumeButton")
-focus_neighbor_bottom = NodePath("../SettingsButton")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath("../LevelSelect")
 texture_normal = ExtResource("3_4ytbm")
 texture_pressed = ExtResource("4_n6pjw")
 texture_hover = ExtResource("5_8x0sq")
@@ -107,12 +107,38 @@ text = "Restart
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SettingsButton" type="TextureButton" parent="VBoxContainer"]
+[node name="LevelSelect" type="TextureButton" parent="VBoxContainer"]
 custom_minimum_size = Vector2(512, 256)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../RestartButton")
+focus_neighbor_bottom = NodePath("../SettingsButton")
+texture_normal = ExtResource("3_4ytbm")
+texture_pressed = ExtResource("4_n6pjw")
+texture_hover = ExtResource("5_8x0sq")
+texture_focused = ExtResource("5_8x0sq")
+stretch_mode = 6
+
+[node name="Label2" type="Label" parent="VBoxContainer/LevelSelect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "Level Select
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsButton" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../LevelSelect")
 focus_neighbor_bottom = NodePath("../MainMenuButton")
 texture_normal = ExtResource("3_4ytbm")
 texture_pressed = ExtResource("4_n6pjw")
@@ -192,6 +218,10 @@ bus = &"UI"
 [connection signal="button_up" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_button_up"]
 [connection signal="focus_entered" from="VBoxContainer/RestartButton" to="." method="play_hover_sound"]
 [connection signal="mouse_entered" from="VBoxContainer/RestartButton" to="." method="play_hover_sound"]
+[connection signal="button_down" from="VBoxContainer/LevelSelect" to="." method="play_click_sound"]
+[connection signal="button_up" from="VBoxContainer/LevelSelect" to="." method="_on_level_select_button_up"]
+[connection signal="focus_entered" from="VBoxContainer/LevelSelect" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="VBoxContainer/LevelSelect" to="." method="play_hover_sound"]
 [connection signal="button_down" from="VBoxContainer/SettingsButton" to="." method="play_click_sound"]
 [connection signal="button_up" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_button_up"]
 [connection signal="focus_entered" from="VBoxContainer/SettingsButton" to="." method="play_hover_sound"]
