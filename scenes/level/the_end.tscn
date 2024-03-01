@@ -72,7 +72,7 @@
 [ext_resource type="PackedScene" uid="uid://dfepc1vlcyy7u" path="res://scenes/enviroment/decor/lamp/lamp_5.tscn" id="70_t14o8"]
 [ext_resource type="PackedScene" uid="uid://beondpitwxvnc" path="res://scenes/enviroment/decor/lamp/lamp_4.tscn" id="71_rs3aj"]
 [ext_resource type="Texture2D" uid="uid://0ddtngahj2w3" path="res://assets/decor/flying_decor/flying_pillar_2.png" id="72_06lb4"]
-[ext_resource type="Texture2D" uid="uid://c11x7vdbitdnb" path="res://assets/decor/pink1.png" id="73_ss4wi"]
+[ext_resource type="Texture2D" uid="uid://ba2go7evrr2w" path="res://assets/decor/pink2.png" id="73_6is28"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jsf8u"]
 texture = ExtResource("4_4racs")
@@ -1360,11 +1360,11 @@ scale = Vector2(0.256696, 0.227679)
 texture = ExtResource("59_82iwh")
 flip_h = true
 
-[node name="Pink1" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0.670588)
+[node name="Pink2" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.917647)
 z_index = -1
-position = Vector2(3593, -16637)
-texture = ExtResource("73_ss4wi")
+position = Vector2(3584, -16744)
+texture = ExtResource("73_6is28")
 
 [connection signal="area_entered" from="TutorialSign/TriggerArea" to="TutorialSign" method="_on_trigger_area_area_entered"]
 [connection signal="area_exited" from="TutorialSign/TriggerArea" to="TutorialSign" method="_on_trigger_area_area_exited"]
