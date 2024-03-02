@@ -46,12 +46,12 @@
 [ext_resource type="Texture2D" uid="uid://c2r12wekh26q4" path="res://assets/ceiling/ceiling_4.png" id="44_sl86c"]
 [ext_resource type="Texture2D" uid="uid://bgvej3ejldu4p" path="res://assets/ceiling/ceiling_5.png" id="45_oqohh"]
 [ext_resource type="Texture2D" uid="uid://b3vniueo525vd" path="res://assets/ceiling/ceiling_2.png" id="46_xaj33"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/decor/lamp/candle_1.tscn" id="47_vmrcn"]
+[ext_resource type="PackedScene" uid="uid://5vbb1u78442m" path="res://scenes/enviroment/decor/lamp/candle_1.tscn" id="47_vmrcn"]
 [ext_resource type="Texture2D" uid="uid://dj4r1xqxfwy35" path="res://assets/decor/rocks/rock_7.png" id="48_t0rxi"]
 [ext_resource type="Texture2D" uid="uid://bxb3rxfoja8rj" path="res://assets/decor/rocks/rock_4.png" id="49_5nn30"]
 [ext_resource type="Texture2D" uid="uid://b0pp0fjdlvk7k" path="res://assets/decor/layer_4_rocks/l4_rock_5.png" id="50_vniuo"]
 [ext_resource type="Texture2D" uid="uid://db8i85a7afpwa" path="res://assets/decor/layer_4_rocks/l4_rock_1.png" id="51_yh5cl"]
-[ext_resource type="PackedScene" path="res://scenes/enviroment/decor/lamp/candle_2.tscn" id="52_vi4mb"]
+[ext_resource type="PackedScene" uid="uid://c31d5mg0q3u11" path="res://scenes/enviroment/decor/lamp/candle_2.tscn" id="52_vi4mb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ipfrf"]
 texture = ExtResource("12_wjq85")

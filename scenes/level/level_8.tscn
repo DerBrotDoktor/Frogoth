@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://02mgq0aad22s"]
+[gd_scene load_steps=80 format=3 uid="uid://02mgq0aad22s"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_ru5d0"]
 [ext_resource type="PackedScene" uid="uid://cj7mb0cagsptn" path="res://scenes/orbs/jump_point.tscn" id="2_1lvuf"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://btimemg85kwm8" path="res://scenes/enviroment/platforms/big/platform_big_2.tscn" id="12_evt3n"]
 [ext_resource type="PackedScene" uid="uid://jvgqmuavbsuu" path="res://scenes/enemies/enemy_multiple_shot.tscn" id="13_bpfpf"]
 [ext_resource type="Texture2D" uid="uid://htuo3akhgyef" path="res://assets/platforms/platform_small_3.png" id="14_kujs4"]
+[ext_resource type="Texture2D" uid="uid://c2pf7b48p7xhv" path="res://assets/decor/fauna/plant_7.png" id="15_6ciu2"]
 [ext_resource type="Texture2D" uid="uid://xjiqsxpm7af5" path="res://assets/platforms/platform_small_1.png" id="15_f4srn"]
 [ext_resource type="PackedScene" uid="uid://dn3xgle2qo4kl" path="res://scenes/enviroment/platforms/small/platform_small_2.tscn" id="16_ry1qh"]
 [ext_resource type="PackedScene" uid="uid://c8qi15jdcx7eo" path="res://scenes/enviroment/platforms/small/platform_small_1.tscn" id="17_5m4xo"]
@@ -220,6 +221,32 @@ texture = ExtResource("7_ysjqu")
 [node name="CollisionShape" type="CollisionShape2D" parent="MovingPlatforms/MovingPlatform/Platform/PlatformBig1"]
 position = Vector2(0, -75)
 shape = SubResource("RectangleShape2D_24uek")
+
+[node name="Ribs6" type="Sprite2D" parent="MovingPlatforms/MovingPlatform/Platform/PlatformBig1"]
+z_index = -1
+position = Vector2(-7, -121)
+scale = Vector2(1, 1)
+texture = ExtResource("25_vlwg0")
+flip_h = true
+
+[node name="Statue2" type="Sprite2D" parent="MovingPlatforms/MovingPlatform/Platform/PlatformBig1"]
+z_index = -1
+position = Vector2(153, -269)
+scale = Vector2(1, 1)
+texture = ExtResource("29_n1ig7")
+
+[node name="Skull6" type="Sprite2D" parent="MovingPlatforms/MovingPlatform/Platform/PlatformBig1"]
+z_index = -1
+position = Vector2(-142, -146)
+scale = Vector2(1, 1)
+texture = ExtResource("24_qoj7e")
+flip_h = true
+
+[node name="Plant8" type="Sprite2D" parent="MovingPlatforms/MovingPlatform/Platform/PlatformBig1"]
+z_index = -1
+position = Vector2(-67, -136)
+scale = Vector2(0.494181, 0.564182)
+texture = ExtResource("15_6ciu2")
 
 [node name="MovingPlatform2" parent="MovingPlatforms" instance=ExtResource("6_l4w8j")]
 position = Vector2(3476, -6256)
@@ -866,23 +893,6 @@ texture = ExtResource("51_3r8ap")
 z_index = -1
 position = Vector2(5174, -10165)
 texture = ExtResource("67_ug6nu")
-
-[node name="Statue2" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(5432, -6054)
-texture = ExtResource("29_n1ig7")
-
-[node name="Ribs6" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(5247, -5916)
-texture = ExtResource("25_vlwg0")
-flip_h = true
-
-[node name="Skull6" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(5049, -5930)
-texture = ExtResource("24_qoj7e")
-flip_h = true
 
 [node name="Candle4" parent="." instance=ExtResource("65_qak2a")]
 position = Vector2(-1825, -6519)

@@ -252,7 +252,7 @@ position = Vector2(1999, -296)
 texture = ExtResource("19_ncwbo")
 
 [node name="Ribs2" type="Sprite2D" parent="SetDressing"]
-position = Vector2(5359, -1824)
+position = Vector2(5365, -1814)
 scale = Vector2(0.729008, 0.766667)
 texture = ExtResource("19_ncwbo")
 
@@ -306,7 +306,8 @@ texture = ExtResource("27_0p1pb")
 
 [node name="Plant2" type="Sprite2D" parent="SetDressing"]
 z_index = 3
-position = Vector2(5813, -1725)
+position = Vector2(5995, -1916)
+scale = Vector2(0.502623, 0.669333)
 texture = ExtResource("28_hqabo")
 
 [node name="Statue2" type="Sprite2D" parent="SetDressing"]
@@ -508,13 +509,13 @@ texture = ExtResource("31_j2j8v")
 
 [node name="Plant5" type="Sprite2D" parent="."]
 z_index = 3
-position = Vector2(2507, -57)
+position = Vector2(2501, -3)
 texture = ExtResource("28_hqabo")
 flip_h = true
 
 [node name="Plant6" type="Sprite2D" parent="."]
 z_index = 3
-position = Vector2(2878, 52)
+position = Vector2(2881, 117)
 texture = ExtResource("44_8msw1")
 
 [node name="Grass5" type="Sprite2D" parent="."]
@@ -536,10 +537,6 @@ texture = ExtResource("26_mwdir")
 [node name="Grass9" type="Sprite2D" parent="."]
 position = Vector2(2951, -37)
 texture = ExtResource("52_oi6hl")
-
-[node name="BigRock2" type="Sprite2D" parent="."]
-position = Vector2(2739, -95)
-texture = ExtResource("35_6dmj5")
 
 [node name="L4Rock14" type="Sprite2D" parent="."]
 z_index = -1
@@ -566,33 +563,10 @@ z_index = -1
 position = Vector2(2270, -185)
 texture = ExtResource("43_us6hh")
 
-[node name="Plant7" type="Sprite2D" parent="."]
-position = Vector2(2770, -100)
-scale = Vector2(0.875317, 0.861444)
-texture = ExtResource("31_j2j8v")
-
-[node name="BigRock3" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(1533, -223)
-texture = ExtResource("35_6dmj5")
-flip_h = true
-
-[node name="Plant8" type="Sprite2D" parent="."]
-position = Vector2(1505, -235)
-texture = ExtResource("44_8msw1")
-
 [node name="Wall2" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(779, -238)
 texture = ExtResource("53_nnw07")
-
-[node name="Wall1" type="Sprite2D" parent="."]
-position = Vector2(464, -484)
-texture = ExtResource("54_1qccs")
-
-[node name="Plant9" type="Sprite2D" parent="."]
-position = Vector2(545, -485)
-texture = ExtResource("28_hqabo")
 
 [node name="Grass10" type="Sprite2D" parent="."]
 position = Vector2(826, -176)
@@ -615,7 +589,7 @@ texture = ExtResource("43_us6hh")
 flip_h = true
 
 [node name="Grave2" type="Sprite2D" parent="."]
-position = Vector2(1284, -225)
+position = Vector2(1285, -225)
 texture = ExtResource("21_0ryd6")
 
 [node name="Skull2" type="Sprite2D" parent="."]
@@ -631,29 +605,16 @@ texture = ExtResource("52_oi6hl")
 position = Vector2(1742, -464)
 
 [node name="LampPost2" parent="." instance=ExtResource("56_7fftc")]
-position = Vector2(4190, -580)
+z_index = -1
+position = Vector2(4275, -574)
 
 [node name="Lamp3" parent="." instance=ExtResource("57_4a2fm")]
 position = Vector2(2982, -54)
 scale = Vector2(0.596484, 0.640339)
 
 [node name="Candle2" parent="." instance=ExtResource("58_kjco5")]
-position = Vector2(5560, -1823)
+position = Vector2(5565, -1817)
 scale = Vector2(0.71618, 0.597064)
-
-[node name="Plant11" type="Sprite2D" parent="."]
-position = Vector2(1707, -2435)
-scale = Vector2(0.829342, 0.898737)
-texture = ExtResource("28_hqabo")
-
-[node name="Plant12" type="Sprite2D" parent="."]
-position = Vector2(4716, -1408)
-scale = Vector2(0.753194, 0.853718)
-texture = ExtResource("31_j2j8v")
-
-[node name="Plant13" type="Sprite2D" parent="."]
-position = Vector2(4880, -2672)
-texture = ExtResource("44_8msw1")
 
 [node name="L4Rock20" type="Sprite2D" parent="."]
 position = Vector2(5699, -1834)
