@@ -124,7 +124,7 @@ script = ExtResource("1_ru5d0")
 player_spawn_point = NodePath("PlayerSpwanPoint")
 level_name = "Level 8"
 badge_times = Array[int]([48, 61, 69, 77])
-camera_limits = Vector4i(-2500, -12000, 14500, -4900)
+camera_limits = Vector4i(-2600, -13000, 14300, -4850)
 
 [node name="Platforms" type="Node2D" parent="."]
 
@@ -225,20 +225,17 @@ shape = SubResource("RectangleShape2D_24uek")
 [node name="Ribs6" type="Sprite2D" parent="MovingPlatforms/MovingPlatform/Platform/PlatformBig1"]
 z_index = -1
 position = Vector2(-7, -121)
-scale = Vector2(1, 1)
 texture = ExtResource("25_vlwg0")
 flip_h = true
 
 [node name="Statue2" type="Sprite2D" parent="MovingPlatforms/MovingPlatform/Platform/PlatformBig1"]
 z_index = -1
 position = Vector2(153, -269)
-scale = Vector2(1, 1)
 texture = ExtResource("29_n1ig7")
 
 [node name="Skull6" type="Sprite2D" parent="MovingPlatforms/MovingPlatform/Platform/PlatformBig1"]
 z_index = -1
 position = Vector2(-142, -146)
-scale = Vector2(1, 1)
 texture = ExtResource("24_qoj7e")
 flip_h = true
 

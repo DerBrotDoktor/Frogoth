@@ -47,7 +47,7 @@ script = ExtResource("1_hjeyq")
 player_spawn_point = NodePath("PlayerSpwanPoint")
 level_name = "Level 7"
 badge_times = Array[int]([25, 31, 34, 38])
-camera_limits = Vector4i(-2000, -6200, 10000, -500)
+camera_limits = Vector4i(-1700, -6750, 9750, -600)
 
 [node name="PlayerSpwanPoint" parent="." instance=ExtResource("2_6w4m5")]
 position = Vector2(4040, -1488)

@@ -77,7 +77,7 @@ script = ExtResource("1_3wrvq")
 player_spawn_point = NodePath("PlayerSpwanPoint")
 level_name = "Level 2"
 badge_times = Array[int]([17, 19, 22, 26])
-camera_limits = Vector4i(-1500, -4000, 6500, 500)
+camera_limits = Vector4i(-1650, -4000, 6700, 520)
 
 [node name="JumpPoints" type="Node2D" parent="."]
 

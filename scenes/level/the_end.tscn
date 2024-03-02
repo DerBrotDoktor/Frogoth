@@ -57,7 +57,7 @@
 [ext_resource type="Texture2D" uid="uid://c2pf7b48p7xhv" path="res://assets/decor/fauna/plant_7.png" id="53_wqwe3"]
 [ext_resource type="Texture2D" uid="uid://2vg8v8t83d2n" path="res://assets/decor/fauna/plant_8.png" id="54_e46cp"]
 [ext_resource type="Texture2D" uid="uid://cwupym6vulop8" path="res://assets/decor/flying_decor/statue_3.png" id="55_w7acv"]
-[ext_resource type="Texture2D" uid="uid://bpnredwa82tvq" path="res://assets/decor/flying_decor/flying_rock_1.png" id="56_is7f0"]
+[ext_resource type="Texture2D" uid="uid://bffedphnh1kln" path="res://assets/decor/flying_decor/flying_rock_1.png" id="56_is7f0"]
 [ext_resource type="Texture2D" uid="uid://dt2xyajspcj4r" path="res://assets/decor/layer_4_rocks/l4_rock_3.png" id="57_ajjxq"]
 [ext_resource type="Texture2D" uid="uid://o58jwopapw53" path="res://assets/decor/flying_decor/flying_pillar_1.png" id="58_acllh"]
 [ext_resource type="Texture2D" uid="uid://dfy1l1shns1fx" path="res://assets/decor/flying_decor/flying_rock_6.png" id="59_82iwh"]
