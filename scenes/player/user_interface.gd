@@ -55,7 +55,6 @@ func set_current_enemy_count(value):
 func check_badge():
 	var badge = 0
 	var seconds = int(time)
-	print(seconds)
 	if badge_times.size()  == 4:
 		if seconds < badge_times[0]:
 			print(badge_times[0])

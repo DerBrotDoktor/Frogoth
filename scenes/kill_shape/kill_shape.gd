@@ -9,6 +9,7 @@ var point_objects = []
 var point_positions = []
 var last_length = 128
 var shape_finished = false
+var last_point
 
 func add_point_object(obj):
 	point_objects.append(obj)
@@ -26,11 +27,19 @@ func add_point(point):
 
 func place_lightning():
 	var length = $KillShapePath.curve.get_baked_length()
-	for i in range(last_length, length, 128):
+	var points = $KillShapePath.curve.get_baked_points()
+	var corners = []
+	for point in points:
+		corners.append($KillShapePath.curve.get_closest_point(point))
+	for i in range(last_length+10, length, 128):
 		var new_path_follow = outline_tile.instantiate()
 		new_path_follow.scale.y = 0.5
 		$KillShapePath.add_child(new_path_follow)
 		new_path_follow.progress = i
+		var distance = corners[corners.size()-1].distance_to(new_path_follow.position)
+		if distance <= 128 and distance > 0.01:
+			var new_length = (i - (128-distance))
+			new_path_follow.progress = new_length
 		new_path_follow.start()
 	last_length = length
 
@@ -41,6 +50,7 @@ func place_lightning_particle(point):
 
 func finish_shape(new_points):
 	shape_finished = true
+	last_point = null
 	clear_points()
 	for child in $KillShapePath.get_children():
 		child.queue_free()
