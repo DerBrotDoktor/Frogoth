@@ -248,7 +248,7 @@ position = Vector2(-578, -574)
 texture = ExtResource("18_xvf01")
 
 [node name="Ribs" type="Sprite2D" parent="SetDressing"]
-position = Vector2(1999, -296)
+position = Vector2(1999, -282)
 texture = ExtResource("19_ncwbo")
 
 [node name="Ribs2" type="Sprite2D" parent="SetDressing"]
@@ -304,12 +304,6 @@ texture = ExtResource("26_mwdir")
 position = Vector2(5921, -1846)
 texture = ExtResource("27_0p1pb")
 
-[node name="Plant2" type="Sprite2D" parent="SetDressing"]
-z_index = 3
-position = Vector2(5995, -1916)
-scale = Vector2(0.502623, 0.669333)
-texture = ExtResource("28_hqabo")
-
 [node name="Statue2" type="Sprite2D" parent="SetDressing"]
 position = Vector2(5931, -2203)
 texture = ExtResource("29_8ox4t")
@@ -331,8 +325,7 @@ texture = ExtResource("30_5gh2k")
 flip_h = true
 
 [node name="Plant3" type="Sprite2D" parent="SetDressing"]
-z_index = 3
-position = Vector2(-137, -362)
+position = Vector2(-130, -338)
 texture = ExtResource("31_j2j8v")
 
 [node name="Grass3" type="Sprite2D" parent="SetDressing"]
@@ -503,7 +496,6 @@ position = Vector2(931, -160)
 texture = ExtResource("45_vuyog")
 
 [node name="Plant4" type="Sprite2D" parent="."]
-z_index = 3
 position = Vector2(1088, -95)
 texture = ExtResource("31_j2j8v")
 
@@ -602,11 +594,16 @@ position = Vector2(1294, -159)
 texture = ExtResource("52_oi6hl")
 
 [node name="LampPost1" parent="." instance=ExtResource("55_3kecd")]
-position = Vector2(1742, -464)
+position = Vector2(1724, -473)
 
 [node name="LampPost2" parent="." instance=ExtResource("56_7fftc")]
 z_index = -1
-position = Vector2(4275, -574)
+position = Vector2(4286, -586)
+
+[node name="LampPost2" parent="LampPost2" instance=ExtResource("56_7fftc")]
+z_index = -1
+position = Vector2(511, -1)
+flip_h = true
 
 [node name="Lamp3" parent="." instance=ExtResource("57_4a2fm")]
 position = Vector2(2982, -54)
