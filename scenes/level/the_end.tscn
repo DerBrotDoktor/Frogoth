@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://c82ntg1hepcio"]
+[gd_scene load_steps=87 format=3 uid="uid://c82ntg1hepcio"]
 
 [ext_resource type="PackedScene" uid="uid://d0gcu70fmmqi4" path="res://scenes/player/player_spwan_point.tscn" id="1_bwcjm"]
 [ext_resource type="Script" path="res://scenes/level/the_end.gd" id="1_cije3"]
@@ -62,7 +62,6 @@
 [ext_resource type="Texture2D" uid="uid://o58jwopapw53" path="res://assets/decor/flying_decor/flying_pillar_1.png" id="58_acllh"]
 [ext_resource type="Texture2D" uid="uid://dfy1l1shns1fx" path="res://assets/decor/flying_decor/flying_rock_6.png" id="59_82iwh"]
 [ext_resource type="Texture2D" uid="uid://m7kmr6cyimju" path="res://assets/decor/flying_decor/bridge_1.png" id="60_m7usp"]
-[ext_resource type="Texture2D" uid="uid://nj2vvgj1y6fh" path="res://assets/decor/flying_decor/bridge_2.png" id="61_y55hv"]
 [ext_resource type="PackedScene" uid="uid://cnn1r7uyeri2u" path="res://scenes/enviroment/decor/chain.tscn" id="62_4dxtx"]
 [ext_resource type="Texture2D" uid="uid://iow6t5e1c022" path="res://assets/decor/flying_decor/flying_rock_3.png" id="63_2ghnc"]
 [ext_resource type="Texture2D" uid="uid://b4qjyis4tjmkd" path="res://assets/decor/flying_decor/flying_rock_5.png" id="64_2ymvm"]
@@ -75,6 +74,8 @@
 [ext_resource type="PackedScene" uid="uid://beondpitwxvnc" path="res://scenes/enviroment/decor/lamp/lamp_4.tscn" id="71_rs3aj"]
 [ext_resource type="Texture2D" uid="uid://0ddtngahj2w3" path="res://assets/decor/flying_decor/flying_pillar_2.png" id="72_06lb4"]
 [ext_resource type="Texture2D" uid="uid://ba2go7evrr2w" path="res://assets/decor/pink2.png" id="73_6is28"]
+[ext_resource type="Texture2D" uid="uid://t4xg46sf43nm" path="res://assets/decor/layer_4_rocks/big_rock.png" id="75_2n85y"]
+[ext_resource type="Texture2D" uid="uid://cep3j36eam5sq" path="res://assets/decor/layer_4_rocks/l4_rock_8.png" id="76_sbv0q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jsf8u"]
 texture = ExtResource("4_4racs")
@@ -493,17 +494,17 @@ texture = ExtResource("17_uk1i2")
 
 [node name="FenceFull" type="Sprite2D" parent="."]
 z_index = -2
-position = Vector2(2107, -114)
+position = Vector2(2119, -117)
 texture = ExtResource("18_3yxlp")
 
 [node name="FenceFull3" type="Sprite2D" parent="."]
 z_index = -2
-position = Vector2(1688, -104)
+position = Vector2(1688, -96)
 texture = ExtResource("18_3yxlp")
 
 [node name="FenceFull2" type="Sprite2D" parent="."]
 z_index = -2
-position = Vector2(1913, -104)
+position = Vector2(1919, -107)
 rotation = -0.052586
 texture = ExtResource("18_3yxlp")
 
@@ -701,7 +702,7 @@ texture = ExtResource("40_etjga")
 
 [node name="FogTest4" type="Sprite2D" parent="."]
 z_index = -2
-position = Vector2(5439, -721)
+position = Vector2(5446, -666)
 texture = ExtResource("40_etjga")
 
 [node name="TutorialSign" type="Node2D" parent="."]
@@ -716,7 +717,7 @@ texture = ExtResource("42_xgr3p")
 [node name="TriggerArea" type="Area2D" parent="TutorialSign"]
 
 [node name="TriggerAreaShape" type="CollisionShape2D" parent="TutorialSign/TriggerArea"]
-position = Vector2(71.5, -578.5)
+position = Vector2(73.5, -578.5)
 shape = SubResource("RectangleShape2D_yrmnw")
 
 [node name="LeaveTimer" type="Timer" parent="TutorialSign"]
@@ -788,7 +789,6 @@ scale = Vector2(2.63024, 3.31036)
 texture = ExtResource("12_s03sn")
 
 [node name="Grass11" type="Sprite2D" parent="."]
-z_index = 1
 position = Vector2(7199, -319)
 texture = ExtResource("13_gnx3m")
 
@@ -847,7 +847,6 @@ scale = Vector2(0.67648, 0.648872)
 texture = ExtResource("47_82k1q")
 
 [node name="L4Rock7" type="Sprite2D" parent="."]
-z_index = 1
 position = Vector2(4950, -284)
 rotation = -0.0279789
 scale = Vector2(0.627759, 0.530366)
@@ -901,6 +900,7 @@ texture = ExtResource("27_1x81p")
 [node name="Statue3" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(4881, -1469)
+rotation = 0.0360559
 texture = ExtResource("55_w7acv")
 
 [node name="FlyingRock1" type="Sprite2D" parent="."]
@@ -938,11 +938,6 @@ texture = ExtResource("59_82iwh")
 [node name="Bridge1" type="Sprite2D" parent="."]
 position = Vector2(2139, -3826)
 texture = ExtResource("60_m7usp")
-
-[node name="Bridge2" type="Sprite2D" parent="."]
-position = Vector2(4574, -13108)
-rotation = 0.165546
-texture = ExtResource("61_y55hv")
 
 [node name="Chain" parent="." instance=ExtResource("62_4dxtx")]
 position = Vector2(2087, -3911)
@@ -1200,8 +1195,8 @@ texture = ExtResource("45_au342")
 
 [node name="Plant11" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(3182, -9473)
-rotation = -0.0555353
+position = Vector2(3213, -9472)
+rotation = -0.579169
 scale = Vector2(0.38715, 0.364213)
 texture = ExtResource("45_au342")
 
@@ -1398,6 +1393,98 @@ self_modulate = Color(1, 1, 1, 0.917647)
 z_index = -1
 position = Vector2(3584, -16744)
 texture = ExtResource("73_6is28")
+
+[node name="BigRock" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(1998, -64)
+scale = Vector2(0.769916, 0.604373)
+texture = ExtResource("75_2n85y")
+
+[node name="Plant12" type="Sprite2D" parent="."]
+position = Vector2(2023, -48)
+scale = Vector2(0.769457, 0.846122)
+texture = ExtResource("46_r404t")
+
+[node name="Plant14" type="Sprite2D" parent="."]
+position = Vector2(3047, -155)
+rotation = -0.420206
+texture = ExtResource("54_e46cp")
+flip_h = true
+
+[node name="L4Rock11" type="Sprite2D" parent="."]
+position = Vector2(4085, -145)
+texture = ExtResource("48_w8u4h")
+
+[node name="Plant15" type="Sprite2D" parent="."]
+position = Vector2(4059, -177)
+scale = Vector2(0.637037, 0.531573)
+texture = ExtResource("52_obgsp")
+
+[node name="L4Rock12" type="Sprite2D" parent="."]
+position = Vector2(5927, -412)
+texture = ExtResource("49_0puvb")
+
+[node name="L4Rock13" type="Sprite2D" parent="."]
+position = Vector2(6020, -401)
+texture = ExtResource("57_ajjxq")
+flip_h = true
+
+[node name="L4Rock14" type="Sprite2D" parent="."]
+position = Vector2(5975, -401)
+texture = ExtResource("50_k57jm")
+
+[node name="L4Rock15" type="Sprite2D" parent="."]
+position = Vector2(5959, -386)
+texture = ExtResource("22_l7op2")
+flip_h = true
+
+[node name="Grass16" type="Sprite2D" parent="."]
+position = Vector2(6001, -406)
+texture = ExtResource("26_bwsm8")
+
+[node name="Grass17" type="Sprite2D" parent="."]
+position = Vector2(5890, -411)
+texture = ExtResource("28_ccd6y")
+
+[node name="BigRock2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(6325, -435)
+scale = Vector2(0.884868, 0.617661)
+texture = ExtResource("75_2n85y")
+
+[node name="Plant16" type="Sprite2D" parent="."]
+position = Vector2(6295, -424)
+texture = ExtResource("54_e46cp")
+
+[node name="Plant17" type="Sprite2D" parent="."]
+position = Vector2(6352, -425)
+scale = Vector2(0.434299, 0.312238)
+texture = ExtResource("53_wqwe3")
+flip_h = true
+
+[node name="Grass18" type="Sprite2D" parent="."]
+position = Vector2(6314, -419)
+scale = Vector2(0.762165, 0.680417)
+texture = ExtResource("28_ccd6y")
+
+[node name="L4Rock16" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5210, -276)
+texture = ExtResource("76_sbv0q")
+
+[node name="L4Rock17" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5337, -288)
+texture = ExtResource("48_w8u4h")
+flip_h = true
+
+[node name="Grass19" type="Sprite2D" parent="."]
+position = Vector2(5237, -288)
+texture = ExtResource("26_bwsm8")
+
+[node name="Grass20" type="Sprite2D" parent="."]
+position = Vector2(5321, -326)
+texture = ExtResource("13_gnx3m")
 
 [connection signal="area_entered" from="TutorialSign/TriggerArea" to="TutorialSign" method="_on_trigger_area_area_entered"]
 [connection signal="area_exited" from="TutorialSign/TriggerArea" to="TutorialSign" method="_on_trigger_area_area_exited"]

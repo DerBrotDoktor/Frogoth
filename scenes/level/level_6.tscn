@@ -54,7 +54,6 @@
 [ext_resource type="Texture2D" uid="uid://drlw8we7xuh3o" path="res://assets/decor/ribs.png" id="52_7har4"]
 [ext_resource type="PackedScene" uid="uid://c31d5mg0q3u11" path="res://scenes/enviroment/decor/lamp/candle_2.tscn" id="53_nh7w8"]
 [ext_resource type="Texture2D" uid="uid://c2r12wekh26q4" path="res://assets/ceiling/ceiling_4.png" id="54_q7ekv"]
-[ext_resource type="PackedScene" uid="uid://ctnglaj5bln2s" path="res://scenes/enviroment/decor/lamp/lamp_post_1.tscn" id="54_ruhu3"]
 [ext_resource type="PackedScene" uid="uid://pmx8o228vh87" path="res://scenes/enviroment/decor/lamp/lamp_1.tscn" id="55_ociaf"]
 [ext_resource type="Texture2D" uid="uid://db8i85a7afpwa" path="res://assets/decor/layer_4_rocks/l4_rock_1.png" id="56_41nlg"]
 [ext_resource type="Texture2D" uid="uid://d3xkh7tp3qm4v" path="res://assets/decor/fauna/plant_1.png" id="57_b22vv"]
@@ -73,6 +72,7 @@
 [ext_resource type="Texture2D" uid="uid://dj4r1xqxfwy35" path="res://assets/decor/rocks/rock_7.png" id="70_8c6pv"]
 [ext_resource type="Texture2D" uid="uid://b7k2ovuopv8l5" path="res://assets/decor/rocks/rock_2.png" id="71_hin8o"]
 [ext_resource type="Texture2D" uid="uid://coq25pjd3y4nc" path="res://assets/ceiling/ceiling_3.png" id="73_qki4v"]
+[ext_resource type="PackedScene" uid="uid://b6nawnfjje3oo" path="res://scenes/enviroment/decor/lamp/lamp_post_2.tscn" id="74_5yu38"]
 [ext_resource type="Texture2D" uid="uid://by7jtfvwyvay8" path="res://assets/decor/wall_2.png" id="74_ns4n7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pccc"]
@@ -333,7 +333,7 @@ texture = ExtResource("25_g8g3y")
 flip_h = true
 
 [node name="Pillar1" type="Sprite2D" parent="."]
-z_index = -2
+z_index = -1
 position = Vector2(5337, -1019)
 texture = ExtResource("26_wxftx")
 
@@ -355,8 +355,8 @@ position = Vector2(4015, -511)
 texture = ExtResource("29_cp82y")
 
 [node name="FenceFull" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(5228, -889)
+z_index = -2
+position = Vector2(5240, -887)
 texture = ExtResource("30_odqga")
 
 [node name="L4Rock2" type="Sprite2D" parent="."]
@@ -508,7 +508,8 @@ position = Vector2(6889, -188)
 
 [node name="Lamp3" parent="." instance=ExtResource("48_nnfco")]
 z_index = -1
-position = Vector2(5339, -1281)
+position = Vector2(6386, -302)
+scale = Vector2(0.597793, 0.602336)
 
 [node name="Grass5" type="Sprite2D" parent="."]
 z_index = -1
@@ -564,13 +565,9 @@ z_index = -2
 position = Vector2(2113, -175)
 scale = Vector2(0.598039, 0.615044)
 
-[node name="LampPost1" parent="." instance=ExtResource("54_ruhu3")]
-z_index = -1
-position = Vector2(1107, -623)
-
 [node name="Lamp1" parent="." instance=ExtResource("55_ociaf")]
 z_index = -1
-position = Vector2(3762, -500)
+position = Vector2(3768, -480)
 rotation = -0.0615023
 scale = Vector2(0.65625, 0.645833)
 
@@ -632,7 +629,7 @@ position = Vector2(7718, -2267)
 scale = Vector2(0.664608, 0.641074)
 
 [node name="Ceiling5" type="Sprite2D" parent="."]
-position = Vector2(8224, -3922)
+position = Vector2(8302, -3922)
 texture = ExtResource("59_uh02u")
 
 [node name="Ceiling1" type="Sprite2D" parent="."]
@@ -745,7 +742,7 @@ position = Vector2(7962, -4269)
 texture = ExtResource("69_h0pnu")
 
 [node name="Rock10" type="Sprite2D" parent="."]
-position = Vector2(7326, -4188)
+position = Vector2(7326, -4218)
 texture = ExtResource("70_8c6pv")
 
 [node name="Rock3" type="Sprite2D" parent="."]
@@ -785,3 +782,8 @@ texture = ExtResource("45_3rlix")
 z_index = -2
 position = Vector2(4521, -628)
 texture = ExtResource("74_ns4n7")
+
+[node name="LampPost2" parent="." instance=ExtResource("74_5yu38")]
+z_index = -1
+position = Vector2(1127, -578)
+flip_h = true
