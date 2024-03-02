@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scenes/kill_shape/kill_shape_outline_tile.gd" id="2_8a7g7"]
 
 [node name="KillShapeOutlineTile" type="PathFollow2D"]
+z_index = 1
 script = ExtResource("2_8a7g7")
 
 [node name="Sprite" type="Sprite2D" parent="."]
