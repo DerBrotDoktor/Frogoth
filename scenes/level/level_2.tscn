@@ -324,10 +324,6 @@ position = Vector2(4710, -524)
 texture = ExtResource("30_5gh2k")
 flip_h = true
 
-[node name="Plant3" type="Sprite2D" parent="SetDressing"]
-position = Vector2(-130, -338)
-texture = ExtResource("31_j2j8v")
-
 [node name="Grass3" type="Sprite2D" parent="SetDressing"]
 position = Vector2(2, -430)
 texture = ExtResource("32_pep6w")
@@ -495,10 +491,6 @@ texture = ExtResource("51_yn5d0")
 position = Vector2(931, -160)
 texture = ExtResource("45_vuyog")
 
-[node name="Plant4" type="Sprite2D" parent="."]
-position = Vector2(1088, -95)
-texture = ExtResource("31_j2j8v")
-
 [node name="Plant5" type="Sprite2D" parent="."]
 z_index = 3
 position = Vector2(2501, -3)
@@ -581,7 +573,7 @@ texture = ExtResource("43_us6hh")
 flip_h = true
 
 [node name="Grave2" type="Sprite2D" parent="."]
-position = Vector2(1285, -225)
+position = Vector2(1284, -234)
 texture = ExtResource("21_0ryd6")
 
 [node name="Skull2" type="Sprite2D" parent="."]
@@ -606,8 +598,8 @@ position = Vector2(511, -1)
 flip_h = true
 
 [node name="Lamp3" parent="." instance=ExtResource("57_4a2fm")]
-position = Vector2(2982, -54)
-scale = Vector2(0.596484, 0.640339)
+position = Vector2(3008, -36)
+scale = Vector2(0.439264, 0.348704)
 
 [node name="Candle2" parent="." instance=ExtResource("58_kjco5")]
 position = Vector2(5565, -1817)
@@ -646,5 +638,18 @@ texture = ExtResource("44_8msw1")
 z_index = 4
 position = Vector2(-713, -1419)
 texture = ExtResource("28_hqabo")
+
+[node name="L4Rock22" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1416, -169)
+texture = ExtResource("43_us6hh")
+
+[node name="Grass14" type="Sprite2D" parent="."]
+position = Vector2(1390, -162)
+texture = ExtResource("32_pep6w")
+
+[node name="Grass15" type="Sprite2D" parent="."]
+position = Vector2(1497, -156)
+texture = ExtResource("45_vuyog")
 
 [editable path="SetDressing/Lamp1"]

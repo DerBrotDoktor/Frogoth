@@ -1412,6 +1412,7 @@ texture = ExtResource("54_e46cp")
 flip_h = true
 
 [node name="L4Rock11" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(4085, -145)
 texture = ExtResource("48_w8u4h")
 
