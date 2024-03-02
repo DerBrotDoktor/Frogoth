@@ -37,7 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://dj6ea6rpq04vv" path="res://assets/decor/statue_1.png" id="36_gjvnh"]
 [ext_resource type="Texture2D" uid="uid://o58jwopapw53" path="res://assets/decor/flying_decor/flying_pillar_1.png" id="37_cnfut"]
 [ext_resource type="Texture2D" uid="uid://0ddtngahj2w3" path="res://assets/decor/flying_decor/flying_pillar_2.png" id="38_fqdbv"]
-[ext_resource type="Texture2D" uid="uid://bpnredwa82tvq" path="res://assets/decor/flying_decor/flying_rock_1.png" id="39_3gau2"]
+[ext_resource type="Texture2D" uid="uid://bffedphnh1kln" path="res://assets/decor/flying_decor/flying_rock_1.png" id="39_3gau2"]
 [ext_resource type="Texture2D" uid="uid://cruwxr4ii20cr" path="res://assets/ceiling/ceiling_1.png" id="40_jnrak"]
 [ext_resource type="Texture2D" uid="uid://b3vniueo525vd" path="res://assets/ceiling/ceiling_2.png" id="41_wbs7v"]
 [ext_resource type="Texture2D" uid="uid://coq25pjd3y4nc" path="res://assets/ceiling/ceiling_3.png" id="42_v1w20"]
@@ -68,7 +68,7 @@ script = ExtResource("1_wyfs8")
 player_spawn_point = NodePath("PlayerSpwanPoint")
 level_name = "Level 3"
 badge_times = Array[int]([18, 20, 23, 27])
-camera_limits = Vector4i(-1000, -4800, 5500, 350)
+camera_limits = Vector4i(-1500, -5100, 6000, 400)
 
 [node name="JumpPoints" type="Node2D" parent="."]
 

@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://d1jbeg4vofhsg" path="res://scenes/enviroment/spikes/spikes_6.tscn" id="22_21y7y"]
 [ext_resource type="PackedScene" uid="uid://bjmcwiyef73e7" path="res://scenes/enviroment/spikes/spikes_7.tscn" id="23_wftks"]
 [ext_resource type="Texture2D" uid="uid://bdbkns6fgj2cl" path="res://assets/decor/fauna/grass_2.png" id="24_0sbgi"]
-[ext_resource type="Texture2D" uid="uid://bpnredwa82tvq" path="res://assets/decor/flying_decor/flying_rock_1.png" id="24_sbg5l"]
+[ext_resource type="Texture2D" uid="uid://bffedphnh1kln" path="res://assets/decor/flying_decor/flying_rock_1.png" id="24_sbg5l"]
 [ext_resource type="Texture2D" uid="uid://b0pp0fjdlvk7k" path="res://assets/decor/layer_4_rocks/l4_rock_5.png" id="25_5sobt"]
 [ext_resource type="Texture2D" uid="uid://t4xg46sf43nm" path="res://assets/decor/layer_4_rocks/big_rock.png" id="26_bj1gy"]
 [ext_resource type="Texture2D" uid="uid://m7kmr6cyimju" path="res://assets/decor/flying_decor/bridge_1.png" id="27_qfwk0"]
@@ -91,7 +91,7 @@ script = ExtResource("1_3wrvq")
 player_spawn_point = NodePath("PlayerSpwanPoint")
 level_name = "Level 4"
 badge_times = Array[int]([18, 19, 22, 26])
-camera_limits = Vector4i(-250, -4500, 8000, 300)
+camera_limits = Vector4i(-480, -4600, 8490, 530)
 
 [node name="PlayerSpwanPoint" parent="." instance=ExtResource("11_x2yo8")]
 position = Vector2(738, -88)

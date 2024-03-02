@@ -81,7 +81,7 @@ script = ExtResource("1_golbj")
 player_spawn_point = NodePath("PlayerSpwanPoint")
 level_name = "Level 5"
 badge_times = Array[int]([26, 33, 36, 40])
-camera_limits = Vector4i(-100, -5700, 10200, 300)
+camera_limits = Vector4i(-200, -6050, 10700, 410)
 
 [node name="PlayerSpwanPoint" parent="." instance=ExtResource("2_fx126")]
 position = Vector2(898, -2510)
@@ -886,7 +886,6 @@ position = Vector2(5421, -481)
 z_index = -1
 position = Vector2(5857, -379)
 rotation = 0.424938
-scale = Vector2(1, 1)
 texture = ExtResource("71_kowgk")
 flip_h = true
 

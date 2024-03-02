@@ -70,7 +70,7 @@
 [ext_resource type="PackedScene" uid="uid://ctnglaj5bln2s" path="res://scenes/enviroment/decor/lamp/lamp_post_1.tscn" id="69_s8vot"]
 [ext_resource type="Texture2D" uid="uid://b4qjyis4tjmkd" path="res://assets/decor/flying_decor/flying_rock_5.png" id="70_ngaef"]
 [ext_resource type="Texture2D" uid="uid://den1ggx1pyylq" path="res://assets/decor/fauna/plant_2.png" id="71_xs2iy"]
-[ext_resource type="Texture2D" uid="uid://bpnredwa82tvq" path="res://assets/decor/flying_decor/flying_rock_1.png" id="72_kjt3q"]
+[ext_resource type="Texture2D" uid="uid://bffedphnh1kln" path="res://assets/decor/flying_decor/flying_rock_1.png" id="72_kjt3q"]
 [ext_resource type="Texture2D" uid="uid://cep3j36eam5sq" path="res://assets/decor/layer_4_rocks/l4_rock_8.png" id="73_o8daa"]
 [ext_resource type="Texture2D" uid="uid://3hv17xyqad0e" path="res://assets/decor/fauna/plant_3.png" id="74_s3p56"]
 [ext_resource type="PackedScene" uid="uid://c31d5mg0q3u11" path="res://scenes/enviroment/decor/lamp/candle_2.tscn" id="75_n8swn"]
@@ -170,7 +170,7 @@ script = ExtResource("1_nneb6")
 player_spawn_point = NodePath("PlayerSpwanPoint")
 level_name = "Tutorial"
 can_player_jump_points = false
-camera_limits = Vector4i(-1000, -15000, 41000, 750)
+camera_limits = Vector4i(-1400, -11700, 40700, 570)
 
 [node name="Platforms" type="Node2D" parent="."]
 
