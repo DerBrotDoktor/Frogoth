@@ -22,7 +22,7 @@ boot_splash/minimum_display_time=40
 
 window/size/viewport_width=3456
 window/size/viewport_height=1944
-window/size/mode=3
+window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/scale=0.75
 

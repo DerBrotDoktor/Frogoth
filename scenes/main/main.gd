@@ -7,6 +7,8 @@ var current_level_index = -1
 var current_scene
 
 func _ready():
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
 	player.disable()
 	$Canvas.switch_to_child("nothing")
 
