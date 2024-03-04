@@ -16,3 +16,5 @@ func set_sprite(index):
 			break
 		child.texture = dark_sprites.get_frame_texture("default",i)
 		i -= 1
+	
+	$AnimationPlayer.play("pop_up")
