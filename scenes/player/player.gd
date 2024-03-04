@@ -195,8 +195,12 @@ func start_jump():
 		play_animation("jump")
 	if not is_on_floor() and not $PlayerAnimation.current_animation == "hit_player_animation":
 		if not can_jump:
+			$PlayerAnimation.play("RESET")
+			$LandingVfxAnimation.visible = false
 			$PlayerAnimation.play("tripple_jump_vfx")
 		else:
+			$PlayerAnimation.play("RESET")
+			$LandingVfxAnimation.visible = false
 			$PlayerAnimation.play("jump_vfx")
 		$SFXPlayer/AirJumpAudioPlayer.play()
 	else:
