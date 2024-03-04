@@ -1,15 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://i70bm8lucd7m"]
+[gd_scene load_steps=15 format=3 uid="uid://i70bm8lucd7m"]
 
-[ext_resource type="Texture2D" uid="uid://dkr4wy0ullbvp" path="res://assets/button_prompts/playstation_stick_l_horizontal.png" id="1_ps6p8"]
-[ext_resource type="Texture2D" uid="uid://dyj6ii6scpxxh" path="res://assets/button_prompts/playstation_button_circle.png" id="2_4g481"]
-[ext_resource type="Texture2D" uid="uid://iqix1umvp23s" path="res://assets/button_prompts/playstation_stick_l.png" id="3_wexew"]
-[ext_resource type="Texture2D" uid="uid://mxqynyqjbi8v" path="res://assets/button_prompts/playstation_button_cross.png" id="4_sdkfn"]
-[ext_resource type="Texture2D" uid="uid://doivwub1m50nw" path="res://assets/button_prompts/playstation_button_square.png" id="5_363fs"]
-[ext_resource type="Texture2D" uid="uid://cvwf2urm3ttl6" path="res://assets/button_prompts/playstation_button_options.png" id="6_5fwhq"]
+[ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="1_bq4fm"]
+[ext_resource type="Texture2D" uid="uid://bn0lyojrlioq8" path="res://assets/xelu_controller_and_key_prompts_pack/Playstation/Playstation0025.png" id="2_qtd6t"]
+[ext_resource type="Texture2D" uid="uid://dwvnc7biiwyij" path="res://assets/xelu_controller_and_key_prompts_pack/Keyboard Light/KeyLight0095.png" id="3_8ukgd"]
+[ext_resource type="Texture2D" uid="uid://iaph7t6y3rfd" path="res://assets/xelu_controller_and_key_prompts_pack/Positional Prompts/Positional_Prompts_Down.png" id="3_ps8ba"]
+[ext_resource type="Texture2D" uid="uid://dd1f3gbpqf33v" path="res://assets/xelu_controller_and_key_prompts_pack/Positional Prompts/Positional_Prompts_Right.png" id="4_lj2pn"]
+[ext_resource type="Texture2D" uid="uid://cvkcs6m3aj052" path="res://assets/xelu_controller_and_key_prompts_pack/Keyboard Light/KeyLight0097.png" id="5_7tmw8"]
+[ext_resource type="Texture2D" uid="uid://dofg8bh2ub887" path="res://assets/xelu_controller_and_key_prompts_pack/Positional Prompts/Positional_Prompts_Left.png" id="6_6quln"]
+[ext_resource type="Texture2D" uid="uid://cjlr2a1ixau0m" path="res://assets/xelu_controller_and_key_prompts_pack/Keyboard Light/KeyLight0148.png" id="6_yamm2"]
+[ext_resource type="Texture2D" uid="uid://dh8evr2nw3k2v" path="res://assets/xelu_controller_and_key_prompts_pack/Playstation/Playstation0041.png" id="7_2y7a4"]
+[ext_resource type="Texture2D" uid="uid://beumevw1pst05" path="res://assets/xelu_controller_and_key_prompts_pack/Keyboard Light/KeyLight0078.png" id="8_3u7bd"]
+[ext_resource type="Texture2D" uid="uid://bltguf4hipd8c" path="res://assets/xelu_controller_and_key_prompts_pack/Keyboard Light/KeyLight0140.png" id="9_ni60t"]
+[ext_resource type="Texture2D" uid="uid://btmt7xbmm0w33" path="res://assets/xelu_controller_and_key_prompts_pack/Keyboard Light/KeyLight0098.png" id="11_b8c0f"]
+[ext_resource type="Texture2D" uid="uid://v3maxbwcxmp2" path="res://assets/xelu_controller_and_key_prompts_pack/Keyboard Light/KeyLight0139.png" id="13_er8hw"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_teltn"]
-line_spacing = 25.0
-font_size = 28
+[sub_resource type="Theme" id="Theme_4nkyr"]
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 15
+Label/font_sizes/font_size = 150
+Label/fonts/font = ExtResource("1_bq4fm")
 
 [node name="ControllerSettingsUI" type="Control"]
 layout_mode = 3
@@ -18,68 +27,172 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_4nkyr")
 
-[node name="Label" type="Label" parent="."]
+[node name="LabelWalk" type="Label" parent="."]
 layout_mode = 0
 offset_left = 120.0
-offset_top = 40.0
-offset_right = 478.0
-offset_bottom = 591.0
-text = "Walk
-
-Dash                                       +
-
-Jump
-
-erase shape
-
-pause"
-label_settings = SubResource("LabelSettings_teltn")
+offset_top = 56.0
+offset_right = 536.0
+offset_bottom = 248.0
+text = "Walk"
 
 [node name="TextureRectWalk" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 320.0
-offset_top = 8.0
-offset_right = 448.0
-offset_bottom = 136.0
-texture = ExtResource("1_ps6p8")
+offset_left = 872.0
+offset_top = 48.0
+offset_right = 1184.0
+offset_bottom = 368.0
+texture = ExtResource("2_qtd6t")
 
-[node name="TextureRectDash1" type="TextureRect" parent="."]
+[node name="TextureRectWalk2" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 320.0
-offset_top = 136.0
-offset_right = 448.0
-offset_bottom = 264.0
-texture = ExtResource("2_4g481")
+offset_left = 2608.0
+offset_top = 16.0
+offset_right = 2968.0
+offset_bottom = 376.0
+texture = ExtResource("3_8ukgd")
 
-[node name="TextureRectDash2" type="TextureRect" parent="."]
+[node name="Label+2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 496.0
-offset_top = 136.0
-offset_right = 624.0
-offset_bottom = 264.0
-texture = ExtResource("3_wexew")
+offset_left = 3088.0
+offset_top = 120.0
+offset_right = 3216.0
+offset_bottom = 312.0
+text = "+"
+
+[node name="TextureRectWalk3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 3360.0
+offset_right = 3720.0
+offset_bottom = 360.0
+texture = ExtResource("5_7tmw8")
+
+[node name="LabelJump" type="Label" parent="."]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 576.0
+offset_right = 528.0
+offset_bottom = 768.0
+text = "Jump"
 
 [node name="TextureRectJump" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 320.0
-offset_top = 264.0
-offset_right = 448.0
-offset_bottom = 392.0
-texture = ExtResource("4_sdkfn")
+offset_left = 848.0
+offset_top = 520.0
+offset_right = 1200.0
+offset_bottom = 872.0
+texture = ExtResource("3_ps8ba")
 
-[node name="TextureRectEraseShape" type="TextureRect" parent="."]
+[node name="TextureRectJump2" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 320.0
-offset_top = 392.0
-offset_right = 448.0
-offset_bottom = 520.0
-texture = ExtResource("5_363fs")
+offset_left = 2824.0
+offset_top = 424.0
+offset_right = 3472.0
+offset_bottom = 904.0
+texture = ExtResource("6_yamm2")
+
+[node name="LabelDash" type="Label" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 1112.0
+offset_right = 520.0
+offset_bottom = 1304.0
+text = "Dash"
+
+[node name="TextureRectDash1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1592.0
+offset_top = 1072.0
+offset_right = 1960.0
+offset_bottom = 1424.0
+texture = ExtResource("4_lj2pn")
+
+[node name="Label+" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1344.0
+offset_top = 1152.0
+offset_right = 1472.0
+offset_bottom = 1344.0
+text = "+"
+
+[node name="TextureRectDash2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 872.0
+offset_top = 1072.0
+offset_right = 1176.0
+offset_bottom = 1376.0
+texture = ExtResource("2_qtd6t")
+
+[node name="TextureRectDash3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 2456.0
+offset_top = 992.0
+offset_right = 2976.0
+offset_bottom = 1512.0
+texture = ExtResource("8_3u7bd")
+
+[node name="Label+3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3136.0
+offset_top = 1168.0
+offset_right = 3264.0
+offset_bottom = 1360.0
+text = "+"
+
+[node name="TextureRectDash4" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 3432.0
+offset_top = 1080.0
+offset_right = 3792.0
+offset_bottom = 1440.0
+texture = ExtResource("9_ni60t")
+
+[node name="LabelDiscard" type="Label" parent="."]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 1616.0
+offset_right = 528.0
+offset_bottom = 1808.0
+text = "Discard
+Shape"
+
+[node name="TextureRectDiscardShape" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 1584.0
+offset_right = 1200.0
+offset_bottom = 1928.0
+texture = ExtResource("6_6quln")
+
+[node name="TextureRectDiscard2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 2976.0
+offset_top = 1568.0
+offset_right = 3336.0
+offset_bottom = 1928.0
+texture = ExtResource("11_b8c0f")
+
+[node name="LabelPause" type="Label" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 2208.0
+offset_right = 536.0
+offset_bottom = 2400.0
+text = "Pause"
 
 [node name="TextureRectPause" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 320.0
-offset_top = 520.0
-offset_right = 448.0
-offset_bottom = 648.0
-texture = ExtResource("6_5fwhq")
+offset_left = 848.0
+offset_top = 2128.0
+offset_right = 1208.0
+offset_bottom = 2488.0
+texture = ExtResource("7_2y7a4")
+
+[node name="TextureRectPause2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 2984.0
+offset_top = 2136.0
+offset_right = 3344.0
+offset_bottom = 2496.0
+texture = ExtResource("13_er8hw")
