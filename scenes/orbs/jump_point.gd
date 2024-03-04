@@ -8,8 +8,7 @@ func use_point():
 	$UsePointPlayer.play()
 	$RefreshTimer.start()
 	used = true
-	$SpriteDeactivated.visible = true
-	$SpriteActivated.visible = false
+	$AnimationPlayer.play("use")
 
 func refresh_point():
 	used = false
