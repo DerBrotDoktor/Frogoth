@@ -16,6 +16,7 @@ var time = 0.0
 var timer_allowed = false
 var badge_times
 var current_badge = 0
+var current_enemy_count = -5
 
 func _process(delta):
 	if timer_allowed:
@@ -50,6 +51,9 @@ func set_dash_used(can_dash):
 	$DashCooldown.texture = dash if can_dash else dash_used
 
 func set_current_enemy_count(value):
+	if value < current_enemy_count:
+		$CurrentEnemyCountBack/EnemyCounterVFX.restart()
+	current_enemy_count =  value
 	$CurrentEnemyCountBack/CurrentEnemyCountLabel.text = str(value)
 
 func check_badge():

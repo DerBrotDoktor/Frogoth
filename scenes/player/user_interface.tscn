@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bjr4d282863jf"]
+[gd_scene load_steps=28 format=3 uid="uid://bjr4d282863jf"]
 
 [ext_resource type="Script" path="res://scenes/player/user_interface.gd" id="1_2e1s1"]
 [ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="1_olx0k"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://bfic3auakoqbh" path="res://assets/badges/badge_silver.png" id="20_et30p"]
 [ext_resource type="Texture2D" uid="uid://dt16k0rc88f14" path="res://assets/badges/badge_bronze.png" id="21_08pvu"]
 [ext_resource type="Texture2D" uid="uid://ds1s76nkuw3a6" path="res://assets/badges/badge_normal.png" id="22_0ljda"]
+[ext_resource type="PackedScene" uid="uid://jwoaelbd22k5" path="res://scenes/vfx/enemy_counter_vfx.tscn" id="25_ibunq"]
 
 [sub_resource type="Theme" id="Theme_2u5c8"]
 default_font = ExtResource("1_olx0k")
@@ -126,6 +127,9 @@ text = "9
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="EnemyCounterVFX" parent="CurrentEnemyCountBack" instance=ExtResource("25_ibunq")]
+position = Vector2(180, 180)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
