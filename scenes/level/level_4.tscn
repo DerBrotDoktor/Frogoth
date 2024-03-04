@@ -452,7 +452,7 @@ rotation = 0.126094
 texture = ExtResource("34_ua8ix")
 
 [node name="Arch" type="Sprite2D" parent="."]
-position = Vector2(147, -261)
+position = Vector2(205, -274)
 texture = ExtResource("35_q377c")
 
 [node name="Arch2" type="Sprite2D" parent="."]
@@ -491,18 +491,18 @@ rotation = 0.200602
 texture = ExtResource("40_ywe6c")
 
 [node name="Statue2" type="Sprite2D" parent="."]
-position = Vector2(132, -518)
+position = Vector2(190, -531)
 texture = ExtResource("41_4pv1u")
 flip_h = true
 
 [node name="Lamp5" parent="." instance=ExtResource("42_dr3wu")]
 z_index = -1
-position = Vector2(359, -351)
+position = Vector2(417, -364)
 scale = Vector2(0.812489, 0.639691)
 
 [node name="ChainTileSmall" type="Sprite2D" parent="."]
 z_index = -2
-position = Vector2(360.919, -530.618)
+position = Vector2(420.864, -546.759)
 rotation = 1.57079
 scale = Vector2(0.680013, 0.677047)
 texture = ExtResource("43_uo8t8")
@@ -510,7 +510,7 @@ flip_h = true
 
 [node name="ChainTileSmall2" type="Sprite2D" parent="."]
 z_index = -2
-position = Vector2(359.919, -485.618)
+position = Vector2(419.864, -501.759)
 rotation = 1.57079
 scale = Vector2(0.680013, 0.677047)
 texture = ExtResource("43_uo8t8")
@@ -518,7 +518,7 @@ flip_h = true
 
 [node name="ChainTileSmall3" type="Sprite2D" parent="."]
 z_index = -2
-position = Vector2(358.919, -437.618)
+position = Vector2(418.864, -453.759)
 rotation = 1.57079
 scale = Vector2(0.680013, 0.677047)
 texture = ExtResource("43_uo8t8")
@@ -526,14 +526,14 @@ flip_h = true
 
 [node name="Pillar1" type="Sprite2D" parent="."]
 z_index = -2
-position = Vector2(264, -515)
+position = Vector2(322, -528)
 rotation = 1.04092
 scale = Vector2(0.180986, 0.670933)
 texture = ExtResource("44_7ccyp")
 flip_h = true
 
 [node name="ChainEnd" type="Sprite2D" parent="."]
-position = Vector2(363.919, -567.618)
+position = Vector2(421, -584)
 scale = Vector2(0.552272, 0.594689)
 texture = ExtResource("45_qd0vg")
 flip_h = true
