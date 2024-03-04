@@ -87,10 +87,11 @@ theme_override_constants/margin_top = -200
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_constants/separation = -100
+theme_override_constants/separation = -300
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+[node name="Title" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1536, 1536)
 layout_mode = 2
 texture = ExtResource("10_mynaq")
 
