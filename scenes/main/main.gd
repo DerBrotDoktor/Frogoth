@@ -41,6 +41,8 @@ func load_level_by_index(index:int):
 		$Canvas/UserInterface.badge_times = current_scene.badge_times
 		$Canvas.switch_to_child("UserInterface")
 		$Canvas/PauseMenu.set_level(current_scene.level_name)
+		if index == 9:
+			$AudioPlayer.play_main_menu_music()
 		$SceneTransition/SceneTransitionAnimationPlayer.play_backwards("fade_in")
 		await $SceneTransition/SceneTransitionAnimationPlayer.animation_finished
 		player.enable()
