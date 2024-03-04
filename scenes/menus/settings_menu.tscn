@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://buy8yfrq21gd"]
+[gd_scene load_steps=22 format=3 uid="uid://buy8yfrq21gd"]
 
 [ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="1_k5hm7"]
 [ext_resource type="Texture2D" uid="uid://m30ojk8eyhbr" path="res://assets/parallax/sky.png" id="1_ts4op"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bfw22wontngdh" path="res://assets/ui/buttons/checked_checkbox.png" id="4_jbxg0"]
 [ext_resource type="AudioStream" uid="uid://bqc5ixsdchxca" path="res://assets/sfx/ui/ui_click_sfx.mp3" id="7_2b5hv"]
 [ext_resource type="AudioStream" uid="uid://qawii75qexb5" path="res://assets/sfx/ui/ui_hover_sfx.mp3" id="8_63h6m"]
+[ext_resource type="Texture2D" uid="uid://hsoceubwsxpd" path="res://assets/ui/buttons/highlighted_checkbox.png" id="9_547wd"]
 [ext_resource type="Texture2D" uid="uid://bfgpum7vih67h" path="res://assets/ui/buttons/button.png" id="11_bj3cb"]
 [ext_resource type="Texture2D" uid="uid://0oyw7lpc3u77" path="res://assets/ui/buttons/button_pressed.png" id="12_hsp3a"]
 [ext_resource type="Texture2D" uid="uid://du2ffk8u3dgs3" path="res://assets/ui/buttons/button_hover.png" id="13_g6qus"]
@@ -160,6 +161,8 @@ toggle_mode = true
 button_pressed = true
 texture_normal = ExtResource("3_71v6d")
 texture_pressed = ExtResource("4_jbxg0")
+texture_hover = ExtResource("9_547wd")
+texture_focused = ExtResource("9_547wd")
 stretch_mode = 3
 
 [node name="BorderlessLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
@@ -175,6 +178,8 @@ toggle_mode = true
 button_pressed = true
 texture_normal = ExtResource("3_71v6d")
 texture_pressed = ExtResource("4_jbxg0")
+texture_hover = ExtResource("9_547wd")
+texture_focused = ExtResource("9_547wd")
 stretch_mode = 3
 
 [node name="ClickSoundPlayer" type="AudioStreamPlayer" parent="."]
