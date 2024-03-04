@@ -463,13 +463,13 @@ scale = Vector2(0.530558, 0.48673)
 texture = ExtResource("39_cy8wc")
 
 [node name="FlyingRock2" type="Sprite2D" parent="."]
-z_index = -2
+z_index = -1
 position = Vector2(7687, -2229)
 rotation = 0.71793
 texture = ExtResource("40_uioof")
 
 [node name="Grave1" type="Sprite2D" parent="."]
-z_index = -1
+z_index = -2
 position = Vector2(7636, -2324)
 rotation = -0.0659684
 scale = Vector2(0.60889, 0.630993)
@@ -481,7 +481,7 @@ position = Vector2(7628, -2193)
 texture = ExtResource("42_em0v0")
 
 [node name="Grass4" type="Sprite2D" parent="."]
-z_index = -2
+z_index = -1
 position = Vector2(7707, -2301)
 rotation = -0.0252867
 scale = Vector2(0.694664, 0.715198)
@@ -634,6 +634,7 @@ position = Vector2(569, -1894)
 texture = ExtResource("49_2oxtv")
 
 [node name="Candle2" parent="." instance=ExtResource("46_0sbdp")]
+z_index = -1
 position = Vector2(7718, -2267)
 scale = Vector2(0.664608, 0.641074)
 
@@ -773,7 +774,7 @@ position = Vector2(-384, -1589)
 texture = ExtResource("65_bb61i")
 
 [node name="Ceiling11" type="Sprite2D" parent="."]
-position = Vector2(-139, -1775)
+position = Vector2(-169, -1775)
 rotation = 1.54892
 texture = ExtResource("54_q7ekv")
 
