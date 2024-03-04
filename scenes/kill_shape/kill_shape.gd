@@ -34,8 +34,8 @@ func place_lightning():
 	for i in range(last_length+10, length, 128):
 		var new_path_follow = outline_tile.instantiate()
 		new_path_follow.scale.y = 0.5
-		$KillShapePath.add_child(new_path_follow)
 		new_path_follow.progress = i
+		$KillShapePath.add_child(new_path_follow)
 		var distance = corners[corners.size()-1].distance_to(new_path_follow.position)
 		if distance <= 128 and distance > 0.01:
 			var new_length = (i - (128-distance))
