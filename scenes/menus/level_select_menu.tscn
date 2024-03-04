@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://byylmvxjebsun"]
+[gd_scene load_steps=16 format=3 uid="uid://byylmvxjebsun"]
 
 [ext_resource type="Script" path="res://scenes/menus/level_select_menu.gd" id="1_8ktxo"]
 [ext_resource type="Texture2D" uid="uid://m30ojk8eyhbr" path="res://assets/parallax/sky.png" id="2_v8a2s"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bqc5ixsdchxca" path="res://assets/sfx/ui/ui_click_sfx.mp3" id="4_8juqq"]
 [ext_resource type="Texture2D" uid="uid://bfgpum7vih67h" path="res://assets/ui/buttons/button.png" id="4_mbq7w"]
 [ext_resource type="Texture2D" uid="uid://0oyw7lpc3u77" path="res://assets/ui/buttons/button_pressed.png" id="5_bpmwt"]
+[ext_resource type="Texture2D" uid="uid://gb5owr2h6cjm" path="res://assets/ui/slider/settingsslider.png" id="5_o8dna"]
 [ext_resource type="AudioStream" uid="uid://qawii75qexb5" path="res://assets/sfx/ui/ui_hover_sfx.mp3" id="5_qe6lp"]
 [ext_resource type="Texture2D" uid="uid://du2ffk8u3dgs3" path="res://assets/ui/buttons/button_hover.png" id="6_673yv"]
 [ext_resource type="Texture2D" uid="uid://b2wm6ug1mlcko" path="res://assets/ui/level_select_screen/level_select_left.png" id="6_c6b44"]
@@ -93,9 +94,13 @@ focus_neighbor_bottom = NodePath("../LevelButton1")
 
 [node name="Line2D" type="Line2D" parent="VerticalContainer/LevelMargin/LevelGrid/LevelButton0"]
 z_index = -1
+texture_repeat = 2
 position = Vector2(-285.333, -158.667)
 scale = Vector2(0.666667, 0.666667)
 points = PackedVector2Array(631, 419, 1199, 1119)
+width = 122.0
+texture = ExtResource("5_o8dna")
+texture_mode = 1
 
 [node name="LevelButton1" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
 layout_mode = 2
@@ -110,7 +115,11 @@ level_number = 1
 
 [node name="Line2D" type="Line2D" parent="VerticalContainer/LevelMargin/LevelGrid/LevelButton1"]
 z_index = -1
+texture_repeat = 2
 points = PackedVector2Array(107.333, 94.6667, 306, -586)
+width = 122.0
+texture = ExtResource("5_o8dna")
+texture_mode = 1
 
 [node name="LevelButton2" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
 layout_mode = 2
@@ -126,7 +135,11 @@ difficulty = 1
 
 [node name="Line2D" type="Line2D" parent="VerticalContainer/LevelMargin/LevelGrid/LevelButton2"]
 z_index = -1
+texture_repeat = 2
 points = PackedVector2Array(152.667, 123.333, 471.333, 683.333)
+width = 122.0
+texture = ExtResource("5_o8dna")
+texture_mode = 1
 
 [node name="LevelButton3" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
 layout_mode = 2
@@ -143,7 +156,11 @@ difficulty = 1
 
 [node name="Line2D" type="Line2D" parent="VerticalContainer/LevelMargin/LevelGrid/LevelButton3"]
 z_index = -1
+texture_repeat = 2
 points = PackedVector2Array(120.667, 117.333, 505.333, 574)
+width = 122.0
+texture = ExtResource("5_o8dna")
+texture_mode = 1
 
 [node name="LevelButton4" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
 layout_mode = 2
@@ -159,7 +176,11 @@ difficulty = 2
 
 [node name="Line2D" type="Line2D" parent="VerticalContainer/LevelMargin/LevelGrid/LevelButton4"]
 z_index = -1
+texture_repeat = 2
 points = PackedVector2Array(128, 82, -98, -886)
+width = 122.0
+texture = ExtResource("5_o8dna")
+texture_mode = 1
 
 [node name="LevelButton5" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
 layout_mode = 2
@@ -175,7 +196,11 @@ difficulty = 2
 
 [node name="Line2D" type="Line2D" parent="VerticalContainer/LevelMargin/LevelGrid/LevelButton5"]
 z_index = -1
+texture_repeat = 2
 points = PackedVector2Array(128.667, 128.667, 750, 262.667)
+width = 122.0
+texture = ExtResource("5_o8dna")
+texture_mode = 1
 
 [node name="LevelButton6" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
 layout_mode = 2
@@ -190,7 +215,11 @@ difficulty = 3
 
 [node name="Line2D" type="Line2D" parent="VerticalContainer/LevelMargin/LevelGrid/LevelButton6"]
 z_index = -1
+texture_repeat = 2
 points = PackedVector2Array(126, 139.333, 207.333, 760)
+width = 122.0
+texture = ExtResource("5_o8dna")
+texture_mode = 1
 
 [node name="LevelButton7" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
 layout_mode = 2
@@ -206,7 +235,11 @@ difficulty = 3
 
 [node name="Line2D" type="Line2D" parent="VerticalContainer/LevelMargin/LevelGrid/LevelButton7"]
 z_index = -1
+texture_repeat = 2
 points = PackedVector2Array(126.667, 129.333, 496.667, -243.333)
+width = 122.0
+texture = ExtResource("5_o8dna")
+texture_mode = 1
 
 [node name="LevelButton8" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
 layout_mode = 2
