@@ -15,8 +15,10 @@ point_count = 2
 shader = ExtResource("2_vlqrg")
 shader_parameter/speed = 1.0
 shader_parameter/direction = 0.0
+shader_parameter/paused = false
 
 [node name="MovingPlatform" type="Path2D"]
+process_mode = 3
 curve = SubResource("Curve2D_tq8gb")
 script = ExtResource("1_m17mn")
 speed = 0.1

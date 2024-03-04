@@ -18,7 +18,7 @@ func _ready():
 
 
 func _process(delta):
-	if platform:
+	if platform and (not get_tree().paused):
 		
 		if platform.progress_ratio -delta*speed <= 0:
 			direction *= -1
@@ -31,3 +31,10 @@ func _process(delta):
 			platform.progress_ratio += delta*speed
 		elif direction == -1:
 			platform.progress_ratio -= delta*speed
+		
+	if get_tree().paused and not $PathSprite.material.get_shader_parameter("paused"):
+		$PathSprite.material.set_shader_parameter("paused", true)
+		print("PAUSE",$".")
+	elif not get_tree().paused and $PathSprite.material.get_shader_parameter("paused"):
+		$PathSprite.material.set_shader_parameter("paused", false)
+		print("NO PAUSE",$".")
