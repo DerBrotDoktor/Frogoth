@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://iyel1auqud01"]
+[gd_scene load_steps=50 format=3 uid="uid://iyel1auqud01"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_wtrgv"]
 [ext_resource type="PackedScene" uid="uid://bv7u7b0pw30jd" path="res://scenes/level/tutorial.tscn" id="2_iy1mu"]
@@ -23,7 +23,10 @@
 [ext_resource type="Shader" path="res://scenes/main/lightning_shader.gdshader" id="11_723k2"]
 [ext_resource type="Texture2D" uid="uid://bsoq40pmjw7nv" path="res://assets/parallax/back.png" id="14_02id7"]
 [ext_resource type="Texture2D" uid="uid://cn0hoxddkhdl0" path="res://assets/parallax/gradient.png" id="14_6ecpg"]
+[ext_resource type="Texture2D" uid="uid://b47v008epobtc" path="res://assets/parallax/air_ship_bigger_2.png" id="14_b8uhm"]
 [ext_resource type="PackedScene" uid="uid://cj5y0tnco4cx1" path="res://scenes/menus/level_finish_screen.tscn" id="14_nbfd2"]
+[ext_resource type="Texture2D" uid="uid://dm4pukompc6pf" path="res://assets/parallax/air_ship_huge_2.png" id="15_xsm0u"]
+[ext_resource type="Texture2D" uid="uid://deyw8xfdgltxu" path="res://assets/parallax/air_ship_tiny_5.png" id="16_3lsfj"]
 [ext_resource type="Texture2D" uid="uid://cr1y6svrog7bq" path="res://assets/parallax/front.png" id="16_6gtoh"]
 [ext_resource type="Texture2D" uid="uid://bew5bia38bgx4" path="res://assets/parallax/backgound_paralax_2.png" id="16_biciv"]
 [ext_resource type="PackedScene" uid="uid://i70bm8lucd7m" path="res://scenes/menus/controller_settings_ui.tscn" id="17_8mvke"]
@@ -178,11 +181,50 @@ position = Vector2(3070, 1280)
 scale = Vector2(3, 3)
 texture = ExtResource("6_2g7ui")
 
+[node name="AirShips" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(9500, 0)
+
+[node name="AirShipBigger2" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(1752.51, -4352.42)
+texture = ExtResource("14_b8uhm")
+
+[node name="AirShipHuge2" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(2901.35, -7612.75)
+texture = ExtResource("15_xsm0u")
+
+[node name="AirShipBigger3" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(8090.81, -5866.91)
+texture = ExtResource("14_b8uhm")
+
+[node name="AirShipTiny5" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(4851.64, -5411.48)
+texture = ExtResource("16_3lsfj")
+
+[node name="AirShipHuge3" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(6027.23, -12072.1)
+texture = ExtResource("15_xsm0u")
+
+[node name="AirShipTiny6" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(1137.11, -14795)
+texture = ExtResource("16_3lsfj")
+
+[node name="AirShipBigger4" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(2470.23, -10716.3)
+texture = ExtResource("14_b8uhm")
+flip_h = true
+
+[node name="AirShipHuge4" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(8025.4, -9109.84)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("15_xsm0u")
+flip_h = true
+
 [node name="Gradient" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(4800, 0)
+motion_mirroring = Vector2(5120, 0)
 
 [node name="Gradient" type="Sprite2D" parent="ParallaxBackground/Gradient"]
-position = Vector2(2570, -1526)
+position = Vector2(2559.91, -1528)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("14_6ecpg")
 
