@@ -186,7 +186,8 @@ motion_scale = Vector2(0.6, 1)
 motion_mirroring = Vector2(9500, 0)
 
 [node name="AirShipBigger2" type="Sprite2D" parent="ParallaxBackground/AirShips"]
-position = Vector2(1752.51, -4352.42)
+position = Vector2(1885.7, -4390.47)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("14_b8uhm")
 
 [node name="AirShipHuge2" type="Sprite2D" parent="ParallaxBackground/AirShips"]
@@ -194,11 +195,24 @@ position = Vector2(2901.35, -7612.75)
 texture = ExtResource("15_xsm0u")
 
 [node name="AirShipBigger3" type="Sprite2D" parent="ParallaxBackground/AirShips"]
-position = Vector2(8090.81, -5866.91)
+position = Vector2(8224, -5904.97)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("14_b8uhm")
 
 [node name="AirShipTiny5" type="Sprite2D" parent="ParallaxBackground/AirShips"]
 position = Vector2(4851.64, -5411.48)
+texture = ExtResource("16_3lsfj")
+
+[node name="AirShipTiny7" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(1475.27, -6758.44)
+texture = ExtResource("16_3lsfj")
+
+[node name="AirShipTiny8" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(7276.16, -3543.7)
+texture = ExtResource("16_3lsfj")
+
+[node name="AirShipTiny9" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(6221.35, -10184.2)
 texture = ExtResource("16_3lsfj")
 
 [node name="AirShipHuge3" type="Sprite2D" parent="ParallaxBackground/AirShips"]
@@ -210,7 +224,14 @@ position = Vector2(1137.11, -14795)
 texture = ExtResource("16_3lsfj")
 
 [node name="AirShipBigger4" type="Sprite2D" parent="ParallaxBackground/AirShips"]
-position = Vector2(2470.23, -10716.3)
+position = Vector2(2603.42, -10754.3)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("14_b8uhm")
+flip_h = true
+
+[node name="AirShipBigger5" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(5466.2, -8535.49)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("14_b8uhm")
 flip_h = true
 
