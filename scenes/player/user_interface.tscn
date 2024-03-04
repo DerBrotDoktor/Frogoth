@@ -154,4 +154,4 @@ horizontal_alignment = 2
 
 [node name="CurrentBadge" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("18_urkug")
+texture = ExtResource("22_0ljda")

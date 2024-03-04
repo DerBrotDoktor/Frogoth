@@ -61,16 +61,12 @@ func check_badge():
 	var seconds = int(time)
 	if badge_times.size()  == 4:
 		if seconds < badge_times[0]:
-			print(badge_times[0])
 			badge = 4
 		elif seconds < badge_times[1]:
-			print(badge_times[1])
 			badge = 3
 		elif seconds < badge_times[2]:
-			print(badge_times[2])
 			badge = 2
 		elif seconds < badge_times[3]:
-			print(badge_times[3])
 			badge = 1
 		elif seconds > badge_times[3]:
 			badge = 0

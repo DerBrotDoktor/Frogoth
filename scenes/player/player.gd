@@ -429,7 +429,6 @@ func set_camera_limits(limits):
 	$Camera.limit_bottom = limits.w
 
 func check_walk_vfx():
-	print("Check: ",$WalkVFX.animation,"  ", is_walking)
 	if $WalkVFX.animation == "running_start" and is_walking:
 		$WalkVFX.play("running")
 	elif $WalkVFX.animation == "running" and is_walking:

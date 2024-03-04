@@ -30,19 +30,14 @@ func get_enemies():
 
 func get_badge(seconds):
 	var returnValue = 0
-	print(seconds)
 	if badge_times.size()  == 4:
 		if seconds < badge_times[0]:
-			print(badge_times[0])
 			returnValue = 4
 		elif seconds < badge_times[1]:
-			print(badge_times[1])
 			returnValue = 3
 		elif seconds < badge_times[2]:
-			print(badge_times[2])
 			returnValue = 2
 		elif seconds < badge_times[3]:
-			print(badge_times[3])
 			returnValue = 1
 		elif seconds > badge_times[3]:
 			returnValue = 0
