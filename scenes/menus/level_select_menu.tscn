@@ -30,6 +30,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8ktxo")
+level_amount = 9
 level_buttons = [NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton0"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton1"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton2"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton3"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton4"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton5"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton6"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton7"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton8")]
 
 [node name="Background" type="TextureRect" parent="."]
@@ -218,14 +219,6 @@ focus_neighbor_right = NodePath("../LevelButton0")
 level_number = 8
 difficulty = 4
 
-[node name="LevelButton9" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
-layout_mode = 2
-offset_left = 1816.0
-offset_top = 1568.0
-offset_right = 2072.0
-offset_bottom = 1824.0
-level_number = 9
-
 [node name="BackButton" type="TextureButton" parent="."]
 z_index = 2
 layout_mode = 0
@@ -297,7 +290,6 @@ texture = ExtResource("7_aoqmn")
 [connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton6" to="." method="load_level"]
 [connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton7" to="." method="load_level"]
 [connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton8" to="." method="load_level"]
-[connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton9" to="." method="load_level"]
 [connection signal="button_down" from="BackButton" to="." method="play_click_sound"]
 [connection signal="focus_entered" from="BackButton" to="." method="play_hover_sound"]
 [connection signal="mouse_entered" from="BackButton" to="." method="play_hover_sound"]
