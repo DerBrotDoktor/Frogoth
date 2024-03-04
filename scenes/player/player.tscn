@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=3 uid="uid://bfqr80qekwaw5"]
+[gd_scene load_steps=149 format=3 uid="uid://bfqr80qekwaw5"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_il0n1"]
 [ext_resource type="PackedScene" uid="uid://beocyu2m1xsx1" path="res://scenes/player/player_ghost.tscn" id="2_rl3rv"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://y32bxgdxymnc" path="res://assets/sfx/player/air_jump_sfx.mp3" id="16_4dsqo"]
 [ext_resource type="Texture2D" uid="uid://dgadbj2p1rifc" path="res://assets/vfx/player/landing_vfx.png" id="16_uw5v5"]
 [ext_resource type="AudioStream" uid="uid://chs37fmb14lyr" path="res://assets/sfx/player/dash_sfx.mp3" id="17_eof52"]
+[ext_resource type="Texture2D" uid="uid://bj1drtr2eybpf" path="res://assets/vfx/player/running_stop_vfx.png" id="18_8nce8"]
 [ext_resource type="AudioStream" uid="uid://duvmvucant0du" path="res://assets/sfx/player/player_damage_sfx.mp3" id="19_6lf02"]
 [ext_resource type="Script" path="res://scenes/player/enemy_indicator_controller.gd" id="20_hjysh"]
 [ext_resource type="PackedScene" uid="uid://bsk168y5iskk7" path="res://scenes/ui/enemy_inidcator.tscn" id="21_gitdl"]
@@ -750,6 +751,54 @@ region = Rect2(1024, 0, 256, 256)
 atlas = ExtResource("14_8qkos")
 region = Rect2(1280, 0, 256, 256)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jx0b5"]
+atlas = ExtResource("18_8nce8")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xt6d2"]
+atlas = ExtResource("18_8nce8")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17aci"]
+atlas = ExtResource("18_8nce8")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmxec"]
+atlas = ExtResource("18_8nce8")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ie6cl"]
+atlas = ExtResource("18_8nce8")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8rq0"]
+atlas = ExtResource("18_8nce8")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5sa4"]
+atlas = ExtResource("18_8nce8")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n14ab"]
+atlas = ExtResource("18_8nce8")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ebdj"]
+atlas = ExtResource("18_8nce8")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg461"]
+atlas = ExtResource("18_8nce8")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eswuy"]
+atlas = ExtResource("18_8nce8")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44m8c"]
+atlas = ExtResource("18_8nce8")
+region = Rect2(1280, 0, 256, 256)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_qtlfl"]
 animations = [{
 "frames": [{
@@ -772,8 +821,54 @@ animations = [{
 "texture": SubResource("AtlasTexture_hjjs6")
 }],
 "loop": true,
-"name": &"default",
+"name": &"running",
 "speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jx0b5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xt6d2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17aci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmxec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ie6cl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8rq0")
+}],
+"loop": false,
+"name": &"running_start",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5sa4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n14ab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ebdj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tg461")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eswuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44m8c")
+}],
+"loop": false,
+"name": &"running_stop",
+"speed": 14.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0tqvw"]
@@ -1032,8 +1127,8 @@ sprite_frames = SubResource("SpriteFrames_i86qw")
 position = Vector2(-88, -48)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_qtlfl")
-autoplay = "default"
-frame_progress = 0.190088
+animation = &"running_stop"
+autoplay = "running_stop"
 flip_h = true
 
 [node name="Collider" type="CollisionShape2D" parent="."]
@@ -1133,6 +1228,8 @@ enemy_indicator = ExtResource("21_gitdl")
 [node name="DashCooldownBar" parent="." instance=ExtResource("25_7lob2")]
 position = Vector2(128, -192)
 
+[connection signal="animation_finished" from="WalkVFX" to="." method="check_walk_vfx"]
+[connection signal="animation_looped" from="WalkVFX" to="." method="check_walk_vfx"]
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]

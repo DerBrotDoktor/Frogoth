@@ -38,6 +38,7 @@ var max_orbs = 8
 var orbs_left = 0
 var is_dead = true
 var knockback
+var is_walking = false
 #endregion
 
 #region stats
@@ -82,11 +83,13 @@ func handle_movement(delta):
 		handle_dash_movement()
 		return
 	var direction = Input.get_axis("left", "right")
-	if (not direction) or (not can_move) or (not is_on_floor()) and $WalkVFX.visible:
-		$WalkVFX.visible = false 
+	if (not direction) or (not can_move) or (not is_on_floor()) and is_walking:
+		is_walking = false
+		check_walk_vfx()
 	if direction and can_move:
-		if not $WalkVFX.visible and is_on_floor():
-			$WalkVFX.visible = true
+		if not is_walking and is_on_floor():
+			is_walking = true
+			check_walk_vfx()
 		if direction > 0:
 			$Animation.flip_h = false
 			$WalkVFX.flip_h = true
@@ -424,3 +427,18 @@ func set_camera_limits(limits):
 	$Camera.limit_top = limits.y
 	$Camera.limit_right = limits.z
 	$Camera.limit_bottom = limits.w
+
+func check_walk_vfx():
+	print("Check: ",$WalkVFX.animation,"  ", is_walking)
+	if $WalkVFX.animation == "running_start" and is_walking:
+		$WalkVFX.play("running")
+	elif $WalkVFX.animation == "running" and is_walking:
+		$WalkVFX.play("running")
+	elif $WalkVFX.animation == "running" and not is_walking:
+		$WalkVFX.play("running_stop")
+	elif $WalkVFX.animation == "running_stop" and is_walking:
+		$WalkVFX.visible = true
+		$WalkVFX.play("running_start")
+	else:
+		$WalkVFX.visible = false
+		$WalkVFX.animation = "running_stop"
