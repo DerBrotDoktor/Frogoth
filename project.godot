@@ -15,7 +15,7 @@ run/main_scene="res://scenes/main/main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="res://assets/Logo.png"
 boot_splash/minimum_display_time=40
 
 [display]
@@ -158,3 +158,7 @@ quick_restart={
 2d_physics/layer_2="Enemy"
 2d_physics/layer_3="Bullet"
 2d_physics/layer_4="Platform"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
