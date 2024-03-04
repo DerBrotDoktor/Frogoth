@@ -203,7 +203,7 @@ z_index = 1
 position = Vector2(0, -17)
 tile_set = ExtResource("12_87aou")
 format = 2
-layer_0/tile_data = PackedInt32Array(-262149, 0, 0, -262148, 0, 0, -262147, 65536, 0, -262146, 65536, 1, -196609, 65536, 1, -65535, 0, 0, -65534, 65536, 1, -65533, 131072, 0, -65532, 0, 1, -65531, 0, 1, -65526, 0, 0, -131061, 131072, 1, -196595, 131072, 0, -196594, 0, 1, -196593, 0, 0, -131056, 65536, 0, -131055, 65536, 0, -131054, 131072, 1, -196583, 131072, 0, -262118, 131072, 1, -327653, 65536, 0, -393188, 131072, 1, -393187, 65536, 0, -458722, 0, 0, -458721, 65536, 0, -589792, 131072, 1, -589791, 131072, 0, -655326, 131072, 1, -786397, 131072, 1, -786396, 65536, 0, -196608, 0, 0, -131060, 0, 1)
+layer_0/tile_data = PackedInt32Array(-262149, 196608, 1, -262148, 65536, 0, -262147, 65536, 1, -262146, 131072, 0, -196609, 196608, 0, -65535, 196608, 1, -65534, 0, 0, -65533, 65536, 1, -65532, 65536, 0, -65531, 131072, 0, -65526, 196608, 0, -131061, 196608, 1, -196595, 196608, 1, -196594, 65536, 1, -196593, 131072, 0, -131056, 196608, 1, -131055, 0, 0, -131054, 131072, 0, -196583, 262144, 1, -262118, 196608, 0, -327653, 262144, 1, -393188, 196608, 1, -393187, 131072, 0, -458722, 196608, 1, -458721, 131072, 0, -589792, 196608, 1, -589791, 131072, 0, -655326, 262144, 0, -786397, 196608, 1, -786396, 131072, 0, -196608, 262144, 1, -131060, 131072, 0)
 
 [node name="CeilingTileMap" type="TileMap" parent="TileMaps"]
 z_index = 1
@@ -221,6 +221,7 @@ layer_0/tile_data = PackedInt32Array(-2555930, 65536, 2, -2490394, 65536, 0, -24
 position = Vector2(-442, -713)
 
 [node name="Fence" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(709, -263)
 texture = ExtResource("20_hyh0w")
 
@@ -300,20 +301,20 @@ position = Vector2(3284, -428)
 scale = Vector2(0.763823, 0.843125)
 texture = ExtResource("25_r11cn")
 
-[node name="Ribs" type="Sprite2D" parent="."]
+[node name="Ribs2" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(463, -159)
-texture = ExtResource("28_mgnyr")
-
-[node name="Ribs" type="Sprite2D" parent="Ribs"]
-z_index = -1
-position = Vector2(203, -5)
+position = Vector2(666, -164)
 texture = ExtResource("28_mgnyr")
 flip_h = true
 
+[node name="Ribs" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(411, -155)
+texture = ExtResource("28_mgnyr")
+
 [node name="Grave1" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(557, -249)
+position = Vector2(502, -246)
 texture = ExtResource("29_2e1hr")
 
 [node name="Skull1" type="Sprite2D" parent="."]
@@ -651,6 +652,12 @@ z_index = -1
 position = Vector2(1965, -439)
 scale = Vector2(0.751951, 0.628642)
 texture = ExtResource("60_1jglt")
+
+[node name="Grass20" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(615, -192)
+scale = Vector2(0.864743, 0.838478)
+texture = ExtResource("24_b5kl8")
 
 [editable path="Lamp2"]
 [editable path="Lamp1"]
