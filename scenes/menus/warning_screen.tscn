@@ -139,7 +139,7 @@ theme_override_fonts/font = ExtResource("1_on8a2")
 theme_override_font_sizes/font_size = 100
 text = "Warning!
 This game contains flashing lights!
-It might be triggering for some people, causion adviced!"
+It might be triggering for some people, caution adviced!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
