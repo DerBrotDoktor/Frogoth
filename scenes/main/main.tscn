@@ -1,0 +1,410 @@
+[gd_scene load_steps=50 format=3 uid="uid://iyel1auqud01"]
+
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_wtrgv"]
+[ext_resource type="PackedScene" uid="uid://bv7u7b0pw30jd" path="res://scenes/level/tutorial.tscn" id="2_iy1mu"]
+[ext_resource type="PackedScene" uid="uid://bfqr80qekwaw5" path="res://scenes/player/player.tscn" id="3_cw4d6"]
+[ext_resource type="PackedScene" uid="uid://byylmvxjebsun" path="res://scenes/menus/level_select_menu.tscn" id="3_qm2ey"]
+[ext_resource type="PackedScene" uid="uid://c7uqvsqtn5b6p" path="res://scenes/menus/main_menu.tscn" id="4_3igok"]
+[ext_resource type="Texture2D" uid="uid://m30ojk8eyhbr" path="res://assets/parallax/sky.png" id="6_2g7ui"]
+[ext_resource type="PackedScene" uid="uid://bjr4d282863jf" path="res://scenes/player/user_interface.tscn" id="6_a7p0o"]
+[ext_resource type="PackedScene" uid="uid://jslvxnacwmvr" path="res://scenes/level/level_2.tscn" id="6_fs1sm"]
+[ext_resource type="Script" path="res://scenes/main/bash_point_controller.gd" id="6_n33ax"]
+[ext_resource type="PackedScene" uid="uid://b3xkhnnblngtv" path="res://scenes/level/level_1.tscn" id="6_st07r"]
+[ext_resource type="Texture2D" uid="uid://dechd0hxshq2j" path="res://assets/parallax/paralax_1.png" id="7_3mtfd"]
+[ext_resource type="PackedScene" uid="uid://ddwu8ev1w36qf" path="res://scenes/level/level_3.tscn" id="7_30kpi"]
+[ext_resource type="PackedScene" uid="uid://cxnis83ngl0xa" path="res://scenes/level/level_5.tscn" id="7_780fm"]
+[ext_resource type="PackedScene" uid="uid://cxs4r4jwdplql" path="res://scenes/level/level_4.tscn" id="7_mk7qn"]
+[ext_resource type="PackedScene" uid="uid://pj1yr5tgu5bu" path="res://scenes/level/level_6.tscn" id="7_sa5si"]
+[ext_resource type="PackedScene" uid="uid://clsrvetv1bio4" path="res://scenes/level/level_7.tscn" id="8_210py"]
+[ext_resource type="Script" path="res://scenes/main/Canvas.gd" id="9_77551"]
+[ext_resource type="PackedScene" uid="uid://02mgq0aad22s" path="res://scenes/level/level_8.tscn" id="9_q56fa"]
+[ext_resource type="PackedScene" uid="uid://c6nm6w83jynbs" path="res://scenes/menus/pause_menu.tscn" id="10_u7rrt"]
+[ext_resource type="PackedScene" uid="uid://c82ntg1hepcio" path="res://scenes/level/the_end.tscn" id="11_5mqt2"]
+[ext_resource type="Shader" path="res://scenes/main/lightning_shader.gdshader" id="11_723k2"]
+[ext_resource type="Texture2D" uid="uid://bsoq40pmjw7nv" path="res://assets/parallax/back.png" id="14_02id7"]
+[ext_resource type="Texture2D" uid="uid://cn0hoxddkhdl0" path="res://assets/parallax/gradient.png" id="14_6ecpg"]
+[ext_resource type="Texture2D" uid="uid://b47v008epobtc" path="res://assets/parallax/air_ship_bigger_2.png" id="14_b8uhm"]
+[ext_resource type="PackedScene" uid="uid://cj5y0tnco4cx1" path="res://scenes/menus/level_finish_screen.tscn" id="14_nbfd2"]
+[ext_resource type="Texture2D" uid="uid://dm4pukompc6pf" path="res://assets/parallax/air_ship_huge_2.png" id="15_xsm0u"]
+[ext_resource type="Texture2D" uid="uid://deyw8xfdgltxu" path="res://assets/parallax/air_ship_tiny_5.png" id="16_3lsfj"]
+[ext_resource type="Texture2D" uid="uid://cr1y6svrog7bq" path="res://assets/parallax/front.png" id="16_6gtoh"]
+[ext_resource type="Texture2D" uid="uid://bew5bia38bgx4" path="res://assets/parallax/backgound_paralax_2.png" id="16_biciv"]
+[ext_resource type="PackedScene" uid="uid://i70bm8lucd7m" path="res://scenes/menus/controller_settings_ui.tscn" id="17_8mvke"]
+[ext_resource type="Texture2D" uid="uid://piqjsvgixggj" path="res://assets/parallax/gradient_backgound_paralax_4.png" id="17_tv5hj"]
+[ext_resource type="PackedScene" uid="uid://bg142qlgmcfnf" path="res://scenes/menus/logo_screen.tscn" id="19_yn3my"]
+[ext_resource type="PackedScene" uid="uid://buy8yfrq21gd" path="res://scenes/menus/settings_menu.tscn" id="20_f3gq3"]
+[ext_resource type="AudioStream" uid="uid://83nsiryvh2gg" path="res://assets/sfx/music/Frogoth_BG_music.mp3" id="22_7hg4y"]
+[ext_resource type="AudioStream" uid="uid://dentu4sa6yes7" path="res://assets/sfx/music/menu_music_0.1.mp3" id="24_vcc2i"]
+[ext_resource type="PackedScene" uid="uid://boxdqa3je4ppp" path="res://scenes/menus/credits_screen.tscn" id="26_lg5nl"]
+[ext_resource type="AudioStream" uid="uid://c2lorlho1gvwv" path="res://assets/sfx/thunder/bg_thunder_sfx1.mp3" id="27_ej63l"]
+[ext_resource type="AudioStream" uid="uid://cu83u5bhdqv7k" path="res://assets/sfx/thunder/bg_thunder_sfx3.mp3" id="29_v114x"]
+[ext_resource type="AudioStream" uid="uid://dq42j263l8qkv" path="res://assets/sfx/thunder/bg_thunder_sfx4.mp3" id="30_ujyxu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0h0bh"]
+shader = ExtResource("11_723k2")
+shader_parameter/color = Color(0, 0, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_x8alp"]
+script/source = "extends Node
+
+func play_background_music():
+	if not $BackgoundMusicPlayer.playing:
+		$BackgoundMusicPlayer.play()
+		$MainMenuPlayer.stop()
+
+func play_main_menu_music():
+	if not $MainMenuPlayer.playing:
+		$BackgoundMusicPlayer.stop()
+		$MainMenuPlayer.play()
+"
+
+[sub_resource type="Animation" id="Animation_svxbw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ParallaxBackground/Sky/Sprite2D:material:shader_parameter/color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4muef"]
+resource_name = "lightning"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ParallaxBackground/Sky/Sprite2D:material:shader_parameter/color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(0.378929, 1, 0.241484),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ThunderAudioSFX")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_thunder"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f3lrh"]
+_data = {
+"RESET": SubResource("Animation_svxbw"),
+"lightning": SubResource("Animation_4muef")
+}
+
+[sub_resource type="GDScript" id="GDScript_eki4m"]
+script/source = "extends Node
+
+
+func play_thunder():
+	var idx = randi_range(0, get_child_count()-1)
+	get_child(idx).play()
+"
+
+[sub_resource type="Environment" id="Environment_2d4y5"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 1
+glow_hdr_threshold = 0.64
+glow_hdr_scale = 0.81
+
+[sub_resource type="Animation" id="Animation_k5jmx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SceneTransition/Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ytxgy"]
+resource_name = "fade_in"
+length = 0.3
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SceneTransition/Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6hpqc"]
+_data = {
+"RESET": SubResource("Animation_k5jmx"),
+"fade_in": SubResource("Animation_ytxgy")
+}
+
+[node name="Main" type="Node" node_paths=PackedStringArray("player")]
+script = ExtResource("1_wtrgv")
+level = Array[PackedScene]([ExtResource("2_iy1mu"), ExtResource("6_st07r"), ExtResource("6_fs1sm"), ExtResource("7_30kpi"), ExtResource("7_mk7qn"), ExtResource("7_780fm"), ExtResource("7_sa5si"), ExtResource("8_210py"), ExtResource("9_q56fa"), ExtResource("11_5mqt2")])
+player = NodePath("Player")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -2
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(5120, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+z_index = -2
+material = SubResource("ShaderMaterial_0h0bh")
+position = Vector2(3070, 1280)
+scale = Vector2(3, 3)
+texture = ExtResource("6_2g7ui")
+
+[node name="AirShips" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(9500, 0)
+
+[node name="AirShipBigger2" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(1885.7, -4390.47)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("14_b8uhm")
+
+[node name="AirShipHuge2" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(2901.35, -7612.75)
+texture = ExtResource("15_xsm0u")
+
+[node name="AirShipBigger3" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(8224, -5904.97)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("14_b8uhm")
+
+[node name="AirShipTiny5" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(4851.64, -5411.48)
+texture = ExtResource("16_3lsfj")
+
+[node name="AirShipTiny7" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(1475.27, -6758.44)
+texture = ExtResource("16_3lsfj")
+
+[node name="AirShipTiny8" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(7276.16, -3543.7)
+texture = ExtResource("16_3lsfj")
+
+[node name="AirShipTiny9" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(6221.35, -10184.2)
+texture = ExtResource("16_3lsfj")
+
+[node name="AirShipHuge3" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(6027.23, -12072.1)
+texture = ExtResource("15_xsm0u")
+
+[node name="AirShipTiny6" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(1137.11, -14795)
+texture = ExtResource("16_3lsfj")
+
+[node name="AirShipBigger4" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(2603.42, -10754.3)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("14_b8uhm")
+flip_h = true
+
+[node name="AirShipBigger5" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(5466.2, -8535.49)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("14_b8uhm")
+flip_h = true
+
+[node name="AirShipHuge4" type="Sprite2D" parent="ParallaxBackground/AirShips"]
+position = Vector2(8025.4, -9109.84)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("15_xsm0u")
+flip_h = true
+
+[node name="Gradient" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(5120, 0)
+
+[node name="Gradient" type="Sprite2D" parent="ParallaxBackground/Gradient"]
+position = Vector2(2559.91, -1528)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("14_6ecpg")
+
+[node name="Skyline" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.7)
+motion_mirroring = Vector2(4800, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Skyline"]
+z_index = -2
+position = Vector2(2400, -604)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("7_3mtfd")
+
+[node name="FarBuildings" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.9)
+motion_mirroring = Vector2(4800, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FarBuildings"]
+position = Vector2(2300, -953)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("14_02id7")
+
+[node name="BackgroundBuildingsMiddle" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.8)
+motion_mirroring = Vector2(4800, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackgroundBuildingsMiddle"]
+z_index = -2
+position = Vector2(2400, -683.496)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("16_biciv")
+
+[node name="BackgroundBuildingsFront" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 0.9)
+motion_mirroring = Vector2(4800, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackgroundBuildingsFront"]
+z_index = -2
+position = Vector2(2404.84, -644.602)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("16_6gtoh")
+
+[node name="Gradient3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.7)
+motion_mirroring = Vector2(4800, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Gradient3"]
+z_index = -2
+position = Vector2(2400, -630)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("17_tv5hj")
+
+[node name="Canvas" type="CanvasLayer" parent="." node_paths=PackedStringArray("player")]
+process_mode = 3
+script = ExtResource("9_77551")
+player = NodePath("../Player")
+
+[node name="UserInterface" parent="Canvas" instance=ExtResource("6_a7p0o")]
+visible = false
+
+[node name="PauseMenu" parent="Canvas" instance=ExtResource("10_u7rrt")]
+visible = false
+
+[node name="MainMenu" parent="Canvas" instance=ExtResource("4_3igok")]
+visible = false
+
+[node name="LevelSelectMenu" parent="Canvas" instance=ExtResource("3_qm2ey")]
+visible = false
+
+[node name="LevelFinishScreen" parent="Canvas" instance=ExtResource("14_nbfd2")]
+visible = false
+
+[node name="ControllerSettingsUI" parent="Canvas" instance=ExtResource("17_8mvke")]
+visible = false
+
+[node name="SettingsMenu" parent="Canvas" instance=ExtResource("20_f3gq3")]
+visible = false
+
+[node name="CreditsScreen" parent="Canvas" instance=ExtResource("26_lg5nl")]
+visible = false
+
+[node name="EscapeDelay" type="Timer" parent="Canvas"]
+wait_time = 0.001
+
+[node name="Player" parent="." instance=ExtResource("3_cw4d6")]
+z_index = 2
+
+[node name="AudioPlayer" type="Node" parent="."]
+script = SubResource("GDScript_x8alp")
+
+[node name="BackgoundMusicPlayer" type="AudioStreamPlayer" parent="AudioPlayer"]
+process_mode = 3
+stream = ExtResource("22_7hg4y")
+volume_db = 9.0
+bus = &"Music"
+
+[node name="MainMenuPlayer" type="AudioStreamPlayer" parent="AudioPlayer"]
+stream = ExtResource("24_vcc2i")
+volume_db = -6.5
+bus = &"Music"
+
+[node name="BashPointController" type="Node" parent="." node_paths=PackedStringArray("player")]
+process_mode = 3
+script = ExtResource("6_n33ax")
+player = NodePath("../Player")
+
+[node name="LightningEffect" type="AnimationPlayer" parent="BashPointController"]
+libraries = {
+"": SubResource("AnimationLibrary_f3lrh")
+}
+
+[node name="ThunderAudioSFX" type="Node" parent="BashPointController"]
+script = SubResource("GDScript_eki4m")
+
+[node name="Thunder1" type="AudioStreamPlayer" parent="BashPointController/ThunderAudioSFX"]
+stream = ExtResource("27_ej63l")
+volume_db = -8.0
+bus = &"ThunderEffects"
+
+[node name="Thunder3" type="AudioStreamPlayer" parent="BashPointController/ThunderAudioSFX"]
+stream = ExtResource("29_v114x")
+volume_db = -8.0
+bus = &"ThunderEffects"
+
+[node name="Thunder4" type="AudioStreamPlayer" parent="BashPointController/ThunderAudioSFX"]
+stream = ExtResource("30_ujyxu")
+volume_db = -8.0
+bus = &"ThunderEffects"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2d4y5")
+
+[node name="LogoScreenLayer" type="CanvasLayer" parent="."]
+
+[node name="LogoScreen" parent="LogoScreenLayer" instance=ExtResource("19_yn3my")]
+visible = false
+
+[node name="SceneTransition" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="SceneTransitionAnimationPlayer" type="AnimationPlayer" parent="SceneTransition"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_6hpqc")
+}
+
+[node name="Fade" type="ColorRect" parent="SceneTransition"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[connection signal="visibility_changed" from="Canvas/UserInterface" to="Canvas/UserInterface" method="_on_visibility_changed"]
+[connection signal="main_menu" from="Canvas/PauseMenu" to="." method="_on_pause_menu_main_menu"]
+[connection signal="restart_level" from="Canvas/PauseMenu" to="." method="_on_pause_menu_restart_level"]
+[connection signal="resume_game" from="Canvas/PauseMenu" to="." method="_on_pause_menu_resume_game"]
+[connection signal="entered_orb" from="Player" to="BashPointController" method="_on_player_entered_orb"]
+[connection signal="player_died" from="Player" to="." method="_on_player_player_died"]
+[connection signal="player_died" from="Player" to="BashPointController" method="_on_player_player_died"]

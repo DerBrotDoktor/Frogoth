@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=3 uid="uid://bvm01dqpggme7"]
+
+[ext_resource type="Texture2D" uid="uid://bl6l66n1vbsp" path="res://assets/ui/buttons/level_lock.png" id="1_15b1v"]
+[ext_resource type="Texture2D" uid="uid://blgw2jn54mjr1" path="res://assets/ui/buttons/level_select_button.png" id="1_g0i30"]
+[ext_resource type="Script" path="res://scenes/menus/level_select_button.gd" id="2_586bl"]
+[ext_resource type="Texture2D" uid="uid://cd2e2plx6fcdn" path="res://assets/ui/buttons/level_select_button_pressed.png" id="2_x8uqo"]
+[ext_resource type="Texture2D" uid="uid://dpq6aexpbskl1" path="res://assets/ui/buttons/level_select_button_hover.png" id="3_dxqmi"]
+[ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="3_gm6e8"]
+[ext_resource type="Texture2D" uid="uid://cj3i7p85hv1xs" path="res://assets/ui/level_select_screen/difficulty_2.png" id="6_g7ocp"]
+[ext_resource type="Texture2D" uid="uid://cryaoghuwlgi5" path="res://assets/ui/level_select_screen/difficulty_3.png" id="7_b7idr"]
+[ext_resource type="Texture2D" uid="uid://dkeu4g38n0sis" path="res://assets/ui/level_select_screen/difficulty_1.png" id="7_voc3l"]
+[ext_resource type="Texture2D" uid="uid://d2dq8pf81hb0d" path="res://assets/ui/level_select_screen/difficulty_4.png" id="8_jq4r2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_elreb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_voc3l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g7ocp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b7idr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jq4r2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="LevelSelectButton" type="TextureButton"]
+custom_minimum_size = Vector2(180, 180)
+offset_right = 180.0
+offset_bottom = 180.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("1_g0i30")
+texture_pressed = ExtResource("2_x8uqo")
+texture_hover = ExtResource("3_dxqmi")
+texture_focused = ExtResource("3_dxqmi")
+script = ExtResource("2_586bl")
+difficulty_sprites = SubResource("SpriteFrames_elreb")
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_gm6e8")
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelLock" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(128, 128)
+mouse_filter = 2
+texture = ExtResource("1_15b1v")
+
+[node name="Difficulty" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -104.0
+offset_right = 152.0
+offset_bottom = 256.0
+grow_horizontal = 0
+scale = Vector2(0.4, 0.4)
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://ni6wav7a3376"]
+
+[ext_resource type="Texture2D" uid="uid://j04kuw0g2cg1" path="res://assets/interactables/spikes.png" id="1_mx56o"]
+
+[sub_resource type="GDScript" id="GDScript_42eyd"]
+script/source = "extends StaticBody2D
+
+@export var knockback_strength = 2000
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wscuv"]
+size = Vector2(128, 104)
+
+[sub_resource type="Gradient" id="Gradient_y3f3w"]
+offsets = PackedFloat32Array(0, 0.947781)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sxc4b"]
+gradient = SubResource("Gradient_y3f3w")
+fill = 1
+fill_from = Vector2(0.410256, 0.401709)
+
+[node name="Spikes" type="StaticBody2D" groups=["spikes"]]
+script = SubResource("GDScript_42eyd")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_wscuv")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_mx56o")
+
+[node name="PointLightRed" type="PointLight2D" parent="."]
+position = Vector2(-3, -39)
+rotation = -0.12126
+scale = Vector2(1.8975, 1)
+color = Color(0.945098, 0.0313726, 0.0980392, 1)
+energy = 3.92
+texture = SubResource("GradientTexture2D_sxc4b")
+
+[node name="PointLightGreen" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(4.76837e-07, -45)
+rotation = -0.12126
+scale = Vector2(2.75, 1)
+color = Color(0, 0.635294, 0.0313726, 1)
+energy = 3.12
+texture = SubResource("GradientTexture2D_sxc4b")

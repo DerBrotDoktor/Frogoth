@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6a6x0tsnxdw3"]
+
+[ext_resource type="Texture2D" uid="uid://bq04i13qcq2is" path="res://assets/vfx/kill_shape/lightning_particle_spritesheet.png" id="1_xaroa"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yglxs"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6uixx"]
+particle_flag_disable_z = true
+angle_min = -180.0
+angle_max = 180.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+damping_min = 20.0
+damping_max = 20.0
+scale_min = 0.5
+scale_max = 0.8
+anim_speed_min = 1.0
+anim_speed_max = 1.5
+anim_offset_max = 1.0
+
+[node name="LightningParticles" type="GPUParticles2D"]
+self_modulate = Color(4, 4, 4, 1)
+material = SubResource("CanvasItemMaterial_yglxs")
+amount = 3
+process_material = SubResource("ParticleProcessMaterial_6uixx")
+texture = ExtResource("1_xaroa")

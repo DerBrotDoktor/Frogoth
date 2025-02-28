@@ -1,0 +1,103 @@
+[gd_scene load_steps=17 format=3 uid="uid://c8uahgcbmmlgp"]
+
+[ext_resource type="Texture2D" uid="uid://cxslxmwnpbyi8" path="res://assets/vfx/player/empty_orbs_spritesheet3.png" id="1_o70ot"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ytacm"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_vuvko"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.720833, 0.934066), 0.0, 0.0, 0, 0, Vector2(0.820833, 0.373626), 0.0, 0.0, 0, 0, Vector2(0.9875, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_g31uq"]
+curve = SubResource("Curve_vuvko")
+
+[sub_resource type="Curve" id="Curve_bjo8q"]
+min_value = -1024.0
+max_value = 1024.0
+_data = [Vector2(0, -1024), 0.0, 5130.33, 0, 0, Vector2(0.0758018, 1024), 3499.76, 3499.76, 0, 0, Vector2(0.504373, 411.797), 2177.95, 2177.95, 0, 0, Vector2(0.597668, 901.559), 0.0, 0.0, 0, 0, Vector2(1, 1024), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_if4ib"]
+curve = SubResource("Curve_bjo8q")
+
+[sub_resource type="Curve" id="Curve_l2w3a"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.216667, 0.549451), 0.0, 0.0, 0, 0, Vector2(0.458333, 0.076923), 0.0, 0.0, 0, 0, Vector2(0.966667, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_4bajb"]
+curve = SubResource("Curve_l2w3a")
+
+[sub_resource type="Curve" id="Curve_iaogk"]
+max_value = 100.0
+_data = [Vector2(0, 6.59341), 0.0, 0.0, 0, 0, Vector2(0.979167, -2.19781), -25.5229, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4fehs"]
+curve = SubResource("Curve_iaogk")
+
+[sub_resource type="Curve" id="Curve_tjbc0"]
+max_value = 20.0
+_data = [Vector2(0.0291667, 20), 0.0, 0.0, 0, 0, Vector2(0.229167, 1.97802), -0.545661, -0.545661, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_mjxpp"]
+curve = SubResource("Curve_tjbc0")
+
+[sub_resource type="Curve" id="Curve_u6xxu"]
+min_value = -1.0
+max_value = 2.0
+_data = [Vector2(0, 0.284), 0.0, -0.224, 0, 1, Vector2(0.795918, 0.105714), -0.224, 0.0, 1, 0, Vector2(0.994169, 0.0388572), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_fbh08"]
+curve = SubResource("Curve_u6xxu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8bycg"]
+particle_flag_disable_z = true
+angle_max = 720.0
+spread = 180.0
+radial_velocity_min = 34.91
+radial_velocity_max = 39.11
+radial_velocity_curve = SubResource("CurveTexture_mjxpp")
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 18.42
+radial_accel_max = 23.82
+radial_accel_curve = SubResource("CurveTexture_4fehs")
+damping_max = 1.0
+damping_curve = SubResource("CurveTexture_if4ib")
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_fbh08")
+alpha_curve = SubResource("CurveTexture_g31uq")
+emission_curve = SubResource("CurveTexture_4bajb")
+anim_speed_min = 0.1
+anim_speed_max = 1.6
+
+[sub_resource type="GDScript" id="GDScript_wvl3x"]
+script/source = "extends GPUParticles2D
+
+func _on_finished():
+	queue_free()
+	pass # Replace with function body.
+"
+
+[node name="LastOrbVFX" type="GPUParticles2D"]
+self_modulate = Color(1.4, 1.4, 1.4, 1)
+z_index = 2
+material = SubResource("CanvasItemMaterial_ytacm")
+emitting = false
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_8bycg")
+texture = ExtResource("1_o70ot")
+lifetime = 1.6
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+script = SubResource("GDScript_wvl3x")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

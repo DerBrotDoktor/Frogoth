@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://0woesesbbwik"]
+
+[ext_resource type="Script" path="res://scenes/enviroment/tutorial_sign/tutorial_sign.gd" id="1_l5yyk"]
+[ext_resource type="Texture2D" uid="uid://cfkjc4fd83h6g" path="res://assets/interactables/tutorial_sign.png" id="2_aayxx"]
+[ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="3_kart3"]
+
+[sub_resource type="Theme" id="Theme_j5iga"]
+default_font = ExtResource("3_kart3")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 20
+Label/font_sizes/font_size = 80
+
+[node name="TutorialSign" type="Node2D"]
+script = ExtResource("1_l5yyk")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -125)
+texture = ExtResource("2_aayxx")
+
+[node name="TriggerArea" type="Area2D" parent="."]
+
+[node name="TriggerAreaShape" type="CollisionShape2D" parent="TriggerArea"]
+
+[node name="LeaveTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="TextContainer" type="Node2D" parent="."]
+
+[node name="Text" type="Label" parent="TextContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = -442.0
+offset_right = 421.0
+offset_bottom = -305.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_j5iga")
+theme_override_font_sizes/font_size = 80
+text = "Test Tutorial Text"
+horizontal_alignment = 1
+
+[node name="KeyboardPrompts" type="Node2D" parent="TextContainer"]
+
+[node name="ControllerPrompts" type="Node2D" parent="TextContainer"]
+
+[connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]
+[connection signal="area_exited" from="TriggerArea" to="." method="_on_trigger_area_area_exited"]
+[connection signal="timeout" from="LeaveTimer" to="." method="_on_leave_timer_timeout"]

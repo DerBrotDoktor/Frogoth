@@ -1,0 +1,232 @@
+[gd_scene load_steps=10 format=3 uid="uid://c6nm6w83jynbs"]
+
+[ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="1_861nn"]
+[ext_resource type="Script" path="res://scenes/menus/pause_menu.gd" id="1_mgqje"]
+[ext_resource type="Texture2D" uid="uid://bfgpum7vih67h" path="res://assets/ui/buttons/button.png" id="3_4ytbm"]
+[ext_resource type="Texture2D" uid="uid://0oyw7lpc3u77" path="res://assets/ui/buttons/button_pressed.png" id="4_n6pjw"]
+[ext_resource type="Texture2D" uid="uid://du2ffk8u3dgs3" path="res://assets/ui/buttons/button_hover.png" id="5_8x0sq"]
+[ext_resource type="AudioStream" uid="uid://bqc5ixsdchxca" path="res://assets/sfx/ui/ui_click_sfx.mp3" id="6_r3ypi"]
+[ext_resource type="AudioStream" uid="uid://qawii75qexb5" path="res://assets/sfx/ui/ui_hover_sfx.mp3" id="7_xpcgq"]
+
+[sub_resource type="Theme" id="Theme_pv8ow"]
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 15
+Label/font_sizes/font_size = 150
+Label/fonts/font = ExtResource("1_861nn")
+
+[sub_resource type="LabelSettings" id="LabelSettings_dw61o"]
+font_size = 150
+outline_size = 25
+outline_color = Color(0, 0, 0, 1)
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_pv8ow")
+script = ExtResource("1_mgqje")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.298039, 0.298039, 0.298039, 0.768627)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+text = "Game Paused"
+label_settings = SubResource("LabelSettings_dw61o")
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../MainMenuButton")
+focus_neighbor_bottom = NodePath("../RestartButton")
+texture_normal = ExtResource("3_4ytbm")
+texture_pressed = ExtResource("4_n6pjw")
+texture_hover = ExtResource("5_8x0sq")
+texture_focused = ExtResource("5_8x0sq")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="VBoxContainer/ResumeButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 90
+text = "Resume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath("../LevelSelect")
+texture_normal = ExtResource("3_4ytbm")
+texture_pressed = ExtResource("4_n6pjw")
+texture_hover = ExtResource("5_8x0sq")
+texture_focused = ExtResource("5_8x0sq")
+stretch_mode = 6
+
+[node name="Label2" type="Label" parent="VBoxContainer/RestartButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 90
+text = "Restart
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelSelect" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../RestartButton")
+focus_neighbor_bottom = NodePath("../SettingsButton")
+texture_normal = ExtResource("3_4ytbm")
+texture_pressed = ExtResource("4_n6pjw")
+texture_hover = ExtResource("5_8x0sq")
+texture_focused = ExtResource("5_8x0sq")
+stretch_mode = 6
+
+[node name="Label2" type="Label" parent="VBoxContainer/LevelSelect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "Level Select
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsButton" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../LevelSelect")
+focus_neighbor_bottom = NodePath("../MainMenuButton")
+texture_normal = ExtResource("3_4ytbm")
+texture_pressed = ExtResource("4_n6pjw")
+texture_hover = ExtResource("5_8x0sq")
+texture_focused = ExtResource("5_8x0sq")
+stretch_mode = 6
+
+[node name="Label3" type="Label" parent="VBoxContainer/SettingsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 90
+text = "Settings
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenuButton" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../SettingsButton")
+focus_neighbor_bottom = NodePath("../ResumeButton")
+texture_normal = ExtResource("3_4ytbm")
+texture_pressed = ExtResource("4_n6pjw")
+texture_hover = ExtResource("5_8x0sq")
+texture_focused = ExtResource("5_8x0sq")
+stretch_mode = 6
+
+[node name="Label4" type="Label" parent="VBoxContainer/MainMenuButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "Main Menu
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -557.0
+offset_top = -236.0
+offset_right = -81.0
+offset_bottom = -47.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Level 1"
+
+[node name="ClickSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_r3ypi")
+bus = &"UI"
+
+[node name="HoverSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_xpcgq")
+volume_db = -10.0
+bus = &"UI"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="button_down" from="VBoxContainer/ResumeButton" to="." method="play_click_sound"]
+[connection signal="button_up" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_button_up"]
+[connection signal="focus_entered" from="VBoxContainer/ResumeButton" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="VBoxContainer/ResumeButton" to="." method="play_hover_sound"]
+[connection signal="button_down" from="VBoxContainer/RestartButton" to="." method="play_click_sound"]
+[connection signal="button_up" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_button_up"]
+[connection signal="focus_entered" from="VBoxContainer/RestartButton" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="VBoxContainer/RestartButton" to="." method="play_hover_sound"]
+[connection signal="button_down" from="VBoxContainer/LevelSelect" to="." method="play_click_sound"]
+[connection signal="button_up" from="VBoxContainer/LevelSelect" to="." method="_on_level_select_button_up"]
+[connection signal="focus_entered" from="VBoxContainer/LevelSelect" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="VBoxContainer/LevelSelect" to="." method="play_hover_sound"]
+[connection signal="button_down" from="VBoxContainer/SettingsButton" to="." method="play_click_sound"]
+[connection signal="button_up" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_button_up"]
+[connection signal="focus_entered" from="VBoxContainer/SettingsButton" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="VBoxContainer/SettingsButton" to="." method="play_hover_sound"]
+[connection signal="button_down" from="VBoxContainer/MainMenuButton" to="." method="play_click_sound"]
+[connection signal="button_up" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_button_up"]
+[connection signal="focus_entered" from="VBoxContainer/MainMenuButton" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="VBoxContainer/MainMenuButton" to="." method="play_hover_sound"]

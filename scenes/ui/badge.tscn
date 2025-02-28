@@ -1,0 +1,213 @@
+[gd_scene load_steps=20 format=3 uid="uid://cnayky75tjc5n"]
+
+[ext_resource type="Script" path="res://scenes/ui/badge.gd" id="1_humgx"]
+[ext_resource type="Texture2D" uid="uid://ds1s76nkuw3a6" path="res://assets/badges/badge_normal.png" id="2_rkn6s"]
+[ext_resource type="Texture2D" uid="uid://dt16k0rc88f14" path="res://assets/badges/badge_bronze.png" id="3_8xvrn"]
+[ext_resource type="Texture2D" uid="uid://bfic3auakoqbh" path="res://assets/badges/badge_silver.png" id="4_2msjk"]
+[ext_resource type="Texture2D" uid="uid://d3hqq0efd15ba" path="res://assets/badges/badge_gold.png" id="5_bg0yt"]
+[ext_resource type="Texture2D" uid="uid://bgwwc2yi0ewen" path="res://assets/badges/badge_diamond.png" id="6_160s8"]
+[ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="7_2mkuu"]
+[ext_resource type="Texture2D" uid="uid://b022lbjhua5i" path="res://assets/badges/badge_clown.png" id="7_q1o0k"]
+[ext_resource type="Texture2D" uid="uid://hs1xv5avupv7" path="res://assets/badges/badge_normal_grey.png" id="8_f6351"]
+[ext_resource type="Texture2D" uid="uid://cd8wu6pkx7ufg" path="res://assets/ui/finish_screen/medal_banner.png" id="9_ruc1d"]
+[ext_resource type="Texture2D" uid="uid://7o5heie8fn2s" path="res://assets/badges/badge_diamond_grey.png" id="10_tnk2v"]
+[ext_resource type="Texture2D" uid="uid://cmu8dl5ceruy1" path="res://assets/badges/badge_gold_grey.png" id="11_da4bq"]
+[ext_resource type="Texture2D" uid="uid://cli8yfjdxdukh" path="res://assets/badges/badge_silver_grey.png" id="12_ss573"]
+[ext_resource type="Texture2D" uid="uid://dnpb63wl1i7vk" path="res://assets/badges/badge_bronze_grey.png" id="13_4c0uv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sehxd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rkn6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8xvrn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2msjk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bg0yt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_160s8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q1o0k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_exov8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_f6351")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4c0uv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ss573")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_da4bq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_tnk2v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_erux6"]
+resource_name = "pop_up"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_y2tid"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yw5ac"]
+_data = {
+"RESET": SubResource("Animation_y2tid"),
+"pop_up": SubResource("Animation_erux6")
+}
+
+[node name="Badge" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_humgx")
+sprites = SubResource("SpriteFrames_sehxd")
+rank_names = Array[String](["Frog Rank", "Bronze Rank", "Silver Rank", "Gold Rank", "Diamond Rank", "One Shape Rank"])
+dark_sprites = SubResource("SpriteFrames_exov8")
+
+[node name="VBoxContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -155.5
+offset_right = 128.0
+offset_bottom = 155.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(384, 384)
+layout_mode = 2
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 330.0
+offset_bottom = 330.0
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(192, 192)
+texture = ExtResource("2_rkn6s")
+stretch_mode = 5
+
+[node name="RanktText" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+offset_left = -80.0
+offset_top = 298.5
+offset_right = 314.0
+offset_bottom = 399.5
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("7_2mkuu")
+theme_override_font_sizes/font_size = 80
+text = "Frog Rank"
+horizontal_alignment = 1
+
+[node name="Banner" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -61.0
+offset_top = -90.0
+offset_right = -21.0
+offset_bottom = -50.0
+
+[node name="Background" type="TextureRect" parent="Banner"]
+layout_mode = 0
+offset_left = -512.0
+offset_top = -765.0
+offset_right = 512.0
+offset_bottom = 259.0
+texture = ExtResource("9_ruc1d")
+
+[node name="Badges" type="Control" parent="Banner"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Badge1" type="TextureRect" parent="Banner/Badges"]
+layout_mode = 2
+offset_left = -260.0
+offset_top = -309.0
+offset_right = -4.0
+offset_bottom = -53.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("10_tnk2v")
+
+[node name="Badge2" type="TextureRect" parent="Banner/Badges"]
+layout_mode = 2
+offset_left = -127.0
+offset_top = -331.0
+offset_right = 129.0
+offset_bottom = -75.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("11_da4bq")
+
+[node name="Badge3" type="TextureRect" parent="Banner/Badges"]
+layout_mode = 2
+offset_left = 12.0
+offset_top = -367.0
+offset_right = 268.0
+offset_bottom = -111.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("12_ss573")
+
+[node name="Badge4" type="TextureRect" parent="Banner/Badges"]
+layout_mode = 2
+offset_left = 159.0
+offset_top = -394.0
+offset_right = 415.0
+offset_bottom = -138.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("13_4c0uv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yw5ac")
+}

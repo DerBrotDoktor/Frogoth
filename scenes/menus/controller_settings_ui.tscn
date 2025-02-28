@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://i70bm8lucd7m"]
+
+[ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="1_bq4fm"]
+[ext_resource type="Texture2D" uid="uid://cvvvr06y4s48a" path="res://assets/ui/controls.png" id="2_5jsn0"]
+
+[sub_resource type="Theme" id="Theme_4nkyr"]
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 15
+Label/font_sizes/font_size = 150
+Label/fonts/font = ExtResource("1_bq4fm")
+
+[node name="ControllerSettingsUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_4nkyr")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.447059, 0.447059, 0.447059, 0.364706)
+
+[node name="Image" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_right = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5jsn0")

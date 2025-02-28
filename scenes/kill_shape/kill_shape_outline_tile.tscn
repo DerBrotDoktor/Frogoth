@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://t04ny4yh8fr2"]
+
+[ext_resource type="Texture2D" uid="uid://n0sekt7o00ys" path="res://assets/vfx/orb/orb_connection_lines.png" id="1_0kke6"]
+[ext_resource type="Script" path="res://scenes/kill_shape/kill_shape_outline_tile.gd" id="2_8a7g7"]
+
+[node name="KillShapeOutlineTile" type="PathFollow2D"]
+z_index = 1
+script = ExtResource("2_8a7g7")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(64, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_0kke6")
+hframes = 6
+
+[node name="SpriteSwitchTimer" type="Timer" parent="Sprite"]
+wait_time = 0.1
+
+[connection signal="timeout" from="Sprite/SpriteSwitchTimer" to="." method="_on_sprite_switch_timer_timeout"]

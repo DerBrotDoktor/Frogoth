@@ -1,0 +1,344 @@
+[gd_scene load_steps=18 format=3 uid="uid://cj5y0tnco4cx1"]
+
+[ext_resource type="Script" path="res://scenes/menus/level_finish_screen.gd" id="1_iw8t1"]
+[ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="1_pqixf"]
+[ext_resource type="Texture2D" uid="uid://cthgm8dsxqgdf" path="res://assets/ui/finish_screen/finish_screen_background.png" id="3_8qiep"]
+[ext_resource type="PackedScene" uid="uid://cnayky75tjc5n" path="res://scenes/ui/badge.tscn" id="3_qh58w"]
+[ext_resource type="Texture2D" uid="uid://ckgfq6yd4ar0i" path="res://assets/ui/finish_screen/shine.png" id="3_swjdl"]
+[ext_resource type="Texture2D" uid="uid://bfgpum7vih67h" path="res://assets/ui/buttons/button.png" id="4_s17cd"]
+[ext_resource type="Texture2D" uid="uid://0oyw7lpc3u77" path="res://assets/ui/buttons/button_pressed.png" id="5_6qym1"]
+[ext_resource type="Texture2D" uid="uid://du2ffk8u3dgs3" path="res://assets/ui/buttons/button_hover.png" id="6_3413w"]
+[ext_resource type="Texture2D" uid="uid://c6gq1e1xfxelv" path="res://assets/ui/finish_screen/statsboard.png" id="8_37vvp"]
+[ext_resource type="AudioStream" uid="uid://bqc5ixsdchxca" path="res://assets/sfx/ui/ui_click_sfx.mp3" id="8_amct8"]
+[ext_resource type="AudioStream" uid="uid://qawii75qexb5" path="res://assets/sfx/ui/ui_hover_sfx.mp3" id="9_munlw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdcpn"]
+bg_color = Color(0.168627, 0.305882, 0.776471, 1)
+border_width_bottom = 45
+border_color = Color(0.0509804, 0.117647, 0.352941, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lpqj"]
+bg_color = Color(0.113725, 0.223529, 0.611765, 1)
+border_width_bottom = 45
+border_color = Color(0.0313726, 0.0862745, 0.286275, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 7
+
+[sub_resource type="Theme" id="Theme_kd7u0"]
+default_font = ExtResource("1_pqixf")
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 20
+Button/font_sizes/font_size = 95
+Button/fonts/font = ExtResource("1_pqixf")
+Button/styles/focus = SubResource("StyleBoxFlat_wdcpn")
+Button/styles/hover = SubResource("StyleBoxFlat_wdcpn")
+Button/styles/normal = SubResource("StyleBoxFlat_0lpqj")
+Label/font_sizes/font_size = 80
+
+[sub_resource type="Animation" id="Animation_2mi2r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_02t2u"]
+resource_name = "shine"
+length = 24.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 24),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qa0r6"]
+_data = {
+"RESET": SubResource("Animation_2mi2r"),
+"shine": SubResource("Animation_02t2u")
+}
+
+[node name="LevelFinishScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kd7u0")
+script = ExtResource("1_iw8t1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.313726, 0.313726, 0.313726, 0.686275)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.384314)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3110.4
+offset_top = -3110.4
+offset_right = 3110.4
+offset_bottom = 3110.4
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(3110.4, 3110.4)
+texture = ExtResource("3_swjdl")
+stretch_mode = 6
+
+[node name="ColorRect2" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(2560, 2304)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8qiep")
+
+[node name="MarginContainer2" type="MarginContainer" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -256.0
+offset_bottom = 256.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 700
+theme_override_constants/margin_right = 700
+
+[node name="Badge" parent="ColorRect2/MarginContainer2" instance=ExtResource("3_qh58w")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -310.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 570
+theme_override_constants/margin_right = 450
+
+[node name="Buttons" type="VBoxContainer" parent="ColorRect2/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="NextLevelButton" type="TextureButton" parent="ColorRect2/MarginContainer/Buttons"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+texture_normal = ExtResource("4_s17cd")
+texture_pressed = ExtResource("5_6qym1")
+texture_hover = ExtResource("6_3413w")
+texture_focused = ExtResource("6_3413w")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="ColorRect2/MarginContainer/Buttons/NextLevelButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+text = "Next Level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="TextureButton" parent="ColorRect2/MarginContainer/Buttons"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+texture_normal = ExtResource("4_s17cd")
+texture_pressed = ExtResource("5_6qym1")
+texture_hover = ExtResource("6_3413w")
+texture_focused = ExtResource("6_3413w")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="ColorRect2/MarginContainer/Buttons/RestartButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+text = "Restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenuButton" type="TextureButton" parent="ColorRect2/MarginContainer/Buttons"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+texture_normal = ExtResource("4_s17cd")
+texture_pressed = ExtResource("5_6qym1")
+texture_hover = ExtResource("6_3413w")
+texture_focused = ExtResource("6_3413w")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="ColorRect2/MarginContainer/Buttons/MainMenuButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 75
+text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatsMargin" type="MarginContainer" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 1000.0
+grow_vertical = 2
+theme_override_constants/margin_left = 350
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect2/StatsMargin"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="CongratulationLabel" type="Label" parent="ColorRect2/StatsMargin/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 140
+text = "Congratulations"
+
+[node name="Time" type="Label" parent="ColorRect2/StatsMargin/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 130
+text = "1500 s
+"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="TextureRect" parent="ColorRect2/StatsMargin/VBoxContainer"]
+custom_minimum_size = Vector2(1024, 1024)
+layout_mode = 2
+texture = ExtResource("8_37vvp")
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect2/StatsMargin/VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 140
+
+[node name="Statistics" type="VBoxContainer" parent="ColorRect2/StatsMargin/VBoxContainer/ColorRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="AirtimeLabel" type="Label" parent="ColorRect2/StatsMargin/VBoxContainer/ColorRect/MarginContainer/Statistics"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+text = "Air time:
+"
+
+[node name="JumpsLabel" type="Label" parent="ColorRect2/StatsMargin/VBoxContainer/ColorRect/MarginContainer/Statistics"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+text = "Jumps:
+"
+
+[node name="ConnectedOrbsLabel" type="Label" parent="ColorRect2/StatsMargin/VBoxContainer/ColorRect/MarginContainer/Statistics"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+text = "Connected Orbs:
+"
+
+[node name="TotalShapesLabel" type="Label" parent="ColorRect2/StatsMargin/VBoxContainer/ColorRect/MarginContainer/Statistics"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+text = "Total shapes:
+"
+
+[node name="InputBlockTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ClickSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_amct8")
+bus = &"UI"
+
+[node name="HoverSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_munlw")
+bus = &"UI"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qa0r6")
+}
+autoplay = "shine"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="button_down" from="ColorRect2/MarginContainer/Buttons/NextLevelButton" to="." method="play_click_sound"]
+[connection signal="button_down" from="ColorRect2/MarginContainer/Buttons/NextLevelButton" to="." method="_on_next_level_button_button_down"]
+[connection signal="focus_entered" from="ColorRect2/MarginContainer/Buttons/NextLevelButton" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="ColorRect2/MarginContainer/Buttons/NextLevelButton" to="." method="play_hover_sound"]
+[connection signal="button_down" from="ColorRect2/MarginContainer/Buttons/RestartButton" to="." method="play_click_sound"]
+[connection signal="button_down" from="ColorRect2/MarginContainer/Buttons/RestartButton" to="." method="_on_restart_button_button_down"]
+[connection signal="focus_entered" from="ColorRect2/MarginContainer/Buttons/RestartButton" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="ColorRect2/MarginContainer/Buttons/RestartButton" to="." method="play_hover_sound"]
+[connection signal="button_down" from="ColorRect2/MarginContainer/Buttons/MainMenuButton" to="." method="play_click_sound"]
+[connection signal="button_down" from="ColorRect2/MarginContainer/Buttons/MainMenuButton" to="." method="_on_main_menu_button_button_down"]
+[connection signal="focus_entered" from="ColorRect2/MarginContainer/Buttons/MainMenuButton" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="ColorRect2/MarginContainer/Buttons/MainMenuButton" to="." method="play_hover_sound"]

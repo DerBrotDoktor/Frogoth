@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvpm0kwhjvy27"]
+
+[ext_resource type="Texture2D" uid="uid://dhx0pr1arc2gd" path="res://assets/vfx/kill_shape/lightning_shape_1.png" id="1_1hf1k"]
+
+[node name="KillShapeBackgound" type="Polygon2D"]
+z_index = 1
+texture_repeat = 2
+texture = ExtResource("1_1hf1k")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnn1r7uyeri2u"]
+
+[ext_resource type="Texture2D" uid="uid://baw2i8f2tn0up" path="res://assets/decor/chain_tileable.png" id="1_10byj"]
+
+[node name="Chain" type="Line2D"]
+modulate = Color(0.717647, 0.717647, 0.717647, 0.901961)
+z_index = -1
+texture_repeat = 2
+width = 127.0
+texture = ExtResource("1_10byj")
+texture_mode = 1

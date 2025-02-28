@@ -1,0 +1,145 @@
+[gd_scene load_steps=19 format=3 uid="uid://77vbimjom55n"]
+
+[ext_resource type="Script" path="res://scenes/enemies/bullet.gd" id="1_aeqp4"]
+[ext_resource type="Texture2D" uid="uid://dlvebixrcbt05" path="res://assets/vfx/bullet/fire_blast_spritesheet.png" id="2_2il0n"]
+[ext_resource type="Texture2D" uid="uid://cnrhakwe1ukyu" path="res://assets/vfx/bullet/attack_fading_spritesheet.png" id="3_hcu6n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx5hc"]
+atlas = ExtResource("2_2il0n")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub3rk"]
+atlas = ExtResource("2_2il0n")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2w6dm"]
+atlas = ExtResource("2_2il0n")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eu3dj"]
+atlas = ExtResource("2_2il0n")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vcwj"]
+atlas = ExtResource("2_2il0n")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg3p1"]
+atlas = ExtResource("2_2il0n")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arfhj"]
+atlas = ExtResource("3_hcu6n")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg4tt"]
+atlas = ExtResource("3_hcu6n")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luvms"]
+atlas = ExtResource("3_hcu6n")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvmfi"]
+atlas = ExtResource("3_hcu6n")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvf65"]
+atlas = ExtResource("3_hcu6n")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b30j2"]
+atlas = ExtResource("3_hcu6n")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gqi5h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kx5hc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ub3rk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2w6dm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eu3dj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vcwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pg3p1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arfhj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kg4tt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_luvms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvmfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvf65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b30j2")
+}],
+"loop": false,
+"name": &"destroy",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gody5"]
+radius = 20.0
+height = 80.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p2shs"]
+radius = 20.0
+height = 80.0
+
+[node name="Bullet" type="CharacterBody2D" groups=["bullet"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_aeqp4")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+z_index = 4
+position = Vector2(-20, -10)
+sprite_frames = SubResource("SpriteFrames_gqi5h")
+animation = &"destroy"
+autoplay = "default"
+frame = 5
+frame_progress = 1.0
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_gody5")
+
+[node name="TriggerArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="TriggerAreaCollider" type="CollisionShape2D" parent="TriggerArea"]
+visible = false
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_p2shs")
+
+[node name="DestroyTimer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
+[connection signal="timeout" from="DestroyTimer" to="." method="destroy_bullet"]

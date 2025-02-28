@@ -1,0 +1,129 @@
+[gd_scene load_steps=9 format=3 uid="uid://dm6yss7w4ixcq"]
+
+[ext_resource type="Script" path="res://scenes/enviroment/platforms/special/falling_platform.gd" id="1_6e0rx"]
+[ext_resource type="AudioStream" uid="uid://c1u3s7d2w0dpv" path="res://assets/sfx/enviroment/falling_platform_sfx.mp3" id="2_7tpvr"]
+[ext_resource type="PackedScene" uid="uid://cd0fwinh0ceu8" path="res://scenes/vfx/falling_platform_dust.tscn" id="3_pnt7o"]
+
+[sub_resource type="Animation" id="Animation_vard7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b7ipr"]
+resource_name = "fall_preperation"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0261799, 0.0, -0.0261799, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_35itu"]
+resource_name = "respawn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 2.63902, 1.56917),
+"update": 0,
+"values": [Color(1, 1, 1, 0.305882), Color(1, 1, 1, 0.764706), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, -4, 1),
+"update": 0,
+"values": [Vector2(0.75, 0.75), Vector2(1.15, 1.15), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1tmda"]
+_data = {
+"RESET": SubResource("Animation_vard7"),
+"fall_preperation": SubResource("Animation_b7ipr"),
+"respawn": SubResource("Animation_35itu")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ai30g"]
+radius = 15.0
+
+[node name="FallingPlatform" type="Node2D"]
+script = ExtResource("1_6e0rx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationTimer")
+libraries = {
+"": SubResource("AnimationLibrary_1tmda")
+}
+
+[node name="RespawnTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="TriggerArea" type="Area2D" parent="."]
+
+[node name="TriggerAreaShape" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("CircleShape2D_ai30g")
+
+[node name="FalingPreperationPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_7tpvr")
+volume_db = -6.0
+bus = &"SoundEffects"
+
+[node name="FallingPlatformDust" parent="." instance=ExtResource("3_pnt7o")]
+
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
+[connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]
+[connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]

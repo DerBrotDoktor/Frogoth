@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcnb3glf2v1uj"]
+
+[ext_resource type="Texture2D" uid="uid://bgvej3ejldu4p" path="res://assets/ceiling/ceiling_5.png" id="1_rgp1m"]
+
+[node name="Ceiling5" type="Sprite2D"]
+z_index = 4
+texture = ExtResource("1_rgp1m")

@@ -1,0 +1,254 @@
+[gd_scene load_steps=22 format=3 uid="uid://buy8yfrq21gd"]
+
+[ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="1_k5hm7"]
+[ext_resource type="Texture2D" uid="uid://m30ojk8eyhbr" path="res://assets/parallax/sky.png" id="1_ts4op"]
+[ext_resource type="Script" path="res://scenes/menus/settings_menu.gd" id="1_yayyu"]
+[ext_resource type="Texture2D" uid="uid://bi3m7cg14mn4" path="res://assets/ui/slider/grabber.png" id="1_yc83u"]
+[ext_resource type="Texture2D" uid="uid://c0kt2a5kjcryi" path="res://assets/ui/slider/grabber_highlight.png" id="2_uidlc"]
+[ext_resource type="Texture2D" uid="uid://cls307wb1qe1c" path="res://assets/ui/buttons/checkbox.png" id="3_71v6d"]
+[ext_resource type="Texture2D" uid="uid://gb5owr2h6cjm" path="res://assets/ui/slider/settingsslider.png" id="3_y5mon"]
+[ext_resource type="Texture2D" uid="uid://bfw22wontngdh" path="res://assets/ui/buttons/checked_checkbox.png" id="4_jbxg0"]
+[ext_resource type="AudioStream" uid="uid://bqc5ixsdchxca" path="res://assets/sfx/ui/ui_click_sfx.mp3" id="7_2b5hv"]
+[ext_resource type="AudioStream" uid="uid://qawii75qexb5" path="res://assets/sfx/ui/ui_hover_sfx.mp3" id="8_63h6m"]
+[ext_resource type="Texture2D" uid="uid://hsoceubwsxpd" path="res://assets/ui/buttons/highlighted_checkbox.png" id="9_547wd"]
+[ext_resource type="Texture2D" uid="uid://bfgpum7vih67h" path="res://assets/ui/buttons/button.png" id="11_bj3cb"]
+[ext_resource type="Texture2D" uid="uid://0oyw7lpc3u77" path="res://assets/ui/buttons/button_pressed.png" id="12_hsp3a"]
+[ext_resource type="Texture2D" uid="uid://du2ffk8u3dgs3" path="res://assets/ui/buttons/button_hover.png" id="13_g6qus"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_snt18"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6omsj"]
+content_margin_bottom = 122.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kkes0"]
+content_margin_bottom = 122.0
+texture = ExtResource("3_y5mon")
+expand_margin_left = 60.0
+
+[sub_resource type="Theme" id="Theme_08bxr"]
+HSlider/icons/grabber = ExtResource("1_yc83u")
+HSlider/icons/grabber_highlight = ExtResource("2_uidlc")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_snt18")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_6omsj")
+HSlider/styles/slider = SubResource("StyleBoxTexture_kkes0")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 15
+Label/font_sizes/font_size = 80
+Label/fonts/font = ExtResource("1_k5hm7")
+
+[sub_resource type="InputEventKey" id="InputEventKey_h1mgi"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_h8bnw"]
+button_index = 1
+
+[sub_resource type="Shortcut" id="Shortcut_r8vpu"]
+events = [SubResource("InputEventKey_h1mgi"), SubResource("InputEventJoypadButton_h8bnw")]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_08bxr")
+script = ExtResource("1_yayyu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ts4op")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 600
+theme_override_constants/margin_right = 700
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2500, 0)
+layout_mode = 2
+theme_override_constants/h_separation = 150
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="MasterLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer"]
+z_index = 5
+texture_repeat = 2
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.8
+
+[node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.8
+
+[node name="SFXLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Sound effects"
+
+[node name="SFXSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.8
+
+[node name="ThunderLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Thunder"
+
+[node name="ThunderSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.8
+
+[node name="UILabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Menu sounds"
+
+[node name="UISlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.8
+
+[node name="FullscreenLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Fullscreen"
+
+[node name="FullscreenCheckBox" type="TextureButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("3_71v6d")
+texture_pressed = ExtResource("4_jbxg0")
+texture_hover = ExtResource("9_547wd")
+texture_focused = ExtResource("9_547wd")
+stretch_mode = 3
+
+[node name="BorderlessLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Borderless"
+
+[node name="BorderlessCheckbox" type="TextureButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("3_71v6d")
+texture_pressed = ExtResource("4_jbxg0")
+texture_hover = ExtResource("9_547wd")
+texture_focused = ExtResource("9_547wd")
+stretch_mode = 3
+
+[node name="ClickSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_2b5hv")
+bus = &"UI"
+
+[node name="HoverSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_63h6m")
+volume_db = -10.0
+bus = &"UI"
+
+[node name="Settingsslider" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1782, 573)
+texture = ExtResource("3_y5mon")
+
+[node name="BackButton" type="TextureButton" parent="."]
+z_index = 2
+offset_left = 88.0
+offset_top = 51.0
+offset_right = 600.0
+offset_bottom = 307.0
+shortcut = SubResource("Shortcut_r8vpu")
+texture_normal = ExtResource("11_bj3cb")
+texture_pressed = ExtResource("12_hsp3a")
+texture_hover = ExtResource("13_g6qus")
+texture_focused = ExtResource("13_g6qus")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="BackButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("1_k5hm7")
+theme_override_font_sizes/font_size = 80
+text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/GridContainer/MasterSlider" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/GridContainer/MasterSlider" to="." method="play_hover_sound"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="play_hover_sound"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="." method="play_hover_sound"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/GridContainer/ThunderSlider" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/GridContainer/ThunderSlider" to="." method="play_hover_sound"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/ThunderSlider" to="." method="_on_thunder_slider_value_changed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/GridContainer/UISlider" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/GridContainer/UISlider" to="." method="play_hover_sound"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/UISlider" to="." method="_on_ui_slider_value_changed"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/GridContainer/FullscreenCheckBox" to="." method="play_click_sound"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/GridContainer/FullscreenCheckBox" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/GridContainer/FullscreenCheckBox" to="." method="play_hover_sound"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/FullscreenCheckBox" to="." method="_on_fullscreen_check_box_toggled"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/GridContainer/BorderlessCheckbox" to="." method="play_click_sound"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/GridContainer/BorderlessCheckbox" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/GridContainer/BorderlessCheckbox" to="." method="play_hover_sound"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/BorderlessCheckbox" to="." method="_on_borderless_checkbox_toggled"]
+[connection signal="button_down" from="BackButton" to="." method="play_click_sound"]
+[connection signal="focus_entered" from="BackButton" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="BackButton" to="." method="play_hover_sound"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

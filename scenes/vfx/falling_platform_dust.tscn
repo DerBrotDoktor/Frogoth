@@ -1,0 +1,121 @@
+[gd_scene load_steps=20 format=3 uid="uid://cd0fwinh0ceu8"]
+
+[ext_resource type="Texture2D" uid="uid://dxqoyydbmkfgj" path="res://assets/vfx/platform_dust/smoke4.png" id="1_ahhc8"]
+[ext_resource type="Script" path="res://scenes/vfx/falling_platform_dust.gd" id="1_hpru3"]
+[ext_resource type="Texture2D" uid="uid://ckmp1dhroee2k" path="res://assets/vfx/platform_dust/spritesheet_platform_dust2.png" id="2_pxb1b"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vchtj"]
+
+[sub_resource type="Curve" id="Curve_ha32w"]
+_data = [Vector2(0.0365535, 0), 0.0, 0.0, 0, 0, Vector2(0.208877, 0.960804), 0.0, 0.0, 0, 0, Vector2(0.616188, 0.0331658), 0.0, 0.0, 0, 0, Vector2(0.775457, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_unwmi"]
+curve = SubResource("Curve_ha32w")
+
+[sub_resource type="Curve" id="Curve_7scdi"]
+min_value = -2.0
+max_value = 2.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.51436, -2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_37sjo"]
+curve = SubResource("Curve_7scdi")
+
+[sub_resource type="Curve" id="Curve_b6gux"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.704961, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7wxrm"]
+curve = SubResource("Curve_b6gux")
+
+[sub_resource type="Curve" id="Curve_r83tk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.759791, 0.869347), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ppe66"]
+curve = SubResource("Curve_r83tk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3k15q"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(50, 0, 1)
+angular_velocity_min = -1.0
+angular_velocity_max = 1.0
+orbit_velocity_min = -0.005
+orbit_velocity_max = 0.012
+orbit_velocity_curve = SubResource("CurveTexture_37sjo")
+radial_velocity_min = -10.0
+radial_velocity_max = 10.0
+radial_velocity_curve = SubResource("CurveTexture_7wxrm")
+gravity = Vector3(0, 300, 0)
+scale_min = 0.01
+scale_max = 0.8
+scale_curve = SubResource("CurveTexture_ppe66")
+color = Color(0.87451, 0.87451, 0.87451, 1)
+alpha_curve = SubResource("CurveTexture_unwmi")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pqfri"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_prllr"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.287206, 0.928141), 0.0, 0.0, 0, 0, Vector2(0.420366, 0.934673), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_yaspi"]
+curve = SubResource("Curve_prllr")
+
+[sub_resource type="Curve" id="Curve_hq2bx"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.214099, 1), 0.0, 0.0, 0, 0, Vector2(0.851175, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_k2jhr"]
+curve = SubResource("Curve_hq2bx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_obldq"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(70, 1, 1)
+angular_velocity_min = -5.0
+angular_velocity_max = 5.0
+orbit_velocity_min = -0.073
+orbit_velocity_max = 0.18
+gravity = Vector3(0, 0, 0)
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_k2jhr")
+color = Color(0.788235, 0.788235, 0.772549, 0.513726)
+alpha_curve = SubResource("CurveTexture_yaspi")
+anim_speed_min = 0.5
+anim_speed_max = 1.0
+
+[node name="FallingPlatformDust" type="Node2D"]
+script = ExtResource("1_hpru3")
+
+[node name="DustFalling" type="GPUParticles2D" parent="."]
+z_index = 1
+material = SubResource("CanvasItemMaterial_vchtj")
+emitting = false
+amount = 35
+process_material = SubResource("ParticleProcessMaterial_3k15q")
+texture = ExtResource("1_ahhc8")
+lifetime = 2.0
+preprocess = 0.4
+explosiveness = 0.1
+randomness = 1.0
+trail_enabled = true
+trail_lifetime = 1.19
+
+[node name="DustCloud" type="GPUParticles2D" parent="."]
+z_index = 1
+material = SubResource("CanvasItemMaterial_pqfri")
+emitting = false
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_obldq")
+texture = ExtResource("2_pxb1b")
+preprocess = 1.0
+speed_scale = 0.2
+randomness = 1.0

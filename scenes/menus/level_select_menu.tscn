@@ -1,0 +1,329 @@
+[gd_scene load_steps=16 format=3 uid="uid://byylmvxjebsun"]
+
+[ext_resource type="Script" path="res://scenes/menus/level_select_menu.gd" id="1_8ktxo"]
+[ext_resource type="Texture2D" uid="uid://m30ojk8eyhbr" path="res://assets/parallax/sky.png" id="2_v8a2s"]
+[ext_resource type="PackedScene" uid="uid://bvm01dqpggme7" path="res://scenes/menus/level_select_button.tscn" id="3_r7r17"]
+[ext_resource type="AudioStream" uid="uid://bqc5ixsdchxca" path="res://assets/sfx/ui/ui_click_sfx.mp3" id="4_8juqq"]
+[ext_resource type="Texture2D" uid="uid://bfgpum7vih67h" path="res://assets/ui/buttons/button.png" id="4_mbq7w"]
+[ext_resource type="Texture2D" uid="uid://0oyw7lpc3u77" path="res://assets/ui/buttons/button_pressed.png" id="5_bpmwt"]
+[ext_resource type="Texture2D" uid="uid://gb5owr2h6cjm" path="res://assets/ui/slider/settingsslider.png" id="5_o8dna"]
+[ext_resource type="AudioStream" uid="uid://qawii75qexb5" path="res://assets/sfx/ui/ui_hover_sfx.mp3" id="5_qe6lp"]
+[ext_resource type="Texture2D" uid="uid://du2ffk8u3dgs3" path="res://assets/ui/buttons/button_hover.png" id="6_673yv"]
+[ext_resource type="Texture2D" uid="uid://b2wm6ug1mlcko" path="res://assets/ui/level_select_screen/level_select_left.png" id="6_c6b44"]
+[ext_resource type="Texture2D" uid="uid://bflohb0iaks5w" path="res://assets/ui/level_select_screen/level_select_right.png" id="7_aoqmn"]
+[ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="7_g8uax"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_h1mgi"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_h8bnw"]
+button_index = 1
+
+[sub_resource type="Shortcut" id="Shortcut_mvqwp"]
+events = [SubResource("InputEventKey_h1mgi"), SubResource("InputEventJoypadButton_h8bnw")]
+
+[node name="LevelSelectMenu" type="Control" node_paths=PackedStringArray("level_buttons")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ktxo")
+level_amount = 9
+level_buttons = [NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton0"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton1"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton2"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton3"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton4"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton5"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton6"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton7"), NodePath("VerticalContainer/LevelMargin/LevelGrid/LevelButton8")]
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_v8a2s")
+expand_mode = 3
+
+[node name="VerticalContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleText" type="Label" parent="VerticalContainer"]
+layout_mode = 2
+offset_left = 656.0
+offset_top = 60.0
+offset_right = 4112.0
+offset_bottom = 225.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("7_g8uax")
+theme_override_font_sizes/font_size = 150
+text = "Select Level"
+horizontal_alignment = 1
+
+[node name="LevelMargin" type="Control" parent="VerticalContainer"]
+layout_mode = 2
+anchors_preset = 0
+offset_top = 245.0
+offset_right = 3456.0
+offset_bottom = 245.0
+
+[node name="LevelGrid" type="Control" parent="VerticalContainer/LevelMargin"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 50.0
+offset_top = 514.0
+offset_right = 3406.0
+offset_bottom = 514.0
+
+[node name="LevelButton0" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
+layout_mode = 2
+offset_left = 428.0
+offset_top = 238.0
+offset_right = 684.0
+offset_bottom = 494.0
+focus_neighbor_left = NodePath("../LevelButton8")
+focus_neighbor_top = NodePath("../../../../BackButton")
+focus_neighbor_right = NodePath("../LevelButton1")
+focus_neighbor_bottom = NodePath("../LevelButton1")
+
+[node name="Line2D" type="Line2D" parent="VerticalContainer/LevelMargin/LevelGrid/LevelButton0"]
+z_index = -1
+texture_repeat = 2
+position = Vector2(-285.333, -158.667)
+scale = Vector2(0.666667, 0.666667)
+points = PackedVector2Array(631, 419, 1199, 1119)
+width = 122.0
+texture = ExtResource("5_o8dna")
+texture_mode = 1
+
+[node name="LevelButton1" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
+layout_mode = 2
+offset_left = 1030.0
+offset_top = 924.0
+offset_right = 1286.0
+offset_bottom = 1180.0
+focus_neighbor_left = NodePath("../LevelButton0")
+focus_neighbor_top = NodePath("../LevelButton2")
+focus_neighbor_right = NodePath("../LevelButton2")
+level_number = 1
+
+[node name="Line2D" type="Line2D" parent="VerticalContainer/LevelMargin/LevelGrid/LevelButton1"]
+z_index = -1
+texture_repeat = 2
+points = PackedVector2Array(107.333, 94.6667, 306, -586)
+width = 122.0
+texture = ExtResource("5_o8dna")
+texture_mode = 1
+
+[node name="LevelButton2" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
+layout_mode = 2
+offset_left = 1277.0
+offset_top = -202.0
+offset_right = 1533.0
+offset_bottom = 54.0
+focus_neighbor_left = NodePath("../LevelButton1")
+focus_neighbor_right = NodePath("../LevelButton3")
+focus_neighbor_bottom = NodePath("../LevelButton1")
+level_number = 2
+difficulty = 1
+
+[node name="Line2D" type="Line2D" parent="VerticalContainer/LevelMargin/LevelGrid/LevelButton2"]
+z_index = -1
+texture_repeat = 2
+points = PackedVector2Array(152.667, 123.333, 471.333, 683.333)
+width = 122.0
+texture = ExtResource("5_o8dna")
+texture_mode = 1
+
+[node name="LevelButton3" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
+layout_mode = 2
+offset_left = 1853.0
+offset_top = 622.0
+offset_right = 2109.0
+offset_bottom = 878.0
+focus_neighbor_left = NodePath("../LevelButton2")
+focus_neighbor_top = NodePath("../LevelButton2")
+focus_neighbor_right = NodePath("../LevelButton4")
+focus_neighbor_bottom = NodePath("../LevelButton4")
+level_number = 3
+difficulty = 1
+
+[node name="Line2D" type="Line2D" parent="VerticalContainer/LevelMargin/LevelGrid/LevelButton3"]
+z_index = -1
+texture_repeat = 2
+points = PackedVector2Array(120.667, 117.333, 505.333, 574)
+width = 122.0
+texture = ExtResource("5_o8dna")
+texture_mode = 1
+
+[node name="LevelButton4" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
+layout_mode = 2
+offset_left = 2432.0
+offset_top = 1274.0
+offset_right = 2688.0
+offset_bottom = 1530.0
+focus_neighbor_left = NodePath("../LevelButton3")
+focus_neighbor_top = NodePath("../LevelButton5")
+focus_neighbor_right = NodePath("../LevelButton5")
+level_number = 4
+difficulty = 2
+
+[node name="Line2D" type="Line2D" parent="VerticalContainer/LevelMargin/LevelGrid/LevelButton4"]
+z_index = -1
+texture_repeat = 2
+points = PackedVector2Array(128, 82, -98, -886)
+width = 122.0
+texture = ExtResource("5_o8dna")
+texture_mode = 1
+
+[node name="LevelButton5" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
+layout_mode = 2
+offset_left = 2119.0
+offset_top = -304.0
+offset_right = 2375.0
+offset_bottom = -48.0
+focus_neighbor_left = NodePath("../LevelButton4")
+focus_neighbor_right = NodePath("../LevelButton6")
+focus_neighbor_bottom = NodePath("../LevelButton4")
+level_number = 5
+difficulty = 2
+
+[node name="Line2D" type="Line2D" parent="VerticalContainer/LevelMargin/LevelGrid/LevelButton5"]
+z_index = -1
+texture_repeat = 2
+points = PackedVector2Array(128.667, 128.667, 750, 262.667)
+width = 122.0
+texture = ExtResource("5_o8dna")
+texture_mode = 1
+
+[node name="LevelButton6" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
+layout_mode = 2
+offset_left = 3064.0
+offset_top = -117.0
+offset_right = 3320.0
+offset_bottom = 139.0
+focus_neighbor_left = NodePath("../LevelButton5")
+focus_neighbor_right = NodePath("../LevelButton7")
+level_number = 6
+difficulty = 3
+
+[node name="Line2D" type="Line2D" parent="VerticalContainer/LevelMargin/LevelGrid/LevelButton6"]
+z_index = -1
+texture_repeat = 2
+points = PackedVector2Array(126, 139.333, 207.333, 760)
+width = 122.0
+texture = ExtResource("5_o8dna")
+texture_mode = 1
+
+[node name="LevelButton7" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
+layout_mode = 2
+offset_left = 3193.0
+offset_top = 821.0
+offset_right = 3449.0
+offset_bottom = 1077.0
+focus_neighbor_left = NodePath("../LevelButton6")
+focus_neighbor_top = NodePath("../LevelButton6")
+focus_neighbor_right = NodePath("../LevelButton8")
+level_number = 7
+difficulty = 3
+
+[node name="Line2D" type="Line2D" parent="VerticalContainer/LevelMargin/LevelGrid/LevelButton7"]
+z_index = -1
+texture_repeat = 2
+points = PackedVector2Array(126.667, 129.333, 496.667, -243.333)
+width = 122.0
+texture = ExtResource("5_o8dna")
+texture_mode = 1
+
+[node name="LevelButton8" parent="VerticalContainer/LevelMargin/LevelGrid" instance=ExtResource("3_r7r17")]
+layout_mode = 2
+offset_left = 3758.0
+offset_top = 250.0
+offset_right = 4014.0
+offset_bottom = 506.0
+focus_neighbor_left = NodePath("../LevelButton7")
+focus_neighbor_right = NodePath("../LevelButton0")
+level_number = 8
+difficulty = 4
+
+[node name="BackButton" type="TextureButton" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 88.0
+offset_top = 51.0
+offset_right = 600.0
+offset_bottom = 307.0
+shortcut = SubResource("Shortcut_mvqwp")
+texture_normal = ExtResource("4_mbq7w")
+texture_pressed = ExtResource("5_bpmwt")
+texture_hover = ExtResource("6_673yv")
+texture_focused = ExtResource("6_673yv")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="BackButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("7_g8uax")
+theme_override_font_sizes/font_size = 80
+text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ClickSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_8juqq")
+bus = &"UI"
+
+[node name="HoverSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qe6lp")
+volume_db = -10.0
+bus = &"UI"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 2048.0
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_c6b44")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2048.0
+offset_top = -52.0
+offset_bottom = 52.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_aoqmn")
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton0" to="." method="load_level"]
+[connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton1" to="." method="load_level"]
+[connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton2" to="." method="load_level"]
+[connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton3" to="." method="load_level"]
+[connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton4" to="." method="load_level"]
+[connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton5" to="." method="load_level"]
+[connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton6" to="." method="load_level"]
+[connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton7" to="." method="load_level"]
+[connection signal="load_level" from="VerticalContainer/LevelMargin/LevelGrid/LevelButton8" to="." method="load_level"]
+[connection signal="button_down" from="BackButton" to="." method="play_click_sound"]
+[connection signal="focus_entered" from="BackButton" to="." method="play_hover_sound"]
+[connection signal="mouse_entered" from="BackButton" to="." method="play_hover_sound"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

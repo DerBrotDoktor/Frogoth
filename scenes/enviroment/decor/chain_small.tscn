@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsuatthj8fv1y"]
+
+[ext_resource type="Texture2D" uid="uid://tt8lpy5ocqjj" path="res://assets/decor/chain_tile_small.png" id="1_dysbu"]
+
+[node name="ChainSmall" type="Line2D"]
+texture_repeat = 2
+width = 38.0
+texture = ExtResource("1_dysbu")
+texture_mode = 1

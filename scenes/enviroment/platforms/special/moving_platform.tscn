@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgd8nl3naigxy"]
+
+[ext_resource type="Script" path="res://scenes/enviroment/platforms/special/moving_platform.gd" id="1_m17mn"]
+[ext_resource type="Shader" path="res://scenes/enviroment/platforms/special/moving_platform.gdshader" id="2_vlqrg"]
+[ext_resource type="Texture2D" uid="uid://baw2i8f2tn0up" path="res://assets/decor/chain_tileable.png" id="3_viefw"]
+[ext_resource type="Texture2D" uid="uid://c4a4o36nsjn6" path="res://assets/decor/chain_end.png" id="4_ftss3"]
+
+[sub_resource type="Curve2D" id="Curve2D_tq8gb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 464, -152, 0, 0, 0, 0, -826, -193)
+}
+point_count = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bmikk"]
+shader = ExtResource("2_vlqrg")
+shader_parameter/speed = 1.0
+shader_parameter/direction = 0.0
+shader_parameter/paused = false
+
+[node name="MovingPlatform" type="Path2D"]
+process_mode = 3
+curve = SubResource("Curve2D_tq8gb")
+script = ExtResource("1_m17mn")
+speed = 0.1
+chain_speed = 1.0
+
+[node name="PathSprite" type="Line2D" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_bmikk")
+width = 128.0
+texture = ExtResource("3_viefw")
+texture_mode = 1
+
+[node name="ChainEnd1" type="Sprite2D" parent="."]
+texture = ExtResource("4_ftss3")
+
+[node name="ChainEnd2" type="Sprite2D" parent="."]
+texture = ExtResource("4_ftss3")

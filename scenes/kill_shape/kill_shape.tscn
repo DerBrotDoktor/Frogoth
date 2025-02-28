@@ -1,0 +1,63 @@
+[gd_scene load_steps=14 format=3 uid="uid://b534dj4lmdign"]
+
+[ext_resource type="Script" path="res://scenes/kill_shape/kill_shape.gd" id="1_sr5bi"]
+[ext_resource type="PackedScene" uid="uid://t04ny4yh8fr2" path="res://scenes/kill_shape/kill_shape_outline_tile.tscn" id="2_1f81m"]
+[ext_resource type="AudioStream" uid="uid://bdbrnenxnvtyr" path="res://assets/sfx/killing_shape/discard_shape_sfx.mp3" id="3_djbr8"]
+[ext_resource type="AudioStream" uid="uid://b6f6wujtdixxm" path="res://assets/sfx/killing_shape/line_connecting_points_sfx.mp3" id="3_ei6m4"]
+[ext_resource type="PackedScene" uid="uid://dvpm0kwhjvy27" path="res://scenes/kill_shape/kill_shape_backgound.tscn" id="3_qwb2q"]
+[ext_resource type="Texture2D" uid="uid://dhx0pr1arc2gd" path="res://assets/vfx/kill_shape/lightning_shape_1.png" id="4_qwhis"]
+[ext_resource type="Texture2D" uid="uid://dchglvnwy2mny" path="res://assets/vfx/kill_shape/lightning_shape_2.png" id="5_pw650"]
+[ext_resource type="Texture2D" uid="uid://cy7lxyalrnbmv" path="res://assets/vfx/kill_shape/lightning_shape_3.png" id="6_fgdmv"]
+[ext_resource type="AudioStream" uid="uid://3fxu0lfbyv8r" path="res://assets/sfx/killing_shape/killing_shape_sfx2.mp3" id="6_lwtrb"]
+[ext_resource type="Texture2D" uid="uid://bsy8hnnfch4k7" path="res://assets/vfx/kill_shape/lightning_shape_4.png" id="7_klih0"]
+[ext_resource type="Texture2D" uid="uid://cibybbmk3bsgu" path="res://assets/vfx/kill_shape/lightning_shape_5.png" id="8_duxrs"]
+[ext_resource type="PackedScene" uid="uid://b6a6x0tsnxdw3" path="res://scenes/kill_shape/lightning_particles.tscn" id="9_v3v8d"]
+
+[sub_resource type="Curve2D" id="Curve2D_csn5t"]
+
+[node name="KillShape" type="Node2D"]
+process_mode = 1
+z_index = 1
+script = ExtResource("1_sr5bi")
+outline_tile = ExtResource("2_1f81m")
+backgound = ExtResource("3_qwb2q")
+sprites = Array[Texture2D]([ExtResource("4_qwhis"), ExtResource("5_pw650"), ExtResource("6_fgdmv"), ExtResource("7_klih0"), ExtResource("8_duxrs")])
+lightning_particle = ExtResource("9_v3v8d")
+
+[node name="Outline" type="Line2D" parent="."]
+default_color = Color(1, 1, 1, 0.807843)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="KillArea" type="Area2D" parent="." groups=["killing_area"]]
+
+[node name="DeleteTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="KillShapePath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_csn5t")
+
+[node name="OrbConnectPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ei6m4")
+volume_db = -15.0
+bus = &"SoundEffects"
+
+[node name="DiscardShapePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_djbr8")
+volume_db = -10.0
+bus = &"SoundEffects"
+
+[node name="FinishShapePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_lwtrb")
+volume_db = -5.0
+
+[node name="SpriteSwitchTimer" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="Polygons" type="Node2D" parent="."]
+
+[connection signal="timeout" from="DeleteTimer" to="." method="_on_delete_timer_timeout"]
+[connection signal="tree_entered" from="KillShapePath" to="." method="_on_kill_shape_path_tree_entered"]
+[connection signal="timeout" from="SpriteSwitchTimer" to="." method="_on_sprite_switch_timer_timeout"]

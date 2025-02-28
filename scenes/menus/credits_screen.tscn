@@ -1,0 +1,1139 @@
+[gd_scene load_steps=12 format=3 uid="uid://boxdqa3je4ppp"]
+
+[ext_resource type="FontFile" uid="uid://dkx15fd30kr63" path="res://assets/font/OriginalSurfer-Regular.ttf" id="1_0pwe4"]
+[ext_resource type="Script" path="res://scenes/menus/credits_screen.gd" id="2_rpdc1"]
+[ext_resource type="Shortcut" uid="uid://b5pj4b4tov5wb" path="res://scenes/menus/back_button_shortcut.tres" id="3_gsk8u"]
+[ext_resource type="Texture2D" uid="uid://dh5k28qmxy5qm" path="res://assets/logos/team_logo_big.png" id="3_yuvy0"]
+[ext_resource type="Texture2D" uid="uid://bfgpum7vih67h" path="res://assets/ui/buttons/button.png" id="4_3j21q"]
+[ext_resource type="Texture2D" uid="uid://0oyw7lpc3u77" path="res://assets/ui/buttons/button_pressed.png" id="5_ja2at"]
+[ext_resource type="Texture2D" uid="uid://du2ffk8u3dgs3" path="res://assets/ui/buttons/button_hover.png" id="6_uai67"]
+
+[sub_resource type="Theme" id="Theme_kk0f1"]
+Label/font_sizes/font_size = 100
+Label/fonts/font = ExtResource("1_0pwe4")
+
+[sub_resource type="Animation" id="Animation_dmn2v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Text:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2304, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yjkkj"]
+resource_name = "scroll"
+length = 60.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Text:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9.5, 60),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2304, 0), Vector2(2304, -1360), Vector2(2304, -10816)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8j7o5"]
+_data = {
+"RESET": SubResource("Animation_dmn2v"),
+"scroll": SubResource("Animation_yjkkj")
+}
+
+[node name="CreditsScreen" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kk0f1")
+script = ExtResource("2_rpdc1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8j7o5")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0431373, 0.0431373, 0.0431373, 1)
+
+[node name="BackButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 0
+offset_left = 42.0
+offset_top = 39.0
+offset_right = 554.0
+offset_bottom = 295.0
+shortcut = ExtResource("3_gsk8u")
+texture_normal = ExtResource("4_3j21q")
+texture_pressed = ExtResource("5_ja2at")
+texture_hover = ExtResource("6_uai67")
+texture_focused = ExtResource("6_uai67")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="BackButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("1_0pwe4")
+theme_override_font_sizes/font_size = 70
+text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 2304.0
+offset_right = 2304.0
+offset_bottom = 7776.0
+
+[node name="Team" type="Control" parent="Text"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 152.0
+offset_bottom = 152.0
+grow_horizontal = 2
+
+[node name="Title" type="Label" parent="Text/Team"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -186.0
+offset_top = 66.0
+offset_right = 186.0
+offset_bottom = 255.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 180
+text = "Team"
+
+[node name="GridContainer" type="GridContainer" parent="Text/Team"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1400.0
+offset_top = 384.0
+offset_right = 1467.0
+offset_bottom = 1946.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 450
+theme_override_constants/v_separation = 300
+columns = 3
+
+[node name="Production" type="VBoxContainer" parent="Text/Team/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Text/Team/GridContainer/Production"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 140
+text = "Production"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Text/Team/GridContainer/Production"]
+layout_mode = 2
+text = "Maximilian B."
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Text/Team/GridContainer/Production"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Moritz S."
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Text/Team/GridContainer/Production"]
+layout_mode = 2
+text = "Lena W."
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="Text/Team/GridContainer/Production"]
+layout_mode = 2
+text = "Leon B."
+horizontal_alignment = 1
+
+[node name="Art" type="VBoxContainer" parent="Text/Team/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Text/Team/GridContainer/Art"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 140
+text = "Art"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Text/Team/GridContainer/Art"]
+layout_mode = 2
+text = "Lena W."
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Text/Team/GridContainer/Art"]
+layout_mode = 2
+text = "Leo W."
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Text/Team/GridContainer/Art"]
+layout_mode = 2
+text = "Cosimo L."
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="Text/Team/GridContainer/Art"]
+layout_mode = 2
+text = "Florian K."
+horizontal_alignment = 1
+
+[node name="LevelDesign" type="VBoxContainer" parent="Text/Team/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Text/Team/GridContainer/LevelDesign"]
+layout_mode = 2
+theme_override_constants/line_spacing = -60
+theme_override_font_sizes/font_size = 140
+text = "Level/Game 
+Design
+"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Text/Team/GridContainer/LevelDesign"]
+layout_mode = 2
+text = "Maximilian B."
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Text/Team/GridContainer/LevelDesign"]
+layout_mode = 2
+text = "Moritz S."
+horizontal_alignment = 1
+
+[node name="Engineering" type="VBoxContainer" parent="Text/Team/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Text/Team/GridContainer/Engineering"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 140
+text = "Engineering"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Text/Team/GridContainer/Engineering"]
+layout_mode = 2
+text = "Leon B."
+horizontal_alignment = 1
+
+[node name="VFX" type="VBoxContainer" parent="Text/Team/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Text/Team/GridContainer/VFX"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 140
+text = "VFX"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Text/Team/GridContainer/VFX"]
+layout_mode = 2
+text = "Florian K."
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Text/Team/GridContainer/VFX"]
+layout_mode = 2
+text = "Moritz S."
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Text/Team/GridContainer/VFX"]
+layout_mode = 2
+text = "Leon B."
+horizontal_alignment = 1
+
+[node name="SFX" type="VBoxContainer" parent="Text/Team/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Text/Team/GridContainer/SFX"]
+layout_mode = 2
+theme_override_constants/line_spacing = -40
+theme_override_font_sizes/font_size = 140
+text = "SFX
+"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Text/Team/GridContainer/SFX"]
+layout_mode = 2
+text = "Maximilian B."
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Text/Team/GridContainer/SFX"]
+layout_mode = 2
+text = "Moritz S."
+horizontal_alignment = 1
+
+[node name="SpecialThanks" type="Label" parent="Text/Team"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 2240.0
+offset_bottom = 2366.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Special thanks to the entire School for Games team"
+horizontal_alignment = 1
+
+[node name="Music" type="Control" parent="Text"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 136.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Text/Music"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 180
+text = "Sounds and Music"
+horizontal_alignment = 1
+
+[node name="Credit" type="Control" parent="Text/Music"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 219.0
+offset_bottom = 219.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Text/Music/Credit"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "Main Menu music:"
+horizontal_alignment = 1
+
+[node name="Song" type="Label" parent="Text/Music/Credit"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 150.0
+offset_bottom = 276.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "zagi2 - Succubus intro ( freesound.org)"
+horizontal_alignment = 1
+
+[node name="Credit2" type="Control" parent="Text/Music"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 534.0
+offset_bottom = 534.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Text/Music/Credit2"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "Background music:"
+horizontal_alignment = 1
+
+[node name="Song" type="Label" parent="Text/Music/Credit2"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 150.0
+offset_bottom = 276.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Cleyton Kauffman - Generic Multipurpose Theme (youtube)"
+horizontal_alignment = 1
+
+[node name="Credit3" type="Control" parent="Text/Music"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 863.0
+offset_bottom = 863.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Text/Music/Credit3"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "Enemy attack sound:"
+horizontal_alignment = 1
+
+[node name="Song" type="Label" parent="Text/Music/Credit3"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 150.0
+offset_bottom = 276.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "qubodup - Explosion (freesound.org)"
+horizontal_alignment = 1
+
+[node name="Credit4" type="Control" parent="Text/Music"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 1178.0
+offset_bottom = 1178.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Text/Music/Credit4"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "Second enemy attack sound:"
+horizontal_alignment = 1
+
+[node name="Song" type="Label" parent="Text/Music/Credit4"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 150.0
+offset_bottom = 276.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "qubodup - Fireball (freesound.org)"
+horizontal_alignment = 1
+
+[node name="Credit5" type="Control" parent="Text/Music"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 1500.0
+offset_bottom = 1500.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Text/Music/Credit5"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "Enemy death splatter:"
+horizontal_alignment = 1
+
+[node name="Song" type="Label" parent="Text/Music/Credit5"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 150.0
+offset_bottom = 276.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Rock Savage - Blood Hitting Window (freesound.org)"
+horizontal_alignment = 1
+
+[node name="Credit6" type="Control" parent="Text/Music"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 1829.0
+offset_bottom = 1829.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Text/Music/Credit6"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "Falling platform:"
+horizontal_alignment = 1
+
+[node name="Song" type="Label" parent="Text/Music/Credit6"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 152.0
+offset_bottom = 407.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "newlocknew - ROCKCrsh_ Huge Rock Landslide 
+With Partial Collapse_EM (freesound.org)"
+horizontal_alignment = 1
+
+[node name="Credit7" type="Control" parent="Text/Music"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 2286.0
+offset_bottom = 2286.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Text/Music/Credit7"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "Discard shape:"
+horizontal_alignment = 1
+
+[node name="Song" type="Label" parent="Text/Music/Credit7"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 152.0
+offset_bottom = 407.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "colorsCrimsonTears - Power down 2 - Rpg (freesound.org)"
+horizontal_alignment = 1
+
+[node name="Credit8" type="Control" parent="Text/Music"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 2614.0
+offset_bottom = 2614.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Text/Music/Credit8"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "Shape shockwave:"
+horizontal_alignment = 1
+
+[node name="Song" type="Label" parent="Text/Music/Credit8"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 152.0
+offset_bottom = 407.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Robinhood76 - 06461 low punch cinematic impact 
+(freesound.org)"
+horizontal_alignment = 1
+
+[node name="Credit9" type="Control" parent="Text/Music"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 3064.0
+offset_bottom = 3064.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Text/Music/Credit9"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "Thunder 1:"
+horizontal_alignment = 1
+
+[node name="Song" type="Label" parent="Text/Music/Credit9"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 152.0
+offset_bottom = 407.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Josh74000MC - thunder4 (freesound.org)"
+horizontal_alignment = 1
+
+[node name="Credit10" type="Control" parent="Text/Music"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 3382.0
+offset_bottom = 3382.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Text/Music/Credit10"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "Thunder 2:"
+horizontal_alignment = 1
+
+[node name="Song" type="Label" parent="Text/Music/Credit10"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 152.0
+offset_bottom = 407.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "bajko - sfx_thunder blast (freesound.org)"
+horizontal_alignment = 1
+
+[node name="Credit11" type="Control" parent="Text/Music"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 3700.0
+offset_bottom = 3700.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Text/Music/Credit11"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "Thunder 3:"
+horizontal_alignment = 1
+
+[node name="Song" type="Label" parent="Text/Music/Credit11"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 152.0
+offset_bottom = 407.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "AudioPapkin - Thunder (freesound.org)"
+horizontal_alignment = 1
+
+[node name="Credit12" type="Control" parent="Text/Music"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 4030.0
+offset_bottom = 4030.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Text/Music/Credit12"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "Player dash:"
+horizontal_alignment = 1
+
+[node name="Song" type="Label" parent="Text/Music/Credit12"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 152.0
+offset_bottom = 407.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sadiquecat - Whoosh Bamboo 4 (freesound.org)"
+horizontal_alignment = 1
+
+[node name="Credit13" type="Control" parent="Text/Music"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 4360.0
+offset_bottom = 4360.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Text/Music/Credit13"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "Player ground jump:"
+horizontal_alignment = 1
+
+[node name="Song" type="Label" parent="Text/Music/Credit13"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 152.0
+offset_bottom = 407.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Mateusz_Chenc - Poof in cloud (freesound.org)"
+horizontal_alignment = 1
+
+[node name="Credit14" type="Control" parent="Text/Music"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 4690.0
+offset_bottom = 4690.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Text/Music/Credit14"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "Player air jump:"
+horizontal_alignment = 1
+
+[node name="Song" type="Label" parent="Text/Music/Credit14"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 152.0
+offset_bottom = 407.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "EminYILDIRIM - Magic Hit Impact (freesound.org)"
+horizontal_alignment = 1
+
+[node name="Credit15" type="Control" parent="Text/Music"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 5020.0
+offset_bottom = 5020.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Text/Music/Credit15"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "Collect orb"
+horizontal_alignment = 1
+
+[node name="Song" type="Label" parent="Text/Music/Credit15"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 152.0
+offset_bottom = 407.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "EminYILDIRIM - Magic Lighting Spell Impact & Punch
+ (freesound.org)"
+horizontal_alignment = 1
+
+[node name="Credit16" type="Control" parent="Text/Music"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 5492.0
+offset_bottom = 5492.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Text/Music/Credit16"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "Player walk:"
+horizontal_alignment = 1
+
+[node name="Song" type="Label" parent="Text/Music/Credit16"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 152.0
+offset_bottom = 407.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "marb7e - Footsteps_Stiletto_Stone_Walk04.wav 
+(freesound.org)"
+horizontal_alignment = 1
+
+[node name="Credit17" type="Control" parent="Text/Music"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 5948.0
+offset_bottom = 5948.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Text/Music/Credit17"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "UI button hover:"
+horizontal_alignment = 1
+
+[node name="Song" type="Label" parent="Text/Music/Credit17"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 152.0
+offset_bottom = 407.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "el_boss - UI Button Click (freesound.org)"
+horizontal_alignment = 1
+
+[node name="Credit18" type="Control" parent="Text/Music"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 6278.0
+offset_bottom = 6278.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Text/Music/Credit18"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "UI button click:"
+horizontal_alignment = 1
+
+[node name="Song" type="Label" parent="Text/Music/Credit18"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 152.0
+offset_bottom = 407.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "malle99 - Click Tick 2 (freesound.org)"
+horizontal_alignment = 1
+
+[node name="Assets" type="Control" parent="Text"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -1064.0
+offset_bottom = -1064.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Text/Assets"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 180
+text = "Art assets"
+horizontal_alignment = 1
+
+[node name="Credit" type="Control" parent="Text/Assets"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 219.0
+offset_bottom = 219.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Text/Assets/Credit"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "Button prompts:"
+horizontal_alignment = 1
+
+[node name="Song" type="Label" parent="Text/Assets/Credit"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 150.0
+offset_bottom = 276.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Nicolae (Xelu) Berbece - Xelu Free Controller & Key Prompts
+"
+horizontal_alignment = 1
+
+[node name="Credit2" type="Control" parent="Text/Assets"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 568.0
+offset_bottom = 568.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Text/Assets/Credit2"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "Godot splash screen:"
+horizontal_alignment = 1
+
+[node name="Song" type="Label" parent="Text/Assets/Credit2"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 150.0
+offset_bottom = 276.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Kenney - Godot SplashScreens"
+horizontal_alignment = 1
+
+[node name="TeamLogo" type="TextureRect" parent="Text"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = 7312.0
+offset_right = -512.0
+offset_bottom = 7312.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(512, 512)
+texture = ExtResource("3_yuvy0")
+expand_mode = 1
+stretch_mode = 2
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="button_up" from="BackButton" to="." method="_on_back_button_button_up"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_button_up"]
