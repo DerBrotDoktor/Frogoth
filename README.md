@@ -18,3 +18,12 @@ The game was developed using the Godot Engine and GDScript.
 - Implementation of new features
 - The technical implementation of UI
 - Implementation of VFX and, in some cases, the creation of them
+
+## Highlights
+- [Player character](/scenes/player/player.gd)<br />
+The main character of the game. He also contains some mechanics to improve the player's feel (e.g. coyote time, squash and stretch)
+- [Killing shape](scenes/kill_shape/kill_shape.gd) <br />
+The area that the player can shape to defeat enemies
+- [Enemy](scenes/enemies/enemy_grounded.gd)<br />
+  this enemy base class is designed so that the different enemies in the game can inherit from it and incorporate their own attacks
+
